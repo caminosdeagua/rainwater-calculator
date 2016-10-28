@@ -1,22 +1,26 @@
 /* adds style the html body and map div objects */
-html, body{width:100%; height:100%; padding: 0; margin: 0; background: #abcdef;}
+html, body{width:100%; height:100%; padding: 0; margin: 0; background: #999999; overflow:hidden;}
 
 #left_hand_side{
-	width:60%;
+	background-color: #abcdef;
+	width:70%;
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	overflow-x: hidden;
+	float: left;
 	overflow-y: scroll;
+	overflow-x: hidden;
+	
 }
 
 #right_hand_side {
-	overflow: 
-}
-
-::-webkit-scrollbar {
-	width: 100px;
-
+	width: 30%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	overflow: hidden;
+	background-color: pink;
+	
 }
 
 /* Formatting for all number-entry boxes */
