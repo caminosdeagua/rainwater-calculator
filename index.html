@@ -16,15 +16,24 @@
 		</script>
 	</head>
 	<body>
-		<form>
-			<div>
-				<label for="ppl" type="input_label">Number of people in your household: </label>
-				<input type="number" id="ppl" value="1"	/>
-			</div>
-		<input type="text" value="1" />
-		</form>
+		<div id="left_hand_side">
+			<h1 id="header"></h1>
+			<h3 id="sub_header"></h3>
+			<h5 id="instructions"></h5>
+			<div></div>
+			<form>
+				<div>
+					<label for="ppl" class="num">Number of people in your household: </label>
+					<input type="number" id="ppl" value="1" min="1" max="1000"/>
+				</div>
+			<input type="text" value="1" />
+			</form>
+		</div>
 		<script>
-			console.log(document.forms[0])
+		
+			document.getElementById("header").innerHTML = HEADER;
+			document.getElementById("sub_header").innerHTML = SUB_HEADER;
+			document.getElementById("instructions").innerHTML = INSTRUCTIONS;
 		</script>
 	</body>
 </html>
