@@ -1,0 +1,1 @@
+var CALC_TITLE = "Rainwater Harvesting Calculator";

@@ -1,7 +1,30 @@
 <!DOCTYPE html>
 <html>
-  <head>
-  </head>
-  <body>
-  </body>
+	<head>
+		<!-- Page formatting information -->
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		
+		<!-- Include stylesheet for calculator -->
+		<link rel="stylesheet" type="text/css" href="calc_styles.css"></link>
+
+		<!-- Include the text-to-display file of the relevant language: "calc_English.js" or "calc_Spanish.js"--> 
+		<script src="calc_English.js" type="text/javascript"></script>
+		
+		<script>
+			document.title = CALC_TITLE; 		// Adds title to calc from calc_Language.js
+		</script>
+	</head>
+	<body>
+		<form>
+			<div>
+				<label for="ppl" type="input_label">Number of people in your household: </label>
+				<input type="number" id="ppl" value="1"	/>
+			</div>
+		<input type="text" value="1" />
+		</form>
+		<script>
+			console.log(document.forms[0])
+		</script>
+	</body>
 </html>
