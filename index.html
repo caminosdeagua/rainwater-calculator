@@ -30,15 +30,87 @@
 			<h3 id="sub_header"></h3>
 			<h5 id="instructions"></h5>
 			<form id="calc_form" class="form">
+				
+				<div>			
+					<label for="municipality">Choose your municipaliy:</label>
+					<select id="municipality" />
+						<option value="0">San Miguel de Allende</option>
+						<option value="1">Dolores Hidalgo</option>
+					</select>
+					<div class = "error_lbl">
+						<p id="municipality_error">.</p>
+					</div>
+				</div>
 				<div>
-					<label for="ppl" class="num">Number of people in your household: </label>
-					<input type="number" id="ppl" value="1" min="1" max="9999"/>
+					<label for="ppl">Number of people in your household:</label>
+					<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
+					<div class = "error_lbl">
+						<p id="ppl_error">.</p>
+					</div>
+				</div>
+				<div>
+					<label for="ppl">Length of your roof (meters):</label>
+					<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
+					<div class = "error_lbl">
+						<p id="length_error">.</p>
+					</div>
+				</div>
+				<div>
+					<label for="ppl">Width of your roof (meters):</label>
+					<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
+					<div class = "error_lbl">
+						<p id="width_error">.</p>
+					</div>
 				</div>
 				<br>
 				<div>
-					<label for="ppl2" class="num">Number of cats in my garage: </label>
-					<input type="number" id="ppl2" value="1" min="1" max="9999"/>
-				</div>
+					<label>What kind of roof do you have?</label><br>
+					<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>Cement<br>
+					<input type="radio" id="sheet_roof" name="roof_type" value="0.8">Corrugated sheet<br>
+					<input type="radio" id="spanish_roof" name="roof_type" value="0.7">Spanish Tile
+				</div>	
+				<br>
+				<div>			
+					<label for="uses">Select everything you do with water:</label>
+					<br>
+					<input type="checkbox" class="water_use" id="brush_chk">Brushing your teeth<br>
+					<input type="checkbox" class="water_use" id="hands_chk">Washing your hands<br>
+					<input type="checkbox" class="water_use" id="garden_chk">Watering a garden
+					<div class="extra_input" id="garden_extra">
+						<label for="garden_size">How big is your garden? (square meters):</label>
+						<input type="number" id="garden_size" value="10" min="0.1" max="9999999999" step="any"/>
+					</div><br>
+					<input type="checkbox" class="water_use" id="dishes_chk">Washing dishes
+					<div class="extra_input" id="dishes_extra">
+						<label for="dishes_washing_type">I wash my dishes:</label>
+						<select id="dishes_washing_type" />
+							<option value="0">By hand</option>
+							<option value="1">With a dishwasher</option>
+						</select>					
+					</div><br>
+					<input type="checkbox" class="water_use" id="bath_chk">Bathing<br>
+					<input type="checkbox" class="water_use" id="clothes_chk">Laundry
+					<div class="extra_input" id="laundry_extra">
+						<label for="laundry_type">I do laundry:</label>
+						<select id="laundry_type" />
+							<option value="0">By hand</option>
+							<option value="1">With a laundry machine</option>
+						</select>					
+					</div><br>
+					<input type="checkbox" class="water_use" id="toilet_chk">Flushing the toilet<br>
+					<input type="checkbox" class="water_use" id="other_chk">Other
+					<div class="extra_input" id="other_extra">
+						<label for="other_text">What else do you use water for??</label>
+						<input type="text" id="other_text" value=""/>
+					</div>
+					<div class="extra_input" id="other_extra2">
+						<label for="other_value">How much? (Liters per day):</label>
+						<input type="number" id="other_value" value="1" min="1" step="any"/>
+					</div><br>
+					
+					
+				</div>	
+			
 				<br>
 			</form>
 			<div class="button">
@@ -58,22 +130,105 @@
 			////						function init() 					////
 			//// 															////
 			////	Loads the text in the correct language, and sets up 	////
-			////	some basic form parameters.								////
+			////	some basic form parameters.	Initializes the form, 		////
+			////	stores the starting values in a global, and hides all	////
+			////	error messages and extra text that needs to be hidden. 	////
 			////////////////////////////////////////////////////////////////////
 		
 			function init() {
+			
+				addLanguageText();
+				initForm();
+				loadStartingValues();
+				hideErrorLbls();
+				hideExtraText();
+				console.log(form);
+				
+			};
+			
+			////////////////////////////////////////////////////////////////////
+			////				function addLanguageText()					////
+			//// 															////
+			////	Loads the text in the correct display language.			////
+			////////////////////////////////////////////////////////////////////
+			
+			function addLanguageText(){
 				document.getElementById("header").innerHTML = HEADER; 				// Puts the correct language text on the page
 				document.getElementById("sub_header").innerHTML = SUB_HEADER;		//	for all elements
 				document.getElementById("instructions").innerHTML = INSTRUCTIONS;
-				
+			
+			}
+			
+			////////////////////////////////////////////////////////////////////
+			////				function initForm()							////
+			//// 															////
+			////	Initializes the form to not auto-validate so we can 	////
+			////	display our own error messages.							////
+			////////////////////////////////////////////////////////////////////
+			
+			function initForm() {
 				form = document.getElementById("calc_form");						// Sets the global form so everyone can access it;
 				form.noValidate = true;												// Turns off auto-validate so we can self-validate
 				form.onchange = validateForm;
 				form.onsubmit = validateForm;
-				
-				allData = {ppl: null};												// initializes the structure of the global, allData
 			}
 			
+			////////////////////////////////////////////////////////////////////
+			////				function loadStartingValues()				////
+			//// 															////
+			////	Loads the starting values into a global array.			////
+			////////////////////////////////////////////////////////////////////			
+				
+			function loadStartingValues() {
+				allData = {															// initializes the structure of the global, allData 
+					municipality: Number(document.getElementById("municipality").value),
+					ppl: Number(document.getElementById("ppl").value),				// 	and feeds in initial conditions.
+					length: Number(document.getElementById("length").value),
+					width: Number(document.getElementById("width").value),
+					brush_chk: Boolean(document.getElementById("brush_chk").checked),
+					hands_chk: Boolean(document.getElementById("hands_chk").checked),
+					garden_chk: Boolean(document.getElementById("garden_chk").checked),
+					dishes_chk: Boolean(document.getElementById("dishes_chk").checked),
+					bath_chk: Boolean(document.getElementById("bath_chk").checked),
+					clothes_chk: Boolean(document.getElementById("clothes_chk").checked),
+					toilet_chk: Boolean(document.getElementById("toilet_chk").checked),
+					other_chk: Boolean(document.getElementById("other_chk").checked),
+					roof_type: Number(document.getElementById("cement_roof").value),
+					garden_size: Number(document.getElementById("garden_size").value),
+					laundry_type: Number(document.getElementById("laundry_type").value),
+					garden_size: Number(document.getElementById("garden_size").value),
+					other_text: String(document.getElementById("other_text").value),
+					other_value: Number(document.getElementById("other_value").value),
+					dishes_washing_type: Number(document.getElementById("dishes_washing_type").value)	
+				};
+			}	
+			
+			////////////////////////////////////////////////////////////////////
+			////				function hideErrorLbls()					////
+			//// 															////
+			////	Hides error labels - pretty self-explanatory...			////
+			////////////////////////////////////////////////////////////////////
+			
+			function hideErrorLbls() {
+				var lblBoxes = document.getElementsByClassName("error_lbl");		// Turn all label boxes to opacity=0
+				for (var i=0; i<lblBoxes.length; i++) {
+					lblBoxes[i].style.opacity = 0;				
+				};
+			}
+			
+			////////////////////////////////////////////////////////////////////
+			////				function hideExtraText()					////
+			//// 															////
+			////	Hides extra text that's tied to checkbox events			////
+			////////////////////////////////////////////////////////////////////
+			
+			function hideExtraText() {
+				var extra_inputs = document.getElementsByClassName("extra_input");		// Turn all label boxes to opacity=0
+				for (var i=0; i<extra_inputs.length; i++) {
+					extra_inputs[i].style.opacity = 0;				
+				};			
+			}
+
 			
 			////////////////////////////////////////////////////////////////////
 			////				function updateInputs() 					////
@@ -83,17 +238,29 @@
 			////////////////////////////////////////////////////////////////////
 			
 			function updateInputs(el) {
-				allData[el.id] = Number(el.value);
-				console.log(allData)
-			
+				if (el.type == "checkbox") {
+					allData[el.id] = Boolean(el.checked);
+				} else if (el.type == "number" | el.type == "select-one") {
+					allData[el.id] = Number(el.value)
+				} else if (el.type == "text") {
+					allData[el.id] = String(el.value)
+				} else if (el.type == "radio") {
+					allData[el.name] =  el.value;
+				};
+				calculate(allData);
 			}
 			
-			console.log(document.getElementById("ppl"))
 			
-			// This next function checks to see if the key that was pressed was 
-			//	key #13 (enter/return). If so, it prevents the default 
-			//	behavior of submitting the form. That way, we never send
-			//	the data anywhere, just calculate some stuff with it here. 
+			////////////////////////////////////////////////////////////////////
+			////	function keydown(event) [Prevent form submit on enter]	////
+			//// 															////
+			////	checks to see if the key that was pressed was 			////
+			////	key #13 (enter/return). If so, it prevents the default 	////
+			////	behavior of submitting the form. That way, we never 	////
+			////	send the data anywhere, just calculate some stuff with 	////
+			////	it here. 												////		
+			////////////////////////////////////////////////////////////////////
+
 			
 			$(document).ready(function() {
 				$(window).keydown(function(event){
@@ -104,27 +271,40 @@
 				});
 			});
 			
-			// This next chunk of code checks to see if the input is valid
-			//	and prevents illegal keystrokes. 
+			////////////////////////////////////////////////////////////////////
+			////	function keypress(event) [check validity of keystroke]	////
+			//// 															////
+			////	checks to see if the key that was pressed was 			////
+			////	a valid key. If not, doesn't allow keypress.			////		
+			////////////////////////////////////////////////////////////////////
 			
 			$('input').bind('keypress', function (event) {
-				if (!isKeyFunctional(event)) { 	// If the key isn't functional
-					event.preventDefault(); 	// 	prevent behavior
-					return false;		
-				}
+				if (event.target.type == "number") { 								// If it's being entered in a numeric field
+					if (!numAcceptableKeys.includes(event.originalEvent.key)) { 	// If the key isn't a number or a movement key
+						event.preventDefault(); 									// 	prevent behavior
+						return false;		
+					} else {
+						return true;
+					};
+				} else { 							// If the field isn't a number, allow all behavior.
+					return true;
+				};	
 			});
 			
-			function isKeyFunctional(e) {
-				
-				if (numAcceptableKeys.includes(e.originalEvent.key)) { 	// If the current key is functional, return true
-					return true;										//	otherwise, return false. 
-				} else {
-					return false;
-				};
-			}
+			////////////////////////////////////////////////////////////////////
+			////				function validateForm(event)				////
+			//// 															////
+			////	When an event occurs, validates the event target. For 	////
+			////	example, if a value is entered into a numberic input,	////
+			////	this function validates that particular input. At the 	////
+			////	end, it updates the global data. If the entry was 		////
+			////	invalid it throws an error message, replaces the value,	////
+			////	then loads the data.									////		
+			////////////////////////////////////////////////////////////////////
 			
 			function validateForm(event) {
 				 // fetch cross-browser event object and form node
+				
 				event = (event ? event : window.event);
 				var element = (event.target ? event.target : event.srcElement);
 				var rets = customValid(element);
@@ -133,40 +313,134 @@
 				if (valid){
 					updateInputs(element);
 				} else {
-					alert(errMsg);
-				};
-				
-				
+					var errorText = document.getElementById(element.id+"_error");
+					var errorBox = errorText.parentElement;
+					errorText.innerHTML = errMsg;
+					fadeIn(errorBox);
+					setTimeout(function(){fadeOut(errorBox)}, ERROR_DISPLAY_TIME);
+					element.validity.valid = false;
+					updateInputs(element);
+				};	
 			}
+			
+			////////////////////////////////////////////////////////////////////
+			////					fucntion customValid(el)				////
+			//// 															////
+			////	Takes an element, el, and validates it based on certain	////
+			////	preset rules. Returns:									////
+			////		[valid (boolean), errorMsg (string)]				////
+			////////////////////////////////////////////////////////////////////
+			
 			
 			function customValid(el) {
 				var valid = true;
-				var value = el.value;
+				var value = Number(el.value);
 				var errorMsg = "";
-				if (el.type == "number") {
+				if (el.id == "ppl") {
 					if (value < el.min)	{
 						valid = false;
-						errorMsg = "Uh oh!\nYou can't have fewer than "+el.min+" person!";
-						//alert(errorMsg)
+						errorMsg = PPL_MIN_E1+el.min+PPL_MIN_E2;
 						el.value = el.min;
 					} else if (value > el.max) {
 						valid = false;
-						errorMsg = "Currently, we don't allow more than "+el.max+" people. Sorry!";
-						
+						errorMsg = PPL_MAX_E1+el.max+PPL_MAX_E2;
 						el.value = el.max;
-					} else if (value % 1 != 0) {
+					} else if (value % 1 != 0 & el.id == "ppl") {
 						valid = false;
-						errorMsg = "You can't have partial numbers of people...\n...stop chopping your children into bits!"
+						errorMsg = PPL_DECIMAL_E;
 						el.value = parseInt(value, 10);
-						//alert(errorMsg)
-					
 					};
 				return [valid, errorMsg];
-				
-				
-				}
+				} else if (el.id == "length" | el.id == "width") {
+					if (value < el.min) {
+						valid = false;
+						errorMsg = SIZE_MIN_E1;
+						el.value = el.min;
+					} else if (value > el.max) {
+						valid = false;
+						errorMsg = SIZE_MAX_E1+el.max+SIZE_MAX_E2;
+						el.value = el.max;
+					};
+					return [valid, errorMsg];
+				} else {
+				return [valid, errorMsg];
+				};
+			}
 			
+			////////////////////////////////////////////////////////////////////
+			////				functions fadeIn(el), fadeOut(el) 			////
+			//// 															////
+			////	Fades in or out the passed element by adjusting the 	////
+			////	the div element's opacity in steps. Many thanks to:		////////////////////
+			////	http://www.chrisbuttery.com/articles/fade-in-fade-out-with-javascript/ 	////	
+			////	for this simple and lovely bit of js. Cheers! 							////
+			////	If the div is visible, fadeIn does nothing. If it's not, fade out 		////	
+			////	does nothing. 															////
+			////////////////////////////////////////////////////////////////////////////////////
 			
+			function fadeOut(el){ 
+				(function fade() {
+					if ((el.style.opacity -= .075) < 0) {
+					el.style.opacity = 0;
+					} else {
+					requestAnimationFrame(fade);
+					}
+				})();
+			}
+			
+			function fadeIn(el){
+				(function fade() {
+					var val = parseFloat(el.style.opacity);
+					if (!((val += .025) > 1)) {
+					el.style.opacity = val;
+					requestAnimationFrame(fade);
+					}
+				})();
+			}
+			
+			////////////////////////////////////////////////////////////////////
+			////				function that executes every time 			////
+			////				a checkbox is checked or unchecked 			////
+			//// 															////
+			////	Opens up the appropriate extra entry boxes depending on ////
+			//// 	which checkbox is checked. 								////
+			////////////////////////////////////////////////////////////////////
+			
+			$(':checkbox').change(function(event){
+				var el = event.target;
+				if (el.id == "garden_chk"){ 		// Open input field to get garden size
+					if (el.checked) {
+						fadeIn(document.getElementById("garden_extra"));
+					} else {
+						fadeOut(document.getElementById("garden_extra"));
+					};
+				} else if (el.id == "other_chk") { 	// Open input fields to get other info
+					if (el.checked) {
+						fadeIn(document.getElementById("other_extra"));
+						fadeIn(document.getElementById("other_extra2"));
+					} else {
+						fadeOut(document.getElementById("other_extra"));
+						fadeOut(document.getElementById("other_extra2"));
+					};
+				} else if (el.id == "dishes_chk") { // open input field to get type of dish washing
+					if (el.checked) {
+						fadeIn(document.getElementById("dishes_extra"));
+					} else {
+						fadeOut(document.getElementById("dishes_extra"));
+					};
+				} else if (el.id == "clothes_chk") { // open input field to get type of laundry
+					if (el.checked) {
+						fadeIn(document.getElementById("laundry_extra"));
+					} else {
+						fadeOut(document.getElementById("laundry_extra"));
+					};
+				
+				};
+			});
+			
+			function calculate(inputs) {
+			
+				console.log(inputs);
 			
 			}
      

@@ -7,7 +7,7 @@ var MAX_PPL = 9999;
 var MIN_PPL = 1;
 
 
-
+var ERROR_DISPLAY_TIME = 5000; 				// Time that error message is dispalyed [ms]
 
 
 var numAcceptableKeys = ["ArrowLeft", "ArrowRight", 		// Define which keys should be functional
