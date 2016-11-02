@@ -24,13 +24,19 @@
 
 	</head>
 	<body onload="init();">
+	
+		<!-- Left hand side (inputs) for the calculator -->
 		<div id="left_hand_side">
-			 
+		
+			 <!-- the top text goes here -->
 			<h1 id="header"></h1>
 			<h3 id="sub_header"></h3>
 			<h5 id="instructions"></h5>
+			
+			<!-- start the form!!! -->
 			<form id="calc_form" class="form">
 				
+				<!-- Select your municipality -->
 				<div>			
 					<label for="municipality" id="muni0"></label>
 					<select id="municipality" />
@@ -41,6 +47,7 @@
 						<p id="municipality_error">.</p>
 					</div>
 				</div>
+				<!-- How many people in your household? -->
 				<div>
 					<label for="ppl" id="ppl0"></label>
 					<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
@@ -48,6 +55,8 @@
 						<p id="ppl_error">.</p>
 					</div>
 				</div>
+				
+				<!-- Length of your roof -->
 				<div>
 					<label for="length" id = "length0"></label>
 					<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
@@ -55,6 +64,8 @@
 						<p id="length_error">.</p>
 					</div>
 				</div>
+				
+				<!-- Width of your roof -->
 				<div>
 					<label for="width" id = "width0"></label>
 					<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
@@ -63,6 +74,7 @@
 					</div>
 				</div>
 				<br>
+				<!-- Type of roof -->
 				<div>
 					<label id="roof0"></label><br>
 					<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>.<br>
@@ -70,17 +82,30 @@
 					<input type="radio" id="spanish_roof" name="roof_type" value="0.7">.
 				</div>	
 				<br>
+				
+				<!-- Tell us all your water uses! We assume you also will drink and cook with rainwater -->
 				<div>			
 					<label for="uses" id="uses0"></label>
 					<br>
+					<!-- Brush your teeth? -->
 					<input type="checkbox" class="water_use" id="brush_chk">.<br>
+					
+					<!-- Wash your hands? -->
 					<input type="checkbox" class="water_use" id="hands_chk">.<br>
+					
+					<!-- Water your garden? -->
 					<input type="checkbox" class="water_use" id="garden_chk">.
+					
+					<!-- If you do water your garden, we'll grab a bit more info about that... -->
 					<div class="extra_input" id="garden_extra" for="garden_chk">
 						<label for="garden_size" id="garden_extra1"></label>
-						<input type="number" id="garden_size" value="10" min="0.1" max="9999999999" step="any"/>
+						<input type="number" id="garden_size" value="10" min="0.1" step="any"/>
 					</div><br>
+					
+					<!-- Do the dishes? -->
 					<input type="checkbox" class="water_use" id="dishes_chk">.
+					
+					<!-- If you wash dishes, give us some more info! -->
 					<div class="extra_input" id="dishes_extra">
 						<label for="dishes_washing_type" id="dishes_extra1"></label>
 						<select id="dishes_washing_type" />
@@ -88,8 +113,13 @@
 							<option value="1" id="dishes_extra1_val1"></option>
 						</select>					
 					</div><br>
+					<!-- bathe? -->
 					<input type="checkbox" class="water_use" id="bath_chk">.<br>
+					
+					<!-- Wash your clothes? -->
 					<input type="checkbox" class="water_use" id="clothes_chk">.
+					
+					<!-- If you wash your clothes, how do you do it? -->
 					<div class="extra_input" id="laundry_extra">
 						<label for="laundry_type" id="laundry_extra1"></label>
 						<select id="laundry_type" />
@@ -97,14 +127,20 @@
 							<option value="1" id="laundry_extra1_val1"></option>
 						</select>					
 					</div><br>
+					
+					<!-- Flush the toilet? -->
 					<input type="checkbox" class="water_use" id="toilet_chk">.<br>
+					
+					<!-- Do anything else with water? -->
 					<input type="checkbox" class="water_use" id="other_chk">.
+					
+					<!-- If you do other stuff with water, tell us how much! --> 
 					<div class = "etra_input" id="extra_house0">
-						<div id="other_extra">
+						<div id="other_extra" class="extra_input">
 							<label for="other_text" id = "other_extra1"></label>
 							<input type="text" id="other_text" value=""/>
 						</div>
-						<div id="other_extra2">
+						<div id="other_extra2" class="extra_input">
 							<label for="other_value" id="other_extra3"></label>
 							<input type="number" id="other_value" value="1" min="1" step="any"/>
 						</div><br>
@@ -112,29 +148,184 @@
 				</div>	
 				<br>
 			</form>
+			<!-- When you press this button, it stops letting you edit the form 
+					and displays your inputs in a table -->
 			<div class="button">
 				<button>Calculate!</button>
 			</div>
 		</div>
-		<div id="right_hand_side">
-			<div class="output_number">
-				<label id="essential_use0"></label><br>
-				<label class="return_num" id="essential_use1">0</label><br>
-				<label id="essential_use2"></label>
-			</div>
-			
-			<div class="output_number">
-				<label id="total_use0"></label><br>
-				<label class="return_num" id="total_use1">0</label><br>
-				<label id="total_use2"></label>
-			</div>
-			<br><br><br><br>
-			<div class="output_number">
-				<label id="tank_size0"></label><br>
-				<label class="return_num" id="tank_size1">0</label><br>
-				<label id="tank_size2"></label>
-			</div>
 		
+		<!-- The right hand side displays the calculated resullts in simple or complex form -->
+		<div id="right_hand_side">
+		
+			<!-- First, by default, let's display the simple version -->
+			<div id = "RHS_simple">
+			
+				<!-- Display the amount used for just drinking+cooking -->
+				<div class="output_number">
+					<label id="essential_use0"></label><br>
+					<label class="return_num" id="essential_use1">0</label><br>
+					<label id="essential_use2"></label>
+				</div>
+				
+				<!-- Display the TOTAL water used in a day -->
+				<div class="output_number">
+					<label id="total_use0"></label><br>
+					<label class="return_num" id="total_use1">0</label><br>
+					<label id="total_use2"></label>
+				</div>
+				
+				<!-- Display the minimum tank size required for all essential uses -->
+				<div class="output_number">
+					<label id="tank_size0"></label><br>
+					<label class="return_num" id="tank_size1">0</label><br>
+					<label id="tank_size2"></label>
+				</div>
+		
+				<!-- Push this button to go to the complex view --> 
+				<div style="text-align: center">
+					<button onclick="showComplex()" id="more_info_button0" class="info_button"></button>
+				</div>
+			</div>
+			<div id="RHS_complex">
+				<!-- Display the amount used for just drinking+cooking -->
+				<div class="output_number">
+					<label id="essential_use0_complex"></label><br>
+					<label class="return_num" id="essential_use1_complex">0</label><br>
+					<label id="essential_use2_complex"></label>
+				</div>
+				
+				<!-- Display the TOTAL water used in a day -->
+				<div class="output_number">
+					<label id="total_use0_complex"></label><br>
+					<label class="return_num" id="total_use1_complex">0</label><br>
+					<label id="total_use2_complex"></label>
+				</div>
+				
+				<div class="output_number" id="title_row">
+					<label id="table_lbl"></label><br>
+					<table>
+						<tr class="title_row">
+							<th name="table_titles">.</th>
+							<th name="table_titles">.</th>
+							<th name="table_titles">.</th>
+							<th name="table_titles">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+						<tr>
+							<th name="month" class="month_lbl">.</th>
+							<th name="collected">.</th>
+							<th name="used">.</th>
+							<th name="inventory">.</th>
+						</tr>
+					</table>
+				</div>
+				
+				<!-- Display the minimum tank size required for all essential uses -->
+				<div class="output_number">
+					<label id="tank_size0_complex"></label><br>
+					<label class="return_num" id="tank_size1_complex">0</label><br>
+					<label id="tank_size2_complex"></label>
+				</div>
+				
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<br>
+				<div style="text-align: center">
+					<button onclick="showSimple()" id="less_info_button0" class="info_button"></button>
+				<div>
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			
+			</div>
 		
 		
 		</div>
@@ -160,8 +351,13 @@
 				loadStartingValues();
 				hideErrorLbls();
 				hideExtraText();
-				console.log(form);
+				hideComplexOutput();
+				
+				displayStuff = inputs2outputs(allData);
+				displayOutputs(displayStuff);
+				
 				startInterrupt();
+				
 				
 			};
 			
@@ -209,7 +405,25 @@
 				document.getElementById("total_use2").innerHTML = TOTAL_USE2_LBL;
 				document.getElementById("tank_size0").innerHTML = TANK_SIZE0_LBL;
 				document.getElementById("tank_size2").innerHTML = TANK_SIZE2_LBL;
-			
+				document.getElementById("essential_use0_complex").innerHTML = ESSENTIAL_USE0_LBL;
+				document.getElementById("essential_use2_complex").innerHTML = ESSENTIAL_USE2_LBL;
+				document.getElementById("total_use0_complex").innerHTML = TOTAL_USE0_LBL;
+				document.getElementById("total_use2_complex").innerHTML = TOTAL_USE2_LBL;
+				document.getElementById("tank_size0_complex").innerHTML = TANK_SIZE0_LBL;
+				document.getElementById("tank_size2_complex").innerHTML = TANK_SIZE2_LBL;
+				document.getElementById("more_info_button0").innerHTML = MORE_INFO_BUTTON_LBL;
+				document.getElementById("less_info_button0").innerHTML = LESS_INFO_BUTTON_LBL;
+				document.getElementById("table_lbl").innerHTML = TABLE_LBL;
+				var els = document.getElementsByName("table_titles")
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = TABLE_TITLES[i];
+				};
+				
+				var els = document.getElementsByName("month")
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = MONTHS[i];
+				};
+				
 			}
 			
 			////////////////////////////////////////////////////////////////////
@@ -281,6 +495,11 @@
 					extra_inputs[i].style.opacity = 0;				
 				};			
 			}
+			
+			function hideComplexOutput() {
+				document.getElementById("RHS_complex").style.opacity = 0;
+				document.getElementById("RHS_complex").hidden = true;
+			}
 
 			
 			////////////////////////////////////////////////////////////////////
@@ -300,11 +519,10 @@
 				} else if (el.type == "radio") {
 					allData[el.name] =  el.value;
 				};
-				displayStuff = calculate(allData);
+				displayStuff = inputs2outputs(allData);
 				displayOutputs(displayStuff);
 				
 			}
-			
 			
 			////////////////////////////////////////////////////////////////////
 			////	function keydown(event) [Prevent form submit on enter]	////
@@ -372,7 +590,7 @@
 					var errorBox = errorText.parentElement;
 					errorText.innerHTML = errMsg;
 					fadeIn(errorBox);
-					setTimeout(function(){fadeOut(errorBox)}, ERROR_DISPLAY_TIME);
+					setTimeout(function(){fadeOut(errorBox, false)}, ERROR_DISPLAY_TIME);
 					element.validity.valid = false;
 					updateInputs(element);
 				};	
@@ -433,7 +651,7 @@
 			////	does nothing. 															////
 			////////////////////////////////////////////////////////////////////////////////////
 			
-			function fadeOut(el){ 
+			function fadeOut(el, hide){ 
 				(function fade() {
 					if ((el.style.opacity -= .09) < 0) {
 					el.style.opacity = 0;
@@ -441,9 +659,17 @@
 					requestAnimationFrame(fade);
 					}
 				})();
+
+				if (hide) {
+					el.hidden = true;
+				};
 			}
 			
 			function fadeIn(el){
+				
+				el.style.opacity = 0;
+				el.hidden = false; 
+				
 				(function fade() {
 					var val = parseFloat(el.style.opacity);
 					if (!((val += .075) > 1)) {
@@ -451,6 +677,7 @@
 					requestAnimationFrame(fade);
 					}
 				})();
+				
 			}
 			
 			////////////////////////////////////////////////////////////////////
@@ -467,30 +694,49 @@
 					if (el.checked) {
 						fadeIn(document.getElementById("garden_extra"));
 					} else {
-						fadeOut(document.getElementById("garden_extra"));
+						fadeOut(document.getElementById("garden_extra"), false);
 					};
 				} else if (el.id == "other_chk") { 	// Open input fields to get other info
 					if (el.checked) {
 						fadeIn(document.getElementById("extra_house0"));
+						fadeIn(document.getElementById("other_extra"));
+						fadeIn(document.getElementById("other_extra2"));
 					} else {
-						fadeOut(document.getElementById("extra_house0"));
+						fadeOut(document.getElementById("extra_house0"), false);
+						fadeOut(document.getElementById("other_extra"), false);
+						fadeOut(document.getElementById("other_extra2"), false);
 					};
 				} else if (el.id == "dishes_chk") { // open input field to get type of dish washing
 					if (el.checked) {
 						fadeIn(document.getElementById("dishes_extra"));
 					} else {
-						fadeOut(document.getElementById("dishes_extra"));
+						fadeOut(document.getElementById("dishes_extra", false));
 					};
 				} else if (el.id == "clothes_chk") { // open input field to get type of laundry
 					if (el.checked) {
 						fadeIn(document.getElementById("laundry_extra"));
 					} else {
-						fadeOut(document.getElementById("laundry_extra"));
+						fadeOut(document.getElementById("laundry_extra"), false);
 					};
 				
 				};
 			});
 			
+			////////////////////////////////////////////////////////////////////
+			////			--- BUG FIX FOR QUICK CHECKBOX CLICK --- 		////	
+			////				function startInterrupt()					////
+			//// 															////
+			////	When a checkbox is clicked off-on-off rapidly, the	 	////
+			////	extra text fades in, out, then in again, displaying 	////
+			////	when it shouldn't be. These two functions are a patch	////
+			////	over that bug. Every INTERRUPT_INTERVAL, this function 	////
+			////	interrupts the code and checks all the checkboxes. If 	////
+			////	they aren't checked, it makes sure that their 			////
+			////	corresponding extra info boxes are hidden. This patch,	////
+			////	as with most patches, isn't perfect. There's still a 	////
+			////	half second or so where the label box pops up. Se lavi.	////
+			////////////////////////////////////////////////////////////////////
+
 			
 			function startInterrupt() {
 				var myInterval = setInterval( "hideUncheckedLbls()", INTERRUPT_INTERVAL);  // run
@@ -505,22 +751,87 @@
 				};
 			}
 			
+			////////////////////////////////////////////////////////////////////
+			////			function showComplex()	/ showSimple() 			////
+			//// 															////
+			////	Hides one RHS panel and shows the other.				////
+			////////////////////////////////////////////////////////////////////
+			
+			function showComplex() {
+				fadeOut(document.getElementById("RHS_simple"), true);
+				fadeIn(document.getElementById("RHS_complex"));
+			}
+			function showSimple() {
+				fadeOut(document.getElementById("RHS_complex"), true);
+				fadeIn(document.getElementById("RHS_simple"));
+			}
+			
+			////////////////////////////////////////////////////////////////////
+			////			function displayOutputs				 			////
+			//// 															////
+			////	Takes the calculated outputs and displays them on the	////
+			////	right hand side panel. 									////
+			////////////////////////////////////////////////////////////////////
+			
 			
 			function displayOutputs(o) {
 				document.getElementById("essential_use1").innerHTML = String(o.essentialDailyUse);
 				document.getElementById("total_use1").innerHTML = String(o.essentialDailyUse+o.totalOtherUse);
 				document.getElementById("tank_size1").innerHTML = String(o.minTankSize);
-			
+				document.getElementById("essential_use1_complex").innerHTML = String(o.essentialDailyUse);
+				document.getElementById("total_use1_complex").innerHTML = String(o.essentialDailyUse+o.totalOtherUse);
+				document.getElementById("tank_size1_complex").innerHTML = String(o.minTankSize);
+				var els = document.getElementsByName("collected");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = String(o.monthlyCollection[i]);
+				}
+				var els = document.getElementsByName("used");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = String(o.monthlyUse[i]);
+				}
+				var els = document.getElementsByName("inventory");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = String(o.monthlyCollection[i]-o.monthlyUse[i]);
+				}
+				
 			}
 			
+			////////////////////////////////////////////////////////////////////
+			////			function inputs2outputs				 			////
+			//// 															////
+			////	Takes the user's entered inputs and converts them into	////
+			////	outputs. This is the function that contains all of the 	////
+			////	citeable-materials, it is the backbone of the actual	////
+			////	calculation process.									////
+			////															////
+			////	Arguments:												////
+			////		inputs --- a dictionary of all of the user inputs	////
+			////															////	
+			////	Returns:												////
+			////		outputs --- a dictionary of things to display to 	////
+			////					user. Fields include:					////
+			////						essentialDailyUse [L/day]			////
+			////						totalOtherUse [L/day]				////
+			////						minTankSize [L]						////
+			////						montlyUse [L] (a 1x12 array with a 	////
+			////							cell for each month's use)		////
+			////						monlyCollection [L] (1x12 array) 	////
+			////															////
+			////	Algorithm: 												////
+			////		CHANTAL WILL FILL OUT THIS SECTION OF THE COMMENTS	////
+			////		WITH HER USUAL FOCUS ON STYLE AND CLARITY =)		////
+			////															////
+			////	Update/Revision History:								////
+			////		aaron krupp 	2/Nov/2016	empty function written	////	
+			////									comments header written ////
+			////////////////////////////////////////////////////////////////////			
 			
-			
-			function calculate(inputs) {
+			function inputs2outputs(inputs) {
 				outputs = {essentialDailyUse: 42,
 					totalOtherUse: 105,
 					minTankSize: 1200,
-					monthlyUse: Array.apply(null, Array(5)).map(Number.prototype.valueOf,0),
-					monthlyConsumption: Array.apply(null, Array(5)).map(Number.prototype.valueOf,0)
+					monthlyUse: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0),
+					monthlyCollection: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0)
 				};
 				
 				

@@ -96,7 +96,7 @@ var OTHER_EXTRA3_LBL = "How much? (Liters per day):";
 
 //////////////////////////////////////////
 //										//
-//		RESULTS DISPLAY TEXT 			//
+//		SIMPLE RESULTS DISPLAY 		 	//
 //										//
 //////////////////////////////////////////
 
@@ -109,3 +109,19 @@ var TOTAL_USE2_LBL = "total liters for ALL your water uses.";
 var TANK_SIZE0_LBL = "Based on your location,\nyou could meet your household's entire ESSENTIAL water\nneeds with only";
 var TANK_SIZE2_LBL = "liters of storage tank capacity!";
 
+var MORE_INFO_BUTTON_LBL = "More information";
+
+//////////////////////////////////////////
+//										//
+//		COMPLEX RESULTS DISPLAY 	 	//
+//										//
+//////////////////////////////////////////
+
+var LESS_INFO_BUTTON_LBL = "Less information";
+
+var TABLE_LBL = "Water collection, use, and inventory.\nAll values in Litres:"
+var TABLE_TITLES = ["Month", "Water\nCollected", "Water\nConsumed", "Inventory"];
+
+var MONTHS = ["Jan", "Feb", "Mar", "Apr",
+				"May", "Jun", "Jul", "Aug",
+				"Sep", "Oct", "Nov", "Dec"];
