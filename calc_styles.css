@@ -118,10 +118,6 @@ select {
 		
 }
 
-#check_box {
-	background-color: #DDDDDD;	
-}
-
 input[type="checkbox"] {
 	margin-left: 40px;
 	margin-top: 12px;
@@ -133,6 +129,18 @@ input[type="checkbox"] {
 .extra_input {
 	display: inline-block;
 	margin-left: 20px;
+}
+
+.output_number {
+	margin-top: 40px;
+	margin-bottom: 60px;
+	text-align: center;
+	font-size: 18px;
+}
+
+.return_num {
+	font-size: 72px;
+	
 }
 
 

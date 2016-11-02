@@ -32,31 +32,31 @@
 			<form id="calc_form" class="form">
 				
 				<div>			
-					<label for="municipality">Choose your municipaliy:</label>
+					<label for="municipality" id="muni0"></label>
 					<select id="municipality" />
-						<option value="0">San Miguel de Allende</option>
-						<option value="1">Dolores Hidalgo</option>
+						<option value="0" id = "muni_val0"></option>
+						<option value="1" id = "muni_val1"></option>
 					</select>
 					<div class = "error_lbl">
 						<p id="municipality_error">.</p>
 					</div>
 				</div>
 				<div>
-					<label for="ppl">Number of people in your household:</label>
+					<label for="ppl" id="ppl0"></label>
 					<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
 					<div class = "error_lbl">
 						<p id="ppl_error">.</p>
 					</div>
 				</div>
 				<div>
-					<label for="ppl">Length of your roof (meters):</label>
+					<label for="length" id = "length0"></label>
 					<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
 					<div class = "error_lbl">
 						<p id="length_error">.</p>
 					</div>
 				</div>
 				<div>
-					<label for="ppl">Width of your roof (meters):</label>
+					<label for="width" id = "width0"></label>
 					<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
 					<div class = "error_lbl">
 						<p id="width_error">.</p>
@@ -64,61 +64,79 @@
 				</div>
 				<br>
 				<div>
-					<label>What kind of roof do you have?</label><br>
-					<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>Cement<br>
-					<input type="radio" id="sheet_roof" name="roof_type" value="0.8">Corrugated sheet<br>
-					<input type="radio" id="spanish_roof" name="roof_type" value="0.7">Spanish Tile
+					<label id="roof0"></label><br>
+					<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>.<br>
+					<input type="radio" id="sheet_roof" name="roof_type" value="0.8">.<br>
+					<input type="radio" id="spanish_roof" name="roof_type" value="0.7">.
 				</div>	
 				<br>
 				<div>			
-					<label for="uses">Select everything you do with water:</label>
+					<label for="uses" id="uses0"></label>
 					<br>
-					<input type="checkbox" class="water_use" id="brush_chk">Brushing your teeth<br>
-					<input type="checkbox" class="water_use" id="hands_chk">Washing your hands<br>
-					<input type="checkbox" class="water_use" id="garden_chk">Watering a garden
-					<div class="extra_input" id="garden_extra">
-						<label for="garden_size">How big is your garden? (square meters):</label>
+					<input type="checkbox" class="water_use" id="brush_chk">.<br>
+					<input type="checkbox" class="water_use" id="hands_chk">.<br>
+					<input type="checkbox" class="water_use" id="garden_chk">.
+					<div class="extra_input" id="garden_extra" for="garden_chk">
+						<label for="garden_size" id="garden_extra1"></label>
 						<input type="number" id="garden_size" value="10" min="0.1" max="9999999999" step="any"/>
 					</div><br>
-					<input type="checkbox" class="water_use" id="dishes_chk">Washing dishes
+					<input type="checkbox" class="water_use" id="dishes_chk">.
 					<div class="extra_input" id="dishes_extra">
-						<label for="dishes_washing_type">I wash my dishes:</label>
+						<label for="dishes_washing_type" id="dishes_extra1"></label>
 						<select id="dishes_washing_type" />
-							<option value="0">By hand</option>
-							<option value="1">With a dishwasher</option>
+							<option value="0" id="dishes_extra1_val0"></option>
+							<option value="1" id="dishes_extra1_val1"></option>
 						</select>					
 					</div><br>
-					<input type="checkbox" class="water_use" id="bath_chk">Bathing<br>
-					<input type="checkbox" class="water_use" id="clothes_chk">Laundry
+					<input type="checkbox" class="water_use" id="bath_chk">.<br>
+					<input type="checkbox" class="water_use" id="clothes_chk">.
 					<div class="extra_input" id="laundry_extra">
-						<label for="laundry_type">I do laundry:</label>
+						<label for="laundry_type" id="laundry_extra1"></label>
 						<select id="laundry_type" />
-							<option value="0">By hand</option>
-							<option value="1">With a laundry machine</option>
+							<option value="0" id="laundry_extra1_val0"></option>
+							<option value="1" id="laundry_extra1_val1"></option>
 						</select>					
 					</div><br>
-					<input type="checkbox" class="water_use" id="toilet_chk">Flushing the toilet<br>
-					<input type="checkbox" class="water_use" id="other_chk">Other
-					<div class="extra_input" id="other_extra">
-						<label for="other_text">What else do you use water for??</label>
-						<input type="text" id="other_text" value=""/>
+					<input type="checkbox" class="water_use" id="toilet_chk">.<br>
+					<input type="checkbox" class="water_use" id="other_chk">.
+					<div class = "etra_input" id="extra_house0">
+						<div id="other_extra">
+							<label for="other_text" id = "other_extra1"></label>
+							<input type="text" id="other_text" value=""/>
+						</div>
+						<div id="other_extra2">
+							<label for="other_value" id="other_extra3"></label>
+							<input type="number" id="other_value" value="1" min="1" step="any"/>
+						</div><br>
 					</div>
-					<div class="extra_input" id="other_extra2">
-						<label for="other_value">How much? (Liters per day):</label>
-						<input type="number" id="other_value" value="1" min="1" step="any"/>
-					</div><br>
-					
-					
 				</div>	
-			
 				<br>
 			</form>
 			<div class="button">
 				<button>Calculate!</button>
 			</div>
-			
 		</div>
 		<div id="right_hand_side">
+			<div class="output_number">
+				<label id="essential_use0"></label><br>
+				<label class="return_num" id="essential_use1">0</label><br>
+				<label id="essential_use2"></label>
+			</div>
+			
+			<div class="output_number">
+				<label id="total_use0"></label><br>
+				<label class="return_num" id="total_use1">0</label><br>
+				<label id="total_use2"></label>
+			</div>
+			<br><br><br><br>
+			<div class="output_number">
+				<label id="tank_size0"></label><br>
+				<label class="return_num" id="tank_size1">0</label><br>
+				<label id="tank_size2"></label>
+			</div>
+		
+		
+		
 		</div>
 		
 
@@ -143,6 +161,7 @@
 				hideErrorLbls();
 				hideExtraText();
 				console.log(form);
+				startInterrupt();
 				
 			};
 			
@@ -156,6 +175,40 @@
 				document.getElementById("header").innerHTML = HEADER; 				// Puts the correct language text on the page
 				document.getElementById("sub_header").innerHTML = SUB_HEADER;		//	for all elements
 				document.getElementById("instructions").innerHTML = INSTRUCTIONS;
+				document.getElementById("muni0").innerHTML = MUNI0_LBL;
+				document.getElementById("muni_val0").innerHTML = MUNI_VAL0_LBL;
+				document.getElementById("muni_val1").innerHTML = MUNI_VAL1_LBL;
+				document.getElementById("ppl0").innerHTML = PPL0_LBL;
+				document.getElementById("length0").innerHTML = LENGTH0_LBL;
+				document.getElementById("width0").innerHTML = WIDTH0_LBL;
+				document.getElementById("roof0").innerHTML = ROOF0_LBL;
+				document.getElementById("cement_roof").nextSibling.data = CEMENT_ROOF_LBL;
+				document.getElementById("sheet_roof").nextSibling.data = SHEET_ROOF_LBL;
+				document.getElementById("spanish_roof").nextSibling.data = SPANISH_ROOF_LBL;
+				document.getElementById("uses0").innerHTML = USES0_LBL;
+				document.getElementById("brush_chk").nextSibling.data = BRUSH_CHK_LBL;
+				document.getElementById("hands_chk").nextSibling.data = HANDS_CHK_LBL;
+				document.getElementById("garden_chk").nextSibling.data = GARDEN_CHK_LBL;
+				document.getElementById("dishes_chk").nextSibling.data = DISHES_CHK_LBL;
+				document.getElementById("bath_chk").nextSibling.data = BATH_CHK_LBL;
+				document.getElementById("clothes_chk").nextSibling.data = CLOTHES_CHK_LBL;
+				document.getElementById("toilet_chk").nextSibling.data = TOILET_CHK_LBL;
+				document.getElementById("other_chk").nextSibling.data = OTHER_CHK_LBL;
+				document.getElementById("garden_extra1").innerHTML = GARDEN_EXTRA1_LBL;
+				document.getElementById("dishes_extra1").innerHTML = DISHES_EXTRA1_LBL;
+				document.getElementById("dishes_extra1_val0").innerHTML = DISHES_EXTRA1_VAL0_LBL;
+				document.getElementById("dishes_extra1_val1").innerHTML = DISHES_EXTRA1_VAL1_LBL;
+				document.getElementById("laundry_extra1").innerHTML = LAUNDRY_EXTRA1_LBL;
+				document.getElementById("laundry_extra1_val0").innerHTML = LAUNDRY_EXTRA1_VAL0_LBL;
+				document.getElementById("laundry_extra1_val1").innerHTML = LAUNDRY_EXTRA1_VAL1_LBL;
+				document.getElementById("other_extra1").innerHTML = OTHER_EXTRA1_LBL; 
+				document.getElementById("other_extra3").innerHTML = OTHER_EXTRA3_LBL;
+				document.getElementById("essential_use0").innerHTML = ESSENTIAL_USE0_LBL;
+				document.getElementById("essential_use2").innerHTML = ESSENTIAL_USE2_LBL;
+				document.getElementById("total_use0").innerHTML = TOTAL_USE0_LBL;
+				document.getElementById("total_use2").innerHTML = TOTAL_USE2_LBL;
+				document.getElementById("tank_size0").innerHTML = TANK_SIZE0_LBL;
+				document.getElementById("tank_size2").innerHTML = TANK_SIZE2_LBL;
 			
 			}
 			
@@ -247,7 +300,9 @@
 				} else if (el.type == "radio") {
 					allData[el.name] =  el.value;
 				};
-				calculate(allData);
+				displayStuff = calculate(allData);
+				displayOutputs(displayStuff);
+				
 			}
 			
 			
@@ -380,7 +435,7 @@
 			
 			function fadeOut(el){ 
 				(function fade() {
-					if ((el.style.opacity -= .075) < 0) {
+					if ((el.style.opacity -= .09) < 0) {
 					el.style.opacity = 0;
 					} else {
 					requestAnimationFrame(fade);
@@ -391,7 +446,7 @@
 			function fadeIn(el){
 				(function fade() {
 					var val = parseFloat(el.style.opacity);
-					if (!((val += .025) > 1)) {
+					if (!((val += .075) > 1)) {
 					el.style.opacity = val;
 					requestAnimationFrame(fade);
 					}
@@ -416,11 +471,9 @@
 					};
 				} else if (el.id == "other_chk") { 	// Open input fields to get other info
 					if (el.checked) {
-						fadeIn(document.getElementById("other_extra"));
-						fadeIn(document.getElementById("other_extra2"));
+						fadeIn(document.getElementById("extra_house0"));
 					} else {
-						fadeOut(document.getElementById("other_extra"));
-						fadeOut(document.getElementById("other_extra2"));
+						fadeOut(document.getElementById("extra_house0"));
 					};
 				} else if (el.id == "dishes_chk") { // open input field to get type of dish washing
 					if (el.checked) {
@@ -438,11 +491,45 @@
 				};
 			});
 			
-			function calculate(inputs) {
 			
-				console.log(inputs);
+			function startInterrupt() {
+				var myInterval = setInterval( "hideUncheckedLbls()", INTERRUPT_INTERVAL);  // run
+			}
+			
+			function hideUncheckedLbls() {
+				els = document.getElementsByClassName("water_use");
+				for (var i=0; i<els.length; i++) {	
+					if (!els[i].checked) {
+						els[i].nextElementSibling.style.opacity = 0;
+					};
+				};
+			}
+			
+			
+			function displayOutputs(o) {
+				document.getElementById("essential_use1").innerHTML = String(o.essentialDailyUse);
+				document.getElementById("total_use1").innerHTML = String(o.essentialDailyUse+o.totalOtherUse);
+				document.getElementById("tank_size1").innerHTML = String(o.minTankSize);
 			
 			}
+			
+			
+			
+			function calculate(inputs) {
+				outputs = {essentialDailyUse: 42,
+					totalOtherUse: 105,
+					minTankSize: 1200,
+					monthlyUse: Array.apply(null, Array(5)).map(Number.prototype.valueOf,0),
+					monthlyConsumption: Array.apply(null, Array(5)).map(Number.prototype.valueOf,0)
+				};
+				
+				
+				
+				
+				return outputs;
+			
+			}
+			
      
 		</script>
 	</body>
