@@ -77,9 +77,9 @@
 					<!-- Type of roof -->
 					<div>
 						<label id="roof0"></label><br>
-						<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>.<br>
-						<input type="radio" id="sheet_roof" name="roof_type" value="0.8">.<br>
-						<input type="radio" id="spanish_roof" name="roof_type" value="0.7">.
+						<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
+						<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
+						<input type="radio" id="spanish_roof" name="roof_type" value="2">.
 					</div>	
 					<br>
 					
@@ -155,10 +155,6 @@
 				</div>
 			</div>
 			<div id="LHS_display">
-				<p name="display_text">jkhjhkjk</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">123456789</p>
 				<p name="display_text">.</p>
 				<p name="display_text">.</p>
 				<p name="display_text">.</p>
@@ -172,15 +168,7 @@
 				<p name="display_text">.</p>
 				<p name="display_text">.</p>
 				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
+
 				<div class="button">
 					<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button"></button>
 				</div>
@@ -378,15 +366,18 @@
 		
 			function init() {
 			
-				addLanguageText();
+				
 				initForm();
-				loadStartingValues();
+				
 				hideErrorLbls();
 				hideExtraText();
 				hideComplexOutput();
 				
+				loadStartingValues();
 				displayStuff = inputs2outputs(allData);
 				displayOutputs(displayStuff);
+				
+				addLanguageText();
 				
 				startInterrupt();
 				
@@ -458,6 +449,10 @@
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = MONTHS[i];
 				};
+				
+				updateDisplayText();
+				
+
 				
 			}
 			
@@ -557,9 +552,36 @@
 				} else if (el.type == "radio") {
 					allData[el.name] =  el.value;
 				};
+				updateDisplayText();
 				displayStuff = inputs2outputs(allData);
 				displayOutputs(displayStuff);
 				
+			}
+			
+			function updateDisplayText() {
+				DISPLAY_TEXT[0] = MUN_TXT[0]+"<b>"+MUNIS[allData.municipality]+"</b>"+MUN_TXT[1];
+				if (allData.ppl>1) {
+					DISPLAY_TEXT[1] = PPL_TXT[0]+"<b>"+allData.ppl+"</b>"+PPL_TXT[2];
+				} else {
+					DISPLAY_TEXT[1] = PPL_TXT[0]+"<b>"+allData.ppl+"</b>"+PPL_TXT[1];
+				};
+				DISPLAY_TEXT[2] = LEN_TXT[0]+"<b>"+allData.length+"</b>"+LEN_TXT[1];
+				DISPLAY_TEXT[3] = WID_TXT[0]+"<b>"+allData.width+"</b>"+WID_TXT[1];
+				DISPLAY_TEXT[4] = ROOF_TYPE_TXT[0]+"<b>"+ROOF_TYPES[allData.roof_type]+"</b>"+ROOF_TYPE_TXT[1];
+				DISPLAY_TEXT[5] = ESSENTIAL_USE_TXT[0];
+				DISPLAY_TEXT[6] = ROOF_TYPE_TXT[0]+"<b>"+ROOF_TYPES[allData.roof_type]+"</b>"+ROOF_TYPE_TXT[1];
+				
+				
+				
+				
+				
+				
+				
+				var els = document.getElementsByName("display_text")
+				for (var i=0; i<7; i++) {
+					els[i].innerHTML = DISPLAY_TEXT[i];
+				};
+			
 			}
 			
 			////////////////////////////////////////////////////////////////////

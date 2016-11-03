@@ -46,6 +46,7 @@ var PPL_DECIMAL_E = "You can't have partial numbers of people...stop chopping up
 var MUNI0_LBL = "Choose your municipaliy:";
 var MUNI_VAL0_LBL = "San Miguel de Allende";
 var MUNI_VAL1_LBL = "Dolores Hidalgo";
+var MUNIS = [MUNI_VAL0_LBL, MUNI_VAL1_LBL];
 
 //////		PEOPLE IN HOUSEHOLD		//////
 var PPL0_LBL = "Number of people in your household:";
@@ -59,6 +60,8 @@ var ROOF0_LBL = "What kind of roof do you have?";
 var CEMENT_ROOF_LBL = "Cement";
 var SHEET_ROOF_LBL = "Corrugated sheet";
 var SPANISH_ROOF_LBL = "Spanish tile";
+var ROOF_TYPES = [CEMENT_ROOF_LBL, SHEET_ROOF_LBL, SPANISH_ROOF_LBL];
+
 
 //////	NON-ESSENTIAL WATER USES	//////
 var USES0_LBL = "Select everything you do with water:";
@@ -105,6 +108,18 @@ var CALC_BUTTON_LBL = "Calculate!";
 
 //////		GO BACK BUTTON 	   	 	//////
 var BACK2INPUTS_BUTTON_LBL = "Change my info";
+
+////// 		DISPLAY TEXT 			//////
+
+var MUN_TXT = ["You live in: ", "."];
+var PPL_TXT = ["Your household has ", " person.", " people."]
+var LEN_TXT = ["Your roof is ", " meter(s) long."];
+var WID_TXT = ["\xa0\xa0\xa0\xa0by ", " meter(s) wide."];
+var ROOF_TYPE_TXT = ["You have a ", " roof."];
+var ESSENTIAL_USE_TXT = ["We guess that everyone in your house uses <b>5 liters per day</b> for drinking and cooking."];
+var OTHER_USE_TXT = ["Besides those essential uses, you also want to use rainwater for ","."];
+
+var DISPLAY_TEXT = []; 		// This is a global variable that gets updated in the script
 
 //////////////////////////////////////////
 //										//
