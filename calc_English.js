@@ -94,6 +94,18 @@ var LAUNDRY_EXTRA1_VAL1_LBL = "With a laundry machine";
 var OTHER_EXTRA1_LBL = "What else do you use water for??";
 var OTHER_EXTRA3_LBL = "How much? (Liters per day):";
 
+//////		CALCULATE BUTTON 	    //////
+var CALC_BUTTON_LBL = "Calculate!";
+
+//////////////////////////////////////////
+//										//
+//		LEFT HAND SIDE INPUTS DISPLAY 	//
+//										//
+//////////////////////////////////////////
+
+//////		GO BACK BUTTON 	   	 	//////
+var BACK2INPUTS_BUTTON_LBL = "Change my info";
+
 //////////////////////////////////////////
 //										//
 //		SIMPLE RESULTS DISPLAY 		 	//

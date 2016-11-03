@@ -27,131 +27,163 @@
 	
 		<!-- Left hand side (inputs) for the calculator -->
 		<div id="left_hand_side">
-		
-			 <!-- the top text goes here -->
-			<h1 id="header"></h1>
-			<h3 id="sub_header"></h3>
-			<h5 id="instructions"></h5>
-			
-			<!-- start the form!!! -->
-			<form id="calc_form" class="form">
+			<div id="LHS_inputs">
+				<!-- the top text goes here -->
+				<h1 id="header"></h1>
+				<h3 id="sub_header"></h3>
+				<h5 id="instructions"></h5>
 				
-				<!-- Select your municipality -->
-				<div>			
-					<label for="municipality" id="muni0"></label>
-					<select id="municipality" />
-						<option value="0" id = "muni_val0"></option>
-						<option value="1" id = "muni_val1"></option>
-					</select>
-					<div class = "error_lbl">
-						<p id="municipality_error">.</p>
-					</div>
-				</div>
-				<!-- How many people in your household? -->
-				<div>
-					<label for="ppl" id="ppl0"></label>
-					<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
-					<div class = "error_lbl">
-						<p id="ppl_error">.</p>
-					</div>
-				</div>
-				
-				<!-- Length of your roof -->
-				<div>
-					<label for="length" id = "length0"></label>
-					<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
-					<div class = "error_lbl">
-						<p id="length_error">.</p>
-					</div>
-				</div>
-				
-				<!-- Width of your roof -->
-				<div>
-					<label for="width" id = "width0"></label>
-					<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
-					<div class = "error_lbl">
-						<p id="width_error">.</p>
-					</div>
-				</div>
-				<br>
-				<!-- Type of roof -->
-				<div>
-					<label id="roof0"></label><br>
-					<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>.<br>
-					<input type="radio" id="sheet_roof" name="roof_type" value="0.8">.<br>
-					<input type="radio" id="spanish_roof" name="roof_type" value="0.7">.
-				</div>	
-				<br>
-				
-				<!-- Tell us all your water uses! We assume you also will drink and cook with rainwater -->
-				<div>			
-					<label for="uses" id="uses0"></label>
-					<br>
-					<!-- Brush your teeth? -->
-					<input type="checkbox" class="water_use" id="brush_chk">.<br>
+				<!-- start the form!!! -->
+				<form id="calc_form" class="form">
 					
-					<!-- Wash your hands? -->
-					<input type="checkbox" class="water_use" id="hands_chk">.<br>
-					
-					<!-- Water your garden? -->
-					<input type="checkbox" class="water_use" id="garden_chk">.
-					
-					<!-- If you do water your garden, we'll grab a bit more info about that... -->
-					<div class="extra_input" id="garden_extra" for="garden_chk">
-						<label for="garden_size" id="garden_extra1"></label>
-						<input type="number" id="garden_size" value="10" min="0.1" step="any"/>
-					</div><br>
-					
-					<!-- Do the dishes? -->
-					<input type="checkbox" class="water_use" id="dishes_chk">.
-					
-					<!-- If you wash dishes, give us some more info! -->
-					<div class="extra_input" id="dishes_extra">
-						<label for="dishes_washing_type" id="dishes_extra1"></label>
-						<select id="dishes_washing_type" />
-							<option value="0" id="dishes_extra1_val0"></option>
-							<option value="1" id="dishes_extra1_val1"></option>
-						</select>					
-					</div><br>
-					<!-- bathe? -->
-					<input type="checkbox" class="water_use" id="bath_chk">.<br>
-					
-					<!-- Wash your clothes? -->
-					<input type="checkbox" class="water_use" id="clothes_chk">.
-					
-					<!-- If you wash your clothes, how do you do it? -->
-					<div class="extra_input" id="laundry_extra">
-						<label for="laundry_type" id="laundry_extra1"></label>
-						<select id="laundry_type" />
-							<option value="0" id="laundry_extra1_val0"></option>
-							<option value="1" id="laundry_extra1_val1"></option>
-						</select>					
-					</div><br>
-					
-					<!-- Flush the toilet? -->
-					<input type="checkbox" class="water_use" id="toilet_chk">.<br>
-					
-					<!-- Do anything else with water? -->
-					<input type="checkbox" class="water_use" id="other_chk">.
-					
-					<!-- If you do other stuff with water, tell us how much! --> 
-					<div class = "etra_input" id="extra_house0">
-						<div id="other_extra" class="extra_input">
-							<label for="other_text" id = "other_extra1"></label>
-							<input type="text" id="other_text" value=""/>
+					<!-- Select your municipality -->
+					<div>			
+						<label for="municipality" id="muni0"></label>
+						<select id="municipality" />
+							<option value="0" id = "muni_val0"></option>
+							<option value="1" id = "muni_val1"></option>
+						</select>
+						<div class = "error_lbl">
+							<p id="municipality_error">.</p>
 						</div>
-						<div id="other_extra2" class="extra_input">
-							<label for="other_value" id="other_extra3"></label>
-							<input type="number" id="other_value" value="1" min="1" step="any"/>
-						</div><br>
 					</div>
-				</div>	
-				<br>
-			</form>
-			<!-- When you press this button, it stops letting you edit the form 
-					and displays your inputs in a table -->
-			<div class="button">
-				<button>Calculate!</button>
+					<!-- How many people in your household? -->
+					<div>
+						<label for="ppl" id="ppl0"></label>
+						<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
+						<div class = "error_lbl">
+							<p id="ppl_error">.</p>
+						</div>
+					</div>
+					
+					<!-- Length of your roof -->
+					<div>
+						<label for="length" id = "length0"></label>
+						<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
+						<div class = "error_lbl">
+							<p id="length_error">.</p>
+						</div>
+					</div>
+					
+					<!-- Width of your roof -->
+					<div>
+						<label for="width" id = "width0"></label>
+						<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
+						<div class = "error_lbl">
+							<p id="width_error">.</p>
+						</div>
+					</div>
+					<br>
+					<!-- Type of roof -->
+					<div>
+						<label id="roof0"></label><br>
+						<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>.<br>
+						<input type="radio" id="sheet_roof" name="roof_type" value="0.8">.<br>
+						<input type="radio" id="spanish_roof" name="roof_type" value="0.7">.
+					</div>	
+					<br>
+					
+					<!-- Tell us all your water uses! We assume you also will drink and cook with rainwater -->
+					<div>			
+						<label for="uses" id="uses0"></label>
+						<br>
+						<!-- Brush your teeth? -->
+						<input type="checkbox" class="water_use" id="brush_chk">.<br>
+						
+						<!-- Wash your hands? -->
+						<input type="checkbox" class="water_use" id="hands_chk">.<br>
+						
+						<!-- Water your garden? -->
+						<input type="checkbox" class="water_use" id="garden_chk">.
+						
+						<!-- If you do water your garden, we'll grab a bit more info about that... -->
+						<div class="extra_input" id="garden_extra" for="garden_chk">
+							<label for="garden_size" id="garden_extra1"></label>
+							<input type="number" id="garden_size" value="10" min="0.1" step="any"/>
+						</div><br>
+						
+						<!-- Do the dishes? -->
+						<input type="checkbox" class="water_use" id="dishes_chk">.
+						
+						<!-- If you wash dishes, give us some more info! -->
+						<div class="extra_input" id="dishes_extra">
+							<label for="dishes_washing_type" id="dishes_extra1"></label>
+							<select id="dishes_washing_type" />
+								<option value="0" id="dishes_extra1_val0"></option>
+								<option value="1" id="dishes_extra1_val1"></option>
+							</select>					
+						</div><br>
+						<!-- bathe? -->
+						<input type="checkbox" class="water_use" id="bath_chk">.<br>
+						
+						<!-- Wash your clothes? -->
+						<input type="checkbox" class="water_use" id="clothes_chk">.
+						
+						<!-- If you wash your clothes, how do you do it? -->
+						<div class="extra_input" id="laundry_extra">
+							<label for="laundry_type" id="laundry_extra1"></label>
+							<select id="laundry_type" />
+								<option value="0" id="laundry_extra1_val0"></option>
+								<option value="1" id="laundry_extra1_val1"></option>
+							</select>					
+						</div><br>
+						
+						<!-- Flush the toilet? -->
+						<input type="checkbox" class="water_use" id="toilet_chk">.<br>
+						
+						<!-- Do anything else with water? -->
+						<input type="checkbox" class="water_use" id="other_chk">.
+						
+						<!-- If you do other stuff with water, tell us how much! --> 
+						<div class = "etra_input" id="extra_house0">
+							<div id="other_extra" class="extra_input">
+								<label for="other_text" id = "other_extra1"></label>
+								<input type="text" id="other_text" value=""/>
+							</div>
+							<div id="other_extra2" class="extra_input">
+								<label for="other_value" id="other_extra3"></label>
+								<input type="number" id="other_value" value="1" min="1" step="any"/>
+							</div><br>
+						</div>
+					</div>	
+					<br>
+				</form>
+				<!-- When you press this button, it stops letting you edit the form 
+						and displays your inputs in a table -->
+				<div class="button">
+					<button onclick="replace('LHS_inputs','LHS_display')" id="calc_button"></button>
+				</div>
+			</div>
+			<div id="LHS_display">
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<p name="display_text">.</p>
+				<div class="button">
+					<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button"></button>
+				</div>
 			</div>
 		</div>
 		
@@ -184,7 +216,7 @@
 		
 				<!-- Push this button to go to the complex view --> 
 				<div style="text-align: center">
-					<button onclick="showComplex()" id="more_info_button0" class="info_button"></button>
+					<button onclick="replace('RHS_simple','RHS_complex')" id="more_info_button0" class="info_button"></button>
 				</div>
 			</div>
 			<div id="RHS_complex">
@@ -204,7 +236,7 @@
 				
 				<div class="output_number" id="title_row">
 					<label id="table_lbl"></label><br>
-					<table>
+					<table align="center">
 						<tr class="title_row">
 							<th name="table_titles">.</th>
 							<th name="table_titles">.</th>
@@ -300,7 +332,7 @@
 				<br>
 				<br>
 				<div style="text-align: center">
-					<button onclick="showSimple()" id="less_info_button0" class="info_button"></button>
+					<button onclick="replace('RHS_complex','RHS_simple')" id="less_info_button0" class="info_button"></button>
 				<div>
 			
 			
@@ -414,6 +446,9 @@
 				document.getElementById("more_info_button0").innerHTML = MORE_INFO_BUTTON_LBL;
 				document.getElementById("less_info_button0").innerHTML = LESS_INFO_BUTTON_LBL;
 				document.getElementById("table_lbl").innerHTML = TABLE_LBL;
+				document.getElementById("calc_button").innerHTML = CALC_BUTTON_LBL;
+				document.getElementById("back2inputs_button").innerHTML = BACK2INPUTS_BUTTON_LBL;
+				
 				var els = document.getElementsByName("table_titles")
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = TABLE_TITLES[i];
@@ -499,6 +534,9 @@
 			function hideComplexOutput() {
 				document.getElementById("RHS_complex").style.opacity = 0;
 				document.getElementById("RHS_complex").hidden = true;
+				document.getElementById("LHS_display").style.opacity = 0;
+				document.getElementById("LHS_display").hidden = true;
+				
 			}
 
 			
@@ -757,14 +795,14 @@
 			////	Hides one RHS panel and shows the other.				////
 			////////////////////////////////////////////////////////////////////
 			
-			function showComplex() {
-				fadeOut(document.getElementById("RHS_simple"), true);
-				fadeIn(document.getElementById("RHS_complex"));
+			function replace(e2hide, e2show) {
+				fadeOut(document.getElementById(e2hide), true);
+				fadeIn(document.getElementById(e2show));
 			}
-			function showSimple() {
-				fadeOut(document.getElementById("RHS_complex"), true);
-				fadeIn(document.getElementById("RHS_simple"));
-			}
+			//function showSimple() {
+			//	fadeOut(document.getElementById("RHS_complex"), true);
+			//	fadeIn(document.getElementById("RHS_simple"));
+			//}
 			
 			////////////////////////////////////////////////////////////////////
 			////			function displayOutputs				 			////
