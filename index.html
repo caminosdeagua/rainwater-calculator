@@ -906,21 +906,204 @@
 			////////////////////////////////////////////////////////////////////			
 			
 			function inputs2outputs(inputs) {
-				outputs = {essentialDailyUse: 42,
-					totalOtherUse: 105,
-					minTankSize: 1200,
+				var outputs = {essentialDailyUse: 0,
+					totalOtherUse: 0,
+					minTankSize: 0,
 					monthlyUse: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0),
-					monthlyCollection: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0)
+					monthlyCollection: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0),					
 				};
 				
-				console.log("hello")
+				////////////////////////////////////////////////////////////
+				//                                                        //
+				//      Variables which hold the number for the liters    //
+				//      one person uses for each activity for one day     //
+				//                                                        //
+				//////////////////////////////////////////////////////////// 
+
+				var l_day_brush = 0;
+				var l_day_hands = 0;
+				var l_day_garden = 0;
+				var l_day_dishes = 0;
+				var l_day_bath = 0;
+				var l_machine = [12,24,24,32,40,53]; 							// number of liters a family with a certain amount of members (1,2,3,4) uses for one day for washing their clothes with a machine.
+				var l_day_laundry = 0;
+				var l_day_toilet = 0;
+				var l_day_other = 0; 
 				
 				
+				////////////////////////////////////////////////////////////
+				//                                                        //
+				// All these 'if functions' are used to calculate the     //
+				// liters one family as a whole uses for each activity,   //
+				// if this activity is checked (therefore time ppl.)      //
+				//                                                        //
+				////////////////////////////////////////////////////////////
+
+				if (inputs.brush_chk){
+					l_day_brush = 2*inputs.ppl;                         //calculates the liters one family needs for brushing their teeth one day 
+				}
+
+				if (inputs.hands_chk){
+					l_day_hands = 13*inputs.ppl;                        //calculates the liters one family needs for washing their hands for one day
+				}
+
+				if (inputs.garden_chk){
+					l_day_garden = inputs.garden_size * 3.6;                      // calculates the liters one family needs for watering their garden for one day (depends on the size of garden also)
+				}
+
+				if (inputs.dishes_chk){
+					if (inputs.dishes_washing_type == 0){				// FAKE NUMBER ! calculates the amount of liters one family needs for one day when they wash their dishes by hand
+						l_day_dishes = "FAKE NUMBER" * inputs.ppl;
+					}
+					else if (inputs.dishes_washing_type == 1){			// FAKE NUMBER ! calculates the amount of liters one family needs for one day when they wash their dishes using a machine 
+						l_day_dishes = "FAKE NUMBER" * inputs.ppl;
+					}
+				} 
+
+				if (inputs.bath_chk){
+					l_day_bath = 100*inputs.ppl;                      	//calculates the liters one family needs for showering one day 
+				}
+
+				if (inputs.clothes_chk){
+					if (inputs.laundry_type == 0){						 //calculates the liters one family needs for washing their clothes by hand one day
+						l_day_laundry = 4.3 * inputs.ppl;
+					}
+					else if (inputs.laundry_type == 1){
+						l_day_laundry = l_machine[inputs.ppl-1];		//calculates the liters one family needs for washing their clothes use a laundry machine (different frequencies thus different answers for size families, thus using an index)					      
+					}
+				} 				
 				
+				if (inputs.toilet_chk){
+					l_day_toilet = 105*inputs.ppl;                      //calculates the liters one family needs to flush their toilet for one day
+				}
+
+				if (inputs.other_chk){
+					l_day_other = inputs.other_value * inputs.ppl
+				} 
 				
-				return outputs;
+	
+				var essential = 5 * (inputs.ppl);                       	//variable which express the liters of drinking + de liters of cooking for one person
+				var other_activities = l_day_brush + l_day_hands + l_day_garden + l_day_dishes + l_day_bath + l_day_laundry + l_day_toilet + l_day_other;      //variable which expresses the liters one family uses for all the other activities (if they will check one of these activities)
+
+				//////////////////////////////////////////////////////
+				//                                                  //
+				//  Dataset for rainfall. Rainfall is given per     //
+				//  month and is in mm.                             //
+				//                                                  //
+				//////////////////////////////////////////////////////
+
+				var rainfall = {"0":[100.10, 128.70, 94.40, 94.20, 41.50, 12.40, 6.40, 13.70, 7.20, 6.00, 18.90, 42.20],
+					"1":[1,2,3,4,5,6,7,8,9,10,11,12],	
+				};
+
+				var day_mon = [31,28,31,30,31,30,31,31,30,31,30,31];  // Calculation for days per months
+				var area = inputs.length * inputs.width;      // Calculation for roof area, since people fill in their lenght and width of the roof, we calculate the roof area. 
+
+				////////////////////////////////////////////////////////
+				//                                                    //
+				//  This whole thing calculates the water collected.  //
+				//  If (inputs. municipality & inputs.rooftype &      //
+				//  area) is there because it should only be          //
+				//  calculate our water collected when all these      //
+				//  things are filled in.                             //
+				//                                                    //
+				////////////////////////////////////////////////////////
+
 			
+					var watercollected = [0,0,0,0,0,0,0,0,0,0,0,0];
+					for (var index = 0; index < day_mon.length;index++){
+						watercollected[index] = area * rainfall[inputs.municipality][index] * inputs.roof_type;
+					}
+				
+				
+				
+				var mon_consumption = [0,0,0,0,0,0,0,0,0,0,0,0];      // Shows us an index for our monthly consumption. 12 times a 0 because we have 12 months. 
+
+				//////////////////////////////////////////////////////////
+				//                                                      //
+				//  Calculates the monthly consumption. It takes        //
+				//  essential (which is drinking and cooking) and       //
+				//  all the other activities people have checked.       //
+				//  And times it by the days a month has. This gives    //
+				//  us 12 answers. A total consumption for every month. //
+				//                                                      //
+				//////////////////////////////////////////////////////////
+
+				for (var index = 0; index<day_mon.length;index++){
+					mon_consumption[index] = essential * day_mon[index] + other_activities * day_mon[index];
+				} 
+
+			
+				var diff = 0;                                           // difference between water collected minus consumption. Here defined as 0.  
+				var inventory = [0,0,0,0,0,0,0,0,0,0,0,0];              // Index which will be used later for inventory. Inventory is the amount of liters of water which is in each month in their tank. 
+
+				//////////////////////////////////////////////////////////
+				//                                                      //
+				//  This whole thing calculates the inventory.          //
+				//  So, the amount of liters which will be in their     //
+				//  tank each month. Based on the efficiency, rainfall  //
+				//  per municipality and size of the roof.              //
+				//                                                      //
+				//////////////////////////////////////////////////////////
+
+
+				
+					for (var i = 0; i < day_mon.length; i++){
+						diff = watercollected[i] - mon_consumption[i];
+						if(diff < 0){
+							diff = 0;
+						};
+						if (i === 0){
+							inventory[i] = diff;
+						} else {
+							inventory[i] = inventory[i-1] + diff;
+						}
+					}
+				
+			
+			
+			
+				//////////////////////////////////////////////////////////
+				//                                                      //
+				//  Gives us the maximum of the index of the inventory  //
+				//  which is per month. This max is thus where the      //
+				//  montly collection is highest. The tank should       //
+				//  be at least this size to be able to collect         //
+				//  everymonth this amount.                             //
+				//                                                      //
+				//////////////////////////////////////////////////////////
+
+				var cisternsize = Math.max.apply(null, inventory);		
+
+								
+				
+					
+				////////////////////////////////////////////////////////
+				//                                                    //
+				//                    Returns                         //
+				//  Return tells us what we want to tell the people   //                     //
+				////////////////////////////////////////////////////////
+
+				// essentialDailyUse is the water which a family needs for drinking and cooking which needs to be for sure 'good' water. 
+				// TotalOtherUse is the water which is drinking and cooking + the activities which the people have checked. 
+				// Cisternsize is the size of the cistern which is needed to cover the specific demand of this family (based on the activities they have checked)
+
+				
+				outputs.essentialDailyUse = essential 
+				outputs.totalOtherUse = other_activities 
+				outputs.minTankSize = cisternsize 
+				outputs.monthlyUse = mon_consumption
+				outputs.monthlyCollection = watercollected
+					 
+				
+				
+				return outputs 				
+				
 			}
+			
+							
+			
+			
 			
      
 		</script>
