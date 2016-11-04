@@ -141,6 +141,8 @@ var TANK_SIZE2_LBL = "liters of storage tank capacity!";
 
 var MORE_INFO_BUTTON_LBL = "More information";
 
+var RHS_TITLE = "Results";
+
 //////////////////////////////////////////
 //										//
 //		COMPLEX RESULTS DISPLAY 	 	//
