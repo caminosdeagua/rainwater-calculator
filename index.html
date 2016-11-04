@@ -151,7 +151,7 @@
 				<!-- When you press this button, it stops letting you edit the form 
 						and displays your inputs in a table -->
 				<div class="button">
-					<button onclick="replace('LHS_inputs','LHS_display')" id="calc_button"></button>
+					<button onclick="replace('LHS_inputs','LHS_display'); " id="calc_button"></button>
 				</div>
 			</div>
 			<div id="LHS_display">
@@ -166,7 +166,7 @@
 					<p name="display_text">.</p>
 					<br><br>
 					<div class="button" align="center">
-						<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button" ></button>
+						<button onclick="replace('LHS_display','LHS_inputs');" id="back2inputs_button" ></button>
 					</div>
 				</div>
 			</div>
@@ -867,6 +867,13 @@
 				}
 				
 			}
+			
+			//function widthShift() {
+			//	var lhs_wid = document.getElementById("left_hand_side").style.width;
+			//	var rhs_wid = document.getElementById("right_hand_side").style.width;
+			//	document.getElementById("left_hand_side").style.width = rhs_wid;
+			//	document.getElementById("right_hand_side").style.width = lhs_wid;
+			//}
 			
 			////////////////////////////////////////////////////////////////////
 			////			function inputs2outputs				 			////
