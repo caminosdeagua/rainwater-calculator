@@ -8,9 +8,9 @@ var CALC_TITLE = "Rainwater Harvesting Calculator";
 
 var HEADER = "Rainwater Harvesting in the Independence Watershed";
 
-var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please contact <a href='http://caminosdeagua.org/contact-1'>Caminos de Agua</a>.";
+var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please contact <a href='http://caminosdeagua.org/contact-1' target = '_blank'>Caminos de Agua</a>.";
 
-var INSTRUCTIONS = "Answer the questions below about your household as best you can.<br>The calculator will approximate your daily ‘essential’ water need and your daily ‘total’ water need. Your essential water need displays the number of liters your family needs for drinking and cooking. You should make sure that you only use water which is safe and healthy for drinking and cooking. Your total water need is the number of liters your family needs for drinking and cooking plus other activities. You can chose by yourself which activities you want to do with your harvesting rainwater. The calculator will tell you how much rainwater storage you need to fulfill your needs, based on the rainfall in your municipality.";
+var INSTRUCTIONS = "<b>Answer the questions below about your household as best you can.</b><br><br>The calculator will approximate your daily ‘essential’ water need and your daily ‘total’ water need. <br><br>Your <b>essential water need</b> displays the number of liters your family needs for drinking and cooking. You should make sure that you only use water which is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target = '_blank'>safe and healthy</a> for drinking and cooking. <br>Your <b>total water need</b> is the number of liters your family needs for drinking and cooking plus other activities. You can chose by yourself which activities you want to do with your harvesting rainwater. <br><br>Secondly, the calculator will tell you how much rainwater storage you need to fulfill your needs, based on the rainfall in your municipality. <br><br> <b>Let's calculate</b>";
 
 
 //////////////////////////////////////////
@@ -20,7 +20,7 @@ var INSTRUCTIONS = "Answer the questions below about your household as best you 
 //////////////////////////////////////////
 
 //////		TOO FEW PEOPLE			//////
-var PPL_MIN_E1 = "Uh oh!  You need at least "; 
+var PPL_MIN_E1 = "You need at least "; 
 var PPL_MIN_E2 = " person!";
 
 //////		TOO MANY PEOPLE			//////
@@ -50,7 +50,7 @@ var MUNI_VAL1_LBL = "Dolores Hidalgo";
 var MUNIS = [MUNI_VAL0_LBL, MUNI_VAL1_LBL];
 
 //////		PEOPLE IN HOUSEHOLD		//////
-var PPL0_LBL = "Number of people in your household:";
+var PPL0_LBL = "How many people live in your house?";
 
 //////		ROOF SIZE 				//////
 var LENGTH0_LBL = "What is the length of your roof (meters)?:";
@@ -64,7 +64,7 @@ var SPANISH_ROOF_LBL = "Spanish tile";
 var ROOF_TYPES = [CEMENT_ROOF_LBL, SHEET_ROOF_LBL, SPANISH_ROOF_LBL];
 
 //////	NON-ESSENTIAL WATER USES	//////
-var USES0_LBL = "Select all the daily activities for which you would like to use rainwater. If you have another daily activity for which you want to use rainwater, you can select ‘other’ and estimate how much water you need for this activity.";
+var USES0_LBL = "Select all the daily activities for which you would like to use rainwater.";
 var BRUSH_CHK_LBL = "Brushing your teeth";
 var HANDS_CHK_LBL = "Washing your hands";
 var GARDEN_CHK_LBL = "Watering your garden";
@@ -121,7 +121,7 @@ var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
 var USE_TXT = ["Besides <b>drinking</b> and <b>cooking</b>, you use water for: "];
-var NO_USE = "NOTHING!!!";
+var NO_USE = "Nothing";
 ///////////////////////////////////////////////////////////////// FINISH THIS SHIT !!!!!!!!!!!!!%%%%%%%$$$$$$$$$$###########
 
 var DISPLAY_TXT = [];
@@ -131,14 +131,14 @@ var DISPLAY_TXT = [];
 //										//
 //////////////////////////////////////////
 
-var ESSENTIAL_USE0_LBL = "Each day, your household needs about";
-var ESSENTIAL_USE2_LBL = "liters for drinking and cooking.";
+var ESSENTIAL_USE0_LBL = "<b><i>Essential Water Need</b></i><br>Each day, your household needs about";
+var ESSENTIAL_USE2_LBL = "for <b>drinking</b> and <b>cooking</b>.";
 
-var TOTAL_USE0_LBL = "Each day, your household needs about";
-var TOTAL_USE2_LBL = "total liters for ALL your water uses.";
+var TOTAL_USE0_LBL = "<b><i>Total Water Need</b></i><br>Each day, your household needs about";
+var TOTAL_USE2_LBL = "for ALL your water uses<br>(including drinking and cooking).";
 
-var TANK_SIZE0_LBL = "Based on your location,\nyou could meet your household's entire ESSENTIAL water\nneeds with only";
-var TANK_SIZE2_LBL = "liters of storage tank capacity!";
+var TANK_SIZE0_LBL = "<b><i>Minimum Size of your Cistern</b></i><br>Based on your location, you can meet your household's entire ESSENTIAL water needs with a cistern of";
+var TANK_SIZE2_LBL = "";
 
 var MORE_INFO_BUTTON_LBL = "More information";
 
