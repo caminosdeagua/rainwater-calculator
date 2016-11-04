@@ -6,11 +6,12 @@
 
 var CALC_TITLE = "Rainwater Harvesting Calculator";
 
-var HEADER = "Independence Watershed Rainwater Harvesting Calculator";
+var HEADER = "Rainwater Harvesting in the Independence Watershed";
 
 var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please contact <a href='http://caminosdeagua.org/contact-1'>Caminos de Agua</a>.";
 
-var INSTRUCTIONS = "Fill out the following table with your household's information, as best you can. The calculator will approximate your annual 'essential' water consumption and your annual total water consumption. Then, based on your location, it will tell you how much rainwater storage capacity you need to meet your 'essential' water needs in an average year.";
+var INSTRUCTIONS = "Answer the questions below about your household as best you can.<br>The calculator will approximate your daily ‘essential’ water need and your daily ‘total’ water need. Your essential water need displays the number of liters your family needs for drinking and cooking. You should make sure that you only use water which is safe and healthy for drinking and cooking. Your total water need is the number of liters your family needs for drinking and cooking plus other activities. You can chose by yourself which activities you want to do with your harvesting rainwater. The calculator will tell you how much rainwater storage you need to fulfill your needs, based on the rainfall in your municipality.";
+
 
 //////////////////////////////////////////
 //										//
@@ -23,18 +24,18 @@ var PPL_MIN_E1 = "Uh oh!  You need at least ";
 var PPL_MIN_E2 = " person!";
 
 //////		TOO MANY PEOPLE			//////
-var PPL_MAX_E1 = "Currently, we don't allow more than ";
+var PPL_MAX_E1 = "We don't allow more than ";
 var PPL_MAX_E2 = " people. Sorry!";
 
 //////		ROOF TOO SMALL			//////
-var SIZE_MIN_E1 = "That's shur a small ruff ya got thur!";
+var SIZE_MIN_E1 = "Your roof can't have a length or width of 0";
 
 //////		ROOF TOO BIG			//////
-var SIZE_MAX_E1 = "Currently, we don't allow more than ";
+var SIZE_MAX_E1 = "We don't allow more than ";
 var SIZE_MAX_E2 = " meters. Sorry!";
 
 //////		FRACTIONAL PEOPLE		//////
-var PPL_DECIMAL_E = "You can't have partial numbers of people...stop chopping up your children!";
+var PPL_DECIMAL_E = "You can't have partial numbers of people";
 
 //////////////////////////////////////////
 //										//
@@ -52,8 +53,8 @@ var MUNIS = [MUNI_VAL0_LBL, MUNI_VAL1_LBL];
 var PPL0_LBL = "Number of people in your household:";
 
 //////		ROOF SIZE 				//////
-var LENGTH0_LBL = "Length of your roof (meters):";
-var WIDTH0_LBL = "Width of your roof (meters):";
+var LENGTH0_LBL = "What is the length of your roof (meters)?:";
+var WIDTH0_LBL = "What is the width of your roof (meters)?:";
 
 //////		ROOF TYPE				//////
 var ROOF0_LBL = "What kind of roof do you have?";
@@ -63,13 +64,13 @@ var SPANISH_ROOF_LBL = "Spanish tile";
 var ROOF_TYPES = [CEMENT_ROOF_LBL, SHEET_ROOF_LBL, SPANISH_ROOF_LBL];
 
 //////	NON-ESSENTIAL WATER USES	//////
-var USES0_LBL = "Select everything you do with water:";
+var USES0_LBL = "Select all the daily activities for which you would like to use rainwater. If you have another daily activity for which you want to use rainwater, you can select ‘other’ and estimate how much water you need for this activity.";
 var BRUSH_CHK_LBL = "Brushing your teeth";
 var HANDS_CHK_LBL = "Washing your hands";
-var GARDEN_CHK_LBL = "Watering a garden";
-var DISHES_CHK_LBL = "Washing dishes";
-var BATH_CHK_LBL = "Bathing";
-var CLOTHES_CHK_LBL = "Laundry";
+var GARDEN_CHK_LBL = "Watering your garden";
+var DISHES_CHK_LBL = "Washing the dishes";
+var BATH_CHK_LBL = "Taking a shower/bath";
+var CLOTHES_CHK_LBL = "Doing the laundry";
 var TOILET_CHK_LBL = "Flushing the toilet";
 var OTHER_CHK_LBL = "Other";
 
@@ -105,15 +106,15 @@ var CALC_BUTTON_LBL = "Calculate!";
 
 //////////////////////////////////////////
 //										//
-//		LEFT HAND SIDE INPUTS DISPLAY 	//
+//		LEFT HAND SIDE DISPLAY 			//
 //										//
 //////////////////////////////////////////
 
 //////		GO BACK BUTTON 	   	 	//////
-var BACK2INPUTS_BUTTON_LBL = "Change my info";
+var BACK2INPUTS_BUTTON_LBL = "Change my information";
 
 var LHS_DISPLAY_TITLE = "Great work!";
-var LHS_INSTRUCTIONS = "Please make sure the following information was entered correctly. If not, just press the button below to fix it. If it's good to go, your results are displayed in the orange pannel to the right!"
+var LHS_INSTRUCTIONS = "Please make sure the following information was entered correctly. If not, press the button below to change your information. If your information is correctly entered, your results are displayed in the orange pannel to the right!"
 
 var MUN_TXT = ["You live in <b>","</b>."];
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
