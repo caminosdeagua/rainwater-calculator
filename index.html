@@ -309,30 +309,13 @@
 
 				<div style="text-align: center">
 					<button onclick="replace('RHS_complex','RHS_simple')" id="less_info_button0" class="info_button"></button>
-				<div>
+				</div>
+			</div>
+			<div id="RHS_big">
 			
 			
 			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
-			
+				
 			</div>
 		
 		
@@ -857,9 +840,16 @@
 				if (lhs > rhs) {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
+					document.getElementById("RHS_simple").hidden=true;
+					document.getElementById("RHS_complex").hidden=true;
+					document.getElementById("RHS_big").hidden=false;
 				} else {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
+					document.getElementById("RHS_simple").style.opacity = 1;
+					document.getElementById("RHS_simple").hidden=false;
+					document.getElementById("RHS_complex").hidden=true;	
+					document.getElementById("RHS_big").hidden=true;
 				};
 			}
 			
