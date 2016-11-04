@@ -31,7 +31,7 @@
 				<!-- the top text goes here -->
 				<h1 id="header"></h1>
 				<h3 id="sub_header"></h3>
-				<h5 id="instructions"></h5>
+				<p id="instructions"></p>
 				
 				<!-- start the form!!! -->
 				<form id="calc_form" class="form">
@@ -941,11 +941,12 @@
 				}
 
 				if (inputs.dishes_chk){
+					console.log("both hand and machine dishes need to be changed!!")
 					if (inputs.dishes_washing_type == 0){				// FAKE NUMBER ! calculates the amount of liters one family needs for one day when they wash their dishes by hand
-						l_day_dishes = "FAKE NUMBER" * inputs.ppl;
+						l_day_dishes = 20 * inputs.ppl;
 					}
 					else if (inputs.dishes_washing_type == 1){			// FAKE NUMBER ! calculates the amount of liters one family needs for one day when they wash their dishes using a machine 
-						l_day_dishes = "FAKE NUMBER" * inputs.ppl;
+						l_day_dishes = 500 * inputs.ppl;
 					}
 				} 
 
