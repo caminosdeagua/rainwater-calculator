@@ -132,20 +132,14 @@ input[type="checkbox"] {
 }
 
 .output_number {
-	margin-top: 40px;
+	margin-top: 20px;
 	margin-bottom: 60px;
-	text-align: center;
 	font-size: 18px;
 }
 
 .return_num {
 	font-size: 72px;
 	
-}
-
-.info_button {
-	text-align: center;
-	margin-top: 40px;
 }
 
 table {
@@ -170,6 +164,19 @@ tr:hover {
 
 tr.title_row:hover{
 	background-color: #BBBBBB;
+}
+
+.to_indent {
+	margin: 40px;
+	width: 340px;
+	border: solid;
+	padding-left: 5px;
+	padding-right: 5px;
+}
+
+.res_title {
+	font-size: 48px;
+	
 }
 
 

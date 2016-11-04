@@ -77,9 +77,9 @@
 					<!-- Type of roof -->
 					<div>
 						<label id="roof0"></label><br>
-						<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>.<br>
-						<input type="radio" id="sheet_roof" name="roof_type" value="0.8">.<br>
-						<input type="radio" id="spanish_roof" name="roof_type" value="0.7">.
+						<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
+						<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
+						<input type="radio" id="spanish_roof" name="roof_type" value="2">.
 					</div>	
 					<br>
 					
@@ -151,38 +151,23 @@
 				<!-- When you press this button, it stops letting you edit the form 
 						and displays your inputs in a table -->
 				<div class="button">
-					<button onclick="replace('LHS_inputs','LHS_display')" id="calc_button"></button>
+					<button onclick="replace('LHS_inputs','LHS_display'); " id="calc_button"></button>
 				</div>
 			</div>
 			<div id="LHS_display">
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<div class="button">
-					<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button"></button>
+				<h1 id="header_display"></h1>
+				<h3 id="sub_header_display"></h3>
+				<h5 id="instructions_display"></h5>
+				<div class="to_indent">
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<br><br>
+					<div class="button" align="center">
+						<button onclick="replace('LHS_display','LHS_inputs');" id="back2inputs_button" ></button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -191,7 +176,8 @@
 		<div id="right_hand_side">
 		
 			<!-- First, by default, let's display the simple version -->
-			<div id = "RHS_simple">
+			<div id = "RHS_simple" align="center">
+				<h1 class="res_title" id="RHS_simple_title"></h1>
 			
 				<!-- Display the amount used for just drinking+cooking -->
 				<div class="output_number">
@@ -219,7 +205,8 @@
 					<button onclick="replace('RHS_simple','RHS_complex')" id="more_info_button0" class="info_button"></button>
 				</div>
 			</div>
-			<div id="RHS_complex">
+			<div id="RHS_complex" align="center">
+				<h1 class="res_title" id="RHS_complex_title"></h1>
 				<!-- Display the amount used for just drinking+cooking -->
 				<div class="output_number">
 					<label id="essential_use0_complex"></label><br>
@@ -378,8 +365,11 @@
 		
 			function init() {
 			
-				addLanguageText();
+				
+				
 				initForm();
+				
+				
 				loadStartingValues();
 				hideErrorLbls();
 				hideExtraText();
@@ -387,6 +377,8 @@
 				
 				displayStuff = inputs2outputs(allData);
 				displayOutputs(displayStuff);
+				
+				addLanguageText();
 				
 				startInterrupt();
 				
@@ -448,6 +440,11 @@
 				document.getElementById("table_lbl").innerHTML = TABLE_LBL;
 				document.getElementById("calc_button").innerHTML = CALC_BUTTON_LBL;
 				document.getElementById("back2inputs_button").innerHTML = BACK2INPUTS_BUTTON_LBL;
+				document.getElementById("header_display").innerHTML = HEADER;
+				document.getElementById("sub_header_display").innerHTML = LHS_DISPLAY_TITLE;
+				document.getElementById("instructions_display").innerHTML = LHS_INSTRUCTIONS;
+				document.getElementById("RHS_simple_title").innerHTML = RHS_TITLE;
+				document.getElementById("RHS_complex_title").innerHTML = RHS_TITLE;
 				
 				var els = document.getElementsByName("table_titles")
 				for (var i=0; i<els.length; i++) {
@@ -458,6 +455,8 @@
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = MONTHS[i];
 				};
+				
+				updateOutputText();
 				
 			}
 			
@@ -557,9 +556,47 @@
 				} else if (el.type == "radio") {
 					allData[el.name] =  el.value;
 				};
+				updateOutputText();
 				displayStuff = inputs2outputs(allData);
 				displayOutputs(displayStuff);
 				
+			}
+			
+			////////////////////////////////////////////////////////////////////
+			////				function updateOutputText() 				////
+			//// 															////
+			////	Updates the text that's displayed on the LHS display	////
+			////	screen after the user submits the form.					////
+			////////////////////////////////////////////////////////////////////
+			
+			
+			function updateOutputText() {
+				DISPLAY_TXT[0] = MUN_TXT[0]+MUNIS[allData.municipality]+MUN_TXT[1]; 	// Display municipality message
+				if (allData.ppl > 1) { 													// Parse person (1) or people (>1)
+					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[2];
+				} else {
+					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[1];
+				}
+				DISPLAY_TXT[2] = LEN_WID_TXT[0]+allData.length+LEN_WID_TXT[1]+allData.width+LEN_WID_TXT[2];
+				DISPLAY_TXT[3] = ROOF_TYPE_TXT[0]+ROOF_TYPES[allData.roof_type]+ROOF_TYPE_TXT[1];
+				
+				var els = document.getElementsByClassName("water_use"); 	// Display all other water uses. 
+				DISPLAY_TXT[4] = USE_TXT[0];
+				var counter = 0;
+				for (var i=0; i<els.length; i++) {
+					if (els[i].checked) {
+						counter++;
+						DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + USES[i]
+					}
+				}
+				if (counter==0) {
+					DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + NO_USE;
+				}
+				
+				var els = document.getElementsByName("display_text"); 		// Actually update all the <p> elements
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = DISPLAY_TXT[i];
+				};
 			}
 			
 			////////////////////////////////////////////////////////////////////
@@ -799,10 +836,7 @@
 				fadeOut(document.getElementById(e2hide), true);
 				fadeIn(document.getElementById(e2show));
 			}
-			//function showSimple() {
-			//	fadeOut(document.getElementById("RHS_complex"), true);
-			//	fadeIn(document.getElementById("RHS_simple"));
-			//}
+
 			
 			////////////////////////////////////////////////////////////////////
 			////			function displayOutputs				 			////
@@ -833,6 +867,13 @@
 				}
 				
 			}
+			
+			//function widthShift() {
+			//	var lhs_wid = document.getElementById("left_hand_side").style.width;
+			//	var rhs_wid = document.getElementById("right_hand_side").style.width;
+			//	document.getElementById("left_hand_side").style.width = rhs_wid;
+			//	document.getElementById("right_hand_side").style.width = lhs_wid;
+			//}
 			
 			////////////////////////////////////////////////////////////////////
 			////			function inputs2outputs				 			////
