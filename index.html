@@ -151,25 +151,22 @@
 				<!-- When you press this button, it stops letting you edit the form 
 						and displays your inputs in a table -->
 				<div class="button">
-					<button onclick="replace('LHS_inputs','LHS_display'); " id="calc_button"></button>
+					<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
 				</div>
 			</div>
 			<div id="LHS_display">
 				<h1 id="header_display"></h1>
 				<h3 id="sub_header_display"></h3>
 				<h5 id="instructions_display"></h5>
-				<div class="to_indent">
-					
-					
+				<div class="to_indent">					
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
-
 					<br><br>
 					<div class="button" align="center">
-						<button onclick="replace('LHS_display','LHS_inputs');" id="back2inputs_button" ></button>
+						<button onclick="replace('LHS_display','LHS_inputs'); widthShift()" id="back2inputs_button" ></button>
 					</div>
 				</div>
 			</div>
@@ -309,11 +306,7 @@
 				</div>
 				
 				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+
 				<div style="text-align: center">
 					<button onclick="replace('RHS_complex','RHS_simple')" id="less_info_button0" class="info_button"></button>
 				<div>
@@ -374,6 +367,8 @@
 				addLanguageText();
 				
 				startInterrupt();
+				
+				
 			};
 			
 			////////////////////////////////////////////////////////////////////
@@ -856,12 +851,17 @@
 				
 			}
 			
-			//function widthShift() {
-			//	var lhs_wid = document.getElementById("left_hand_side").style.width;
-			//	var rhs_wid = document.getElementById("right_hand_side").style.width;
-			//	document.getElementById("left_hand_side").style.width = rhs_wid;
-			//	document.getElementById("right_hand_side").style.width = lhs_wid;
-			//}
+			function widthShift() {
+				var lhs = document.getElementById("left_hand_side").offsetWidth;
+				var rhs = document.getElementById("right_hand_side").offsetWidth;
+				if (lhs > rhs) {
+					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
+					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
+				} else {
+					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
+					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
+				};
+			}
 			
 			////////////////////////////////////////////////////////////////////
 			////			function inputs2outputs				 			////
