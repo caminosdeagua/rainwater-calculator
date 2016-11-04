@@ -18,4 +18,12 @@ var numAcceptableKeys = ["ArrowLeft", "ArrowRight", 		// Define which keys shoul
 							"0", "1", "2", "3", "4", "5", 
 							"6", "7", "8", "9", "."
 ];
+var EFF_CEMENT = 0.85;
+var EFF_SHEET = 0.9;
+var EFF_SPANISH_TILE = 0.8;
+var EFFS = [EFF_CEMENT, EFF_SHEET, EFF_SPANISH_TILE]; // THESE ARE PLACEHOLDER
 
+var INPUT_WIDTH_BEFORE = "70%";
+var INPUT_WIDTH_AFTER = "35%";
+var OUTPUT_WIDTH_BEFORE = "30%";
+var OUTPUT_WIDTH_AFTER = "65%";

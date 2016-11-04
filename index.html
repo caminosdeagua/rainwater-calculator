@@ -151,14 +151,14 @@
 				<!-- When you press this button, it stops letting you edit the form 
 						and displays your inputs in a table -->
 				<div class="button">
-					<button onclick="replace('LHS_inputs','LHS_display'); " id="calc_button"></button>
+					<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
 				</div>
 			</div>
 			<div id="LHS_display">
 				<h1 id="header_display"></h1>
 				<h3 id="sub_header_display"></h3>
 				<h5 id="instructions_display"></h5>
-				<div class="to_indent">
+				<div class="to_indent">					
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
@@ -166,7 +166,7 @@
 					<p name="display_text">.</p>
 					<br><br>
 					<div class="button" align="center">
-						<button onclick="replace('LHS_display','LHS_inputs');" id="back2inputs_button" ></button>
+						<button onclick="replace('LHS_display','LHS_inputs'); widthShift()" id="back2inputs_button" ></button>
 					</div>
 				</div>
 			</div>
@@ -184,13 +184,6 @@
 					<label id="essential_use0"></label><br>
 					<label class="return_num" id="essential_use1">0</label><br>
 					<label id="essential_use2"></label>
-				</div>
-				
-				<!-- Display the TOTAL water used in a day -->
-				<div class="output_number">
-					<label id="total_use0"></label><br>
-					<label class="return_num" id="total_use1">0</label><br>
-					<label id="total_use2"></label>
 				</div>
 				
 				<!-- Display the minimum tank size required for all essential uses -->
@@ -313,11 +306,7 @@
 				</div>
 				
 				<br>
-				<br>
-				<br>
-				<br>
-				<br>
-				<br>
+
 				<div style="text-align: center">
 					<button onclick="replace('RHS_complex','RHS_simple')" id="less_info_button0" class="info_button"></button>
 				<div>
@@ -364,12 +353,9 @@
 			////////////////////////////////////////////////////////////////////
 		
 			function init() {
-			
-				
-				
+							
 				initForm();
-				
-				
+							
 				loadStartingValues();
 				hideErrorLbls();
 				hideExtraText();
@@ -425,8 +411,6 @@
 				document.getElementById("other_extra3").innerHTML = OTHER_EXTRA3_LBL;
 				document.getElementById("essential_use0").innerHTML = ESSENTIAL_USE0_LBL;
 				document.getElementById("essential_use2").innerHTML = ESSENTIAL_USE2_LBL;
-				document.getElementById("total_use0").innerHTML = TOTAL_USE0_LBL;
-				document.getElementById("total_use2").innerHTML = TOTAL_USE2_LBL;
 				document.getElementById("tank_size0").innerHTML = TANK_SIZE0_LBL;
 				document.getElementById("tank_size2").innerHTML = TANK_SIZE2_LBL;
 				document.getElementById("essential_use0_complex").innerHTML = ESSENTIAL_USE0_LBL;
@@ -456,7 +440,7 @@
 					els[i].innerHTML = MONTHS[i];
 				};
 				
-				updateOutputText();
+				updateOutputText(); 
 				
 			}
 			
@@ -586,7 +570,7 @@
 				for (var i=0; i<els.length; i++) {
 					if (els[i].checked) {
 						counter++;
-						DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + USES[i]
+						DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0&#8226;\xa0" + USES[i]
 					}
 				}
 				if (counter==0) {
@@ -847,9 +831,8 @@
 			
 			
 			function displayOutputs(o) {
-				document.getElementById("essential_use1").innerHTML = String(o.essentialDailyUse);
-				document.getElementById("total_use1").innerHTML = String(o.essentialDailyUse+o.totalOtherUse);
-				document.getElementById("tank_size1").innerHTML = String(o.minTankSize);
+				document.getElementById("essential_use1").innerHTML = String(o.essentialDailyUse)+L_ADDON_LBL;
+				document.getElementById("tank_size1").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
 				document.getElementById("essential_use1_complex").innerHTML = String(o.essentialDailyUse);
 				document.getElementById("total_use1_complex").innerHTML = String(o.essentialDailyUse+o.totalOtherUse);
 				document.getElementById("tank_size1_complex").innerHTML = String(o.minTankSize);
@@ -863,17 +846,22 @@
 				}
 				var els = document.getElementsByName("inventory");
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = String(o.monthlyCollection[i]-o.monthlyUse[i]);
+					els[i].innerHTML = String(o.inventory[i]);
 				}
 				
 			}
 			
-			//function widthShift() {
-			//	var lhs_wid = document.getElementById("left_hand_side").style.width;
-			//	var rhs_wid = document.getElementById("right_hand_side").style.width;
-			//	document.getElementById("left_hand_side").style.width = rhs_wid;
-			//	document.getElementById("right_hand_side").style.width = lhs_wid;
-			//}
+			function widthShift() {
+				var lhs = document.getElementById("left_hand_side").offsetWidth;
+				var rhs = document.getElementById("right_hand_side").offsetWidth;
+				if (lhs > rhs) {
+					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
+					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
+				} else {
+					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
+					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
+				};
+			}
 			
 			////////////////////////////////////////////////////////////////////
 			////			function inputs2outputs				 			////
@@ -911,6 +899,7 @@
 					minTankSize: 0,
 					monthlyUse: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0),
 					monthlyCollection: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0),					
+					inventory: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0)
 				};
 				
 				////////////////////////////////////////////////////////////
@@ -1013,7 +1002,7 @@
 			
 					var watercollected = [0,0,0,0,0,0,0,0,0,0,0,0];
 					for (var index = 0; index < day_mon.length;index++){
-						watercollected[index] = area * rainfall[inputs.municipality][index] * inputs.roof_type;
+						watercollected[index] = area * rainfall[inputs.municipality][index] * EFFS[inputs.roof_type];
 					}
 				
 				
@@ -1090,12 +1079,12 @@
 				// Cisternsize is the size of the cistern which is needed to cover the specific demand of this family (based on the activities they have checked)
 
 				
-				outputs.essentialDailyUse = essential 
-				outputs.totalOtherUse = other_activities 
-				outputs.minTankSize = cisternsize 
-				outputs.monthlyUse = mon_consumption
-				outputs.monthlyCollection = watercollected
-					 
+				outputs.essentialDailyUse = essential;
+				outputs.totalOtherUse = other_activities; 
+				outputs.minTankSize = cisternsize;
+				outputs.monthlyUse = mon_consumption;
+				outputs.monthlyCollection = watercollected;
+				outputs.inventory = inventory;	 
 				
 				
 				return outputs 				
