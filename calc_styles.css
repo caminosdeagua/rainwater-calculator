@@ -174,8 +174,10 @@ tr.title_row:hover{
 
 .to_indent {
 	margin: 40px;
+	width: 340px;
 	border: solid;
 	padding-left: 5px;
+	padding-right: 5px;
 }
 
 

@@ -119,8 +119,8 @@ var MUN_TXT = ["You live in <b>","</b>."];
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
-var USE_TXT = ["Besides <b>drinking</b> and <b>cooking</b>, you use water for <b>"];
-
+var USE_TXT = ["Besides <b>drinking</b> and <b>cooking</b>, you use water for: <b>"];
+var NO_USE = "NOTHING!!!";
 ///////////////////////////////////////////////////////////////// FINISH THIS SHIT !!!!!!!!!!!!!%%%%%%%$$$$$$$$$$###########
 
 var DISPLAY_TXT = [];

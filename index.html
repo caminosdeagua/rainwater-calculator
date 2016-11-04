@@ -164,8 +164,9 @@
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
-					<div class="button">
-						<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button"></button>
+					<br><br>
+					<div class="button" align="center">
+						<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button" ></button>
 					</div>
 				</div>
 			</div>
@@ -578,10 +579,15 @@
 				
 				var els = document.getElementsByClassName("water_use"); 	// Display all other water uses. 
 				DISPLAY_TXT[4] = USE_TXT[0];
-				for(var i=0; i<els.length; i++) {
+				var counter = 0;
+				for (var i=0; i<els.length; i++) {
 					if (els[i].checked) {
+						counter++;
 						DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + USES[i]
 					}
+				}
+				if (counter==0) {
+					DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + NO_USE;
 				}
 				
 				var els = document.getElementsByName("display_text"); 		// Actually update all the <p> elements
