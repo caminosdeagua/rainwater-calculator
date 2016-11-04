@@ -73,6 +73,10 @@ var CLOTHES_CHK_LBL = "Laundry";
 var TOILET_CHK_LBL = "Flushing the toilet";
 var OTHER_CHK_LBL = "Other";
 
+var USES = [BRUSH_CHK_LBL, HANDS_CHK_LBL, GARDEN_CHK_LBL,
+			DISHES_CHK_LBL, BATH_CHK_LBL, CLOTHES_CHK_LBL,
+			TOILET_CHK_LBL, OTHER_CHK_LBL];
+
 //////////////////////////////////////////
 //										//
 //		HIDDEN EXTRA FIELDS:			//
@@ -108,10 +112,15 @@ var CALC_BUTTON_LBL = "Calculate!";
 //////		GO BACK BUTTON 	   	 	//////
 var BACK2INPUTS_BUTTON_LBL = "Change my info";
 
+var LHS_DISPLAY_TITLE = "Great work!";
+var LHS_INSTRUCTIONS = "Please make sure the following information was entered correctly. If not, just press the button below to fix it. If it's good to go, your results are displayed in the orange pannel to the right!"
+
 var MUN_TXT = ["You live in <b>","</b>."];
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
-var LEN_TXT = ["Your roof is <b>"," </b>meter(s) long."];
-var WID_TXT = ["\xa0\xa0\xa0\xa0by <b>"," </b>meter(s) wide."];
+var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
+var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
+var USE_TXT = ["Besides <b>drinking</b> and <b>cooking</b>, you use water for <b>"];
+
 ///////////////////////////////////////////////////////////////// FINISH THIS SHIT !!!!!!!!!!!!!%%%%%%%$$$$$$$$$$###########
 
 var DISPLAY_TXT = [];

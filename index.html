@@ -77,9 +77,9 @@
 					<!-- Type of roof -->
 					<div>
 						<label id="roof0"></label><br>
-						<input type="radio" id="cement_roof" name="roof_type" value="0.9" checked>.<br>
-						<input type="radio" id="sheet_roof" name="roof_type" value="0.8">.<br>
-						<input type="radio" id="spanish_roof" name="roof_type" value="0.7">.
+						<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
+						<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
+						<input type="radio" id="spanish_roof" name="roof_type" value="2">.
 					</div>	
 					<br>
 					
@@ -155,23 +155,18 @@
 				</div>
 			</div>
 			<div id="LHS_display">
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-				<p name="display_text">.</p>
-
-				<div class="button">
-					<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button"></button>
+				<h1 id="header_display"></h1>
+				<h3 id="sub_header_display"></h3>
+				<h5 id="instructions_display"></h5>
+				<div class="to_indent">
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<p name="display_text">.</p>
+					<div class="button">
+						<button onclick="replace('LHS_display','LHS_inputs')" id="back2inputs_button"></button>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -442,6 +437,10 @@
 				document.getElementById("table_lbl").innerHTML = TABLE_LBL;
 				document.getElementById("calc_button").innerHTML = CALC_BUTTON_LBL;
 				document.getElementById("back2inputs_button").innerHTML = BACK2INPUTS_BUTTON_LBL;
+				document.getElementById("header_display").innerHTML = HEADER;
+				document.getElementById("sub_header_display").innerHTML = LHS_DISPLAY_TITLE;
+				document.getElementById("instructions_display").innerHTML = LHS_INSTRUCTIONS;
+				
 				
 				var els = document.getElementsByName("table_titles")
 				for (var i=0; i<els.length; i++) {
@@ -559,31 +558,36 @@
 				
 			}
 			
+			////////////////////////////////////////////////////////////////////
+			////				function updateOutputText() 				////
+			//// 															////
+			////	Updates the text that's displayed on the LHS display	////
+			////	screen after the user submits the form.					////
+			////////////////////////////////////////////////////////////////////
 			
-			
-			////////////////// FINISH THIS FUNCTION !!!!! //////////??????????????????????????!!!!!!!!!!!!!!!!########################$$$$$$$$$$$$$$$$$$$$%%%%%%%%%%%%%%%%%%^^^^^^^^^^^^^^^^^^^&&&&&&&&&&&&&&&&&&
 			
 			function updateOutputText() {
-			DISPLAY_TXT[0] = MUN_TXT[0]+MUNIS[allData.municipality]+MUN_TXT[1];
-			if (allData.ppl > 1) {
-				DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[2];
-			
-			} else {
-				DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[1];
-			}
-			
-			
-			
-			
-			var els = document.getElementsByName("display_text");
-			for (var i=0; i<2; i++) {
-				els[i].innerHTML = DISPLAY_TXT[i];
-			};
-			
-			
-			
-			
-			
+				DISPLAY_TXT[0] = MUN_TXT[0]+MUNIS[allData.municipality]+MUN_TXT[1]; 	// Display municipality message
+				if (allData.ppl > 1) { 													// Parse person (1) or people (>1)
+					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[2];
+				} else {
+					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[1];
+				}
+				DISPLAY_TXT[2] = LEN_WID_TXT[0]+allData.length+LEN_WID_TXT[1]+allData.width+LEN_WID_TXT[2];
+				DISPLAY_TXT[3] = ROOF_TYPE_TXT[0]+ROOF_TYPES[allData.roof_type]+ROOF_TYPE_TXT[1];
+				
+				var els = document.getElementsByClassName("water_use"); 	// Display all other water uses. 
+				DISPLAY_TXT[4] = USE_TXT[0];
+				for(var i=0; i<els.length; i++) {
+					if (els[i].checked) {
+						DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + USES[i]
+					}
+				}
+				
+				var els = document.getElementsByName("display_text"); 		// Actually update all the <p> elements
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = DISPLAY_TXT[i];
+				};
 			}
 			
 			////////////////////////////////////////////////////////////////////
