@@ -161,14 +161,7 @@ th {
 table.inventory_table {
 	margin-top: 20px;
 	background-color: #DDDDDD;
-	
-	
-
 }
-
-
-
-
 
 tr.title_row, th.month_lbl {
 	background-color: #BBBBBB;
@@ -201,8 +194,7 @@ tr.title_row:hover{
 }
 
 .res_title {
-	font-size: 48px;
-	
+	font-size: 48px;	
 }
 
 button {
@@ -213,17 +205,20 @@ button {
 	background-color: #DDDDDD;
 	font-size: 18px;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-	
-	
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);	
 }
 
 #calc_button {
 	width: 160px;
-	margin-left: 40px;
-	
+	margin-left: 40px;	
 }
 
+div div.dividing_bar {	
+	background-color: #BBBBBB;
+	width: 15px;
+	height: 1000px;
+	padding-right:0px;
+}
 
 
 
