@@ -131,20 +131,20 @@ var DISPLAY_TXT = [];
 //										//
 //////////////////////////////////////////
 
-var ESSENTIAL_USE0_LBL = "<b><i>Essential Water Need</b></i><br>Each day, your household needs about";
-var ESSENTIAL_USE2_LBL = "for <b>drinking</b> and <b>cooking</b>.";
+var ESSENTIAL_USE_LBL0 = "<b><i>Essential Water Need</b></i><br>Each day, your household needs about";
+var ESSENTIAL_USE_LBL1 = "for <b>drinking</b> and <b>cooking</b>.";
 
-var TOTAL_USE0_LBL = "<b><i>Total Water Need</b></i><br>Each day, your household needs about";
-var TOTAL_USE2_LBL = "for ALL your water uses<br>(including drinking and cooking).";
+var TOTAL_USE_LBL0 = "<b><i>Total Water Need</b></i><br>Each day, your household needs about";
+var TOTAL_USE_LBL1 = "for ALL your water uses<br>(including drinking and cooking).";
 
-var TANK_SIZE0_LBL = "<b><i>Minimum Size of your Cistern</b></i><br>Based on your location, you can meet your household's entire ESSENTIAL water needs with a cistern of";
-var TANK_SIZE2_LBL = "";
+var TANK_SIZE_LBL0 = "<b><i>Minimum Size of your Cistern</b></i><br>Based on your location, you can meet your household's entire ESSENTIAL water needs with a cistern of";
+var TANK_SIZE_LBL1 = "";
 
 var MORE_INFO_BUTTON_LBL = "More information";
 
 var RHS_TITLE = "Results";
 
-var L_ADDON_LBL = "<small> Liters</small>";
+var L_ADDON_LBL = "<small> liters</small>";
 
 //////////////////////////////////////////
 //										//

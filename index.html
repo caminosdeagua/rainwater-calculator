@@ -177,20 +177,20 @@
 		
 			<!-- First, by default, let's display the simple version -->
 			<div id = "RHS_simple" align="center">
-				<h1 class="res_title" id="RHS_simple_title"></h1>
-			
+				<h1 class="res_title"></h1>
+				
 				<!-- Display the amount used for just drinking+cooking -->
-				<div class="output_number">
-					<label id="essential_use0"></label><br>
-					<label class="return_num" id="essential_use1">0</label><br>
-					<label id="essential_use2"></label>
+				<div id = "essential_use0" class="output_number">
+					<label name="essential_use_lbl0"></label><br>
+					<label class="return_num" name="essential_use_num"></label><br>
+					<label name="essential_use_lbl1"></label>
 				</div>
 				
 				<!-- Display the minimum tank size required for all essential uses -->
-				<div class="output_number">
-					<label id="tank_size0"></label><br>
-					<label class="return_num" id="tank_size1">0</label><br>
-					<label id="tank_size2"></label>
+				<div id = "tank_size0" class="output_number">
+					<label name="tank_size_lbl0"></label><br>
+					<label class="return_num" name="tank_size_num"></label><br>
+					<label name="tank_size_lbl1"></label>
 				</div>
 		
 				<!-- Push this button to go to the complex view --> 
@@ -199,97 +199,93 @@
 				</div>
 			</div>
 			<div id="RHS_complex" align="center">
-				<h1 class="res_title" id="RHS_complex_title"></h1>
+				<h1 class="res_title"></h1>
 				<!-- Display the amount used for just drinking+cooking -->
-				<div class="output_number">
-					<label id="essential_use0_complex"></label><br>
-					<label class="return_num" id="essential_use1_complex">0</label><br>
-					<label id="essential_use2_complex"></label>
-				</div>
+				<div id="essential_use1" class="output_number"></div>
 				
 				<!-- Display the TOTAL water used in a day -->
-				<div class="output_number">
-					<label id="total_use0_complex"></label><br>
-					<label class="return_num" id="total_use1_complex">0</label><br>
-					<label id="total_use2_complex"></label>
+				<div id = "total_use0" class="output_number">
+					<label name="total_use_lbl0"></label><br>
+					<label class="return_num" name="total_use_num"></label><br>
+					<label name="total_use_lbl1"></label>
 				</div>
 				
-				<div class="output_number" id="title_row">
-					<label id="table_lbl"></label><br>
-					<table align="center">
+				<div class="output_number" id="inventory_table0">
+					<label name="table_lbl"></label><br>
+					<table class="inventory_table" align="center">
 						<tr class="title_row">
 							<th name="table_titles">.</th>
 							<th name="table_titles">.</th>
 							<th name="table_titles">.</th>
 							<th name="table_titles">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
 							<th name="inventory">.</th>
 						</tr>
-						<tr>
+						<tr class="body_row">
 							<th name="month" class="month_lbl">.</th>
 							<th name="collected">.</th>
 							<th name="used">.</th>
@@ -299,11 +295,7 @@
 				</div>
 				
 				<!-- Display the minimum tank size required for all essential uses -->
-				<div class="output_number">
-					<label id="tank_size0_complex"></label><br>
-					<label class="return_num" id="tank_size1_complex">0</label><br>
-					<label id="tank_size2_complex"></label>
-				</div>
+				<div id = "tank_size1" class="output_number"></div>
 				
 				<br>
 
@@ -311,8 +303,31 @@
 					<button onclick="replace('RHS_complex','RHS_simple')" id="less_info_button0" class="info_button"></button>
 				</div>
 			</div>
-			<div id="RHS_big">
-			
+			<div id="RHS_big" hidden="true" align="center">
+				<h1 class="res_title"></h1>
+				<table class="display_grid">
+					<tr class="display_grid">
+						<th class="display_grid">
+							<div id="essential_use2" class="output_number"></div>
+						</th>
+						<th class="display_grid">
+							<div id = "total_use1" class="output_number">
+						</th>
+						<th class="display_grid">
+							<div id = "tank_size2" class="output_number">
+							
+						</th>
+						
+					</tr>
+					<tr class="display_grid">
+						<th class="display_grid">a</th>
+						<th class="display_grid">
+							<div class="output_number" id="inventory_table1">
+						</th>
+						<th class="display_grid">a</th>
+					</tr>
+				</table>
+							
 			
 			
 				
@@ -361,6 +376,21 @@
 			////////////////////////////////////////////////////////////////////
 			
 			function addLanguageText(){
+				var clone = $('#essential_use0').html();
+				$('#essential_use1').html(clone);
+				$('#essential_use2').html(clone);
+				var clone = $('#tank_size0').html();
+				$('#tank_size1').html(clone);
+				$('#tank_size2').html(clone);
+				var clone = $('#total_use0').html();
+				$('#total_use1').html(clone);
+				var clone = $('#inventory_table0').html();
+				$('#inventory_table1').html(clone);
+				
+				
+				
+				
+				
 				document.getElementById("header").innerHTML = HEADER; 				// Puts the correct language text on the page
 				document.getElementById("sub_header").innerHTML = SUB_HEADER;		//	for all elements
 				document.getElementById("instructions").innerHTML = INSTRUCTIONS;
@@ -392,35 +422,68 @@
 				document.getElementById("laundry_extra1_val1").innerHTML = LAUNDRY_EXTRA1_VAL1_LBL;
 				document.getElementById("other_extra1").innerHTML = OTHER_EXTRA1_LBL; 
 				document.getElementById("other_extra3").innerHTML = OTHER_EXTRA3_LBL;
-				document.getElementById("essential_use0").innerHTML = ESSENTIAL_USE0_LBL;
-				document.getElementById("essential_use2").innerHTML = ESSENTIAL_USE2_LBL;
-				document.getElementById("tank_size0").innerHTML = TANK_SIZE0_LBL;
-				document.getElementById("tank_size2").innerHTML = TANK_SIZE2_LBL;
-				document.getElementById("essential_use0_complex").innerHTML = ESSENTIAL_USE0_LBL;
-				document.getElementById("essential_use2_complex").innerHTML = ESSENTIAL_USE2_LBL;
-				document.getElementById("total_use0_complex").innerHTML = TOTAL_USE0_LBL;
-				document.getElementById("total_use2_complex").innerHTML = TOTAL_USE2_LBL;
-				document.getElementById("tank_size0_complex").innerHTML = TANK_SIZE0_LBL;
-				document.getElementById("tank_size2_complex").innerHTML = TANK_SIZE2_LBL;
 				document.getElementById("more_info_button0").innerHTML = MORE_INFO_BUTTON_LBL;
 				document.getElementById("less_info_button0").innerHTML = LESS_INFO_BUTTON_LBL;
-				document.getElementById("table_lbl").innerHTML = TABLE_LBL;
+				//document.getElementById("table_lbl").innerHTML = TABLE_LBL;
 				document.getElementById("calc_button").innerHTML = CALC_BUTTON_LBL;
 				document.getElementById("back2inputs_button").innerHTML = BACK2INPUTS_BUTTON_LBL;
 				document.getElementById("header_display").innerHTML = HEADER;
 				document.getElementById("sub_header_display").innerHTML = LHS_DISPLAY_TITLE;
 				document.getElementById("instructions_display").innerHTML = LHS_INSTRUCTIONS;
-				document.getElementById("RHS_simple_title").innerHTML = RHS_TITLE;
-				document.getElementById("RHS_complex_title").innerHTML = RHS_TITLE;
+				
+				var els = document.getElementsByName("table_lbl") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = TABLE_LBL;
+				};
+				
+				var els = document.getElementsByClassName("res_title") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = RHS_TITLE;
+				};
+				
+				var els = document.getElementsByName("essential_use_lbl0") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = ESSENTIAL_USE_LBL0;
+				};
+				
+				var els = document.getElementsByName("essential_use_lbl1") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = ESSENTIAL_USE_LBL1;
+				};
+				
+				var els = document.getElementsByName("total_use_lbl0") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = TOTAL_USE_LBL0;
+				};
+				
+				var els = document.getElementsByName("total_use_lbl1") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = TOTAL_USE_LBL1;
+				};
+				
+				var els = document.getElementsByName("tank_size_lbl0") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = TANK_SIZE_LBL0;
+				};
+				
+				var els = document.getElementsByName("tank_size_lbl1") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = TANK_SIZE_LBL1;
+				}
+				
+				
+				
 				
 				var els = document.getElementsByName("table_titles")
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = TABLE_TITLES[i];
+					
+					els[i].innerHTML = TABLE_TITLES[i % TABLE_TITLES.length];
 				};
 				
 				var els = document.getElementsByName("month")
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = MONTHS[i];
+					
+					els[i].innerHTML = MONTHS[i % MONTHS.length];
 				};
 				
 				updateOutputText(); 
@@ -814,22 +877,42 @@
 			
 			
 			function displayOutputs(o) {
-				document.getElementById("essential_use1").innerHTML = String(o.essentialDailyUse)+L_ADDON_LBL;
-				document.getElementById("tank_size1").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
-				document.getElementById("essential_use1_complex").innerHTML = String(o.essentialDailyUse);
-				document.getElementById("total_use1_complex").innerHTML = String(o.essentialDailyUse+o.totalOtherUse);
-				document.getElementById("tank_size1_complex").innerHTML = String(o.minTankSize);
+				//document.getElementById("essential_use1").innerHTML = String(o.essentialDailyUse)+L_ADDON_LBL;
+				//document.getElementById("tank_size1").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
+				
+				
+				//document.getElementById("total_use1_complex").innerHTML = String(o.essentialDailyUse+o.totalOtherUse)+L_ADDON_LBL;
+				//document.getElementById("tank_size1_complex").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
+				
+				
+				var els = document.getElementsByName("essential_use_num");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = String(Math.trunc(o.essentialDailyUse)+L_ADDON_LBL);
+				}
+				
+				var els = document.getElementsByName("total_use_num");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = String(Math.trunc(o.totalOtherUse)+L_ADDON_LBL);
+				}
+				
+				var els = document.getElementsByName("tank_size_num");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = String(Math.trunc(o.minTankSize))+L_ADDON_LBL;
+				}
+				
 				var els = document.getElementsByName("collected");
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = String(o.monthlyCollection[i]);
+					els[i].innerHTML = String(Math.trunc(o.monthlyCollection[i]));
 				}
 				var els = document.getElementsByName("used");
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = String(o.monthlyUse[i]);
+					console.log(els[i])
+					els[i].innerHTML = String(Math.trunc(o.monthlyUse[i]));
 				}
 				var els = document.getElementsByName("inventory");
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = String(o.inventory[i]);
+					
+					els[i].innerHTML = String(Math.trunc(o.inventory[i]));
 				}
 				
 			}
