@@ -893,7 +893,7 @@
 				//document.getElementById("total_use1_complex").innerHTML = String(o.essentialDailyUse+o.totalOtherUse)+L_ADDON_LBL;
 				//document.getElementById("tank_size1_complex").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
 				
-				
+				console.log(o.inventory)
 				var els = document.getElementsByName("essential_use_num");
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = String(Math.trunc(o.essentialDailyUse)+L_ADDON_LBL);

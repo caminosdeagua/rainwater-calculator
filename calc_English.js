@@ -103,7 +103,7 @@ var OTHER_EXTRA3_LBL = "How much? (Liters per day):";
 
 //////		CALCULATE BUTTON 	    //////
 var CALC_BUTTON_LBL = "Calculate!";
-var FOOTER_TXT = "Created by <a href='https://www.caminosdeagua.org'>Caminos De Agua</link>"
+
 
 //////////////////////////////////////////
 //										//
@@ -146,6 +146,9 @@ var MORE_INFO_BUTTON_LBL = "More information";
 var RHS_TITLE = "Results";
 
 var L_ADDON_LBL = "<small> liters</small>";
+
+////// 		FOOTER 					//////
+var FOOTER_TXT = "Created by <a href='https://www.caminosdeagua.org'>Caminos De Agua</a> | Data from <a href='http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto'>SMN</a>"
 
 //////////////////////////////////////////
 //										//
