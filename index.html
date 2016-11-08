@@ -4,6 +4,7 @@
 		<!-- Page formatting information -->
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
+		<meta name="Author" content="Chantal Kronenburg & Aaron Krupp, Caminos de Agua"/>
 		
 		<!-- Include stylesheet for calculator -->
 		<link rel="stylesheet" type="text/css" href="calc_styles.css"></link>
@@ -29,6 +30,9 @@
 		<div id="left_hand_side">
 			<div id="LHS_inputs">
 				<!-- the top text goes here -->
+				<a href="https://www.caminosdeaguamexico.org" target="_blank">
+					<img class="caminos_logo" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
+				</a>
 				<h1 id="header"></h1>
 				<h3 id="sub_header"></h3>
 				<p id="instructions"></p>
@@ -153,6 +157,8 @@
 				<div class="button">
 					<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
 				</div>
+				
+				
 			</div>
 			<div id="LHS_display">
 				<h1 id="header_display"></h1>
@@ -174,6 +180,7 @@
 		
 		<!-- The right hand side displays the calculated resullts in simple or complex form -->
 		<div id="right_hand_side">
+			<div class="footer" align="right"></div>
 		
 			<!-- First, by default, let's display the simple version -->
 			<div id = "RHS_simple" align="center">
@@ -427,6 +434,11 @@
 				document.getElementById("header_display").innerHTML = HEADER;
 				document.getElementById("sub_header_display").innerHTML = LHS_DISPLAY_TITLE;
 				document.getElementById("instructions_display").innerHTML = LHS_INSTRUCTIONS;
+				
+				var els = document.getElementsByClassName("footer") 
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = FOOTER_TXT;
+				};
 				
 				var els = document.getElementsByName("table_lbl") 
 				for (var i=0; i<els.length; i++) {

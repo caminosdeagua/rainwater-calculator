@@ -103,6 +103,7 @@ var OTHER_EXTRA3_LBL = "How much? (Liters per day):";
 
 //////		CALCULATE BUTTON 	    //////
 var CALC_BUTTON_LBL = "Calculate!";
+var FOOTER_TXT = "Created by <a href='https://www.caminosdeagua.org'>Caminos De Agua</link>"
 
 //////////////////////////////////////////
 //										//
