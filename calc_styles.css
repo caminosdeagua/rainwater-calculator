@@ -10,6 +10,7 @@ html, body{width:100%; height:100%; padding: 0; margin: 0; background: #999999; 
 	float: left;
 	overflow-y: auto;
 	overflow-x: hidden;	
+	position: relative;
 }
 
 #right_hand_side {
@@ -19,6 +20,7 @@ html, body{width:100%; height:100%; padding: 0; margin: 0; background: #999999; 
 	margin: 0;
 	overflow: auto;
 	background-color: #f08825;
+	position: relative;
 }
 
 /* Formatting for all number-entry boxes */
@@ -135,11 +137,11 @@ input[type="checkbox"] {
 	display: inline-block;
 	padding: 8px;
 	margin: 20px;
-	margin-bottom: 60px;
 	font-size: 18px;
 	border: 2px solid ;
 	border-radius: 15px;
 	background-color: rgba(255, 255, 255, 0.1);
+	width: 70%
 }
 
 .return_num {
@@ -152,6 +154,7 @@ table.inventory_table, th, td {
 	font-weight: normal;
 	border: 1px solid #000000;
 	border-collapse: collapse;
+	
 }
 
 th {
@@ -161,6 +164,7 @@ th {
 table.inventory_table {
 	margin-top: 20px;
 	background-color: #DDDDDD;
+	position: relative;
 }
 
 tr.title_row, th.month_lbl {
@@ -184,6 +188,10 @@ tr.title_row:hover{
 	background: none;
 }
 
+th.display_grid {
+	width: 30%;
+}
+
 .to_indent {
 	margin: 12%;
 	width: 76%;
@@ -205,20 +213,58 @@ button {
 	background-color: #DDDDDD;
 	font-size: 18px;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);	
-}
+	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	margin-bottom: 20px;
+}	
 
 #calc_button {
 	width: 160px;
 	margin-left: 40px;	
 }
 
-div div.dividing_bar {	
-	background-color: #BBBBBB;
-	width: 15px;
-	height: 1000px;
-	padding-right:0px;
+#more_info_button0, #less_info_button0 {
+	margin-top: 60px;
+	
 }
+
+.dividing_bar {	
+	position: relative;
+	background-color: #DDDDDD;
+	width: 16px;
+	height: 100%;
+	display: inline-block;
+	float: right;
+	
+}
+
+.display-stuff {
+	float: left;
+	left: 16px;
+	position: absolute;
+}
+
+#RHS_big {
+	display: block-inline;
+	height: 100%;
+}
+
+#LHS_display {
+	position: relative;
+	height: 100%;
+	float: left;
+	top: 0px;
+	overflow-y: scroll;
+	overflow-x: hide;
+}
+	
+
+div[name=big_disp] {
+	width: 90%;
+	margin: auto;
+	padding: auto;
+}
+
+
 
 
 

@@ -157,7 +157,7 @@
 			<div id="LHS_display">
 				<h1 id="header_display"></h1>
 				<h3 id="sub_header_display"></h3>
-				<h5 id="instructions_display"></h5>
+				<p id="instructions_display"></p>
 				<div class="to_indent">					
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
@@ -303,31 +303,32 @@
 					<button onclick="replace('RHS_complex','RHS_simple')" id="less_info_button0" class="info_button"></button>
 				</div>
 			</div>
-			<div id="RHS_big" hidden="true" align="center" >
 			
-				<h1 class="res_title"></h1>
-				<table class="display_grid">
-					<tr class="display_grid">
-						<th class="display_grid">
-							<div id="essential_use2" class="output_number"></div>
-						</th>
-						<th class="display_grid">
-							<div id = "total_use1" class="output_number"></div>
-						</th>
-						<th class="display_grid">
-							<div id = "tank_size2" class="output_number"></div>
+			<div id="RHS_big" hidden="true">
+				<div class="display-stuff" align="center" style="float: right;">
+					<h1 class="res_title"></h1>
+					<table class="display_grid">
+						<tr class="display_grid">
+							<th class="display_grid" align="center" >
+								<div id="essential_use2" class="output_number" name="big_disp"></div>
+							</th>
+							<th class="display_grid" align="center">
+								<div id = "total_use1" class="output_number" name="big_disp"></div>
+							</th>
+							<th class="display_grid" align="center">
+								<div id = "tank_size2" class="output_number" name="big_disp"></div>	
+							</th>
 							
-						</th>
-						
-					</tr>
-					<tr class="display_grid">
-						<th class="display_grid">a</th>
-						<th class="display_grid">
-							<div class="output_number" id="inventory_table1"></div>
-						</th>
-						<th class="display_grid">a</th>
-					</tr>
-				</table>
+						</tr>
+						<tr class="display_grid">
+							<th class="display_grid"></th>
+							<th class="display_grid">
+								<div class="output_number" id="inventory_table1" name="big_disp"></div>
+							</th>
+							<th class="display_grid"></th>
+						</tr>
+					</table>
+				</div>
 							
 			</div>		
 		</div>
@@ -902,7 +903,6 @@
 				}
 				var els = document.getElementsByName("used");
 				for (var i=0; i<els.length; i++) {
-					console.log(els[i])
 					els[i].innerHTML = String(Math.trunc(o.monthlyUse[i]));
 				}
 				var els = document.getElementsByName("inventory");
