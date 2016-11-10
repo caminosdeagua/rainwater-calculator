@@ -76,7 +76,7 @@ input[type=radio] {
 
 
 /* Formatting for the input labels, headers, and instruction text	 */
-label, h1, h3, p, button {
+label, h1, h3, p, button, iframe {
 	margin-left: 10px;	
 	padding-right: 10px;
 	margin-bottom: 20px;
@@ -284,7 +284,6 @@ div[name=big_disp] {
 	height: 120px;
 	width: 120px;
 }
-
 
 
 
