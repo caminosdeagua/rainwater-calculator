@@ -44,10 +44,10 @@ var PPL_DECIMAL_E = "You can't have partial numbers of people";
 //////////////////////////////////////////
 
 //////		MUNICIPALITY			//////
-var MUNI0_LBL = "Choose your municipaliy:";
-var MUNI_VAL0_LBL = "San Miguel de Allende";
-var MUNI_VAL1_LBL = "Dolores Hidalgo";
-var MUNIS = [MUNI_VAL0_LBL, MUNI_VAL1_LBL];
+var MUNI0_LBL = "Choose your area by clicking on the orange shapes below: ";
+var MUNI_VAL0_LBL = "a";
+var MUNI_VAL1_LBL = "bcd";
+var MUNIS = [];
 
 //////		PEOPLE IN HOUSEHOLD		//////
 var PPL0_LBL = "How many people live in your house?";

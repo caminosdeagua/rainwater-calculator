@@ -5,18 +5,34 @@
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 		<meta name="viewport" content="initial-scale=1.0, user-scalable=no" />
 		<meta name="Author" content="Chantal Kronenburg & Aaron Krupp, Caminos de Agua"/>
-		
-		<!-- Include stylesheet for calculator -->
-		<link rel="stylesheet" type="text/css" href="calc_styles.css"></link>
-
-		<!-- Include the globals and the  text-to-display file of the relevant language:
-			make sure to select "calc_English.js" or "calc_Spanish.js"--> 
-			
-		<script src="calc_English.js" type="text/javascript"></script>
-		<script src="globals.js" type="text/javascript"></script>
-		
+		<!-- Include Leaflet libraries (through carto) including leaflet label plugin -->
+		<link rel="stylesheet" href="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/themes/css/cartodb.css"></link>
+		<script src="https://cartodb-libs.global.ssl.fastly.net/cartodb.js/v3/3.15/cartodb.js"></script>
+		<script src="https://leaflet.github.io/Leaflet.label/leaflet.label.js"></script> <!-- files necessary for labels in leaflet -->
 		<!-- Include jquery -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<!-- Include both libraries for plotting stamen basemaps --> 
+		<script type="text/javascript" src="https://stamen-maps.a.ssl.fastly.net/js/tile.stamen.js"></script>
+		<!-- Include stuff required for easy full-screen option --> 
+		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
+		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+		<!-- Include stylesheets for calculator and map -->
+		<link rel="stylesheet" type="text/css" href="calc_styles.css"></link>
+		<link rel="stylesheet" type="text/css" href="rainmap_styles.css"></link>
+		<!-- Include globals for calc and rainmap and scripts for rainmap -->
+		<script src="globals.js" type="text/javascript"></script>
+		<script src="rainmap_global.js" type="text/javascript" /></script>
+		
+		
+		<!-- ----------- MAKE LANGUAGE CHANGES HERE!!! ------------- -->
+		<!-- Include text-to-display file of the relevant language:
+			make sure to select "calc_English.js" or "calc_Spanish.js"
+			and the same for the rainmap files. --> 	
+		<script src="calc_English.js" type="text/javascript"></script>
+		<script src="rainmap_display_English.js" type="text/javascript"></script>
+		<!------------------------------------------------------------->
+		
+		<script src="rainmap_scripts.js" type="text/javascript" /></script>
 		
 		<script>
 			document.title = CALC_TITLE; 		// Adds title to calc from calc_Language.js
@@ -41,18 +57,11 @@
 				<form id="calc_form" class="form">
 					
 					<!-- Select your municipality -->
-					<iframe width="650px" height="400px" frameborder="0" src="https://caminosdeagua.github.io/rainwater-measurement-district-map" allowfullscreen webkitallowfullscreen mozallowfullscreen oallowfullscreen msallowfullscreen></iframe>
-					
-					<div>			
+					<div>
 						<label for="municipality" id="muni0"></label>
-						<select id="municipality" />
-							<option value="0" id = "muni_val0"></option>
-							<option value="1" id = "muni_val1"></option>
-						</select>
-						<div class = "error_lbl">
-							<p id="municipality_error">.</p>
-						</div>
+						<div id="WaterMap"></div>
 					</div>
+					
 					<!-- How many people in your household? -->
 					<div>
 						<label for="ppl" id="ppl0"></label>
@@ -359,7 +368,8 @@
 			function init() {
 							
 				initForm();
-							
+				initEmbeddedMap();
+				
 				loadStartingValues();
 				hideErrorLbls();
 				hideExtraText();
@@ -393,16 +403,10 @@
 				var clone = $('#inventory_table0').html();
 				$('#inventory_table1').html(clone);
 				
-				
-				
-				
-				
 				document.getElementById("header").innerHTML = HEADER; 				// Puts the correct language text on the page
 				document.getElementById("sub_header").innerHTML = SUB_HEADER;		//	for all elements
 				document.getElementById("instructions").innerHTML = INSTRUCTIONS;
 				document.getElementById("muni0").innerHTML = MUNI0_LBL;
-				document.getElementById("muni_val0").innerHTML = MUNI_VAL0_LBL;
-				document.getElementById("muni_val1").innerHTML = MUNI_VAL1_LBL;
 				document.getElementById("ppl0").innerHTML = PPL0_LBL;
 				document.getElementById("length0").innerHTML = LENGTH0_LBL;
 				document.getElementById("width0").innerHTML = WIDTH0_LBL;
@@ -523,7 +527,7 @@
 				
 			function loadStartingValues() {
 				allData = {															// initializes the structure of the global, allData 
-					municipality: Number(document.getElementById("municipality").value),
+					municipality: MUN_STARTING_VALUE,
 					ppl: Number(document.getElementById("ppl").value),				// 	and feeds in initial conditions.
 					length: Number(document.getElementById("length").value),
 					width: Number(document.getElementById("width").value),
@@ -546,7 +550,7 @@
 			}	
 			
 			////////////////////////////////////////////////////////////////////
-			////				function hideErrorLbls()					////
+			////				function hide stuff functions				////
 			//// 															////
 			////	Hides error labels - pretty self-explanatory...			////
 			////////////////////////////////////////////////////////////////////
@@ -557,12 +561,6 @@
 					lblBoxes[i].style.opacity = 0;				
 				};
 			}
-			
-			////////////////////////////////////////////////////////////////////
-			////				function hideExtraText()					////
-			//// 															////
-			////	Hides extra text that's tied to checkbox events			////
-			////////////////////////////////////////////////////////////////////
 			
 			function hideExtraText() {
 				var extra_inputs = document.getElementsByClassName("extra_input");		// Turn all label boxes to opacity=0
@@ -596,11 +594,24 @@
 					allData[el.id] = String(el.value)
 				} else if (el.type == "radio") {
 					allData[el.name] =  el.value;
-				};
-				updateOutputText();
-				displayStuff = inputs2outputs(allData);
-				displayOutputs(displayStuff);
+				} else if (el == "map") {
+					allData.municipality = mun;
+					munAdjust(); 							// adjust the raw municipality to a 0 to n value.
+				}
 				
+				
+				updateOutputText();						// update the text on the LHS output page
+				displayStuff = inputs2outputs(allData); // calculate!
+				displayOutputs(displayStuff); 			// display the calcuated values on the RHS!
+				
+			}
+			
+			
+			function munAdjust() {
+				var cur_mun = allData.municipality;
+				var i = muni_index.indexOf(String(cur_mun));
+				var name = muni_names[i];
+				allData.municipality = name;			
 			}
 			
 			////////////////////////////////////////////////////////////////////
@@ -895,7 +906,6 @@
 				//document.getElementById("total_use1_complex").innerHTML = String(o.essentialDailyUse+o.totalOtherUse)+L_ADDON_LBL;
 				//document.getElementById("tank_size1_complex").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
 				
-				console.log(o.inventory)
 				var els = document.getElementsByName("essential_use_num");
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = String(Math.trunc(o.essentialDailyUse)+L_ADDON_LBL);
@@ -946,6 +956,7 @@
 				};
 			}
 			
+			
 			////////////////////////////////////////////////////////////////////
 			////			function inputs2outputs				 			////
 			//// 															////
@@ -984,7 +995,7 @@
 					monthlyCollection: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0),					
 					inventory: Array.apply(null, Array(12)).map(Number.prototype.valueOf,0)
 				};
-				
+				console.log(inputs)
 				////////////////////////////////////////////////////////////
 				//                                                        //
 				//      Variables which hold the number for the liters    //
@@ -1065,8 +1076,9 @@
 				//                                                  //
 				//////////////////////////////////////////////////////
 
-				var rainfall = {"0":[100.10, 128.70, 94.40, 94.20, 41.50, 12.40, 6.40, 13.70, 7.20, 6.00, 18.90, 42.20],
-					"1":[1,2,3,4,5,6,7,8,9,10,11,12],	
+				var rainfall = {"San Miguel de Allende":[100.10, 128.70, 94.40, 94.20, 41.50, 12.40, 6.40, 13.70, 7.20, 6.00, 18.90, 42.20],
+					"Dolores Hidalgo Cuna de la Independencia Nacional":[1,2,3,4,5,6,7,8,9,10,11,12],
+					"Xichú": [1,2,3,4,5,6,7,8,9,10,11,12]
 				};
 
 				var day_mon = [31,28,31,30,31,30,31,31,30,31,30,31];  // Calculation for days per months

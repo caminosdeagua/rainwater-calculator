@@ -1,0 +1,31 @@
+/* adds style the html body and map div objects */
+html, body {width:100%; height:100%; padding: 0; margin: 0;}
+#WaterMap {width: 600px; height:425px; background: teal; position: relative; margin: 10px;}
+
+
+
+/* CSS formatting for the Caminos de Agua logo in the corner */
+img.caminos_logo {
+	display: inline-block;
+	z-index: 3;
+	position: absolute;
+	left: 15px;
+	bottom: 15px;
+	width: 120px;
+	height: 120px;
+	opacity: 1;
+}
+
+.polygonLabel {
+	position: absolute;
+	display: inline-block;
+	font-size: 13px;
+	background-color: rgba(255,255,255,0.85);
+	padding: 2px;
+	box-shadow: 2px 2px 3px 0px rgba(0,0,0,0.3);
+	border: 0px solid;
+	border-radius: 3px;
+	text-indent: -4px;
+	
+	
+}
