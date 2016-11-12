@@ -13,7 +13,7 @@ var STAMEN_MAP_TYPE = "terrain";		// Set which type of stamen map we want as a b
 var DATA_URL = "https://dl.dropboxusercontent.com/s/w2le11pok7c781e/munis.geojson";					
 	
 var MUN_STARTING_VALUE = "San Miguel de Allende";
-var mun = 25;						// holds the user's selected municipality
+var mun = 32;						// holds the user's selected municipality
 
 var muni_index;						// global to hold municipality indices 
 var muni_names = [];						// global to hold municipality names					
