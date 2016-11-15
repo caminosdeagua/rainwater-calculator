@@ -51,11 +51,11 @@ function grabData() {
 			
 			var polys = Object.keys(geojson._layers);
 			for (var i=0; i<polys.length ; i++) {
-				geojson._layers[polys[i]].bindLabel("\xa0"+geojson._layers[polys[i]].feature.properties.NOMGEO, {
+				geojson._layers[polys[i]].bindLabel("\xa0"+geojson._layers[polys[i]].feature.properties.NOMGEO+"\xa0-\xa0"+geojson._layers[polys[i]].feature.properties.Station, {
 					noHide: false,
 					className: "polygonLabel"
 				})
-				if (String(geojson._layers[polys[i]].feature.properties.NOMGEO) == MUN_STARTING_VALUE) {
+				if (String(geojson._layers[polys[i]].feature.properties.NOMGEO) == MUN_STARTING_VALUE & String(geojson._layers[polys[i]].feature.properties.Station) == STATION_STARTING_VALUE) {
 					geojson._layers[polys[i]].setStyle({fillColor: 'blue'});
 					
 				}
@@ -130,9 +130,10 @@ function select(event) {
 	if (id != mun) { 									
 		geojson._layers[mun].setStyle({fillColor: 'orange'});											// 	clear that previous one. 	
 	}
+	//console.log(event.target)
 	event.target.setStyle({fillColor: 'blue'});		// Then set the new one. 
 	mun = id; 	
-	//console.log(geojson._layers[mun].feature.properties.NOMGEO);
+	
 	updateInputs("map");
 }
 
@@ -147,3 +148,31 @@ function setupMunis(el) {
 
 }
 /////////////////////////////////////////////////////////////////////////////////////////////////////			
+
+//////////////////////////////////
+//								//
+//	function getRainfall 		//
+//								//
+// gets an array of length 12 	//
+// with the monthly rainfall for//
+// the passed region 			//
+//////////////////////////////////
+
+function getRainfall(place) {
+	var rainfall = [];
+	var total = 0;
+	if(!geojson) {
+		rainfall = [0,0,0,0,0,0,0,0,0,0,0,0];
+		console.log("The geoJSON file hasn't loaded yet...");
+	} else {
+		for (var i=0; i<FULL_MONTHS.length+1; i++) {
+			if (i==FULL_MONTHS.length){console.log("total\n"+total)} else {
+				total = total+geojson._layers[place].feature.properties[FULL_MONTHS[i]];
+				console.log(FULL_MONTHS[i])
+				console.log(geojson._layers[place].feature.properties[FULL_MONTHS[i]])
+				rainfall.push(geojson._layers[place].feature.properties[FULL_MONTHS[i]])
+			}
+		}		
+	}
+	return rainfall
+}

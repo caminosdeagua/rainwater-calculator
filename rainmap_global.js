@@ -12,8 +12,11 @@ var STAMEN_MAP_TYPE = "terrain";		// Set which type of stamen map we want as a b
 
 var DATA_URL = "https://dl.dropboxusercontent.com/s/w2le11pok7c781e/munis.geojson";					
 	
+///////////// 	MUST SET UP ALL THREE OF THESE MANUALLY TO MATCH UP 	/////////////////////////
 var MUN_STARTING_VALUE = "San Miguel de Allende";
-var mun = 32;						// holds the user's selected municipality
+var STATION_STARTING_VALUE = "San Miguel de Allende (SMN)";
+var mun = 50;					// holds the user's selected municipality 
+/////////////////////////////////////////////////////////////////////////////////////////////////
 
 var muni_index;						// global to hold municipality indices 
 var muni_names = [];						// global to hold municipality names					
@@ -29,3 +32,7 @@ var BASE_Z_OFFSET = 10; 				//	and base points.
 var SPIDER_LABEL_OFFSET = [-50, -8];	// offset for spider date labels 
 var X_OFFSET = 999999;					// The x-index-offset for the x-out button
 
+var FULL_MONTHS = ["January", "February", "March",
+				"April", "May", "June",
+				"July", "August", "September",
+				"October", "November", "December"];	

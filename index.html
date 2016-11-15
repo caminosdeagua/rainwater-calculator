@@ -366,14 +366,15 @@
 			////////////////////////////////////////////////////////////////////
 		
 			function init() {
-							
+			
 				initForm();
-				initEmbeddedMap();
+				initEmbeddedMap();							
 				
 				loadStartingValues();
 				hideErrorLbls();
 				hideExtraText();
 				hideComplexOutput();
+				
 				
 				displayStuff = inputs2outputs(allData);
 				displayOutputs(displayStuff);
@@ -381,6 +382,7 @@
 				addLanguageText();
 				
 				startInterrupt();
+				
 				
 				
 			};
@@ -527,7 +529,9 @@
 				
 			function loadStartingValues() {
 				allData = {															// initializes the structure of the global, allData 
-					municipality: MUN_STARTING_VALUE,
+					place: mun,
+					municipality_name: MUN_STARTING_VALUE,
+					station_name: STATION_STARTING_VALUE,
 					ppl: Number(document.getElementById("ppl").value),				// 	and feeds in initial conditions.
 					length: Number(document.getElementById("length").value),
 					width: Number(document.getElementById("width").value),
@@ -595,10 +599,11 @@
 				} else if (el.type == "radio") {
 					allData[el.name] =  el.value;
 				} else if (el == "map") {
-					allData.municipality = mun;
-					munAdjust(); 							// adjust the raw municipality to a 0 to n value.
+					console.log("mun = "+mun)
+					allData.municipality_name = String(geojson._layers[mun].feature.properties.NOMGEO);	
+					allData.station_name = String(geojson._layers[mun].feature.properties.Station);	
+					allData.place = mun;					
 				}
-				
 				
 				updateOutputText();						// update the text on the LHS output page
 				displayStuff = inputs2outputs(allData); // calculate!
@@ -607,12 +612,7 @@
 			}
 			
 			
-			function munAdjust() {
-				var cur_mun = allData.municipality;
-				var i = muni_index.indexOf(String(cur_mun));
-				var name = muni_names[i];
-				allData.municipality = name;			
-			}
+
 			
 			////////////////////////////////////////////////////////////////////
 			////				function updateOutputText() 				////
@@ -899,13 +899,7 @@
 			
 			
 			function displayOutputs(o) {
-				//document.getElementById("essential_use1").innerHTML = String(o.essentialDailyUse)+L_ADDON_LBL;
-				//document.getElementById("tank_size1").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
-				
-				
-				//document.getElementById("total_use1_complex").innerHTML = String(o.essentialDailyUse+o.totalOtherUse)+L_ADDON_LBL;
-				//document.getElementById("tank_size1_complex").innerHTML = String(o.minTankSize)+L_ADDON_LBL;
-				
+		
 				var els = document.getElementsByName("essential_use_num");
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = String(Math.trunc(o.essentialDailyUse)+L_ADDON_LBL);
@@ -923,16 +917,18 @@
 				
 				var els = document.getElementsByName("collected");
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = String(Math.trunc(o.monthlyCollection[i]));
+					els[i].innerHTML = String(Math.trunc(o.monthlyCollection[i%els.length]));
 				}
+				
 				var els = document.getElementsByName("used");
 				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = String(Math.trunc(o.monthlyUse[i]));
+					els[i].innerHTML = String(Math.trunc(o.monthlyUse[i%els.length]));
 				}
+				
 				var els = document.getElementsByName("inventory");
+				console.log(els)
 				for (var i=0; i<els.length; i++) {
-					
-					els[i].innerHTML = String(Math.trunc(o.inventory[i]));
+					els[i].innerHTML = String(Math.trunc(o.inventory[i%els.length]));
 				}
 				
 			}
@@ -1069,18 +1065,8 @@
 				var essential = 5 * (inputs.ppl);                       	//variable which express the liters of drinking + de liters of cooking for one person
 				var other_activities = l_day_brush + l_day_hands + l_day_garden + l_day_dishes + l_day_bath + l_day_laundry + l_day_toilet + l_day_other;      //variable which expresses the liters one family uses for all the other activities (if they will check one of these activities)
 
-				//////////////////////////////////////////////////////
-				//                                                  //
-				//  Dataset for rainfall. Rainfall is given per     //
-				//  month and is in mm.                             //
-				//                                                  //
-				//////////////////////////////////////////////////////
 
-				var rainfall = {"San Miguel de Allende":[100.10, 128.70, 94.40, 94.20, 41.50, 12.40, 6.40, 13.70, 7.20, 6.00, 18.90, 42.20],
-					"Dolores Hidalgo Cuna de la Independencia Nacional":[1,2,3,4,5,6,7,8,9,10,11,12],
-					"Xichú": [1,2,3,4,5,6,7,8,9,10,11,12]
-				};
-
+				var rainfall = getRainfall(inputs.place); 				// grabs rainfall from geojson data for the selected polygon. 
 				var day_mon = [31,28,31,30,31,30,31,31,30,31,30,31];  // Calculation for days per months
 				var area = inputs.length * inputs.width;      // Calculation for roof area, since people fill in their lenght and width of the roof, we calculate the roof area. 
 
@@ -1097,7 +1083,7 @@
 			
 					var watercollected = [0,0,0,0,0,0,0,0,0,0,0,0];
 					for (var index = 0; index < day_mon.length;index++){
-						watercollected[index] = area * rainfall[inputs.municipality][index] * EFFS[inputs.roof_type];
+						watercollected[index] = area * rainfall[index] * EFFS[inputs.roof_type];
 					}
 				
 				
@@ -1135,13 +1121,15 @@
 				
 					for (var i = 0; i < day_mon.length; i++){
 						diff = watercollected[i] - mon_consumption[i];
-						if(diff < 0){
-							diff = 0;
-						};
-						if (i === 0){
+						
+						if (i == 0){
 							inventory[i] = diff;
 						} else {
 							inventory[i] = inventory[i-1] + diff;
+						}
+						
+						if (inventory[i] < 0) {
+							inventory[i] = 0;
 						}
 					}
 				
