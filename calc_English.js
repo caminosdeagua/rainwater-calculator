@@ -144,6 +144,7 @@ var TANK_SIZE_LBL1 = "";
 var MORE_INFO_BUTTON_LBL = "More information";
 
 var RHS_TITLE = "Results";
+var RHS_DEFAULT_TEXT = "Please enter some information..."
 
 var L_ADDON_LBL = "<small> liters</small>";
 
