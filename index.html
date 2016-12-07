@@ -989,6 +989,21 @@
 				
 			}
 			
+			function getCisternSize(rainfall, area, people) {
+				var adequate = true;
+				var inventory = Array.apply(null, Array(DAY_MON.length)).map(Number.prototype.valueOf,0);
+				for (var i=0; i<DAY_MON.length; i++) {
+					var use = people*ESSENTIAL_DAILY_USE*DAY_MON[i];
+					inventory[i] = rainfall[i]*area - use;
+					if (inventory[i]<0) {inventory[i]=0;} 			// Make sure that inventory is >=0
+					if (i>0) {										// For all months but january,
+						inventory[i]=inventory[i-1]+inventory[i];	//	add the current inventory to the previous.
+					}
+				}
+				var volume = Math.max.apply(null, inventory);
+				return [adequate, volume];
+			}
+			
 							
 			
 			
