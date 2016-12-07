@@ -99,28 +99,29 @@
 					<br>
 					
 					<!-- Tell us all your water uses! We assume you also will drink and cook with rainwater -->
+					<!--
 					<div>			
 						<label for="uses" id="uses0"></label>
 						<br>
-						<!-- Brush your teeth? -->
+						<!-- Brush your teeth? ->
 						<input type="checkbox" class="water_use" id="brush_chk">.<br>
 						
-						<!-- Wash your hands? -->
+						<!-- Wash your hands? ->
 						<input type="checkbox" class="water_use" id="hands_chk">.<br>
 						
-						<!-- Water your garden? -->
+						<!-- Water your garden? ->
 						<input type="checkbox" class="water_use" id="garden_chk">.
 						
-						<!-- If you do water your garden, we'll grab a bit more info about that... -->
+						<!-- If you do water your garden, we'll grab a bit more info about that... ->
 						<div class="extra_input" id="garden_extra" for="garden_chk">
 							<label for="garden_size" id="garden_extra1"></label>
 							<input type="number" id="garden_size" value="10" min="0.1" step="any"/>
 						</div><br>
 						
-						<!-- Do the dishes? -->
+						<!-- Do the dishes? ->
 						<input type="checkbox" class="water_use" id="dishes_chk">.
 						
-						<!-- If you wash dishes, give us some more info! -->
+						<!-- If you wash dishes, give us some more info! ->
 						<div class="extra_input" id="dishes_extra">
 							<label for="dishes_washing_type" id="dishes_extra1"></label>
 							<select id="dishes_washing_type" />
@@ -128,13 +129,13 @@
 								<option value="1" id="dishes_extra1_val1"></option>
 							</select>					
 						</div><br>
-						<!-- bathe? -->
+						<!-- bathe? ->
 						<input type="checkbox" class="water_use" id="bath_chk">.<br>
 						
-						<!-- Wash your clothes? -->
+						<!-- Wash your clothes? ->
 						<input type="checkbox" class="water_use" id="clothes_chk">.
 						
-						<!-- If you wash your clothes, how do you do it? -->
+						<!-- If you wash your clothes, how do you do it? ->
 						<div class="extra_input" id="laundry_extra">
 							<label for="laundry_type" id="laundry_extra1"></label>
 							<select id="laundry_type" />
@@ -143,13 +144,13 @@
 							</select>					
 						</div><br>
 						
-						<!-- Flush the toilet? -->
+						<!-- Flush the toilet? ->
 						<input type="checkbox" class="water_use" id="toilet_chk">.<br>
 						
-						<!-- Do anything else with water? -->
+						<!-- Do anything else with water? ->
 						<input type="checkbox" class="water_use" id="other_chk">.
 						
-						<!-- If you do other stuff with water, tell us how much! --> 
+						<!-- If you do other stuff with water, tell us how much! -> 
 						<div class = "etra_input" id="extra_house0">
 							<div id="other_extra" class="extra_input">
 								<label for="other_text" id = "other_extra1"></label>
@@ -161,6 +162,7 @@
 							</div><br>
 						</div>
 					</div>	
+					-->
 					<br>
 				</form>
 				<!-- When you press this button, it stops letting you edit the form 
@@ -416,24 +418,24 @@
 				document.getElementById("cement_roof").nextSibling.data = CEMENT_ROOF_LBL;
 				document.getElementById("sheet_roof").nextSibling.data = SHEET_ROOF_LBL;
 				document.getElementById("spanish_roof").nextSibling.data = SPANISH_ROOF_LBL;
-				document.getElementById("uses0").innerHTML = USES0_LBL;
-				document.getElementById("brush_chk").nextSibling.data = BRUSH_CHK_LBL;
-				document.getElementById("hands_chk").nextSibling.data = HANDS_CHK_LBL;
-				document.getElementById("garden_chk").nextSibling.data = GARDEN_CHK_LBL;
-				document.getElementById("dishes_chk").nextSibling.data = DISHES_CHK_LBL;
-				document.getElementById("bath_chk").nextSibling.data = BATH_CHK_LBL;
-				document.getElementById("clothes_chk").nextSibling.data = CLOTHES_CHK_LBL;
-				document.getElementById("toilet_chk").nextSibling.data = TOILET_CHK_LBL;
-				document.getElementById("other_chk").nextSibling.data = OTHER_CHK_LBL;
-				document.getElementById("garden_extra1").innerHTML = GARDEN_EXTRA1_LBL;
-				document.getElementById("dishes_extra1").innerHTML = DISHES_EXTRA1_LBL;
-				document.getElementById("dishes_extra1_val0").innerHTML = DISHES_EXTRA1_VAL0_LBL;
-				document.getElementById("dishes_extra1_val1").innerHTML = DISHES_EXTRA1_VAL1_LBL;
-				document.getElementById("laundry_extra1").innerHTML = LAUNDRY_EXTRA1_LBL;
-				document.getElementById("laundry_extra1_val0").innerHTML = LAUNDRY_EXTRA1_VAL0_LBL;
-				document.getElementById("laundry_extra1_val1").innerHTML = LAUNDRY_EXTRA1_VAL1_LBL;
-				document.getElementById("other_extra1").innerHTML = OTHER_EXTRA1_LBL; 
-				document.getElementById("other_extra3").innerHTML = OTHER_EXTRA3_LBL;
+				//document.getElementById("uses0").innerHTML = USES0_LBL;
+				//document.getElementById("brush_chk").nextSibling.data = BRUSH_CHK_LBL;
+				//document.getElementById("hands_chk").nextSibling.data = HANDS_CHK_LBL;
+				//document.getElementById("garden_chk").nextSibling.data = GARDEN_CHK_LBL;
+				//document.getElementById("dishes_chk").nextSibling.data = DISHES_CHK_LBL;
+				//document.getElementById("bath_chk").nextSibling.data = BATH_CHK_LBL;
+				//document.getElementById("clothes_chk").nextSibling.data = CLOTHES_CHK_LBL;
+				//document.getElementById("toilet_chk").nextSibling.data = TOILET_CHK_LBL;
+				//document.getElementById("other_chk").nextSibling.data = OTHER_CHK_LBL;
+				//document.getElementById("garden_extra1").innerHTML = GARDEN_EXTRA1_LBL;
+				//document.getElementById("dishes_extra1").innerHTML = DISHES_EXTRA1_LBL;
+				//document.getElementById("dishes_extra1_val0").innerHTML = DISHES_EXTRA1_VAL0_LBL;
+				//document.getElementById("dishes_extra1_val1").innerHTML = DISHES_EXTRA1_VAL1_LBL;
+				//document.getElementById("laundry_extra1").innerHTML = LAUNDRY_EXTRA1_LBL;
+				//document.getElementById("laundry_extra1_val0").innerHTML = LAUNDRY_EXTRA1_VAL0_LBL;
+				//document.getElementById("laundry_extra1_val1").innerHTML = LAUNDRY_EXTRA1_VAL1_LBL;
+				//document.getElementById("other_extra1").innerHTML = OTHER_EXTRA1_LBL; 
+				//document.getElementById("other_extra3").innerHTML = OTHER_EXTRA3_LBL;
 				document.getElementById("more_info_button0").innerHTML = MORE_INFO_BUTTON_LBL;
 				document.getElementById("less_info_button0").innerHTML = LESS_INFO_BUTTON_LBL;
 				//document.getElementById("table_lbl").innerHTML = TABLE_LBL;
@@ -534,22 +536,22 @@
 					station_name: STATION_STARTING_VALUE,
 					ppl: Number(document.getElementById("ppl").value),				// 	and feeds in initial conditions.
 					length: Number(document.getElementById("length").value),
-					width: Number(document.getElementById("width").value),
-					brush_chk: Boolean(document.getElementById("brush_chk").checked),
-					hands_chk: Boolean(document.getElementById("hands_chk").checked),
-					garden_chk: Boolean(document.getElementById("garden_chk").checked),
-					dishes_chk: Boolean(document.getElementById("dishes_chk").checked),
-					bath_chk: Boolean(document.getElementById("bath_chk").checked),
-					clothes_chk: Boolean(document.getElementById("clothes_chk").checked),
-					toilet_chk: Boolean(document.getElementById("toilet_chk").checked),
-					other_chk: Boolean(document.getElementById("other_chk").checked),
-					roof_type: Number(document.getElementById("cement_roof").value),
-					garden_size: Number(document.getElementById("garden_size").value),
-					laundry_type: Number(document.getElementById("laundry_type").value),
-					garden_size: Number(document.getElementById("garden_size").value),
-					other_text: String(document.getElementById("other_text").value),
-					other_value: Number(document.getElementById("other_value").value),
-					dishes_washing_type: Number(document.getElementById("dishes_washing_type").value)	
+					width: Number(document.getElementById("width").value)
+					//brush_chk: Boolean(document.getElementById("brush_chk").checked),
+					//hands_chk: Boolean(document.getElementById("hands_chk").checked),
+					//garden_chk: Boolean(document.getElementById("garden_chk").checked),
+					//dishes_chk: Boolean(document.getElementById("dishes_chk").checked),
+					//bath_chk: Boolean(document.getElementById("bath_chk").checked),
+					//clothes_chk: Boolean(document.getElementById("clothes_chk").checked),
+					//toilet_chk: Boolean(document.getElementById("toilet_chk").checked),
+					//other_chk: Boolean(document.getElementById("other_chk").checked),
+					//roof_type: Number(document.getElementById("cement_roof").value),
+					//garden_size: Number(document.getElementById("garden_size").value),
+					//laundry_type: Number(document.getElementById("laundry_type").value),
+					//garden_size: Number(document.getElementById("garden_size").value),
+					//other_text: String(document.getElementById("other_text").value),
+					//other_value: Number(document.getElementById("other_value").value),
+					//dishes_washing_type: Number(document.getElementById("dishes_washing_type").value)	
 				};
 			}	
 			

@@ -148,7 +148,7 @@ var RHS_TITLE = "Results";
 var L_ADDON_LBL = "<small> liters</small>";
 
 ////// 		FOOTER 					//////
-var FOOTER_TXT = "Created by <a href='https://www.caminosdeagua.org' target='_blank'>Caminos De Agua</a> | Data from <a href='http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto' target='_blank'>SMN</a>"
+var FOOTER_TXT = "<a href='https://www.caminosdeagua.org' target='_blank'>How does this work?</a> | Created by <a href='https://www.caminosdeagua.org' target='_blank'>Caminos de Agua</a> | Data from <a href='http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto' target='_blank'>SMN</a>"
 
 //////////////////////////////////////////
 //										//
