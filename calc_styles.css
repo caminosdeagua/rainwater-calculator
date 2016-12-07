@@ -18,8 +18,8 @@ html, body{width:100%; height:100%; padding: 0; margin: 0; background: #999999; 
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	overflow: auto;
-	background-color: #f08825;
+	overflow: hidden;
+	background-color: #BBBBBB;
 	position: relative;
 }
 
@@ -219,23 +219,8 @@ button {
 
 #calc_button {
 	width: 160px;
-	margin-left: 40px;	
-}
+	margin-left: 10px;
 
-#more_info_button0, #less_info_button0 {
-	margin-top: 60px;
-	
-	
-}
-
-.dividing_bar {	
-	position: relative;
-	background-color: #DDDDDD;
-	width: 16px;
-	height: 100%;
-	display: inline-block;
-	float: right;
-	
 }
 
 .display-stuff {
@@ -284,5 +269,11 @@ div[name=big_disp] {
 	width: 120px;
 }
 
-
+#yes_or_no{
+	height: 80%;
+	width: 80%;
+	margin-top: 20%;
+	margin-bottom: 10%;
+	padding-bottom: 0px;
+}
 
