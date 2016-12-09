@@ -432,7 +432,8 @@
 					station_name: STATION_STARTING_VALUE,
 					ppl: Number(document.getElementById("ppl").value),				// 	and feeds in initial conditions.
 					length: Number(document.getElementById("length").value),
-					width: Number(document.getElementById("width").value)
+					width: Number(document.getElementById("width").value),
+					roof_type: 0
 					//brush_chk: Boolean(document.getElementById("brush_chk").checked),
 					//hands_chk: Boolean(document.getElementById("hands_chk").checked),
 					//garden_chk: Boolean(document.getElementById("garden_chk").checked),
@@ -449,6 +450,11 @@
 					//other_value: Number(document.getElementById("other_value").value),
 					//dishes_washing_type: Number(document.getElementById("dishes_washing_type").value)	
 				};
+				
+				els = document.getElementsByName("roof_type");
+				for (var i=0; i<els.length; i++) {
+					if(els[i].checked) {allData.roof_type = els[i].value}
+				}
 			}	
 			
 			////////////////////////////////////////////////////////////////////
