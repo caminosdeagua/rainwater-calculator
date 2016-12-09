@@ -57,7 +57,7 @@ function grabData() {
 				})
 				if (String(geojson._layers[polys[i]].feature.properties.NOMGEO) == MUN_STARTING_VALUE & String(geojson._layers[polys[i]].feature.properties.Station) == STATION_STARTING_VALUE) {
 					geojson._layers[polys[i]].setStyle({fillColor: 'blue'});
-					
+					mun = geojson._layers[polys[i]]._leaflet_id;
 				}
 			}
 			
@@ -135,6 +135,9 @@ function select(event) {
 	mun = id; 	
 	
 	updateInputs("map");
+	
+	console.log("You just clicked on:")
+	console.log(event.target)
 }
 
 

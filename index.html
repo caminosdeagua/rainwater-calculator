@@ -972,6 +972,33 @@
 				
 			}
 			
+			////////////////////////////////////////////////////////////////////
+			////			function getCisternSize				 			////
+			//// 															////
+			////	Args:
+			////		rainfall 	1x12 array with monthly rainfall [mm]	////	
+			////		area		area of the roof [m2]					////
+			////		eff			efficiency of roof [0,1]				////
+			////		dailyUse 	household's daily avg water consumption	////
+			////					[L/day]									////
+			////
+			////	Returns:
+			////		.adequate 	tells if a roof is large enough to 		////
+			////					support the provided daily use for the 	////
+			////					entire year. [boolean]					////
+			////		.volume		returns the cistern volume required to	////
+			////					capture 100% of rainwater from the 		////
+			////					provided roof area and rainfall [L].	////
+			////															////
+			////	Algorithm:												////
+			////		Loops through all months. Calculates 				////
+			////		inventory[i] = inventory[i-1] + collected[i] - use[i] //
+			////		Begins this process at START_MONTH which can be set ////
+			////		in globals.js. If any month has an inventory of 0,	////
+			////		then .adequate returns false. otherwise, it returns	////
+			////		true. 	
+			////////////////////////////////////////////////////////////////////
+			
 			function getCisternSize(rainfall, area, eff, dailyUse) {
 				var results = {adequate: true, volume: 0};
 				

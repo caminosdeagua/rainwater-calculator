@@ -15,7 +15,7 @@ var DATA_URL = "https://dl.dropboxusercontent.com/s/w2le11pok7c781e/munis.geojso
 ///////////// 	MUST SET UP ALL THREE OF THESE MANUALLY TO MATCH UP 	/////////////////////////
 var MUN_STARTING_VALUE = "San Miguel de Allende";
 var STATION_STARTING_VALUE = "San Miguel de Allende (SMN)";
-var mun = 50;					// holds the user's selected municipality 
+var mun = 0;					// holds the user's selected municipality 
 /////////////////////////////////////////////////////////////////////////////////////////////////
 
 var muni_index;						// global to hold municipality indices 

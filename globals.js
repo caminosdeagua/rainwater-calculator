@@ -1,6 +1,6 @@
-var form;
+var form;					// declare the form as global 
 
-var allData;
+var allData;				// declare the dataset as global
 
 
 var MAX_PPL = 9999;
