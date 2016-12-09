@@ -1,7 +1,7 @@
 var form;					// declare the form as global 
 
 var allData;				// declare the dataset as global
-
+var validations = 0;		// a global var to see how many times the form has been validated
 
 var MAX_PPL = 9999;
 var MIN_PPL = 1;

@@ -271,16 +271,19 @@
 				initForm();
 				initEmbeddedMap();							
 				
-				loadStartingValues();
+				
 				hideErrorLbls();
 				hideExtraText();
 				hideComplexOutput();
 				
+				setTimeout(function() {
+					loadStartingValues();
+					displayStuff = inputs2outputs(allData);
+					displayOutputs(displayStuff);
+					addLanguageText();
+				}, 1000)
 				
-				displayStuff = inputs2outputs(allData);
-				displayOutputs(displayStuff);
 				
-				addLanguageText();
 				
 				startInterrupt();
 				
@@ -608,7 +611,8 @@
 			////////////////////////////////////////////////////////////////////
 			
 			function validateForm(event) {
-				 // fetch cross-browser event object and form node
+				
+				// fetch cross-browser event object and form node
 				
 				event = (event ? event : window.event);
 				var element = (event.target ? event.target : event.srcElement);
@@ -942,31 +946,46 @@
 				
 				console.log(inputs)
 				
-				var essential = ESSENTIAL_DAILY_USE * (inputs.ppl);        		//variable which express the liters of drinking + liters of cooking for one person
+				//////////////////////////////////////////////////////////////////
+				//	This next sextion calculates the minimum adequate roof 		//
+				//	and cistern sizes for the provided family size and area.	//
+				//////////////////////////////////////////////////////////////////
 				
+				//variable which express the liters of drinking + liters of cooking for one person
+				var essential = ESSENTIAL_DAILY_USE * (inputs.ppl);      
 
-				var rainfall = getRainfall(inputs.place); 		// grabs rainfall from geojson data for the selected polygon. 				
+				var rainfall = getRainfall(inputs.place); 	// grabs rainfall from geojson data for the selected polygon. 				
 				
-				var testArea = 0;	// initialize area;
-				var testAreaAdequate = false;
+				var testArea = 0;							// start with area of 0 (it gets bumped up to 1 in the first loop itteration);
+				var testAreaAdequate = false;				// default: user doesn't have adequate roof space.
 				
-				if (rainfall[0]) {
-					var ans;
-					while (!testAreaAdequate) {
-						testArea=testArea+1;
-						ans = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential)
-						testAreaAdequate = ans.adequate;
+				if (rainfall[0]) {							// if the rainfall data has loaded:
+					var test;								
+					while (!testAreaAdequate) {				// while there isn't enough roof area
+						testArea=testArea+1;				// increment the area
+						test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential) 	// get the cistern size
+						testAreaAdequate = test.adequate;	// and store whether this roof is adeqaute 
 					}
-					console.log("cistern size: "+ans.volume+" L.")
-				} else {
-					var ans = {adequate: false, volume: 0}
-				}
-								
-				outputs.essentialDailyUse = essential;
-				outputs.minTankVolume = ans.volume;
-				outputs.actualRoofArea = inputs.length * inputs.width;
-				outputs.minRoofArea = testArea;
-				outputs.actualTankVolume;
+				} else {									// If the rainfall data hasn't loaded yet
+					var test = {adequate: false, volume: 0}// 	fill with some made up data
+					testArea = 99999999999999;				// This is just an outrageously large number 
+				}											//	so that it will say "your roof isn't big enough!"
+															//	if the user hasn't entered a roof size. 
+				
+				//////////////////////////////////////////////////////////////////
+				//	This next sextion calculates the required minimum cistern 	//
+				//	size if the user wanted to collect 100% of the water off	//
+				//	their provided roof size in the average year. 				//
+				//////////////////////////////////////////////////////////////////
+				
+				var actualArea = inputs.length * inputs.width;;
+				var actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential)
+				
+				outputs.essentialDailyUse = essential; 		// Water consumption for cooking & drinking [L/day]
+				outputs.minTankVolume = test.volume;		// once the roof size is adequate, this is the volume of the requisite cistern [L]
+				outputs.actualRoofArea = actualArea;		// the user-provided roof area [m2]
+				outputs.minRoofArea = testArea;				// and this holds the minimum acceptable roof size for supporting the given population [m2]
+				outputs.actualTankVolume = actual.volume;	// cistern volume required to capture 100% of rainfall on user-provided roof area [L]					
 				
 				return outputs 				
 				
@@ -1021,11 +1040,11 @@
 						results.adequate = false;						// 	and indicate that the roof space is inadequate for the family's needs
 					}
 				}
-				console.log("rainfall: "+rainfall)
-				console.log("area: "+area)
-				console.log("eff: "+eff)
-				console.log(inventory)
-				console.log(results.adequate)
+				//console.log("rainfall: "+rainfall)
+				//console.log("area: "+area)
+				//console.log("eff: "+eff)
+				//console.log(inventory)
+				//console.log(results.adequate)
 				results.volume = Math.max.apply(null, inventory);		// The volume of the tank is the max value of the inventory.
 				return results	
 			}
