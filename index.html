@@ -47,7 +47,7 @@
 			<div id="LHS_inputs">
 				<!-- the top text goes here -->
 				<a id="caminos_logo" href="https://www.caminosdeaguamexico.org" target="_blank">
-					<img id="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
+					<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
 				</a>
 				<h1 class="headers" id="header"></h1>
 				<h3 class="headers" id="sub_header"></h3>
@@ -166,7 +166,7 @@
 					<br>
 				</form>
 				<!-- When you press this button, it stops letting you edit the form 
-						and displays your inputs in a table -->
+						and displays the inputs back to the user -->
 				<div class="button">
 					<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
 				</div>
@@ -193,30 +193,11 @@
 		<!-- The right hand side displays the calculated resullts in simple or complex form -->
 		<div id="right_hand_side">
 			<div class="footer" align="right"></div>
-		
-			<!-- First, by default, let's display the simple version -->
-			<div id = "RHS_simple" align="center" style="height: 100%;">
-				<!--<h1 class="res_title"></h1>-->
-				<!--
-				<!-- Display the amount used for just drinking+cooking ->
-				<div id = "essential_use0" class="output_number">
-					<label name="essential_use_lbl0"></label><br>
-					<label class="return_num" name="essential_use_num"></label><br>
-					<label name="essential_use_lbl1"></label>
-				</div>
-				
-				<!-- Display the minimum tank size required for all essential uses ->
-				<div id = "tank_size0" class="output_number">
-					<label name="tank_size_lbl0"></label><br>
-					<label class="return_num" name="tank_size_num"></label><br>
-					<label name="tank_size_lbl1"></label>
-				</div>
-				-->
-		
-			</div>
 			
 			<div id="RHS_big" hidden="true">
-				
+				<a id="caminos_logo2" href="https://www.caminosdeaguamexico.org" target="_blank">
+					<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
+				</a>	
 				<div class="display-stuff" align="center" style="float: right;">
 					<h1 class="res_title"></h1>	
 					<div class="tooltip" id="yes_or_no" onmouseover="addTooltipText(this)">
@@ -224,6 +205,10 @@
 						<label name="yes_or_no_lbl"></label><br>
 						<label name="yes_or_no_numb" class="return_num"></label><br>
 						<label name="yes_or_no_lbl"></label><br>
+					</div><br>
+					<div class="test">.
+					</div><br>
+					<div class="test">.<br>.
 					</div>
 					
 					<table class="display_grid">
@@ -894,13 +879,10 @@
 				if (lhs > rhs) {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
-					document.getElementById("RHS_simple").hidden=true;
 					document.getElementById("RHS_big").hidden=false;
 				} else {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
-					document.getElementById("RHS_simple").style.opacity = 1;
-					document.getElementById("RHS_simple").hidden=false;	
 					document.getElementById("RHS_big").hidden=true;
 				};
 			}
