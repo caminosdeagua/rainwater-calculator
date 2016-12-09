@@ -31,3 +31,5 @@ var OUTPUT_WIDTH_AFTER = "65%";
 var DAY_MON = [31,28,31,30,31,30,31,31,30,31,30,31];  // Days per month
 				
 var ESSENTIAL_DAILY_USE = 5; //Liters per day per person
+
+var START_MONTH = 5; // Start inventory calculation in june (jan=0, feb=1, mar=2, etc.)

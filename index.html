@@ -917,57 +917,32 @@
 				
 				console.log(inputs)
 				
-				var essential = 5 * (inputs.ppl);                       	//variable which express the liters of drinking + de liters of cooking for one person
+				var essential = ESSENTIAL_DAILY_USE * (inputs.ppl);        		//variable which express the liters of drinking + liters of cooking for one person
 				
 
-				var rainfall = getRainfall(inputs.place); 				// grabs rainfall from geojson data for the selected polygon. 
-				var area = inputs.length * inputs.width;      // Calculation for roof area, since people fill in their lenght and width of the roof, we calculate the roof area. 
-
-				var watercollected = [0,0,0,0,0,0,0,0,0,0,0,0];
-				for (var i = 0; i < DAY_MON.length; i++){
-					watercollected[i] = area * rainfall[i] * EFFS[inputs.roof_type];
-				}
+				var rainfall = getRainfall(inputs.place); 		// grabs rainfall from geojson data for the selected polygon. 
+			
+				//var watercollected = [0,0,0,0,0,0,0,0,0,0,0,0];
+				//for (var i = 0; i < DAY_MON.length; i++){
+				//	watercollected[i] = area * rainfall[i] * EFFS[inputs.roof_type];
+				//}
 				
-				var mon_consumption = [0,0,0,0,0,0,0,0,0,0,0,0];      // Shows us an index for our monthly consumption. 12 times a 0 because we have 12 months.
-				for (var i = 0; i<DAY_MON.length; i++){
-					mon_consumption[i] = essential * DAY_MON[i];
-				} 
-
-				var diff = 0;                                           // difference between water collected minus consumption. Here defined as 0.  
-				var inventory = [0,0,0,0,0,0,0,0,0,0,0,0];              // Index which will be used later for inventory. Inventory is the amount of liters of water which is in each month in their tank. 
-	
-				for (var i = 0; i < DAY_MON.length; i++){
-					diff = watercollected[i] - mon_consumption[i];
-					
-					if (i == 0){
-						inventory[i] = diff;
-					} else {
-						inventory[i] = inventory[i-1] + diff;
+				
+				
+				var testArea = 0;	// initialize area;
+				var testAreaAdequate = false;
+				
+				if (rainfall[0]) {
+					var ans;
+					while (!testAreaAdequate) {
+						testArea=testArea+1;
+						ans = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential)
+						testAreaAdequate = ans.adequate;
 					}
-					
-					if (inventory[i] < 0) {
-						inventory[i] = 0;
-					}
+					console.log("cistern size: "+ans.volume+" L.")
+				} else {
+					var ans = {adequate: false, volume: 0}
 				}
-			
-			
-			
-			
-				//////////////////////////////////////////////////////////
-				//                                                      //
-				//  Gives us the maximum of the index of the inventory  //
-				//  which is per month. This max is thus where the      //
-				//  montly collection is highest. The tank should       //
-				//  be at least this size to be able to collect         //
-				//  everymonth this amount.                             //
-				//                                                      //
-				//////////////////////////////////////////////////////////
-
-				var cisternsize = Math.max.apply(null, inventory);		
-
-								
-				
-					
 				////////////////////////////////////////////////////////
 				//                                                    //
 				//                    Returns                         //
@@ -980,28 +955,44 @@
 
 				
 				outputs.essentialDailyUse = essential;
-				outputs.minTankVolume = cisternsize;
-				outputs.actualRoofArea = area;
-				outputs.minRoofArea;
-				outputs.actualTankVolume
+				outputs.minTankVolume = ans.volume;
+				outputs.actualRoofArea = inputs.length * inputs.width;
+				outputs.minRoofArea = testArea;
+				outputs.actualTankVolume;
 				
 				return outputs 				
 				
 			}
 			
-			function getCisternSize(rainfall, area, people) {
-				var adequate = true;
+			function getCisternSize(rainfall, area, eff, dailyUse) {
+				var results = {adequate: true, volume: 0};
+				
 				var inventory = Array.apply(null, Array(DAY_MON.length)).map(Number.prototype.valueOf,0);
-				for (var i=0; i<DAY_MON.length; i++) {
-					var use = people*ESSENTIAL_DAILY_USE*DAY_MON[i];
-					inventory[i] = rainfall[i]*area - use;
-					if (inventory[i]<0) {inventory[i]=0;} 			// Make sure that inventory is >=0
-					if (i>0) {										// For all months but january,
-						inventory[i]=inventory[i-1]+inventory[i];	//	add the current inventory to the previous.
+				for (var i=START_MONTH; i<DAY_MON.length+START_MONTH; i++) {
+					var monthlyUse = dailyUse*DAY_MON[i%DAY_MON.length];							// people * L/(people*day) * day/month = [L/month]
+					
+					inventory[i%DAY_MON.length] = rainfall[i%DAY_MON.length]*area*eff - monthlyUse;		// mm/month * m^2 - L/month = [L/month] 			
+					
+					if ( i%DAY_MON.length != START_MONTH ) {					// For all months but the first one,
+						if (i%DAY_MON.length == 0) {
+							inventory[i%DAY_MON.length]=inventory[DAY_MON.length-1]+inventory[i%DAY_MON.length];// if january, add to inventory of december
+						} else {																				//	add the current inventory to the previous. (even when its 0).
+							inventory[i%DAY_MON.length]=inventory[(i-1)%DAY_MON.length]+inventory[i%DAY_MON.length];	
+						}
+					}																				
+							
+					if (inventory[i%DAY_MON.length]<0) { 							// Make sure that inventory is >=0
+						inventory[i%DAY_MON.length]=0;								// 	if not, set it to zero
+						results.adequate = false;						// 	and indicate that the roof space is inadequate for the family's needs
 					}
 				}
-				var volume = Math.max.apply(null, inventory);
-				return [adequate, volume];
+				console.log("rainfall: "+rainfall)
+				console.log("area: "+area)
+				console.log("eff: "+eff)
+				console.log(inventory)
+				console.log(results.adequate)
+				results.volume = Math.max.apply(null, inventory);		// The volume of the tank is the max value of the inventory.
+				return results	
 			}
 			
 							
