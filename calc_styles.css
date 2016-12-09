@@ -336,3 +336,14 @@ div[name=big_disp] {
 	display: inline-block;
 	margin-top: 15px;
 }
+
+.inner_test {
+	background-color: red;
+	border: 2px solid black;
+	display: inline-block;
+	margin-top: 0px;
+	margin-bottom: 0px;
+	margin-left: 2px;
+	margin-right: 2px;
+	
+}
