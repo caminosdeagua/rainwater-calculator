@@ -198,11 +198,6 @@
 			<!-- First, by default, let's display the simple version -->
 			<div id = "RHS_simple" align="center" style="height: 100%;">
 				<!--<h1 class="res_title"></h1>-->
-				<div class="output_number" id="yes_or_no">
-					<label name="yes_or_no_lbl0"></label><br>
-					<label name="yes_or_no_numb" class="return_num"></label><br>
-					<label name="yes_or_no_lbl1"></label><br>
-				</div>
 				<!--
 				<!-- Display the amount used for just drinking+cooking ->
 				<div id = "essential_use0" class="output_number">
@@ -222,8 +217,15 @@
 			</div>
 			
 			<div id="RHS_big" hidden="true">
+				
 				<div class="display-stuff" align="center" style="float: right;">
-					<h1 class="res_title"></h1>
+					<h1 class="res_title"></h1>	
+					<div class="output_number" id="yes_or_no">
+						<label name="yes_or_no_lbl"></label><br>
+						<label name="yes_or_no_numb" class="return_num"></label><br>
+						<label name="yes_or_no_lbl"></label><br>
+					</div>
+					
 					<table class="display_grid">
 						<tr class="display_grid">
 							<th class="display_grid" align="center" >
@@ -315,7 +317,7 @@
 				document.getElementById("cement_roof").nextSibling.data = CEMENT_ROOF_LBL;
 				document.getElementById("sheet_roof").nextSibling.data = SHEET_ROOF_LBL;
 				document.getElementById("spanish_roof").nextSibling.data = SPANISH_ROOF_LBL;
-				document.getElementsByName("yes_or_no_lbl0")[0].innerHTML = RHS_DEFAULT_TEXT;
+				
 				//document.getElementById("uses0").innerHTML = USES0_LBL;
 				//document.getElementById("brush_chk").nextSibling.data = BRUSH_CHK_LBL;
 				//document.getElementById("hands_chk").nextSibling.data = HANDS_CHK_LBL;
@@ -340,6 +342,7 @@
 				document.getElementById("header_display").innerHTML = HEADER;
 				document.getElementById("sub_header_display").innerHTML = LHS_DISPLAY_TITLE;
 				document.getElementById("instructions_display").innerHTML = LHS_INSTRUCTIONS;
+
 				
 				var els = document.getElementsByClassName("footer") 
 				for (var i=0; i<els.length; i++) {
@@ -807,61 +810,77 @@
 					ie = true;
 				}
 				
-				var els = document.getElementsByName("essential_use_num");
+				el = document.getElementById("yes_or_no");
+				var elNumb=document.getElementsByName("yes_or_no_numb")[0];
+				if (o.minRoofArea <= o.actualRoofArea) {
+					el.style.backgroundColor = GREEN;
+					elNumb.innerHTML = ADEQUATE_LBL;
+				} else {
+					el.style.backgroundColor = RED;
+					elNumb.innerHTML = INADEQUATE_LBL;
+				}
+				
+				var els=document.getElementsByName("yes_or_no_lbl");
 				for (var i=0; i<els.length; i++) {
-					if (!ie) {
-						els[i].innerHTML = String(Math.trunc(o.essentialDailyUse)+L_ADDON_LBL);
-					} else {
-						els[i].innerHTML = String(o.essentialDailyUse+L_ADDON_LBL)
+					els[i].innerHTML = YES_OR_NO_LBL[i];
+					if (i>0) {
+						els[i].innerHTML = YES_OR_NO_LBL[1]+" <b><big>"+String(o.essentialDailyUse)+"</b></big> "+YES_OR_NO_LBL[2]
 					}
 				}
 				
-				var els = document.getElementsByName("total_use_num");
-				for (var i=0; i<els.length; i++) {
-					if (!ie) {
-						els[i].innerHTML = String(Math.trunc(o.totalOtherUse + o.essentialDailyUse)+L_ADDON_LBL);
-					} else {
-						els[i].innerHTML = String(o.totalOtherUse + o.essentialDailyUse+L_ADDON_LBL)
-					}
-				}
-				
-				var els = document.getElementsByName("tank_size_num");
-				for (var i=0; i<els.length; i++) {
-					if (!ie) {
-						els[i].innerHTML = String(Math.trunc(o.minTankSize)+L_ADDON_LBL);
-					} else {
-						els[i].innerHTML = String(o.minTankSize+L_ADDON_LBL)
-					}
-				}
-				
-				var els = document.getElementsByName("collected");
-				for (var i=0; i<els.length; i++) {
-					if (!ie) {
-						els[i].innerHTML = String(Math.trunc(o.monthlyCollection[i%els.length]));
-					} else {
-						els[i].innerHTML = String(o.monthlyCollection[i%els.length]);
-					}
-				}
-				
-				var els = document.getElementsByName("used");
-				for (var i=0; i<els.length; i++) {
-					if (!ie) {
-						els[i].innerHTML = String(Math.trunc(o.monthlyUse[i%els.length]));
-					} else {
-						els[i].innerHTML = String(o.monthlyUse[i%els.length]);
-					}
-				}
-				
-				console.log(window.navigator.appName);
-				var els = document.getElementsByName("inventory");
-				console.log(els)
-				for (var i=0; i<els.length; i++) {
-					if (!ie) {
-						els[i].innerHTML = String(Math.trunc(o.inventory[i%els.length]));
-					} else {
-						els[i].innerHTML = String(o.inventory[i%els.length]);
-					}
-				}
+				//var els = document.getElementsByName("essential_use_num");
+				//for (var i=0; i<els.length; i++) {
+				//	if (!ie) {
+				//		els[i].innerHTML = String(Math.trunc(o.essentialDailyUse)+L_ADDON_LBL);
+				//	} else {
+				//		els[i].innerHTML = String(o.essentialDailyUse+L_ADDON_LBL)
+				//	}
+				//}
+				//
+				//var els = document.getElementsByName("total_use_num");
+				//for (var i=0; i<els.length; i++) {
+				//	if (!ie) {
+				//		els[i].innerHTML = String(Math.trunc(o.totalOtherUse + o.essentialDailyUse)+L_ADDON_LBL);
+				//	} else {
+				//		els[i].innerHTML = String(o.totalOtherUse + o.essentialDailyUse+L_ADDON_LBL)
+				//	}
+				//}
+				//
+				//var els = document.getElementsByName("tank_size_num");
+				//for (var i=0; i<els.length; i++) {
+				//	if (!ie) {
+				//		els[i].innerHTML = String(Math.trunc(o.minTankSize)+L_ADDON_LBL);
+				//	} else {
+				//		els[i].innerHTML = String(o.minTankSize+L_ADDON_LBL)
+				//	}
+				//}
+				//
+				//var els = document.getElementsByName("collected");
+				//for (var i=0; i<els.length; i++) {
+				//	if (!ie) {
+				//		els[i].innerHTML = String(Math.trunc(o.monthlyCollection[i%els.length]));
+				//	} else {
+				//		els[i].innerHTML = String(o.monthlyCollection[i%els.length]);
+				//	}
+				//}
+				//
+				//var els = document.getElementsByName("used");
+				//for (var i=0; i<els.length; i++) {
+				//	if (!ie) {
+				//		els[i].innerHTML = String(Math.trunc(o.monthlyUse[i%els.length]));
+				//	} else {
+				//		els[i].innerHTML = String(o.monthlyUse[i%els.length]);
+				//	}
+				//}
+				//
+				//var els = document.getElementsByName("inventory");
+				//for (var i=0; i<els.length; i++) {
+				//	if (!ie) {
+				//		els[i].innerHTML = String(Math.trunc(o.inventory[i%els.length]));
+				//	} else {
+				//		els[i].innerHTML = String(o.inventory[i%els.length]);
+				//	}
+				//}
 				
 			}
 			
@@ -926,14 +945,7 @@
 				var essential = ESSENTIAL_DAILY_USE * (inputs.ppl);        		//variable which express the liters of drinking + liters of cooking for one person
 				
 
-				var rainfall = getRainfall(inputs.place); 		// grabs rainfall from geojson data for the selected polygon. 
-			
-				//var watercollected = [0,0,0,0,0,0,0,0,0,0,0,0];
-				//for (var i = 0; i < DAY_MON.length; i++){
-				//	watercollected[i] = area * rainfall[i] * EFFS[inputs.roof_type];
-				//}
-				
-				
+				var rainfall = getRainfall(inputs.place); 		// grabs rainfall from geojson data for the selected polygon. 				
 				
 				var testArea = 0;	// initialize area;
 				var testAreaAdequate = false;
@@ -949,17 +961,7 @@
 				} else {
 					var ans = {adequate: false, volume: 0}
 				}
-				////////////////////////////////////////////////////////
-				//                                                    //
-				//                    Returns                         //
-				//  Return tells us what we want to tell the people   //                     //
-				////////////////////////////////////////////////////////
-
-				// essentialDailyUse is the water which a family needs for drinking and cooking which needs to be for sure 'good' water. 
-				// TotalOtherUse is the water which is drinking and cooking + the activities which the people have checked. 
-				// Cisternsize is the size of the cistern which is needed to cover the specific demand of this family (based on the activities they have checked)
-
-				
+								
 				outputs.essentialDailyUse = essential;
 				outputs.minTankVolume = ans.volume;
 				outputs.actualRoofArea = inputs.length * inputs.width;

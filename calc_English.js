@@ -144,7 +144,9 @@ var TANK_SIZE_LBL1 = "";
 var MORE_INFO_BUTTON_LBL = "More information";
 
 var RHS_TITLE = "Results";
-var RHS_DEFAULT_TEXT = "Please enter some information..."
+var YES_OR_NO_LBL = ["Your roof ", "large enough to support your household's essential water use of", "liters per day."];
+var ADEQUATE_LBL = "IS";
+var INADEQUATE_LBL = "IS NOT";
 
 var L_ADDON_LBL = "<small> liters</small>";
 

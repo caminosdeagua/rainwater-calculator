@@ -3,7 +3,7 @@ html, body{width:100%; height:100%; padding: 0; margin: 0; background: #999999; 
 
 #left_hand_side{
 	background-color: #c9e9f2;    /*#63aec1*/
-	width: 70%;
+	width: 100%;
 	height: 100%;
 	padding: 0;
 	margin: 0;
@@ -14,12 +14,12 @@ html, body{width:100%; height:100%; padding: 0; margin: 0; background: #999999; 
 }
 
 #right_hand_side {
-	width: 30%;
+	width: 0%;
 	height: 100%;
 	padding: 0;
 	margin: 0;
 	overflow: hidden;
-	background-color: #DDDDDD;
+	background-color: #ea9054;
 	position: relative;
 }
 
