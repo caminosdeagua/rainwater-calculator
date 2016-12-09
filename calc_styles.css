@@ -334,16 +334,36 @@ div[name=big_disp] {
 	background-color: blue;
 	border: 5px solid green;
 	display: inline-block;
+	margin: auto;
 	margin-top: 15px;
 }
 
-.inner_test {
+.left {
 	background-color: red;
 	border: 2px solid black;
 	display: inline-block;
-	margin-top: 0px;
-	margin-bottom: 0px;
-	margin-left: 2px;
-	margin-right: 2px;
-	
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 25%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	margin-left: 3px;
+	margin-right: 3px;
+
+}
+
+.right {
+	background-color: red;
+	border: 2px solid black;
+	display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	margin-left: 3px;
+	margin-right: 3px;
+
 }
