@@ -182,7 +182,6 @@
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
 					<p name="display_text">.</p>
-					<p name="display_text">.</p>
 					<br><br>
 					<div class="button" align="center">
 						<button onclick="replace('LHS_display','LHS_inputs'); widthShift()" id="back2inputs_button" ></button>
@@ -220,7 +219,8 @@
 				
 				<div class="display-stuff" align="center" style="float: right;">
 					<h1 class="res_title"></h1>	
-					<div class="output_number" id="yes_or_no">
+					<div class="tooltip" id="yes_or_no" >
+						<span class="tooltiptext">DIS BE A MESSAGE! aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa</span>
 						<label name="yes_or_no_lbl"></label><br>
 						<label name="yes_or_no_numb" class="return_num"></label><br>
 						<label name="yes_or_no_lbl"></label><br>
@@ -531,7 +531,7 @@
 			
 			
 			function updateOutputText() {
-				DISPLAY_TXT[0] = MUN_TXT[0]+MUNIS[allData.municipality]+MUN_TXT[1]; 	// Display municipality message
+				DISPLAY_TXT[0] = MUN_TXT[0]+allData.municipality_name+MUN_TXT[1]; 	// Display municipality message
 				if (allData.ppl > 1) { 													// Parse person (1) or people (>1)
 					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[2];
 				} else {
@@ -541,17 +541,17 @@
 				DISPLAY_TXT[3] = ROOF_TYPE_TXT[0]+ROOF_TYPES[allData.roof_type]+ROOF_TYPE_TXT[1];
 				
 				var els = document.getElementsByClassName("water_use"); 	// Display all other water uses. 
-				DISPLAY_TXT[4] = USE_TXT[0];
-				var counter = 0;
-				for (var i=0; i<els.length; i++) {
-					if (els[i].checked) {
-						counter++;
-						DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0&#8226;\xa0" + USES[i]
-					}
-				}
-				if (counter==0) {
-					DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + NO_USE;
-				}
+				//DISPLAY_TXT[4] = USE_TXT[0];
+				//var counter = 0;
+				//for (var i=0; i<els.length; i++) {
+				//	if (els[i].checked) {
+				//		counter++;
+				//		DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0&#8226;\xa0" + USES[i]
+				//	}
+				//}
+				//if (counter==0) {
+				//	DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + NO_USE;
+				//}
 				
 				var els = document.getElementsByName("display_text"); 		// Actually update all the <p> elements
 				for (var i=0; i<els.length; i++) {

@@ -115,17 +115,19 @@ var CALC_BUTTON_LBL = "Calculate!";
 var BACK2INPUTS_BUTTON_LBL = "Change my information";
 
 var LHS_DISPLAY_TITLE = "Great work!";
-var LHS_INSTRUCTIONS = "Please make sure the following information was entered correctly. If not, press the button below to change your information. If your information is correctly entered, your results are displayed in the orange pannel to the right!"
+var LHS_INSTRUCTIONS = "Please make sure the following information was entered correctly. If not, press the button below to change your information. Your results are displayed in the panel to the right. If you want more info about any of the displayed results, just hover your mouse over it!"
 
 var MUN_TXT = ["You live in <b>","</b>."];
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
-var USE_TXT = ["Besides <b>drinking</b> and <b>cooking</b>, you use water for: "];
-var NO_USE = "Nothing";
+//var USE_TXT = ["Besides <b>drinking</b> and <b>cooking</b>, you use water for: "];
+//var NO_USE = "Nothing";
+
 ///////////////////////////////////////////////////////////////// FINISH THIS SHIT !!!!!!!!!!!!!%%%%%%%$$$$$$$$$$###########
 
 var DISPLAY_TXT = [];
+
 //////////////////////////////////////////
 //										//
 //		SIMPLE RESULTS DISPLAY 		 	//
