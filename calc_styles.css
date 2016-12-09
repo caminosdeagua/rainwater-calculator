@@ -153,6 +153,8 @@ input[type="checkbox"] {
 	display: inline-block;
 	padding: 8px;
 	margin: 20px;
+	margin-top: 0px;
+	margin-bottom: 0px;
 	font-size: 18px;
 	border: 2px solid ;
 	border-radius: 15px;
@@ -241,7 +243,10 @@ th.display_grid {
 }
 
 .res_title {
-	font-size: 48px;	
+	font-size: 48px;
+	margin: 0px;
+	margin-top: 10px;
+	padding: 0px;
 }
 
 button {
@@ -261,11 +266,6 @@ button {
 	margin-left: 10px;
 
 }
-
-/*.display-stuff {
-	float: left;
-	position: absolute;
-}*/
 
 #LHS_display {
 	position: relative;
@@ -347,19 +347,19 @@ div[name=big_disp] {
 	border: 2px solid black;
 	display: inline-block;
     margin: 0;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-	margin-left: 3px;
-	margin-right: 3px;
+    position: relative;
+    top: 0;
+	height: auto;
+	width: 49%;
 
 }
 
 #left {
-	left: 25%;
+	float: left;
+	left: 0%;	
 }
 
 #right {
-    left: 75%;
+	float: right;
+    right: 0%;
 }
