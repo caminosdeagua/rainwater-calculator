@@ -219,8 +219,8 @@
 				
 				<div class="display-stuff" align="center" style="float: right;">
 					<h1 class="res_title"></h1>	
-					<div class="tooltip" id="yes_or_no" >
-						<span class="tooltiptext">DIS BE A MESSAGE! aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa aaaa aaa aa</span>
+					<div class="tooltip" id="yes_or_no" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
 						<label name="yes_or_no_lbl"></label><br>
 						<label name="yes_or_no_numb" class="return_num"></label><br>
 						<label name="yes_or_no_lbl"></label><br>
@@ -1049,6 +1049,14 @@
 				return results	
 			}
 			
+			function addTooltipText(el) {
+				if (el.id != currentTooltipId) {
+					el.children[0].innerHTML = TOOLTIP_TEXT[el.id];
+					currentTooltipId = el.id;
+				}
+			
+			//
+			}
 							
 			
 			

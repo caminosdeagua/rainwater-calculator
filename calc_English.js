@@ -169,3 +169,7 @@ var TABLE_TITLES = ["Month", "Water\nCollected", "Water\nConsumed", "Inventory"]
 var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"May", "Jun", "Jul", "Aug",
 				"Sep", "Oct", "Nov", "Dec"];
+				
+var TOOLTIP_TEXT = {
+	yes_or_no: "This box indicates if you have a large enough roof to collect enough water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!"
+}
