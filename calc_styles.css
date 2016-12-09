@@ -80,6 +80,12 @@ label, h1, h3, p, button, iframe {
 	margin-left: 10px;	
 	padding-right: 10px;
 	margin-bottom: 20px;
+	position: relative;
+	
+}
+
+.headers {
+	padding-right: 200px;
 }
 
 .error_lbl {
@@ -261,12 +267,19 @@ div[name=big_disp] {
 	font-size: 12.5px;
 }
 
-.caminos_logo {
+#caminos_logo {
 	position: relative;
 	float: right;
 	right: 25px;
+}
+
+#caminos_logo_img {
+	display: block;
+	position: relative;
 	height: 120px;
 	width: 120px;
+	float: left;
+		
 }
 
 #yes_or_no{
