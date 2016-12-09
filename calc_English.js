@@ -8,7 +8,7 @@ var CALC_TITLE = "Rainwater Harvesting Calculator";
 
 var HEADER = "Rainwater Harvesting in the Independence Watershed";
 
-var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please contact <a href='http://caminosdeagua.org/contact-1' target = '_blank'>Caminos de Agua</a>.";
+var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please <a href='http://caminosdeagua.org/contact-1' target = '_blank'>contact us</a>!";
 
 var INSTRUCTIONS = "<b>Answer the questions below about your household as best you can.</b><br><br>The calculator will approximate your daily ‘essential’ water need and your daily ‘total’ water need. <br><br>Your <b>essential water need</b> displays the number of liters your family needs for drinking and cooking. You should make sure that you only use water which is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target = '_blank'>safe and healthy</a> for drinking and cooking. <br>Your <b>total water need</b> is the number of liters your family needs for drinking and cooking plus other activities. You can chose by yourself which activities you want to do with your harvesting rainwater. <br><br>Secondly, the calculator will tell you how much rainwater storage you need to fulfill your needs, based on the rainfall in your municipality. <br><br> <b>Let's calculate</b>";
 

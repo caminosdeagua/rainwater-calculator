@@ -191,54 +191,53 @@
 		</div>
 		
 		<!-- The right hand side displays the calculated resullts in simple or complex form -->
-		<div id="right_hand_side">
+		<div id="right_hand_side" align="center">
 			<div class="footer" align="right"></div>
-			
-			<div id="RHS_big" hidden="true">
-				<a id="caminos_logo2" href="https://www.caminosdeaguamexico.org" target="_blank">
-					<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
-				</a>	
-				<div class="display-stuff" align="center" style="float: right;">
-					<h1 class="res_title"></h1>	
-					<div class="tooltip" id="yes_or_no" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<label name="yes_or_no_lbl"></label><br>
-						<label name="yes_or_no_numb" class="return_num"></label><br>
-						<label name="yes_or_no_lbl"></label><br>
-					</div><br>
-					<div class="test">
-						<div class="left">.
-						</div>
-						<div class="right">.<br>.
-						</div>
-					</div><br>
-					<div class="test">.<br>.
+			<!--<div class="display-stuff" align="center" style="float: right;">-->
+				<h1 class="res_title"></h1>	
+				<div class="tooltip" id="yes_or_no" onmouseover="addTooltipText(this)">
+					<span class="tooltiptext"></span>
+					<label name="yes_or_no_lbl"></label><br>
+					<label name="yes_or_no_numb" class="return_num"></label><br>
+					<label name="yes_or_no_lbl"></label><br>
+				</div><br>
+				<div class="test">
+					<div class="test_inner" id="left">......
 					</div>
-					
-					<table class="display_grid">
-						<tr class="display_grid">
-							<th class="display_grid" align="center" >
-								<div id="essential_use2" class="output_number" name="big_disp"></div>
-							</th>
-							<th class="display_grid" align="center">
-								<div id = "total_use1" class="output_number" name="big_disp"></div>
-							</th>
-							<th class="display_grid" align="center">
-								<div id = "tank_size2" class="output_number" name="big_disp"></div>	
-							</th>
-							
-						</tr>
-						<tr class="display_grid">
-							<th class="display_grid"></th>
-							<th class="display_grid">
-								<div class="output_number" id="inventory_table1" name="big_disp"></div>
-							</th>
-							<th class="display_grid"></th>
-						</tr>
-					</table>
+					<div class="test_inner" id="right">.<br>.
+					</div>
+				</div><br>
+				<div class="test">.<br>.
 				</div>
-							
-			</div>		
+				
+				<table class="display_grid">
+					<tr class="display_grid">
+						<th class="display_grid" align="center" >
+							<div id="essential_use2" class="output_number" name="big_disp"></div>
+						</th>
+						<th class="display_grid" align="center">
+							<div id = "total_use1" class="output_number" name="big_disp"></div>
+						</th>
+						<th class="display_grid" align="center">
+							<div id = "tank_size2" class="output_number" name="big_disp"></div>	
+						</th>
+						
+					</tr>
+					<tr class="display_grid">
+						<th class="display_grid"></th>
+						<th class="display_grid">
+							<div class="output_number" id="inventory_table1" name="big_disp"></div>
+						</th>
+						<th class="display_grid"></th>
+					</tr>
+				</table>
+				
+				
+			<a id="caminos_logo2" href="https://www.caminosdeaguamexico.org" target="_blank">
+				<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
+			</a>	
+			<!--</div>-->
+								
 		</div>
 		
 
@@ -883,11 +882,11 @@
 				if (lhs > rhs) {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
-					document.getElementById("RHS_big").hidden=false;
+					document.getElementById("caminos_logo2").style.display = "block";
 				} else {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
-					document.getElementById("RHS_big").hidden=true;
+					document.getElementById("caminos_logo2").style.display = "none";
 				};
 			}
 			

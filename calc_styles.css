@@ -22,13 +22,15 @@ html, body{width:100%; height:100%; padding: 0; margin: 0; background: #999999; 
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	overflow: hidden;
+	overflow-x: hidden;
+	overflow-y: auto;
 	background-color: #ea9054;
 	position: relative;
 	-webkit-transition-property: width; /* Safari */
     -webkit-transition-duration: 1s; /* Safari */
     transition-property: width;
-    transition-duration: 1s
+    transition-duration: 1s;
+	min-height: 100%;
 }
 
 /* Formatting for all number-entry boxes */
@@ -260,15 +262,10 @@ button {
 
 }
 
-.display-stuff {
+/*.display-stuff {
 	float: left;
 	position: absolute;
-}
-
-#RHS_big {
-	display: block-inline;
-	height: 100%;
-}
+}*/
 
 #LHS_display {
 	position: relative;
@@ -304,10 +301,12 @@ div[name=big_disp] {
 }
 
 #caminos_logo2 {
-	position: absolute;
-	left: 10px;
+	display: none;
+	position: fixed;
+	left: 36%;
 	bottom: 10px;
 	z-index: 10;
+	opacity: 0.85;
 }
 
 
@@ -322,7 +321,8 @@ div[name=big_disp] {
 
 #yes_or_no{
 	width: 80%;
-	height: 86%;
+	display: inline-block;
+	height: auto;
 	position: relative;
 	top: 7%;
 	margin: 0px;
@@ -331,21 +331,24 @@ div[name=big_disp] {
 }
 
 .test {
+	position: relative;
 	background-color: blue;
 	border: 5px solid green;
 	display: inline-block;
 	margin: auto;
 	margin-top: 15px;
+	overflow: auto;
+	height: 30%;
+	width: 90%;
 }
 
-.left {
+.test_inner {
 	background-color: red;
 	border: 2px solid black;
 	display: inline-block;
     margin: 0;
     position: absolute;
     top: 50%;
-    left: 25%;
     -ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
 	margin-left: 3px;
@@ -353,17 +356,10 @@ div[name=big_disp] {
 
 }
 
-.right {
-	background-color: red;
-	border: 2px solid black;
-	display: inline-block;
-    margin: 0;
-    position: absolute;
-    top: 50%;
+#left {
+	left: 25%;
+}
+
+#right {
     left: 75%;
-    -ms-transform: translate(-50%, -50%);
-    transform: translate(-50%, -50%);
-	margin-left: 3px;
-	margin-right: 3px;
-
 }
