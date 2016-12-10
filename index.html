@@ -195,7 +195,7 @@
 			<div class="footer" align="right"></div>
 			<!--<div class="display-stuff" align="center" style="float: right;">-->
 				<h1 class="res_title"></h1>	
-				<div class="tooltip" id="yes_or_no" onmouseover="addTooltipText(this)">
+				<div class="tooltip" id="yes_or_no" name="yes_or_no" onmouseover="addTooltipText(this)">
 					<span class="tooltiptext"></span>
 					<label name="yes_or_no_lbl"></label><br>
 					<label name="yes_or_no_numb" class="return_num"></label><br>
@@ -203,9 +203,13 @@
 				</div>
 				<br>
 				<div class="outer_row">
-					<div class="test_inner" id="left">......
+					
+					<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">......
+						<span class="tooltiptext"></span>
 					</div>
-					<div class="test_inner" id="right">.<br>.
+					
+					<div class="tooltip" id="right" name="min_tank" onmouseover="addTooltipText(this)">.<br>.
+						<span class="tooltiptext"></span>
 					</div>
 				</div>
 				<br>
@@ -1037,12 +1041,11 @@
 			}
 			
 			function addTooltipText(el) {
-				if (el.id != currentTooltipId) {
-					el.children[0].innerHTML = TOOLTIP_TEXT[el.id];
-					currentTooltipId = el.id;
+				var name = el.getAttribute("name");
+				if (name != currentTooltipName) {
+					el.children[0].innerHTML = TOOLTIP_TEXT[name];
+					currentTooltipName = name;
 				}
-			
-			//
 			}
 							
 			

@@ -6,7 +6,7 @@ var validations = 0;		// a global var to see how many times the form has been va
 var MAX_PPL = 9999;
 var MIN_PPL = 1;
 
-var currentTooltipId = "init" 	// global that indicates which message to display in tooltip window
+var currentTooltipName = "init" 	// global that indicates which message to display in tooltip window
 var ERROR_DISPLAY_TIME = 5000; 				// Time that error message is dispalyed [ms]
 var INTERRUPT_INTERVAL = 1000;
 

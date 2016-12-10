@@ -342,7 +342,7 @@ div[name=big_disp] {
 	width: 90%;
 }
 
-.test_inner {
+#left {
 	background-color: red;
 	border: 2px solid black;
 	display: inline-block;
@@ -354,15 +354,22 @@ div[name=big_disp] {
 	top: 50%;
 	-ms-transform: translate(0%, -50%);
     transform: translate(0%, -50%);
-
-}
-
-#left {
 	float: left;
 	left: 0%;	
 }
 
 #right {
+	background-color: red;
+	border: 2px solid black;
+	display: inline-block;
+    margin: 0;
+    position: absolute;
+    top: 0;
+	height: auto;
+	width: 49%;
+	top: 50%;
+	-ms-transform: translate(0%, -50%);
+    transform: translate(0%, -50%);
 	float: right;
     right: 0%;
 }
