@@ -330,7 +330,7 @@ div[name=big_disp] {
 	font-size: 36px;
 }
 
-.test {
+.outer_row {
 	position: relative;
 	background-color: blue;
 	border: 5px solid green;
