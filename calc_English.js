@@ -177,7 +177,7 @@ var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				
 var TOOLTIP_TEXT = {
 	yes_or_no: "This box indicates if you have a large enough roof to collect sufficient water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!",
-	min_roof: "a",
+	min_roof: "This indicates the minimum roof size required for you to capture adequate rainwater to provide for your household's regular daily essential (drinking and cooking) water consumption for the entire year. <br><br>This assumes that your cistern begins collecting water at the beginning of the rainy season. ",
 	min_tank: "b",
 	real_roof: "c",
 	real_tank: "d"

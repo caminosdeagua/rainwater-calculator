@@ -831,23 +831,17 @@
 				if (o.minRoofArea <= o.actualRoofArea) {
 					el.style.backgroundColor = GREEN;
 					elNumb.innerHTML = ADEQUATE_LBL;
+					document.getElementById("bottom_box").style.display = "inline-block"
 				} else {
 					el.style.backgroundColor = RED;
 					elNumb.innerHTML = INADEQUATE_LBL;
+					document.getElementById("bottom_box").style.display = "none"
 				}
 				
-				document.getElementsByName("min_roof_numb")[0].innerHTML = String(o.minRoofArea)
-				document.getElementsByName("min_tank_numb")[0].innerHTML = String(o.minTankVolume)
-				document.getElementsByName("real_roof_numb")[0].innerHTML = String(o.actualRoofArea)
-				document.getElementsByName("real_tank_numb")[0].innerHTML = String(o.actualTankVolume)
-				
-				
-				
-				
-				//outputs.minTankVolume = t
-				//outputs.actualRoofArea = 
-				//outputs.minRoofArea = tes
-				//outputs.actualTankVolume 
+				document.getElementsByName("min_roof_numb")[0].innerHTML = String(Math.round(o.minRoofArea))		// fill in numbers rounded to nearest int.
+				document.getElementsByName("min_tank_numb")[0].innerHTML = String(Math.round(o.minTankVolume))
+				document.getElementsByName("real_roof_numb")[0].innerHTML = String(Math.round(o.actualRoofArea))
+				document.getElementsByName("real_tank_numb")[0].innerHTML = String(Math.round(o.actualTankVolume))
 				
 				var els=document.getElementsByName("yes_or_no_lbl");
 				for (var i=0; i<els.length; i++) {
@@ -936,11 +930,15 @@
 				var lhs = document.getElementById("left_hand_side").offsetWidth;
 				var rhs = document.getElementById("right_hand_side").offsetWidth;
 				if (lhs > rhs) {
+					
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
+					document.getElementById("left_hand_side").style.backgroundColor = "#63AEC1";
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
 					document.getElementById("caminos_logo2").style.display = "block";
+					
 					$("#right_hand_side").scrollTop(0);	
 				} else {
+					document.getElementById("left_hand_side").style.backgroundColor = "#c9e9f2";
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
 					document.getElementById("caminos_logo2").style.display = "none";

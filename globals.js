@@ -34,5 +34,5 @@ var ESSENTIAL_DAILY_USE = 5; //Liters per day per person
 
 var START_MONTH = 5; // Start inventory calculation in june (jan=0, feb=1, mar=2, etc.)
 
-var RED = "#d84949";
+var RED = "#e50d0d";//"#d84949";
 var GREEN = "#61d849";
