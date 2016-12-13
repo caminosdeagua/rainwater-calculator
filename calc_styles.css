@@ -375,3 +375,55 @@ div[name=big_disp] {
 	margin-bottom: 75px;
 	display: none;
 }
+/* Top left */
+#spacing0 {
+	display: block;
+	margin: 10px;
+}
+#spacing1 {
+	display: block;
+	margin: 0px;
+}
+#spacing2 {
+	display: block;
+	margin: 0px;
+}
+/* Top right */
+#spacing3 {
+	display: block;
+	margin: 12px;
+}
+#spacing4 {
+	display: block;
+	margin: 4px;
+}
+#spacing5 {
+	display: block;
+	margin: 4px;
+}
+/* Bottom left */
+#spacing6 {
+	display: block;
+	margin: 8px;
+}
+#spacing7 {
+	display: block;
+	margin: 6px;
+}
+#spacing8 {
+	display: block;
+	margin: 6px;
+}
+/* Bottom right */
+#spacing9 {
+	display: block;
+	margin: 6px;
+}
+#spacing10 {
+	display: block;
+	margin: 2px;
+}
+#spacing11 {
+	display: block;
+	margin: 2px;
+}
