@@ -194,7 +194,6 @@
 		<div id="right_hand_side" align="center">
 			<div class="footer" align="right"></div>
 			<!--<div class="display-stuff" align="center" style="float: right;">-->
-				<h1 class="res_title"></h1>	
 				<div class="tooltip" id="yes_or_no" name="yes_or_no" onmouseover="addTooltipText(this)">
 					<span class="tooltiptext"></span>
 					<label name="yes_or_no_lbl"></label><br>
@@ -202,18 +201,37 @@
 					<label name="yes_or_no_lbl"></label><br>
 				</div>
 				<br>
-				<div class="outer_row">
+				<div class="outer_row" id="top_box">
 					
-					<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">......
+					<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">
 						<span class="tooltiptext"></span>
+						<label name="min_roof_lbl"></label><br>
+						<label name="min_roof_numb" class="return_num"></label><br>
+						<label name="min_roof_lbl"></label><br>
 					</div>
-					
-					<div class="tooltip" id="right" name="min_tank" onmouseover="addTooltipText(this)">.<br>.
+						
+					<div class="tooltip" id="right" name="min_tank" onmouseover="addTooltipText(this)">
 						<span class="tooltiptext"></span>
+						<label name="min_tank_lbl"></label><br>
+						<label name="min_tank_numb" class="return_num"></label><br>
+						<label name="min_tank_lbl"></label><br>
 					</div>
 				</div>
 				<br>
-				<div class="outer_row">.<br>.
+				<div class="outer_row" id="bottom_box">
+					<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<label name="real_roof_lbl"></label><br>
+						<label name="real_roof_numb" class="return_num"></label><br>
+						<label name="real_roof_lbl"></label><br>
+					</div>
+						
+					<div class="tooltip" id="right" name="real_tank" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<label name="real_tank_lbl"></label><br>
+						<label name="real_tank_numb" class="return_num"></label><br>
+						<label name="real_tank_lbl"></label><br>
+					</div>
 				</div>
 				
 				<table class="display_grid">
@@ -818,6 +836,19 @@
 					elNumb.innerHTML = INADEQUATE_LBL;
 				}
 				
+				document.getElementsByName("min_roof_numb")[0].innerHTML = String(o.minRoofArea)
+				document.getElementsByName("min_tank_numb")[0].innerHTML = String(o.minTankVolume)
+				document.getElementsByName("real_roof_numb")[0].innerHTML = String(o.actualRoofArea)
+				document.getElementsByName("real_tank_numb")[0].innerHTML = String(o.actualTankVolume)
+				
+				
+				
+				
+				//outputs.minTankVolume = t
+				//outputs.actualRoofArea = 
+				//outputs.minRoofArea = tes
+				//outputs.actualTankVolume 
+				
 				var els=document.getElementsByName("yes_or_no_lbl");
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = YES_OR_NO_LBL[i];
@@ -826,6 +857,25 @@
 					}
 				}
 				
+				var els=document.getElementsByName("min_roof_lbl");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = MIN_ROOF_LBL[i];
+				}
+				
+				var els=document.getElementsByName("min_tank_lbl");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = MIN_TANK_LBL[i];
+				}
+				
+				var els=document.getElementsByName("real_roof_lbl");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = REAL_ROOF_LBL[i];
+				}
+				
+				var els=document.getElementsByName("real_tank_lbl");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = REAL_TANK_LBL[i];
+				}
 				//var els = document.getElementsByName("essential_use_num");
 				//for (var i=0; i<els.length; i++) {
 				//	if (!ie) {
@@ -889,10 +939,12 @@
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
 					document.getElementById("caminos_logo2").style.display = "block";
+					$("#right_hand_side").scrollTop(0);	
 				} else {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
 					document.getElementById("caminos_logo2").style.display = "none";
+					$("#right_hand_side").scrollTop(0);
 				};
 			}
 			
@@ -1041,10 +1093,14 @@
 			}
 			
 			function addTooltipText(el) {
-				var name = el.getAttribute("name");
-				if (name != currentTooltipName) {
-					el.children[0].innerHTML = TOOLTIP_TEXT[name];
-					currentTooltipName = name;
+				var name = el.getAttribute("name"); 			// grab the element name
+				if (name != currentTooltipName) {				// if we're on a new name	
+					for(var i=0; i<el.children.length; i++) {	// loop through all children
+						if (el.children[i].nodeName != "BR") {	// make sure to ignore any <br> elements
+							el.children[i].innerHTML = TOOLTIP_TEXT[name];
+							break;								// set the next element to the desired inner HTML
+						}										//	then break out of the for-loop.
+					}
 				}
 			}
 							

@@ -147,6 +147,11 @@ var MORE_INFO_BUTTON_LBL = "More information";
 
 var RHS_TITLE = "Results";
 var YES_OR_NO_LBL = ["Your roof ", "large enough to support your household's essential water use of\xa0", "\xa0liters per day."];
+var MIN_ROOF_LBL = ["Your household needs a minimum of", "square-meters of roof space to collect enough rainwater to provide for your essential needs."];
+var MIN_TANK_LBL = ["If you use the minimum roof size, you need at least a", "liter cistern."];
+var REAL_ROOF_LBL = ["Your actual roof size of", "square-meters is large enough to collect adequate water for your household!"]; 
+var REAL_TANK_LBL = ["If you want to collect all the water off your current roof, you need a cistern that's at least", "liters. Good luck!"];
+
 var ADEQUATE_LBL = "IS";
 var INADEQUATE_LBL = "IS NOT";
 
@@ -171,7 +176,7 @@ var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"Sep", "Oct", "Nov", "Dec"];
 				
 var TOOLTIP_TEXT = {
-	yes_or_no: "This box indicates if you have a large enough roof to collect enough water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!",
+	yes_or_no: "This box indicates if you have a large enough roof to collect sufficient water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!",
 	min_roof: "a",
 	min_tank: "b",
 	real_roof: "c",
