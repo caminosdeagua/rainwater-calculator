@@ -283,6 +283,15 @@ div[name=big_disp] {
 	font-size: 12.5px;
 }
 
+.caminos_logo_img {
+	display: block;
+	position: relative;
+	height: 120px;
+	width: 120px;
+	float: left;
+		
+}
+
 #caminos_logo {
 	position: relative;
 	float: right;
@@ -294,20 +303,10 @@ div[name=big_disp] {
 #caminos_logo2 {
 	display: none;
 	position: fixed;
-	left: 36%;
+	left: 10px;
 	bottom: 10px;
 	z-index: 10;
 	opacity: 0.85;
-}
-
-
-.caminos_logo_img {
-	display: block;
-	position: relative;
-	height: 120px;
-	width: 120px;
-	float: left;
-		
 }
 
 #yes_or_no{
@@ -379,7 +378,7 @@ div[name=big_disp] {
 	display: none;
 }
 /* Top left */
-#spacing0 {
+/*#spacing0 {
 	display: block;
 	margin: 10px;
 }
@@ -391,7 +390,7 @@ div[name=big_disp] {
 	display: block;
 	margin: 0px;
 }
-/* Top right */
+/* Top right 
 #spacing3 {
 	display: block;
 	margin: 12px;
@@ -404,7 +403,7 @@ div[name=big_disp] {
 	display: block;
 	margin: 4px;
 }
-/* Bottom left */
+/* Bottom left 
 #spacing6 {
 	display: block;
 	margin: 8px;
@@ -417,7 +416,7 @@ div[name=big_disp] {
 	display: block;
 	margin: 6px;
 }
-/* Bottom right */
+/* Bottom right 
 #spacing9 {
 	display: block;
 	margin: 6px;
@@ -430,6 +429,7 @@ div[name=big_disp] {
 	display: block;
 	margin: 2px;
 }
+*/
 
 .results_headers {
 	font-size: 40px;
@@ -446,4 +446,15 @@ div[name=big_disp] {
 	margin-top: 40px;
 	border: 2px solid black;
 	border-radius: 15px;	
+}
+
+.text_in_center {
+	-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	position: absolute; 
+	top: 50%;
+	left: 50%;
+	background-color: green;
+	width: 100%;
+	
 }
