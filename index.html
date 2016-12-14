@@ -54,121 +54,58 @@
 				<p class="headers" id="instructions"></p>
 				
 				<!-- start the form!!! -->
-				<form id="calc_form" class="form">
-					
+				
 					<!-- Select your municipality -->
-					<div>
-						<label for="municipality" id="muni0"></label>
+					<div style="position: relative; float: left;">
+						<label for="municipality" id="muni0" ></label><br>
 						<div id="WaterMap"></div>
 					</div>
 					
 					<!-- How many people in your household? -->
-					<div>
-						<label for="ppl" id="ppl0"></label>
-						<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
-						<div class = "error_lbl">
-							<p id="ppl_error">.</p>
-						</div>
-					</div>
 					
-					<!-- Length of your roof -->
-					<div>
-						<label for="length" id = "length0"></label>
-						<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
-						<div class = "error_lbl">
-							<p id="length_error">.</p>
-						</div>
-					</div>
-					
-					<!-- Width of your roof -->
-					<div>
-						<label for="width" id = "width0"></label>
-						<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
-						<div class = "error_lbl">
-							<p id="width_error">.</p>
-						</div>
-					</div>
-					<br>
-					<!-- Type of roof -->
-					<div>
-						<label id="roof0"></label><br>
-						<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
-						<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
-						<input type="radio" id="spanish_roof" name="roof_type" value="2">.
-					</div>	
-					<br>
-					
-					<!-- Tell us all your water uses! We assume you also will drink and cook with rainwater -->
-					<!--
-					<div>			
-						<label for="uses" id="uses0"></label>
-						<br>
-						<!-- Brush your teeth? ->
-						<input type="checkbox" class="water_use" id="brush_chk">.<br>
-						
-						<!-- Wash your hands? ->
-						<input type="checkbox" class="water_use" id="hands_chk">.<br>
-						
-						<!-- Water your garden? ->
-						<input type="checkbox" class="water_use" id="garden_chk">.
-						
-						<!-- If you do water your garden, we'll grab a bit more info about that... ->
-						<div class="extra_input" id="garden_extra" for="garden_chk">
-							<label for="garden_size" id="garden_extra1"></label>
-							<input type="number" id="garden_size" value="10" min="0.1" step="any"/>
-						</div><br>
-						
-						<!-- Do the dishes? ->
-						<input type="checkbox" class="water_use" id="dishes_chk">.
-						
-						<!-- If you wash dishes, give us some more info! ->
-						<div class="extra_input" id="dishes_extra">
-							<label for="dishes_washing_type" id="dishes_extra1"></label>
-							<select id="dishes_washing_type" />
-								<option value="0" id="dishes_extra1_val0"></option>
-								<option value="1" id="dishes_extra1_val1"></option>
-							</select>					
-						</div><br>
-						<!-- bathe? ->
-						<input type="checkbox" class="water_use" id="bath_chk">.<br>
-						
-						<!-- Wash your clothes? ->
-						<input type="checkbox" class="water_use" id="clothes_chk">.
-						
-						<!-- If you wash your clothes, how do you do it? ->
-						<div class="extra_input" id="laundry_extra">
-							<label for="laundry_type" id="laundry_extra1"></label>
-							<select id="laundry_type" />
-								<option value="0" id="laundry_extra1_val0"></option>
-								<option value="1" id="laundry_extra1_val1"></option>
-							</select>					
-						</div><br>
-						
-						<!-- Flush the toilet? ->
-						<input type="checkbox" class="water_use" id="toilet_chk">.<br>
-						
-						<!-- Do anything else with water? ->
-						<input type="checkbox" class="water_use" id="other_chk">.
-						
-						<!-- If you do other stuff with water, tell us how much! -> 
-						<div class = "etra_input" id="extra_house0">
-							<div id="other_extra" class="extra_input">
-								<label for="other_text" id = "other_extra1"></label>
-								<input type="text" id="other_text" value=""/>
+					<div id="fill_in">
+						<form id="calc_form" class="form">
+						<div>
+							<label for="ppl" id="ppl0"></label>
+							<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
+							<div class = "error_lbl">
+								<p id="ppl_error">.</p>
 							</div>
-							<div id="other_extra2" class="extra_input">
-								<label for="other_value" id="other_extra3"></label>
-								<input type="number" id="other_value" value="1" min="1" step="any"/>
-							</div><br>
 						</div>
-					</div>	
-					-->
+						
+						<!-- Length of your roof -->
+						<div>
+							<label for="length" id = "length0"></label>
+							<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
+							<div class = "error_lbl">
+								<p id="length_error">.</p>
+							</div>
+						</div>
+						
+						<!-- Width of your roof -->
+						<div>
+							<label for="width" id = "width0"></label>
+							<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
+							<div class = "error_lbl">
+								<p id="width_error">.</p>
+							</div>
+						</div>
+						<br>
+						<!-- Type of roof -->
+						<div>
+							<label id="roof0"></label><br>
+							<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
+							<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
+							<input type="radio" id="spanish_roof" name="roof_type" value="2">.
+						</div>	
+						<br> 	
 					<br>
 				</form>
 				<!-- When you press this button, it stops letting you edit the form 
 						and displays the inputs back to the user -->
 				<div class="button">
 					<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+				</div>
 				</div>
 				
 				
@@ -815,11 +752,13 @@
 					elNumb.innerHTML = ADEQUATE_LBL;
 					document.getElementById("bottom_box").style.display = "inline-block"
 					document.getElementById("real_header").style.display = "inline-block"
+					document.getElementById("top_box").style.marginBottom = "0px";
 				} else {
 					el.style.backgroundColor = RED;
 					elNumb.innerHTML = INADEQUATE_LBL;
 					document.getElementById("bottom_box").style.display = "none"
 					document.getElementById("real_header").style.display = "none"
+					document.getElementById("top_box").style.marginBottom = "125px";
 				}
 				
 				document.getElementsByName("min_roof_numb")[0].innerHTML = String(Math.round(o.minRoofArea))		// fill in numbers rounded to nearest int.
@@ -854,59 +793,7 @@
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = REAL_TANK_LBL[i];
 				}
-				//var els = document.getElementsByName("essential_use_num");
-				//for (var i=0; i<els.length; i++) {
-				//	if (!ie) {
-				//		els[i].innerHTML = String(Math.trunc(o.essentialDailyUse)+L_ADDON_LBL);
-				//	} else {
-				//		els[i].innerHTML = String(o.essentialDailyUse+L_ADDON_LBL)
-				//	}
-				//}
-				//
-				//var els = document.getElementsByName("total_use_num");
-				//for (var i=0; i<els.length; i++) {
-				//	if (!ie) {
-				//		els[i].innerHTML = String(Math.trunc(o.totalOtherUse + o.essentialDailyUse)+L_ADDON_LBL);
-				//	} else {
-				//		els[i].innerHTML = String(o.totalOtherUse + o.essentialDailyUse+L_ADDON_LBL)
-				//	}
-				//}
-				//
-				//var els = document.getElementsByName("tank_size_num");
-				//for (var i=0; i<els.length; i++) {
-				//	if (!ie) {
-				//		els[i].innerHTML = String(Math.trunc(o.minTankSize)+L_ADDON_LBL);
-				//	} else {
-				//		els[i].innerHTML = String(o.minTankSize+L_ADDON_LBL)
-				//	}
-				//}
-				//
-				//var els = document.getElementsByName("collected");
-				//for (var i=0; i<els.length; i++) {
-				//	if (!ie) {
-				//		els[i].innerHTML = String(Math.trunc(o.monthlyCollection[i%els.length]));
-				//	} else {
-				//		els[i].innerHTML = String(o.monthlyCollection[i%els.length]);
-				//	}
-				//}
-				//
-				//var els = document.getElementsByName("used");
-				//for (var i=0; i<els.length; i++) {
-				//	if (!ie) {
-				//		els[i].innerHTML = String(Math.trunc(o.monthlyUse[i%els.length]));
-				//	} else {
-				//		els[i].innerHTML = String(o.monthlyUse[i%els.length]);
-				//	}
-				//}
-				//
-				//var els = document.getElementsByName("inventory");
-				//for (var i=0; i<els.length; i++) {
-				//	if (!ie) {
-				//		els[i].innerHTML = String(Math.trunc(o.inventory[i%els.length]));
-				//	} else {
-				//		els[i].innerHTML = String(o.inventory[i%els.length]);
-				//	}
-				//}
+				
 				
 			}
 			

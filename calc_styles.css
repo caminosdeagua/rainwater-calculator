@@ -87,7 +87,7 @@ input[type=radio] {
 
 /* Formatting for the input labels, headers, and instruction text	 */
 label, h1, h3, p, button, iframe {
-	margin-left: 10px;	
+	margin-left: 30px;	
 	padding-right: 10px;
 	margin-bottom: 20px;
 	position: relative;
@@ -243,13 +243,17 @@ button {
 	font-size: 18px;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
+	margin: 0;
 	margin-bottom: 40px;
 }	
 
 #calc_button {
 	width: 160px;
-	margin-left: 10px;
-
+	-ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+	left: 50%;
+	margin-top:20px;
+	margin-bottom: 10px; 	
 }
 
 #LHS_display {
@@ -333,7 +337,6 @@ div[name=big_disp] {
 
 #left {
 	background-color: #63aec1;
-	opacity: 0.5;
 	border: 2px solid black;
 	display: inline-block;
     margin: 0;
@@ -369,11 +372,10 @@ div[name=big_disp] {
 }
 
 #top_box {
-	margin-top: 70px;
 }
 
 #bottom_box {
-	margin-bottom: 105px;
+	margin-bottom: 125px;
 	display: none;
 }
 /* Top left */
@@ -435,5 +437,13 @@ div[name=big_disp] {
 }
 
 #min_header {
-	background-color: red;
+	margin-top: 70px;
+}
+
+#fill_in {
+	display:inline-block; 
+	position: relative; 
+	margin-top: 40px;
+	border: 2px solid black;
+	border-radius: 15px;	
 }
