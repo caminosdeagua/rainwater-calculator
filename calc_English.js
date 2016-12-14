@@ -182,3 +182,7 @@ var TOOLTIP_TEXT = {
 	real_roof: "c",
 	real_tank: "d"
 }
+
+var RESULTS_HEADER = "<b>Rainwater Harvesting Capacity</b>";
+var MIN_HEADER = "<b>Minimum Requirements</b>";
+var REAL_HEADER = "<b>Maximum Capability</b>";

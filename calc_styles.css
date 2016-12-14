@@ -333,6 +333,7 @@ div[name=big_disp] {
 
 #left {
 	background-color: #63aec1;
+	opacity: 0.5;
 	border: 2px solid black;
 	display: inline-block;
     margin: 0;
@@ -372,7 +373,7 @@ div[name=big_disp] {
 }
 
 #bottom_box {
-	margin-bottom: 75px;
+	margin-bottom: 105px;
 	display: none;
 }
 /* Top left */
@@ -426,4 +427,13 @@ div[name=big_disp] {
 #spacing11 {
 	display: block;
 	margin: 2px;
+}
+
+.results_headers {
+	font-size: 40px;
+	text-decoration: underline;
+}
+
+#min_header {
+	background-color: red;
 }

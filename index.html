@@ -193,68 +193,47 @@
 		<!-- The right hand side displays the calculated resullts in simple or complex form -->
 		<div id="right_hand_side" align="center">
 			<div class="footer" align="right"></div>
-			<!--<div class="display-stuff" align="center" style="float: right;">-->
-				<div class="tooltip" id="yes_or_no" name="yes_or_no" onmouseover="addTooltipText(this)">
-					<span class="tooltiptext"></span>
-					<label name="yes_or_no_lbl"></label><br>
-					<label name="yes_or_no_numb" class="return_num"></label><br>
-					<label name="yes_or_no_lbl"></label><br>
-				</div>
-				<br>
-				<div class="outer_row" id="top_box">
-					
-					<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<br id='spacing0'><label name="min_roof_lbl"></label><br id='spacing1'>
-						<label name="min_roof_numb" class="return_num"></label><br id='spacing2'>
-						<label name="min_roof_lbl"></label>
-					</div>
-						
-					<div class="tooltip" id="right" name="min_tank" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<br id='spacing3'><label name="min_tank_lbl"></label><br id='spacing4'>
-						<label name="min_tank_numb" class="return_num"></label><br id='spacing5'>
-						<label name="min_tank_lbl"></label><br>
-					</div>
-				</div>
-				<br>
-				<div class="outer_row" id="bottom_box">
-					<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<br id='spacing6'><label name="real_roof_lbl"></label><br id='spacing7'>
-						<label name="real_roof_numb" class="return_num"></label><br id='spacing8'>
-						<label name="real_roof_lbl"></label><br>
-					</div>
-						
-					<div class="tooltip" id="right" name="real_tank" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<br id='spacing9'><label name="real_tank_lbl"></label><br id='spacing10'>
-						<label name="real_tank_numb" class="return_num"></label><br id='spacing11'>
-						<label name="real_tank_lbl"></label><br>
-					</div>
-				</div>
+			<div id="results_header" class="results_headers"></div>
+			<div class="tooltip" id="yes_or_no" name="yes_or_no" onmouseover="addTooltipText(this)">
+				<span class="tooltiptext"></span>
+				<label name="yes_or_no_lbl"></label><br>
+				<label name="yes_or_no_numb" class="return_num"></label><br>
+				<label name="yes_or_no_lbl"></label><br>
+			</div>
+			<div id="min_header" class="results_headers"></div>
+			<div class="outer_row" id="top_box">
 				
-				<table class="display_grid">
-					<tr class="display_grid">
-						<th class="display_grid" align="center" >
-							<div id="essential_use2" class="output_number" name="big_disp"></div>
-						</th>
-						<th class="display_grid" align="center">
-							<div id = "total_use1" class="output_number" name="big_disp"></div>
-						</th>
-						<th class="display_grid" align="center">
-							<div id = "tank_size2" class="output_number" name="big_disp"></div>	
-						</th>
-						
-					</tr>
-					<tr class="display_grid">
-						<th class="display_grid"></th>
-						<th class="display_grid">
-							<div class="output_number" id="inventory_table1" name="big_disp"></div>
-						</th>
-						<th class="display_grid"></th>
-					</tr>
-				</table>
+				<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">
+					<span class="tooltiptext"></span>
+					<br id='spacing0'><label name="min_roof_lbl"></label><br id='spacing1'>
+					<label name="min_roof_numb" class="return_num"></label><br id='spacing2'>
+					<label name="min_roof_lbl"></label>
+				</div>
+					
+				<div class="tooltip" id="right" name="min_tank" onmouseover="addTooltipText(this)">
+					<span class="tooltiptext"></span>
+					<br id='spacing3'><label name="min_tank_lbl"></label><br id='spacing4'>
+					<label name="min_tank_numb" class="return_num"></label><br id='spacing5'>
+					<label name="min_tank_lbl"></label><br>
+				</div>
+			</div>
+			<div id="real_header" class="results_headers"></div>
+			<div class="outer_row" id="bottom_box">
+				<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
+					<span class="tooltiptext"></span>
+					<br id='spacing6'><label name="real_roof_lbl"></label><br id='spacing7'>
+					<label name="real_roof_numb" class="return_num"></label><br id='spacing8'>
+					<label name="real_roof_lbl"></label><br>
+				</div>
+					
+				<div class="tooltip" id="right" name="real_tank" onmouseover="addTooltipText(this)">
+					<span class="tooltiptext"></span>
+					<br id='spacing9'><label name="real_tank_lbl"></label><br id='spacing10'>
+					<label name="real_tank_numb" class="return_num"></label><br id='spacing11'>
+					<label name="real_tank_lbl"></label><br>
+				</div>
+			</div>
+				
 				
 				
 			<a id="caminos_logo2" href="https://www.caminosdeaguamexico.org" target="_blank">
@@ -820,6 +799,9 @@
 			
 			
 			function displayOutputs(o) {
+				document.getElementById("results_header").innerHTML = RESULTS_HEADER;
+				document.getElementById("min_header").innerHTML = MIN_HEADER;
+				document.getElementById("real_header").innerHTML = REAL_HEADER;
 				
 				var ie = false;
 				if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/))) {
@@ -832,10 +814,12 @@
 					el.style.backgroundColor = GREEN;
 					elNumb.innerHTML = ADEQUATE_LBL;
 					document.getElementById("bottom_box").style.display = "inline-block"
+					document.getElementById("real_header").style.display = "inline-block"
 				} else {
 					el.style.backgroundColor = RED;
 					elNumb.innerHTML = INADEQUATE_LBL;
 					document.getElementById("bottom_box").style.display = "none"
+					document.getElementById("real_header").style.display = "none"
 				}
 				
 				document.getElementsByName("min_roof_numb")[0].innerHTML = String(Math.round(o.minRoofArea))		// fill in numbers rounded to nearest int.
