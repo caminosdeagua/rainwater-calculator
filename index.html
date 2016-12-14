@@ -16,12 +16,15 @@
 		<!-- Include stuff required for easy full-screen option --> 
 		<script src='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/Leaflet.fullscreen.min.js'></script>
 		<link href='https://api.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v1.0.1/leaflet.fullscreen.css' rel='stylesheet' />
+		
 		<!-- Include stylesheets for calculator and map -->
 		<link rel="stylesheet" type="text/css" href="calc_styles.css"></link>
 		<link rel="stylesheet" type="text/css" href="rainmap_styles.css"></link>
 		<!-- Include globals for calc and rainmap and scripts for rainmap -->
 		<script src="globals.js" type="text/javascript"></script>
 		<script src="rainmap_global.js" type="text/javascript" /></script>
+		
+		
 		
 		
 		<!-- ----------- MAKE LANGUAGE CHANGES HERE!!! ------------- -->
@@ -184,7 +187,7 @@
 			<a id="caminos_logo2" href="https://www.caminosdeaguamexico.org" target="_blank">
 				<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
 			</a>	
-			<!--</div>-->
+		
 								
 		</div>
 		
@@ -234,17 +237,6 @@
 			////////////////////////////////////////////////////////////////////
 			
 			function addLanguageText(){
-				//var clone = $('#essential_use0').html();
-				//$('#essential_use1').html(clone);
-				//$('#essential_use2').html(clone);
-				//var clone = $('#tank_size0').html();
-				//$('#tank_size1').html(clone);
-				//$('#tank_size2').html(clone);
-				//var clone = $('#total_use0').html();
-				//$('#total_use1').html(clone);
-				//var clone = $('#inventory_table0').html();
-				//$('#inventory_table1').html(clone);
-				
 				document.getElementById("header").innerHTML = HEADER; 				// Puts the correct language text on the page
 				document.getElementById("sub_header").innerHTML = SUB_HEADER;		//	for all elements
 				document.getElementById("instructions").innerHTML = INSTRUCTIONS;
@@ -257,94 +249,23 @@
 				document.getElementById("sheet_roof").nextSibling.data = SHEET_ROOF_LBL;
 				document.getElementById("spanish_roof").nextSibling.data = SPANISH_ROOF_LBL;
 				
-				//document.getElementById("uses0").innerHTML = USES0_LBL;
-				//document.getElementById("brush_chk").nextSibling.data = BRUSH_CHK_LBL;
-				//document.getElementById("hands_chk").nextSibling.data = HANDS_CHK_LBL;
-				//document.getElementById("garden_chk").nextSibling.data = GARDEN_CHK_LBL;
-				//document.getElementById("dishes_chk").nextSibling.data = DISHES_CHK_LBL;
-				//document.getElementById("bath_chk").nextSibling.data = BATH_CHK_LBL;
-				//document.getElementById("clothes_chk").nextSibling.data = CLOTHES_CHK_LBL;
-				//document.getElementById("toilet_chk").nextSibling.data = TOILET_CHK_LBL;
-				//document.getElementById("other_chk").nextSibling.data = OTHER_CHK_LBL;
-				//document.getElementById("garden_extra1").innerHTML = GARDEN_EXTRA1_LBL;
-				//document.getElementById("dishes_extra1").innerHTML = DISHES_EXTRA1_LBL;
-				//document.getElementById("dishes_extra1_val0").innerHTML = DISHES_EXTRA1_VAL0_LBL;
-				//document.getElementById("dishes_extra1_val1").innerHTML = DISHES_EXTRA1_VAL1_LBL;
-				//document.getElementById("laundry_extra1").innerHTML = LAUNDRY_EXTRA1_LBL;
-				//document.getElementById("laundry_extra1_val0").innerHTML = LAUNDRY_EXTRA1_VAL0_LBL;
-				//document.getElementById("laundry_extra1_val1").innerHTML = LAUNDRY_EXTRA1_VAL1_LBL;
-				//document.getElementById("other_extra1").innerHTML = OTHER_EXTRA1_LBL; 
-				//document.getElementById("other_extra3").innerHTML = OTHER_EXTRA3_LBL;
-				//document.getElementById("table_lbl").innerHTML = TABLE_LBL;
 				document.getElementById("calc_button").innerHTML = CALC_BUTTON_LBL;
 				document.getElementById("back2inputs_button").innerHTML = BACK2INPUTS_BUTTON_LBL;
 				document.getElementById("header_display").innerHTML = HEADER;
 				document.getElementById("sub_header_display").innerHTML = LHS_DISPLAY_TITLE;
 				document.getElementById("instructions_display").innerHTML = LHS_INSTRUCTIONS;
 
-				
 				var els = document.getElementsByClassName("footer") 
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = FOOTER_TXT;
 				};
-				
-				//var els = document.getElementsByName("table_lbl") 
-				//for (var i=0; i<els.length; i++) {
-				//	els[i].innerHTML = TABLE_LBL;
-				//};
 				
 				var els = document.getElementsByClassName("res_title") 
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = RHS_TITLE;
 				};
 				
-				//var els = document.getElementsByName("essential_use_lbl0") 
-				//for (var i=0; i<els.length; i++) {
-				//	els[i].innerHTML = ESSENTIAL_USE_LBL0;
-				//};
-				
-				//var els = document.getElementsByName("essential_use_lbl1") 
-				//for (var i=0; i<els.length; i++) {
-				//	els[i].innerHTML = ESSENTIAL_USE_LBL1;
-				//};
-				
-				//var els = document.getElementsByName("total_use_lbl0") 
-				//for (var i=0; i<els.length; i++) {
-				//	els[i].innerHTML = TOTAL_USE_LBL0;
-				//};
-				
-				//var els = document.getElementsByName("total_use_lbl1") 
-				//for (var i=0; i<els.length; i++) {
-				//	els[i].innerHTML = TOTAL_USE_LBL1;
-				//};
-				
-				//var els = document.getElementsByName("tank_size_lbl0") 
-				//for (var i=0; i<els.length; i++) {
-				//	els[i].innerHTML = TANK_SIZE_LBL0;
-				//};
-				//
-				//var els = document.getElementsByName("tank_size_lbl1") 
-				//for (var i=0; i<els.length; i++) {
-				//	els[i].innerHTML = TANK_SIZE_LBL1;
-				//}
-				//
-				//
-				//
-				//
-				//var els = document.getElementsByName("table_titles")
-				//for (var i=0; i<els.length; i++) {
-				//	
-				//	els[i].innerHTML = TABLE_TITLES[i % TABLE_TITLES.length];
-				//};
-				//
-				//var els = document.getElementsByName("month")
-				//for (var i=0; i<els.length; i++) {
-				//	
-				//	els[i].innerHTML = MONTHS[i % MONTHS.length];
-				//};
-				
-				updateOutputText(); 
-				
+				updateOutputText(); 	
 			}
 			
 			////////////////////////////////////////////////////////////////////
@@ -376,21 +297,6 @@
 					length: Number(document.getElementById("length").value),
 					width: Number(document.getElementById("width").value),
 					roof_type: 0
-					//brush_chk: Boolean(document.getElementById("brush_chk").checked),
-					//hands_chk: Boolean(document.getElementById("hands_chk").checked),
-					//garden_chk: Boolean(document.getElementById("garden_chk").checked),
-					//dishes_chk: Boolean(document.getElementById("dishes_chk").checked),
-					//bath_chk: Boolean(document.getElementById("bath_chk").checked),
-					//clothes_chk: Boolean(document.getElementById("clothes_chk").checked),
-					//toilet_chk: Boolean(document.getElementById("toilet_chk").checked),
-					//other_chk: Boolean(document.getElementById("other_chk").checked),
-					//roof_type: Number(document.getElementById("cement_roof").value),
-					//garden_size: Number(document.getElementById("garden_size").value),
-					//laundry_type: Number(document.getElementById("laundry_type").value),
-					//garden_size: Number(document.getElementById("garden_size").value),
-					//other_text: String(document.getElementById("other_text").value),
-					//other_value: Number(document.getElementById("other_value").value),
-					//dishes_washing_type: Number(document.getElementById("dishes_washing_type").value)	
 				};
 				
 				els = document.getElementsByName("roof_type");
@@ -477,17 +383,6 @@
 				DISPLAY_TXT[3] = ROOF_TYPE_TXT[0]+ROOF_TYPES[allData.roof_type]+ROOF_TYPE_TXT[1];
 				
 				var els = document.getElementsByClassName("water_use"); 	// Display all other water uses. 
-				//DISPLAY_TXT[4] = USE_TXT[0];
-				//var counter = 0;
-				//for (var i=0; i<els.length; i++) {
-				//	if (els[i].checked) {
-				//		counter++;
-				//		DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0&#8226;\xa0" + USES[i]
-				//	}
-				//}
-				//if (counter==0) {
-				//	DISPLAY_TXT[4] = DISPLAY_TXT[4] + "<br>\xa0\xa0\xa0\xa0" + NO_USE;
-				//}
 				
 				var els = document.getElementsByName("display_text"); 		// Actually update all the <p> elements
 				for (var i=0; i<els.length; i++) {
@@ -734,7 +629,6 @@
 				fadeIn(document.getElementById(e2show));
 			}
 
-			
 			////////////////////////////////////////////////////////////////////
 			////			function displayOutputs				 			////
 			//// 															////
@@ -760,13 +654,11 @@
 					elNumb.innerHTML = ADEQUATE_LBL;
 					document.getElementById("bottom_box").style.display = "inline-block"
 					document.getElementById("real_header").style.display = "inline-block"
-					document.getElementById("top_box").style.marginBottom = "0px";
 				} else {
 					el.style.backgroundColor = RED;
 					elNumb.innerHTML = INADEQUATE_LBL;
 					document.getElementById("bottom_box").style.display = "none"
 					document.getElementById("real_header").style.display = "none"
-					document.getElementById("top_box").style.marginBottom = "125px";
 				}
 				
 				document.getElementsByName("min_roof_numb")[0].innerHTML = String(Math.round(o.minRoofArea))		// fill in numbers rounded to nearest int.
@@ -800,10 +692,14 @@
 				var els=document.getElementsByName("real_tank_lbl");
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = REAL_TANK_LBL[i];
-				}
-				
-				
+				}	
 			}
+			
+			////////////////////////////////////////////////////////////////////
+			////			function widthShift				 				////
+			//// 															////
+			////	Goes from the input panel to results panel.				////
+			////////////////////////////////////////////////////////////////////
 			
 			function widthShift() {
 				var lhs = document.getElementById("left_hand_side").offsetWidth;
