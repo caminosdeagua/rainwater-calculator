@@ -661,10 +661,10 @@
 					document.getElementById("real_header").style.display = "none"
 				}
 				
-				document.getElementsByName("min_roof_numb")[0].innerHTML = String(Math.round(o.minRoofArea))		// fill in numbers rounded to nearest int.
-				document.getElementsByName("min_tank_numb")[0].innerHTML = String(Math.round(o.minTankVolume))
-				document.getElementsByName("real_roof_numb")[0].innerHTML = String(Math.round(o.actualRoofArea))
-				document.getElementsByName("real_tank_numb")[0].innerHTML = String(Math.round(o.actualTankVolume))
+				document.getElementsByName("min_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.minRoofArea));		// fill in numbers rounded to nearest int.
+				document.getElementsByName("min_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.minTankVolume));
+				document.getElementsByName("real_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualRoofArea));
+				document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualTankVolume));
 				
 				var els=document.getElementsByName("yes_or_no_lbl");
 				for (var i=0; i<els.length; i++) {
@@ -710,7 +710,6 @@
 					document.getElementById("left_hand_side").style.backgroundColor = "#63AEC1";
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
 					document.getElementById("caminos_logo2").style.display = "block";
-					
 					$("#right_hand_side").scrollTop(0);	
 				} else {
 					document.getElementById("left_hand_side").style.backgroundColor = "#c9e9f2";
@@ -878,7 +877,10 @@
 			}
 							
 			
-			
+			function numberWithCommas(x) {
+				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+
 			
      
 		</script>
