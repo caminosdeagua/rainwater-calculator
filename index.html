@@ -57,9 +57,9 @@
 				<p class="headers" id="instructions"></p>
 				
 				<!-- start the form!!! -->
-				
+				<div id="form_box">
 					<!-- Select your municipality -->
-					<div style="position: relative; float: left;">
+					<div style="position: relative; float: left; display: inline-block;">
 						<label for="municipality" id="muni0" ></label><br>
 						<div id="WaterMap"></div>
 					</div>
@@ -68,50 +68,49 @@
 					
 					<div id="fill_in">
 						<form id="calc_form" class="form">
-						<div>
-							<label for="ppl" id="ppl0"></label>
-							<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
-							<div class = "error_lbl">
-								<p id="ppl_error">.</p>
+							<div>
+								<label for="ppl" id="ppl0"></label>
+								<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
+								<div class = "error_lbl">
+									<p id="ppl_error">.</p>
+								</div>
 							</div>
-						</div>
-						
-						<!-- Length of your roof -->
-						<div>
-							<label for="length" id = "length0"></label>
-							<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
-							<div class = "error_lbl">
-								<p id="length_error">.</p>
+							
+							<!-- Length of your roof -->
+							<div>
+								<label for="length" id = "length0"></label>
+								<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
+								<div class = "error_lbl">
+									<p id="length_error">.</p>
+								</div>
 							</div>
-						</div>
-						
-						<!-- Width of your roof -->
-						<div>
-							<label for="width" id = "width0"></label>
-							<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
-							<div class = "error_lbl">
-								<p id="width_error">.</p>
+							
+							<!-- Width of your roof -->
+							<div>
+								<label for="width" id = "width0"></label>
+								<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
+								<div class = "error_lbl">
+									<p id="width_error">.</p>
+								</div>
 							</div>
-						</div>
-						<br>
-						<!-- Type of roof -->
-						<div>
-							<label id="roof0"></label><br>
-							<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
-							<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
-							<input type="radio" id="spanish_roof" name="roof_type" value="2">.
-						</div>	
-						<br> 	
-					<br>
-				</form>
+							<br>
+							<!-- Type of roof -->
+							<div>
+								<label id="roof0"></label><br>
+								<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
+								<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
+								<input type="radio" id="spanish_roof" name="roof_type" value="2">.
+							</div>	
+							<br> 	
+							<br>
+						</form>
 				<!-- When you press this button, it stops letting you edit the form 
 						and displays the inputs back to the user -->
-				<div class="button">
-					<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+						<div class="button">
+							<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+						</div>
+					</div>
 				</div>
-				</div>
-				
-				
 			</div>
 			<div id="LHS_display">
 				<h1 id="header_display"></h1>

@@ -10,8 +10,7 @@ var HEADER = "Rainwater Harvesting in the Independence Watershed";
 
 var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please <a href='http://caminosdeagua.org/contact-1' target = '_blank'>contact us</a>!";
 
-var INSTRUCTIONS = "<b>Answer the questions below about your household as best you can.</b><br><br>The calculator will approximate your daily ‘essential’ water need and your daily ‘total’ water need. <br><br>Your <b>essential water need</b> displays the number of liters your family needs for drinking and cooking. You should make sure that you only use water which is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target = '_blank'>safe and healthy</a> for drinking and cooking. <br>Your <b>total water need</b> is the number of liters your family needs for drinking and cooking plus other activities. You can chose by yourself which activities you want to do with your harvesting rainwater. <br><br>Secondly, the calculator will tell you how much rainwater storage you need to fulfill your needs, based on the rainfall in your municipality. <br><br> <b>Let's calculate</b>";
-
+var INSTRUCTIONS = "<b>Answer the questions below about your household as best you can.</b>";
 
 //////////////////////////////////////////
 //										//
@@ -53,8 +52,8 @@ var MUNIS = [];
 var PPL0_LBL = "How many people live in your house?";
 
 //////		ROOF SIZE 				//////
-var LENGTH0_LBL = "What is the length of your roof (meters)?:";
-var WIDTH0_LBL = "What is the width of your roof (meters)?:";
+var LENGTH0_LBL = "What is the length of your roof (meters)?";
+var WIDTH0_LBL = "What is the width of your roof (meters)?";
 
 //////		ROOF TYPE				//////
 var ROOF0_LBL = "What kind of roof do you have?";
@@ -180,9 +179,9 @@ var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 var TOOLTIP_TEXT = {
 	yes_or_no: "This box indicates if you have a large enough roof to collect sufficient water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!",
 	min_roof: "This indicates the minimum roof size required for you to capture adequate rainwater to provide for your household's regular daily essential (drinking and cooking) water consumption for the entire year. <br><br>This assumes that your cistern begins collecting water at the beginning of the rainy season. ",
-	min_tank: "If you use the minimum roof size inidicated to the right, you need this size cistern to capture all of the water coming off of your roof. ",
-	real_roof: "c",
-	real_tank: "d"
+	min_tank: "If you use the minimum roof size inidicated to the right, you need this size cistern to capture all of the water coming off of your roof. This cistern is large enough to provide your household with drinking and cooking water year-round on a year with average rainfall.",
+	real_roof: "This is the roof size you entered on the previous page",
+	real_tank: "If you collect 100% of the water that hits your current full roof during an average year, you'd need this size of cistern."
 }
 
 var RESULTS_HEADER = "<b>Rainwater Harvesting Capacity</b>";
