@@ -59,14 +59,14 @@
 				<!-- start the form!!! -->
 				<div id="form_box">
 					<!-- Select your municipality -->
-					<div style="position: relative; float: left; display: inline-block;">
+					<div id="form_box_left">
 						<label for="municipality" id="muni0" ></label><br>
 						<div id="WaterMap"></div>
 					</div>
 					
 					<!-- How many people in your household? -->
 					
-					<div id="fill_in">
+					<div id="form_box_right">
 						<form id="calc_form" class="form">
 							<div>
 								<label for="ppl" id="ppl0"></label>
@@ -79,7 +79,7 @@
 							<!-- Length of your roof -->
 							<div>
 								<label for="length" id = "length0"></label>
-								<input type="number" id="length" value="1" min="0.1" max="99" step="any"/>
+								<input type="number" id="length" value="1" min="1" max="99" step="any"/>
 								<div class = "error_lbl">
 									<p id="length_error">.</p>
 								</div>
@@ -88,7 +88,7 @@
 							<!-- Width of your roof -->
 							<div>
 								<label for="width" id = "width0"></label>
-								<input type="number" id="width" value="1" min="0.1" max="99" step="any"/>
+								<input type="number" id="width" value="1" min="1" max="99" step="any"/>
 								<div class = "error_lbl">
 									<p id="width_error">.</p>
 								</div>
@@ -139,8 +139,30 @@
 				<label name="yes_or_no_numb" class="return_num"></label><br>
 				<label name="yes_or_no_lbl"></label><br>
 			</div>
-			<div id="min_header" class="results_headers"></div>
+			
+			<div id="real_header" class="results_headers"></div>
 			<div class="outer_row" id="top_box">
+				<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
+					<span class="tooltiptext"></span>
+					<div class="text_in_center">
+						<label name="real_roof_lbl"></label><br>
+						<label name="real_roof_numb" class="return_num"></label><br>
+						<label name="real_roof_lbl"></label>
+					</div>
+				</div>
+					
+				<div class="tooltip" id="right" name="real_tank" onmouseover="addTooltipText(this)">
+					<span class="tooltiptext"></span>
+					<div class="text_in_center">
+						<label name="real_tank_lbl"></label><br>
+						<label name="real_tank_numb" class="return_num"></label><br>
+						<label name="real_tank_lbl"></label>
+					</div>
+				</div>
+			</div>
+			
+			<div id="min_header" class="results_headers"></div>
+			<div class="outer_row" id="bottom_box">
 				
 				<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">
 					<span class="tooltiptext"></span>
@@ -157,26 +179,6 @@
 						<label name="min_tank_lbl"></label><br>
 						<label name="min_tank_numb" class="return_num"></label><br>
 						<label name="min_tank_lbl"></label>
-					</div>
-				</div>
-			</div>
-			<div id="real_header" class="results_headers"></div>
-			<div class="outer_row" id="bottom_box">
-				<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
-					<span class="tooltiptext"></span>
-					<div class="text_in_center">
-						<label name="real_roof_lbl"></label><br>
-						<label name="real_roof_numb" class="return_num"></label><br>
-						<label name="real_roof_lbl"></label>
-					</div>
-				</div>
-					
-				<div class="tooltip" id="right" name="real_tank" onmouseover="addTooltipText(this)">
-					<span class="tooltiptext"></span>
-					<div class="text_in_center">
-						<label name="real_tank_lbl"></label><br>
-						<label name="real_tank_numb" class="return_num"></label><br>
-						<label name="real_tank_lbl"></label>
 					</div>
 				</div>
 			</div>
@@ -648,16 +650,20 @@
 				
 				el = document.getElementById("yes_or_no");
 				var elNumb=document.getElementsByName("yes_or_no_numb")[0];
+				elRealRoof = document.getElementsByName("real_roof")[0]
+				elRealTank = document.getElementsByName("real_tank")[0]
+				
 				if (o.minRoofArea <= o.actualRoofArea) {
 					el.style.backgroundColor = GREEN;
 					elNumb.innerHTML = ADEQUATE_LBL;
-					document.getElementById("bottom_box").style.display = "inline-block"
-					document.getElementById("real_header").style.display = "inline-block"
+					elRealRoof.style.backgroundColor = GREEN;
+					elRealTank.style.backgroundColor = GREEN;
+					
 				} else {
 					el.style.backgroundColor = RED;
 					elNumb.innerHTML = INADEQUATE_LBL;
-					document.getElementById("bottom_box").style.display = "none"
-					document.getElementById("real_header").style.display = "none"
+					elRealRoof.style.backgroundColor = RED;
+					elRealTank.style.backgroundColor = RED;
 				}
 				
 				document.getElementsByName("min_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.minRoofArea));		// fill in numbers rounded to nearest int.
@@ -706,12 +712,10 @@
 				if (lhs > rhs) {
 					
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
-					document.getElementById("left_hand_side").style.backgroundColor = "#63AEC1";
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_AFTER;
 					document.getElementById("caminos_logo2").style.display = "block";
 					$("#right_hand_side").scrollTop(0);	
 				} else {
-					document.getElementById("left_hand_side").style.backgroundColor = "#c9e9f2";
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
 					document.getElementById("caminos_logo2").style.display = "none";

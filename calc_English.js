@@ -12,6 +12,10 @@ var SUB_HEADER = "Use this calculator to determine your household's water consum
 
 var INSTRUCTIONS = "<b>Answer the questions below about your household as best you can.</b>";
 
+var MONTHS = ["Jan", "Feb", "Mar", "Apr",
+				"May", "Jun", "Jul", "Aug",
+				"Sep", "Oct", "Nov", "Dec"];
+				
 //////////////////////////////////////////
 //										//
 //		ERROR MESSAGES TO DISPLAY		//
@@ -27,7 +31,7 @@ var PPL_MAX_E1 = "We don't allow more than ";
 var PPL_MAX_E2 = " people. Sorry!";
 
 //////		ROOF TOO SMALL			//////
-var SIZE_MIN_E1 = "Your roof can't have a length or width of 0";
+var SIZE_MIN_E1 = "Your roof dimension must be at least 1";
 
 //////		ROOF TOO BIG			//////
 var SIZE_MAX_E1 = "We don't allow more than ";
@@ -62,44 +66,6 @@ var SHEET_ROOF_LBL = "Corrugated sheet";
 var SPANISH_ROOF_LBL = "Spanish tile";
 var ROOF_TYPES = [CEMENT_ROOF_LBL, SHEET_ROOF_LBL, SPANISH_ROOF_LBL];
 
-//////	NON-ESSENTIAL WATER USES	//////
-var USES0_LBL = "Select all the daily activities for which you would like to use rainwater.";
-var BRUSH_CHK_LBL = "Brushing your teeth";
-var HANDS_CHK_LBL = "Washing your hands";
-var GARDEN_CHK_LBL = "Watering your garden";
-var DISHES_CHK_LBL = "Washing the dishes";
-var BATH_CHK_LBL = "Taking a shower/bath";
-var CLOTHES_CHK_LBL = "Doing the laundry";
-var TOILET_CHK_LBL = "Flushing the toilet";
-var OTHER_CHK_LBL = "Other";
-
-var USES = [BRUSH_CHK_LBL, HANDS_CHK_LBL, GARDEN_CHK_LBL,
-			DISHES_CHK_LBL, BATH_CHK_LBL, CLOTHES_CHK_LBL,
-			TOILET_CHK_LBL, OTHER_CHK_LBL];
-
-//////////////////////////////////////////
-//										//
-//		HIDDEN EXTRA FIELDS:			//
-//		 LABELS & OPTIONS				//
-//										//
-//////////////////////////////////////////
-
-//////		GARDEN SIZE				//////
-var GARDEN_EXTRA1_LBL = "How big is your garden? (square meters):";
-
-//////		TYPE OF DISH WASHING	//////
-var DISHES_EXTRA1_LBL = "I wash my dishes:";
-var DISHES_EXTRA1_VAL0_LBL = "By hand";
-var DISHES_EXTRA1_VAL1_LBL = "With a dishwasher";
-
-//////		TYPE OF LAUNDRY			//////
-var LAUNDRY_EXTRA1_LBL = "I do laundry:";
-var LAUNDRY_EXTRA1_VAL0_LBL = "By hand";
-var LAUNDRY_EXTRA1_VAL1_LBL = "With a laundry machine";
-
-var OTHER_EXTRA1_LBL = "What else do you use water for??";
-var OTHER_EXTRA3_LBL = "How much? (Liters per day):";
-
 //////		CALCULATE BUTTON 	    //////
 var CALC_BUTTON_LBL = "Calculate!";
 
@@ -120,35 +86,21 @@ var MUN_TXT = ["You live in <b>","</b>."];
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
-//var USE_TXT = ["Besides <b>drinking</b> and <b>cooking</b>, you use water for: "];
-//var NO_USE = "Nothing";
-
-///////////////////////////////////////////////////////////////// FINISH THIS SHIT !!!!!!!!!!!!!%%%%%%%$$$$$$$$$$###########
 
 var DISPLAY_TXT = [];
 
 //////////////////////////////////////////
 //										//
-//		SIMPLE RESULTS DISPLAY 		 	//
+//		 RESULTS DISPLAY 		 		//
 //										//
 //////////////////////////////////////////
 
-var ESSENTIAL_USE_LBL0 = "<b><i>Essential Water Need</b></i><br>Each day, your household needs about";
-var ESSENTIAL_USE_LBL1 = "for <b>drinking</b> and <b>cooking</b>.";
 
-var TOTAL_USE_LBL0 = "<b><i>Total Water Need</b></i><br>Each day, your household needs about";
-var TOTAL_USE_LBL1 = "for ALL your water uses<br>(including drinking and cooking).";
-
-var TANK_SIZE_LBL0 = "<b><i>Minimum Size of your Cistern</b></i><br>Based on your location, you can meet your household's entire ESSENTIAL water needs with a cistern of";
-var TANK_SIZE_LBL1 = "";
-
-var MORE_INFO_BUTTON_LBL = "More information";
-
-var RHS_TITLE = "Results";
 var YES_OR_NO_LBL = ["Your roof ", "large enough to support your household's essential water use of\xa0", "\xa0liters per day."];
 var MIN_ROOF_LBL = ["Your household needs a minimum of", "square-meters of roof space to collect enough rainwater to provide for your essential needs."];
 var MIN_TANK_LBL = ["If you use the minimum roof size, you need at least a", "liter cistern."];
-var REAL_ROOF_LBL = ["Your actual roof size of", "square-meters is large enough to collect adequate water for your household!"]; 
+var REAL_ROOF_LBL_YES = ["Your actual roof size of", "square meters <b>can</b> collect enough water to provide at least", "liters per day, your household's essential water need."]; 
+var REAL_ROOF_LBL_NO = ["Your actual roof size of", "square meters <b>cannot</b> collect enough water to provide", "liters per day, your household's essential water need."];
 var REAL_TANK_LBL = ["If you want to collect all the water off your current roof, you need a cistern that's at least", "liters. Good luck!"];
 
 var ADEQUATE_LBL = "IS";
@@ -156,26 +108,6 @@ var INADEQUATE_LBL = "IS NOT";
 
 var L_ADDON_LBL = "<small> liters</small>";
 
-////// 		FOOTER 					//////
-var FOOTER_TXT = "<a href='https://www.caminosdeagua.org' target='_blank'>How does this work?</a> | Created by <a href='https://www.caminosdeagua.org' target='_blank'>Caminos de Agua</a> | Data from <a href='http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto' target='_blank'>SMN</a>"
-
-
-//test// 
-//////////////////////////////////////////
-//										//
-//		COMPLEX RESULTS DISPLAY 	 	//
-//										//
-//////////////////////////////////////////
-
-var LESS_INFO_BUTTON_LBL = "Less information";
-
-var TABLE_LBL = "Water collection, use, and inventory.\nAll values in Litres:"
-var TABLE_TITLES = ["Month", "Water\nCollected", "Water\nConsumed", "Inventory"];
-
-var MONTHS = ["Jan", "Feb", "Mar", "Apr",
-				"May", "Jun", "Jul", "Aug",
-				"Sep", "Oct", "Nov", "Dec"];
-				
 var TOOLTIP_TEXT = {
 	yes_or_no: "This box indicates if you have a large enough roof to collect sufficient water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!",
 	min_roof: "This indicates the minimum roof size required for you to capture adequate rainwater to provide for your household's regular daily essential (drinking and cooking) water consumption for the entire year. <br><br>This assumes that your cistern begins collecting water at the beginning of the rainy season. ",
@@ -185,5 +117,8 @@ var TOOLTIP_TEXT = {
 }
 
 var RESULTS_HEADER = "<b>Rainwater Harvesting Capacity</b>";
-var MIN_HEADER = "<b>Minimum Requirements</b>";
-var REAL_HEADER = "<b>Your Maximum Roof Capability</b>";
+var MIN_HEADER = "<b>Minimum Essential Requirements</b>";
+var REAL_HEADER = "<b>Your Roof's Capacity</b>";
+
+////// 		FOOTER 					//////
+var FOOTER_TXT = "<a href='https://www.caminosdeagua.org' target='_blank'>How does this work?</a> | Created by <a href='https://www.caminosdeagua.org' target='_blank'>Caminos de Agua</a> | Data from <a href='http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto' target='_blank'>SMN</a>";
