@@ -649,17 +649,20 @@
 					elRealTank.style.backgroundColor = GREEN;
 					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_GREEN[0];
 					elRealTankLbls[1].innerHTML = REAL_ROOF_LBL_GREEN[1]+"\xa0<b><big>"+String(o.essentialDailyUse)+"</b></big>\xa0"+REAL_ROOF_LBL_GREEN[2];
+					document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualTankVolume));
 				} else {
 					elRealRoof.style.backgroundColor = RED;
 					elRealTank.style.backgroundColor = RED;
 					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_RED[0];
 					elRealTankLbls[1].innerHTML = REAL_ROOF_LBL_RED[1]+"\xa0<b><big>"+String(o.essentialDailyUse)+"</b></big>\xa0"+REAL_ROOF_LBL_RED[2];
+					document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(Math.max.apply(null, [o.actualTankVolume, o.maxMonthlyCollection])));
+				
 				}
 				
 				document.getElementsByName("min_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.minRoofArea));		// fill in numbers rounded to nearest int.
 				document.getElementsByName("min_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.minTankVolume));
 				document.getElementsByName("real_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualRoofArea));
-				document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualTankVolume));
+				
 				
 
 				
@@ -739,7 +742,8 @@
 					minTankVolume: 0,
 					minRoofArea: 0,
 					actualRoofArea: 0,
-					actualTankVolume: 0
+					actualTankVolume: 0,
+					maxMonthCollection: 0
 				};
 				
 				console.log(inputs)
@@ -769,7 +773,7 @@
 					testArea = 99999999999999;				// This is just an outrageously large number 
 				}											//	so that it will say "your roof isn't big enough!"
 															//	if the user hasn't entered a roof size. 
-				
+
 				//////////////////////////////////////////////////////////////////
 				//	This next sextion calculates the required minimum cistern 	//
 				//	size if the user wanted to collect 100% of the water off	//
@@ -778,13 +782,16 @@
 				
 				var actualArea = inputs.length * inputs.width;;
 				var actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential)
+
+				var maxRain = Math.max.apply(null, rainfall);
+				var maxMonthlyCollection = maxRain*actualArea;
 				
 				outputs.essentialDailyUse = essential; 		// Water consumption for cooking & drinking [L/day]
 				outputs.minTankVolume = test.volume;		// once the roof size is adequate, this is the volume of the requisite cistern [L]
 				outputs.actualRoofArea = actualArea;		// the user-provided roof area [m2]
 				outputs.minRoofArea = testArea;				// and this holds the minimum acceptable roof size for supporting the given population [m2]
 				outputs.actualTankVolume = actual.volume;	// cistern volume required to capture 100% of rainfall on user-provided roof area [L]					
-				
+				outputs.maxMonthlyCollection = maxMonthlyCollection // maximum volume collectible in a month
 				return outputs 				
 				
 			}
