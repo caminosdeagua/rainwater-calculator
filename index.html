@@ -132,13 +132,6 @@
 		<!-- The right hand side displays the calculated resullts in simple or complex form -->
 		<div id="right_hand_side" align="center">
 			<div class="footer" align="right"></div>
-			<div id="results_header" class="results_headers"></div>
-			<div class="tooltip" id="yes_or_no" name="yes_or_no" onmouseover="addTooltipText(this)">
-				<span class="tooltiptext"></span>
-				<label name="yes_or_no_lbl"></label><br>
-				<label name="yes_or_no_numb" class="return_num"></label><br>
-				<label name="yes_or_no_lbl"></label><br>
-			</div>
 			
 			<div id="real_header" class="results_headers"></div>
 			<div class="outer_row" id="top_box">
@@ -639,7 +632,6 @@
 			
 			
 			function displayOutputs(o) {
-				document.getElementById("results_header").innerHTML = RESULTS_HEADER;
 				document.getElementById("min_header").innerHTML = MIN_HEADER;
 				document.getElementById("real_header").innerHTML = REAL_HEADER;
 				
@@ -647,23 +639,21 @@
 				if (navigator.appName == 'Microsoft Internet Explorer' ||  !!(navigator.userAgent.match(/Trident/) || navigator.userAgent.match(/rv 11/))) {
 					ie = true;
 				}
-				
-				el = document.getElementById("yes_or_no");
-				var elNumb=document.getElementsByName("yes_or_no_numb")[0];
-				elRealRoof = document.getElementsByName("real_roof")[0]
-				elRealTank = document.getElementsByName("real_tank")[0]
+	
+				var elRealRoof = document.getElementsByName("real_roof")[0]
+				var elRealTank = document.getElementsByName("real_tank")[0]
+				var elRealTankLbls=document.getElementsByName("real_roof_lbl");
 				
 				if (o.minRoofArea <= o.actualRoofArea) {
-					el.style.backgroundColor = GREEN;
-					elNumb.innerHTML = ADEQUATE_LBL;
 					elRealRoof.style.backgroundColor = GREEN;
 					elRealTank.style.backgroundColor = GREEN;
-					
+					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_GREEN[0];
+					elRealTankLbls[1].innerHTML = REAL_ROOF_LBL_GREEN[1]+"\xa0<b><big>"+String(o.essentialDailyUse)+"</b></big>\xa0"+REAL_ROOF_LBL_GREEN[2];
 				} else {
-					el.style.backgroundColor = RED;
-					elNumb.innerHTML = INADEQUATE_LBL;
 					elRealRoof.style.backgroundColor = RED;
 					elRealTank.style.backgroundColor = RED;
+					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_RED[0];
+					elRealTankLbls[1].innerHTML = REAL_ROOF_LBL_RED[1]+"\xa0<b><big>"+String(o.essentialDailyUse)+"</b></big>\xa0"+REAL_ROOF_LBL_RED[2];
 				}
 				
 				document.getElementsByName("min_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.minRoofArea));		// fill in numbers rounded to nearest int.
@@ -671,14 +661,12 @@
 				document.getElementsByName("real_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualRoofArea));
 				document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualTankVolume));
 				
-				var els=document.getElementsByName("yes_or_no_lbl");
-				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = YES_OR_NO_LBL[i];
-					if (i>0) {
-						els[i].innerHTML = YES_OR_NO_LBL[1]+" <b><big>"+String(o.essentialDailyUse)+"</b></big> "+YES_OR_NO_LBL[2]
-					}
-				}
+
 				
+				var els=document.getElementsByName("real_tank_lbl");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = REAL_TANK_LBL[i];
+				}	
 				var els=document.getElementsByName("min_roof_lbl");
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = MIN_ROOF_LBL[i];
@@ -689,15 +677,7 @@
 					els[i].innerHTML = MIN_TANK_LBL[i];
 				}
 				
-				var els=document.getElementsByName("real_roof_lbl");
-				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = REAL_ROOF_LBL[i];
-				}
 				
-				var els=document.getElementsByName("real_tank_lbl");
-				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = REAL_TANK_LBL[i];
-				}	
 			}
 			
 			////////////////////////////////////////////////////////////////////

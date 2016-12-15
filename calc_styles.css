@@ -383,6 +383,7 @@ div[name=big_disp] {
 .results_headers {
 	font-size: 40px;
 	text-decoration: underline;
+	margin-top: 22px;
 }
 
 #bottom_box {
@@ -390,7 +391,7 @@ div[name=big_disp] {
 }
 
 #real_header {
-	margin-top: 70px;
+
 }
 
 .text_in_center {

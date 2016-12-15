@@ -99,8 +99,8 @@ var DISPLAY_TXT = [];
 var YES_OR_NO_LBL = ["Your roof ", "large enough to support your household's essential water use of\xa0", "\xa0liters per day."];
 var MIN_ROOF_LBL = ["Your household needs a minimum of", "square-meters of roof space to collect enough rainwater to provide for your essential needs."];
 var MIN_TANK_LBL = ["If you use the minimum roof size, you need at least a", "liter cistern."];
-var REAL_ROOF_LBL_YES = ["Your actual roof size of", "square meters <b>can</b> collect enough water to provide at least", "liters per day, your household's essential water need."]; 
-var REAL_ROOF_LBL_NO = ["Your actual roof size of", "square meters <b>cannot</b> collect enough water to provide", "liters per day, your household's essential water need."];
+var REAL_ROOF_LBL_GREEN = ["Your actual roof size of", "square meters <b><big>can</big></b> collect enough water to provide at least", "liters per day, your household's essential water need."]; 
+var REAL_ROOF_LBL_RED = ["Your actual roof size of", "square meters <b>cannot</b> collect enough water to provide ", " liters per day, your household's essential water need."];
 var REAL_TANK_LBL = ["If you want to collect all the water off your current roof, you need a cistern that's at least", "liters. Good luck!"];
 
 var ADEQUATE_LBL = "IS";
