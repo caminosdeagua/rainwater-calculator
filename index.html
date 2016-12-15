@@ -644,13 +644,13 @@
 				var elRealTank = document.getElementsByName("real_tank")[0]
 				var elRealTankLbls=document.getElementsByName("real_roof_lbl");
 				
-				if (o.minRoofArea <= o.actualRoofArea) {
+				if (o.minRoofArea <= o.actualRoofArea) {		// if the user's roof is large enough
 					elRealRoof.style.backgroundColor = GREEN;
 					elRealTank.style.backgroundColor = GREEN;
 					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_GREEN[0];
 					elRealTankLbls[1].innerHTML = REAL_ROOF_LBL_GREEN[1]+"\xa0<b><big>"+String(o.essentialDailyUse)+"</b></big>\xa0"+REAL_ROOF_LBL_GREEN[2];
 					document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualTankVolume));
-				} else {
+				} else {										// if the user's roof is too small
 					elRealRoof.style.backgroundColor = RED;
 					elRealTank.style.backgroundColor = RED;
 					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_RED[0];
