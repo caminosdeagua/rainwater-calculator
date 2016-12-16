@@ -54,10 +54,11 @@
 				</a>
 				<h1 class="headers" id="header"></h1>
 				<h3 class="headers" id="sub_header"></h3>
-				<p class="headers" id="instructions"></p>
+
 				
 				<!-- start the form!!! -->
 				<div id="form_box">
+					<big><p class="headers" id="instructions"></p></big>
 					<!-- Select your municipality -->
 					<div id="form_box_left">
 						<label for="municipality" id="muni0" ></label><br>
@@ -65,47 +66,55 @@
 					</div>
 					
 					<!-- How many people in your household? -->
-					
-					<div id="form_box_right">
-						<form id="calc_form" class="form">
-							<div>
-								<label for="ppl" id="ppl0"></label>
-								<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
-								<div class = "error_lbl">
-									<p id="ppl_error">.</p>
+					<div id = "full_box_right" align="center">
+						<div id="form_box_right" align="left">
+							<form id="calc_form" class="form">
+								<div>
+									<label for="ppl" id="ppl0"></label>
+									<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
+									<div class = "error_lbl">
+										<p id="ppl_error">.</p>
+									</div>
 								</div>
-							</div>
-							
-							<!-- Length of your roof -->
-							<div>
-								<label for="length" id = "length0"></label>
-								<input type="number" id="length" value="1" min="1" max="99" step="any"/>
-								<div class = "error_lbl">
-									<p id="length_error">.</p>
+									
+								<!-- Length of your roof -->
+								<div>
+									<label for="length" id = "length0"></label>
+									<input type="number" id="length" value="1" min="1" max="99" step="any"/>
+									<div class = "error_lbl">
+										<p id="length_error">.</p>
+									</div>
 								</div>
-							</div>
-							
-							<!-- Width of your roof -->
-							<div>
-								<label for="width" id = "width0"></label>
-								<input type="number" id="width" value="1" min="1" max="99" step="any"/>
-								<div class = "error_lbl">
-									<p id="width_error">.</p>
+								
+								<!-- Width of your roof -->
+								<div>
+									<label for="width" id = "width0"></label>
+									<input type="number" id="width" value="1" min="1" max="99" step="any"/>
+									<div class = "error_lbl">
+										<p id="width_error">.</p>
+									</div>
 								</div>
-							</div>
-							<br>
-							<!-- Type of roof -->
-							<div>
-								<label id="roof0"></label><br>
-								<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.<br>
-								<input type="radio" id="sheet_roof" name="roof_type" value="1">.<br>
-								<input type="radio" id="spanish_roof" name="roof_type" value="2">.
-							</div>	
-							<br> 	
-							<br>
-						</form>
-				<!-- When you press this button, it stops letting you edit the form 
-						and displays the inputs back to the user -->
+								<br>
+								<!-- Type of roof -->
+								<div>
+									<label id="roof0"></label><br>
+									<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
+										<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.</input>
+										<div name="roof_imgs" class="tooltip_img"></div>
+									</div>
+									<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
+										<input type="radio" id="sheet_roof" name="roof_type" value="1" checked>.</input>
+										<div name="roof_imgs" class="tooltip_img"></div>
+									</div>
+									<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)" style="margin-bottom: 20px;">
+										<input type="radio" id="spanish_roof" name="roof_type" value="2" checked>.</input>
+										<div name="roof_imgs" class="tooltip_img"></div>
+									</div>
+								</div>	
+							</form>
+				<!--	 When you press this button, it stops letting you edit the form 
+							and displays the inputs back to the user -->
+						</div>
 						<div class="button">
 							<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
 						</div>
@@ -202,7 +211,7 @@
 			function init() {
 			
 				initForm();
-				initEmbeddedMap();							
+				//initEmbeddedMap();							
 				
 				
 				hideErrorLbls();
@@ -259,6 +268,12 @@
 					els[i].innerHTML = RHS_TITLE;
 				};
 				
+				// grab the helper images //
+				els = document.getElementsByName("roof_imgs");
+				for(var i=0; i<els.length; i++) {
+					els[i].innerHTML = "<a href="+ROOF_URLS[i]+"target='_blank'><img src="+ROOF_URLS[i]+" style='height: 126px; width: 126px; margin: 2px; border: 0px; border-radius: 15px;'></img></a>";
+				}
+				console.log(els)
 				updateOutputText(); 	
 			}
 			
@@ -274,6 +289,8 @@
 				form.noValidate = true;												// Turns off auto-validate so we can self-validate
 				form.onchange = validateForm;
 				form.onsubmit = validateForm;
+				
+				
 			}
 			
 			////////////////////////////////////////////////////////////////////
@@ -869,6 +886,14 @@
 			
 			function numberWithCommas(x) {
 				return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+			}
+			
+			function highlight(el) {
+				el.style.color = LIGHT_BLUE;
+			}
+			
+			function unHighlight(el) {
+				el.style.color = BLACK;
 			}
 
 			

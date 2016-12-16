@@ -38,3 +38,9 @@ var RED = "#e50d0d";//"#d84949";
 var GREEN = "#61d849";
 var DARK_BLUE = "#63aec1";
 var LIGHT_BLUE = "#c9e9f2";
+var BLACK = "#000000";
+
+var CEMENT_URL = "https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png";
+var SHEET_URL = "https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png";
+var SPANISH_URL = "https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png";
+var ROOF_URLS = [CEMENT_URL, SHEET_URL, SPANISH_URL];

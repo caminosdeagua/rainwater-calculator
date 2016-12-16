@@ -10,7 +10,7 @@ var HEADER = "Rainwater Harvesting in the Independence Watershed";
 
 var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please <a href='http://caminosdeagua.org/contact-1' target = '_blank'>contact us</a>!";
 
-var INSTRUCTIONS = "<b>Answer the questions below about your household as best you can.</b>";
+var INSTRUCTIONS = "<b>Answer the following household questions as best you can</b>";
 
 var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"May", "Jun", "Jul", "Aug",
