@@ -10,7 +10,7 @@ var HEADER = "Rainwater Harvesting in the Independence Watershed";
 
 var SUB_HEADER = "Use this calculator to determine your household's water consumption and the required volume of rainwater storage to meet your annual water needs. With any questions, comments, or collaborations, please <a href='http://caminosdeagua.org/contact-1' target = '_blank'>contact us</a>!";
 
-var INSTRUCTIONS = "<b>Answer the following household questions as best you can</b>";
+var INSTRUCTIONS = "<b>Please answer the following household questions as best you can</b>";
 
 var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"May", "Jun", "Jul", "Aug",
@@ -110,10 +110,10 @@ var L_ADDON_LBL = "<small> liters</small>";
 
 var TOOLTIP_TEXT = {
 	yes_or_no: "This box indicates if you have a large enough roof to collect sufficient water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!",
-	min_roof: "This indicates the minimum roof size required for you to capture adequate rainwater to provide for your household's regular daily essential (drinking and cooking) water consumption for the entire year. <br><br>This assumes that your cistern begins collecting water at the beginning of the rainy season. ",
-	min_tank: "If you use the minimum roof size inidicated to the right, you need this size cistern to capture all of the water coming off of your roof. This cistern is large enough to provide your household with drinking and cooking water year-round on a year with average rainfall.",
-	real_roof: "This is the roof size you entered on the previous page",
-	real_tank: "If you collect 100% of the water that hits your current full roof during an average year, you'd need this size of cistern."
+	min_roof: "<b><big>Minimum roof area</big></b><br>This indicates the minimum roof size required for you to capture adequate rainwater to provide for your household's regular daily essential (drinking and cooking) water consumption for the entire year. <br><br>This assumes that your cistern begins collecting water at the beginning of the rainy season. ",
+	min_tank: "<b><big>Minimum tank volume</big></b><br>If you use the minimum roof size inidicated to the right, you need this size cistern to capture all of the water coming off of your roof. This cistern is large enough to provide your household with drinking and cooking water year-round on a year with average rainfall.",
+	real_roof: "<b><big>Your roof area</big></b><br>This is the roof size you entered on the previous page",
+	real_tank: "<b><big>Tank volume to collect all of your roof's water</big></b><br>If you collect 100% of the water that hits your current full roof during an average year, you'd need this size of cistern."
 }
 
 var RESULTS_HEADER = "<b>Rainwater Harvesting Capacity</b>";
