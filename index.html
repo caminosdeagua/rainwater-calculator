@@ -65,22 +65,26 @@
 							<input type="checkbox" id="useMonthly"></input>
 							<label for="useMonthly" id="useMonthly_lbl" ></label>
 							<br>
-							<label id="muni0"></label><br>
-							
-							<div id="WaterMap"></div>
-							<div>
-								<label for="jan_rain" name="rain_lbl"></label><input type="number" id ="jan_rain" name="rain" value="0" min="0" />
-								<label for="feb_rain" name="rain_lbl"></label><input type="number" id ="feb_rain" name="rain" value="0" min="0" />
-								<label for="mar_rain" name="rain_lbl"></label><input type="number" id ="mar_rain" name="rain" value="0" min="0" />
-								<label for="apr_rain" name="rain_lbl"></label><input type="number" id ="apr_rain" name="rain" value="0" min="0" />
-								<label for="may_rain" name="rain_lbl"></label><input type="number" id ="may_rain" name="rain" value="0" min="0" />
-								<label for="jun_rain" name="rain_lbl"></label><input type="number" id ="jun_rain" name="rain" value="0" min="0" />
-								<label for="jul_rain" name="rain_lbl"></label><input type="number" id ="jul_rain" name="rain" value="0" min="0" />
-								<label for="aug_rain" name="rain_lbl"></label><input type="number" id ="aug_rain" name="rain" value="0" min="0" />
-								<label for="sep_rain" name="rain_lbl"></label><input type="number" id ="sep_rain" name="rain" value="0" min="0" />
-								<label for="oct_rain" name="rain_lbl"></label><input type="number" id ="oct_rain" name="rain" value="0" min="0" />
-								<label for="nov_rain" name="rain_lbl"></label><input type="number" id ="nov_rain" name="rain" value="0" min="0" />
-								<label for="dec_rain" name="rain_lbl"></label><input type="number" id ="dec_rain" name="rain" value="0" min="0" />
+							<div id="WaterMapDiv">
+								<label id="muni0"></label><br>
+								<div id="WaterMap"></div>
+							</div>
+							<div id="MonthlyUseDiv">
+								<label for="jan_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jan_rain" name="rain" value="0" min="0" />
+								<label for="feb_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="feb_rain" name="rain" value="0" min="0" />
+								<label for="mar_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="mar_rain" name="rain" value="0" min="0" />
+								<br>                                                 
+								<label for="apr_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="apr_rain" name="rain" value="0" min="0" />
+								<label for="may_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="may_rain" name="rain" value="0" min="0" />
+								<label for="jun_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jun_rain" name="rain" value="0" min="0" />
+								<br>                                                 
+								<label for="jul_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jul_rain" name="rain" value="0" min="0" />
+								<label for="aug_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="aug_rain" name="rain" value="0" min="0" />
+								<label for="sep_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="sep_rain" name="rain" value="0" min="0" />
+								<br>                                                 
+								<label for="oct_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="oct_rain" name="rain" value="0" min="0" />
+								<label for="nov_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="nov_rain" name="rain" value="0" min="0" />
+								<label for="dec_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="dec_rain" name="rain" value="0" min="0" />
 							</div>
 						</div>
 						
@@ -378,7 +382,17 @@
 			////////////////////////////////////////////////////////////////////
 			
 			function updateInputs(el) {
-				if (el.type == "checkbox") {
+				
+				if (el.id == "useMonthly") {
+					allData[el.id] = Boolean(el.checked);
+					if (allData[el.id]) {
+						fadeOut(WaterMapDiv, true)
+						fadeIn(MonthlyUseDiv)
+					} else {
+						fadeOut(MonthlyUseDiv, true)
+						fadeIn(WaterMapDiv)
+					}
+				} else if (el.type == "checkbox") {
 					allData[el.id] = Boolean(el.checked);
 				} else if (el.type == "number" | el.type == "select-one") {
 					allData[el.id] = Number(el.value)
@@ -393,6 +407,9 @@
 				allData.municipality_name = String(geojson._layers[mun].feature.properties.NOMGEO);	
 				allData.station_name = String(geojson._layers[mun].feature.properties.Station);	
 				allData.place = mun;
+				
+				
+				
 				
 				updateOutputText();						// update the text on the LHS output page
 				displayStuff = inputs2outputs(allData); // calculate!
@@ -567,14 +584,16 @@
 				})();
 
 				if (hide) {
-					el.hidden = true;
+					el.style.display = "none";
 				};
+				el.hidden = true;
 			}
 			
 			function fadeIn(el){
 				
 				el.style.opacity = 0;
 				el.hidden = false; 
+				el.style.display = "inline-block";
 				
 				(function fade() {
 					var val = parseFloat(el.style.opacity);

@@ -490,3 +490,11 @@ div[name=big_disp] {
 	-webkit-transform: scale(1.5); /* Safari and Chrome */
 	-o-transform: scale(1.5); /* Opera */
 }
+
+.rain_lbl {
+	margin-bottom: 12px;
+}
+
+#MonthlyUseDiv {
+	display: none;
+}
