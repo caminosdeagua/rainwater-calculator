@@ -66,7 +66,22 @@
 							<label for="useMonthly" id="useMonthly_lbl" ></label>
 							<br>
 							<label id="muni0"></label><br>
+							
 							<div id="WaterMap"></div>
+							<div>
+								<label for="jan_rain" name="rain_lbl"></label><input type="number" id ="jan_rain" name="rain" value="0" min="0" />
+								<label for="feb_rain" name="rain_lbl"></label><input type="number" id ="feb_rain" name="rain" value="0" min="0" />
+								<label for="mar_rain" name="rain_lbl"></label><input type="number" id ="mar_rain" name="rain" value="0" min="0" />
+								<label for="apr_rain" name="rain_lbl"></label><input type="number" id ="apr_rain" name="rain" value="0" min="0" />
+								<label for="may_rain" name="rain_lbl"></label><input type="number" id ="may_rain" name="rain" value="0" min="0" />
+								<label for="jun_rain" name="rain_lbl"></label><input type="number" id ="jun_rain" name="rain" value="0" min="0" />
+								<label for="jul_rain" name="rain_lbl"></label><input type="number" id ="jul_rain" name="rain" value="0" min="0" />
+								<label for="aug_rain" name="rain_lbl"></label><input type="number" id ="aug_rain" name="rain" value="0" min="0" />
+								<label for="sep_rain" name="rain_lbl"></label><input type="number" id ="sep_rain" name="rain" value="0" min="0" />
+								<label for="oct_rain" name="rain_lbl"></label><input type="number" id ="oct_rain" name="rain" value="0" min="0" />
+								<label for="nov_rain" name="rain_lbl"></label><input type="number" id ="nov_rain" name="rain" value="0" min="0" />
+								<label for="dec_rain" name="rain_lbl"></label><input type="number" id ="dec_rain" name="rain" value="0" min="0" />
+							</div>
 						</div>
 						
 						<!-- How many people in your household? -->
@@ -271,13 +286,19 @@
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = RHS_TITLE;
 				};
+				// label the monthly rain boxes	//
+				els = document.getElementsByName("rain_lbl")
+				for(var i=0; i<els.length; i++) {
+					els[i].innerHTML = MONTHS[i]+": ";
+				}
+				
 				
 				// grab the helper images //
 				els = document.getElementsByName("roof_imgs");
 				for(var i=0; i<els.length; i++) {
 					els[i].innerHTML = "<a href="+ROOF_URLS[i]+"target='_blank'><img src="+ROOF_URLS[i]+" style='height: 126px; width: 126px; margin: 2px; border: 0px; border-radius: 15px;'></img></a>";
 				}
-				console.log(els)
+				
 				updateOutputText(); 	
 			}
 			
