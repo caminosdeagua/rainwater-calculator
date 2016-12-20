@@ -820,7 +820,19 @@
 				//variable which express the liters of drinking + liters of cooking for one person
 				var essential = ESSENTIAL_DAILY_USE * (inputs.ppl);      
 
-				var rainfall = getRainfall(inputs.place); 	// grabs rainfall from geojson data for the selected polygon. 				
+				var rainfall;
+				if (inputs.useMonthly) {
+					var els = document.getElementsByName("rain");
+					alert(els.length)
+					rainfall = Array.apply(null, Array(els.length)).map(Number.prototype.valueOf,0);
+					for(i=0; i<els.length; i++) {
+					rainfall[i] = Number(els[i].value)
+					console.log("(entered) "+MONTHS[i]+": "+rainfall[i])
+					}
+				
+				} else {
+					rainfall = getRainfall(inputs.place); 	// grabs rainfall from geojson data for the selected polygon. 				
+				}
 				
 				var testArea = 0;							// start with area of 0 (it gets bumped up to 1 in the first loop itteration);
 				var testAreaAdequate = false;				// default: user doesn't have adequate roof space.
