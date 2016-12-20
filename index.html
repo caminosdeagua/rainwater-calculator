@@ -70,21 +70,21 @@
 								<div id="WaterMap"></div>
 							</div>
 							<div id="MonthlyUseDiv">
-								<label for="jan_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jan_rain" name="rain" value="0" min="0" />
-								<label for="feb_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="feb_rain" name="rain" value="0" min="0" />
-								<label for="mar_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="mar_rain" name="rain" value="0" min="0" />
+								<label for="jan_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jan_rain" name="rain" value="none" min="0" />
+								<label for="feb_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="feb_rain" name="rain" value="none" min="0" />
+								<label for="mar_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="mar_rain" name="rain" value="none" min="0" />
 								<br>                                                 
-								<label for="apr_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="apr_rain" name="rain" value="0" min="0" />
-								<label for="may_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="may_rain" name="rain" value="0" min="0" />
-								<label for="jun_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jun_rain" name="rain" value="0" min="0" />
+								<label for="apr_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="apr_rain" name="rain" value="none" min="0" />
+								<label for="may_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="may_rain" name="rain" value="none" min="0" />
+								<label for="jun_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jun_rain" name="rain" value="none" min="0" />
 								<br>                                                 
-								<label for="jul_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jul_rain" name="rain" value="0" min="0" />
-								<label for="aug_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="aug_rain" name="rain" value="0" min="0" />
-								<label for="sep_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="sep_rain" name="rain" value="0" min="0" />
-								<br>                                                 
-								<label for="oct_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="oct_rain" name="rain" value="0" min="0" />
-								<label for="nov_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="nov_rain" name="rain" value="0" min="0" />
-								<label for="dec_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="dec_rain" name="rain" value="0" min="0" />
+								<label for="jul_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jul_rain" name="rain" value="none" min="0" />
+								<label for="aug_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="aug_rain" name="rain" value="none" min="0" />
+								<label for="sep_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="sep_rain" name="rain" value="none" min="0" />
+								<br>                                                                                                                 
+								<label for="oct_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="oct_rain" name="rain" value="none" min="0" />
+								<label for="nov_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="nov_rain" name="rain" value="none" min="0" />
+								<label for="dec_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="dec_rain" name="rain" value="none" min="0" />
 							</div>
 						</div>
 						
@@ -138,7 +138,7 @@
 							<!--When you press this button, it stops letting you edit the form 
 							and displays the inputs back to the user -->
 							<div class="button" >
-								<button type="button" onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+								<button type="button" onclick="calculateStuff(); replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
 							</div>
 						</div>
 					</div>
@@ -340,7 +340,6 @@
 					useMonthly: Boolean(document.getElementById("useMonthly").checked)
 				};
 				
-				console.log(document.getElementById("useMonthly"))
 				
 				els = document.getElementsByName("roof_type");
 				for (var i=0; i<els.length; i++) {
@@ -381,40 +380,39 @@
 			////	entered data. 											////
 			////////////////////////////////////////////////////////////////////
 			
-			function updateInputs(el) {
+			function updateLHS(el) {
 				
-				if (el.id == "useMonthly") {
-					allData[el.id] = Boolean(el.checked);
-					if (allData[el.id]) {
+				if (el.id == "useMonthly") {	// if checkbox is the changed element
+					if (el.checked) { 			// if using monthly data
 						fadeOut(WaterMapDiv, true)
 						fadeIn(MonthlyUseDiv)
-					} else {
+
+					} else {					// if using data from the map
+						
 						fadeOut(MonthlyUseDiv, true)
 						fadeIn(WaterMapDiv)
+					
+					};
+						
+					// if allMonths haven't been entered, flip active/disabled
+					if (!allMonthsEntered) { 
+						flipReadOnlyEls();
 					}
-				} else if (el.type == "checkbox") {
-					allData[el.id] = Boolean(el.checked);
-				} else if (el.type == "number" | el.type == "select-one") {
-					allData[el.id] = Number(el.value)
-				} else if (el.type == "text") {
-					allData[el.id] = String(el.value)
-				} else if (el.type == "radio") {
-					allData[el.name] =  el.value;
-				} 
+				}
 				
-				// Update the location regardless, to patch the fact that the automatic
-				//	location isn't read in b/c the geoJSON is loaded asynchronously...
-				allData.municipality_name = String(geojson._layers[mun].feature.properties.NOMGEO);	
-				allData.station_name = String(geojson._layers[mun].feature.properties.Station);	
-				allData.place = mun;
-				
-				
-				
-				
-				updateOutputText();						// update the text on the LHS output page
-				displayStuff = inputs2outputs(allData); // calculate!
-				displayOutputs(displayStuff); 			// display the calcuated values on the RHS!
-				
+				if (!allMonthsEntered) {
+					var month_rain = document.getElementsByName("rain")
+					allFull = true;
+					for (var i=0; i<month_rain.length; i++) {
+						if (month_rain[i].value == "") {
+							allFull = false;
+						}
+					}
+					if (allFull) {
+						flipReadOnlyEls()
+						allMonthsEntered = true;
+					}
+				}
 			}
 			
 			
@@ -507,7 +505,7 @@
 				var valid = rets[0];
 				var errMsg = rets[1];
 				if (valid){
-					updateInputs(element);
+					updateLHS(element);
 				} else {
 					var errorText = document.getElementById(element.id+"_error");
 					var errorBox = errorText.parentElement;
@@ -515,7 +513,7 @@
 					fadeIn(errorBox);
 					setTimeout(function(){fadeOut(errorBox, false)}, ERROR_DISPLAY_TIME);
 					element.validity.valid = false;
-					updateInputs(element);
+					updateLHS(element);
 				};	
 			}
 			
@@ -821,33 +819,36 @@
 				var essential = ESSENTIAL_DAILY_USE * (inputs.ppl);      
 
 				var rainfall;
-				if (inputs.useMonthly) {
-					var els = document.getElementsByName("rain");
-					rainfall = Array.apply(null, Array(els.length)).map(Number.prototype.valueOf,0);
-					for(i=0; i<els.length; i++) {
-					rainfall[i] = Number(els[i].value)
-					}
-				
+				if (inputs.useMonthly) { 					// grab monthly use rain
+					rainfall = [inputs.jan_rain, inputs.feb_rain, inputs.mar_rain, inputs.apr_rain, inputs.may_rain, inputs.jun_rain, inputs.jul_rain, inputs.aug_rain, inputs.sep_rain, inputs.oct_rain, inputs.nov_rain, inputs.dec_rain];
 				} else {
 					rainfall = getRainfall(inputs.place); 	// grabs rainfall from geojson data for the selected polygon. 				
 				}
+				
 				// next lines are for displaying used rain data //
-				var	sum = 0;
+				var	totalRain = 0;
 				for (var i=0; i<12; i++){
 					console.log(FULL_MONTHS[i]+": "+rainfall[i]+" mm");
-					sum = sum+rainfall[i];
+					totalRain = totalRain+rainfall[i];
 				}
-				console.log("TOTAL RAINFALL: "+sum+" mm");
+				console.log("TOTAL RAINFALL: "+totalRain+" mm");
 				/////////////////////////////////////////////////
 				
 				var testArea = 0;							// start with area of 0 (it gets bumped up to 1 in the first loop itteration);
 				var testAreaAdequate = false;				// default: user doesn't have adequate roof space.
 				
-				if (rainfall[0] != -1) {							// if the rainfall data has loaded:
+				if (rainfall[0] != -1 && totalRain != 0) {		// as long as something's been entered for rainfall:						// if the rainfall data has loaded:
 					var test;								
 					while (!testAreaAdequate) {				// while there isn't enough roof area
 						testArea=testArea+1;				// increment the area
-						test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential) 	// get the cistern size
+						
+						var test;
+						if (inputs.useMonthly) {
+							test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential ,-1) 	// get the cistern size for entered monthly rainfall
+						} else {
+							test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential , SMA_START_MONTH) // get cistern size for Independence watershed
+						}
+						
 						testAreaAdequate = test.adequate;	// and store whether this roof is adeqaute 
 					}
 				} else {									// If the rainfall data hasn't loaded yet
@@ -862,8 +863,13 @@
 				//	their provided roof size in the average year. 				//
 				//////////////////////////////////////////////////////////////////
 				
-				var actualArea = inputs.length * inputs.width;;
-				var actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential)
+				var actualArea = inputs.length * inputs.width;
+				var actual;
+				if(inputs.useMonthly) {
+					actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential, -1);
+				} else {
+					actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential, SMA_START_MONTH);
+				}
 
 				var maxRain = Math.max.apply(null, rainfall);
 				var maxMonthlyCollection = maxRain*actualArea;
@@ -905,16 +911,21 @@
 			////		true. 	
 			////////////////////////////////////////////////////////////////////
 			
-			function getCisternSize(rainfall, area, eff, dailyUse) {
+			function getCisternSize(rainfall, area, eff, dailyUse, startMonth) {
 				var results = {adequate: true, volume: 0};
 				
 				var inventory = Array.apply(null, Array(DAY_MON.length)).map(Number.prototype.valueOf,0);
-				for (var i=START_MONTH; i<DAY_MON.length+START_MONTH; i++) {
+				
+				if(startMonth == -1) {
+					startMonth = rainfall.indexOf(Math.max(...rainfall));
+				}
+				
+				for (var i=startMonth; i<DAY_MON.length+startMonth; i++) {
 					var monthlyUse = dailyUse*DAY_MON[i%DAY_MON.length];							// people * L/(people*day) * day/month = [L/month]
 					
 					inventory[i%DAY_MON.length] = rainfall[i%DAY_MON.length]*area*eff - monthlyUse;		// mm/month * m^2 - L/month = [L/month] 			
 					
-					if ( i%DAY_MON.length != START_MONTH ) {					// For all months but the first one,
+					if ( i%DAY_MON.length != startMonth ) {					// For all months but the first one,
 						if (i%DAY_MON.length == 0) {
 							inventory[i%DAY_MON.length]=inventory[DAY_MON.length-1]+inventory[i%DAY_MON.length];// if january, add to inventory of december
 						} else {																				//	add the current inventory to the previous. (even when its 0).
@@ -960,7 +971,79 @@
 			function unHighlight(el) {
 				el.style.color = BLACK;
 			}
+			
+			function flipReadOnlyEls() {
+				var status = document.getElementById("ppl").disabled;
+				
+				if (!status){
+					disable(document.getElementById("ppl"))
+					disable(document.getElementById("width"))
+					disable(document.getElementById("length"))
+					document.getElementById("calc_button").disabled = true;
+					document.getElementById("cement_roof").disabled = true;
+					document.getElementById("sheet_roof").disabled = true;
+					document.getElementById("spanish_roof").disabled = true;
+					
+				} else {
+					enable(document.getElementById("ppl"))
+					enable(document.getElementById("width"))
+					enable(document.getElementById("length"))
+					document.getElementById("calc_button").disabled = false;
+					document.getElementById("cement_roof").disabled = false;
+					document.getElementById("sheet_roof").disabled = false;
+					document.getElementById("spanish_roof").disabled = false;
+				}
+			}
+			
+			function enable(el) {
+				el.disabled = false;
+				el.style.backgroundColor = ENABLED_BACK;
+				el.style.borderColor = ENABLED_BORDER;
+				el.style.color = ENABLED_TEXT;
+			}
+			
+			function disable(el) {
+				
+				el.disabled = true;
+				el.style.backgroundColor = DISABLED_BACK;
+				el.style.borderColor = DISABLED_BORDER;
+				el.style.color = DISABLED_TEXT;
+			}
 
+			function calculateStuff() {
+				allData.jan_rain = document.getElementById("jan_rain").value;
+				allData.feb_rain = document.getElementById("feb_rain").value;
+				allData.mar_rain = document.getElementById("mar_rain").value;
+				allData.apr_rain = document.getElementById("apr_rain").value;
+				allData.may_rain = document.getElementById("may_rain").value;
+				allData.jun_rain = document.getElementById("jun_rain").value;
+				allData.jul_rain = document.getElementById("jul_rain").value;
+				allData.aug_rain = document.getElementById("aug_rain").value;
+				allData.sep_rain = document.getElementById("sep_rain").value;
+				allData.oct_rain = document.getElementById("oct_rain").value;
+				allData.nov_rain = document.getElementById("nov_rain").value;
+				allData.dec_rain = document.getElementById("dec_rain").value;
+				allData.ppl = document.getElementById("ppl").value;
+				allData.length = document.getElementById("length").value;
+				allData.width = document.getElementById("width").value;
+				allData.useMonthly = document.getElementById("useMonthly").checked;
+				allData.municipality_name = String(geojson._layers[mun].feature.properties.NOMGEO);	
+				allData.station_name = String(geojson._layers[mun].feature.properties.Station);	
+				allData.place = mun;
+				
+				var radios = document.getElementsByName("roof_type");
+				for (var i=0; i<radios.length; i++) {
+					if (radios[i].checked) {
+						allData.roof_type = radios[i].value;
+					}
+				}
+				
+				displayStuff = inputs2outputs(allData); // calculate!
+				displayOutputs(displayStuff); 			// display the calcuated values on the RHS!
+				
+				
+			
+			}
 			
      
 		</script>

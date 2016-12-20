@@ -134,7 +134,7 @@ function select(event) {
 	event.target.setStyle({fillColor: 'blue'});		// Then set the new one. 
 	mun = id; 	
 	
-	updateInputs("map");
+	//updateInputs("map");
 	
 	console.log("You just clicked on:")
 	console.log(event.target)
