@@ -823,21 +823,27 @@
 				var rainfall;
 				if (inputs.useMonthly) {
 					var els = document.getElementsByName("rain");
-					alert(els.length)
 					rainfall = Array.apply(null, Array(els.length)).map(Number.prototype.valueOf,0);
 					for(i=0; i<els.length; i++) {
 					rainfall[i] = Number(els[i].value)
-					console.log("(entered) "+MONTHS[i]+": "+rainfall[i])
 					}
 				
 				} else {
 					rainfall = getRainfall(inputs.place); 	// grabs rainfall from geojson data for the selected polygon. 				
 				}
+				// next lines are for displaying used rain data //
+				var	sum = 0;
+				for (var i=0; i<12; i++){
+					console.log(FULL_MONTHS[i]+": "+rainfall[i]+" mm");
+					sum = sum+rainfall[i];
+				}
+				console.log("TOTAL RAINFALL: "+sum+" mm");
+				/////////////////////////////////////////////////
 				
 				var testArea = 0;							// start with area of 0 (it gets bumped up to 1 in the first loop itteration);
 				var testAreaAdequate = false;				// default: user doesn't have adequate roof space.
 				
-				if (rainfall[0]) {							// if the rainfall data has loaded:
+				if (rainfall[0] != -1) {							// if the rainfall data has loaded:
 					var test;								
 					while (!testAreaAdequate) {				// while there isn't enough roof area
 						testArea=testArea+1;				// increment the area
