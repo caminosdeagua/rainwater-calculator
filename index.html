@@ -311,8 +311,11 @@
 					ppl: Number(document.getElementById("ppl").value),				// 	and feeds in initial conditions.
 					length: Number(document.getElementById("length").value),
 					width: Number(document.getElementById("width").value),
-					roof_type: 0
+					roof_type: 0,
+					useMonthly: Boolean(document.getElementById("useMonthly").checked)
 				};
+				
+				console.log(document.getElementById("useMonthly"))
 				
 				els = document.getElementsByName("roof_type");
 				for (var i=0; i<els.length; i++) {
