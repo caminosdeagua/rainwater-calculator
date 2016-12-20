@@ -46,6 +46,8 @@ var PPL_DECIMAL_E = "You can't have partial numbers of people";
 //										//
 //////////////////////////////////////////
 
+var CHECKBOX_LBL = "I have my own monthly rainwater data";
+
 //////		MUNICIPALITY			//////
 var MUNI0_LBL = "Choose your area by clicking on the orange shapes below: ";
 var MUNI_VAL0_LBL = "a";

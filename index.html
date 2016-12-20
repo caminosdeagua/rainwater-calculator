@@ -50,76 +50,80 @@
 			<div id="LHS_inputs">
 				<!-- the top text goes here -->
 				<a id="caminos_logo" href="https://www.caminosdeaguamexico.org" target="_blank">
-					<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
+					<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/g6mddl4xk9wgmxp/caminos_logo_circle.png"></img>
 				</a>
 				<h1 class="headers" id="header"></h1>
 				<h3 class="headers" id="sub_header"></h3>
 
 				
 				<!-- start the form!!! -->
-				<div id="form_box">
-					<big><p class="headers" id="instructions"></p></big>
-					<!-- Select your municipality -->
-					<div id="form_box_left">
-						<label for="municipality" id="muni0" ></label><br>
-						<div id="WaterMap"></div>
-					</div>
-					
-					<!-- How many people in your household? -->
-					<div id = "full_box_right" align="center">
-						<div id="form_box_right" align="left">
-							<form id="calc_form" class="form">
-								<div>
-									<label for="ppl" id="ppl0"></label>
-									<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
-									<div class = "error_lbl">
-										<p id="ppl_error">.</p>
-									</div>
-								</div>
-									
-								<!-- Length of your roof -->
-								<div>
-									<label for="length" id = "length0"></label>
-									<input type="number" id="length" value="1" min="1" max="99" step="any"/>
-									<div class = "error_lbl">
-										<p id="length_error">.</p>
-									</div>
-								</div>
+				<form id="calc_form" class="form">
+					<div id="form_box">
+						<big><p class="headers" id="instructions"></p></big>
+						<!-- Select your municipality -->
+						<div id="form_box_left">
+							<input type="checkbox" id="useMonthly"></input>
+							<label for="useMonthly" id="useMonthly_lbl" ></label>
+							<br>
+							<label id="muni0"></label><br>
+							<div id="WaterMap"></div>
+						</div>
+						
+						<!-- How many people in your household? -->
+						<div id = "full_box_right" align="center">
+							<div id="form_box_right" align="left">
 								
-								<!-- Width of your roof -->
-								<div>
-									<label for="width" id = "width0"></label>
-									<input type="number" id="width" value="1" min="1" max="99" step="any"/>
-									<div class = "error_lbl">
-										<p id="width_error">.</p>
+									<div>
+										<label for="ppl" id="ppl0"></label>
+										<input type="number" id="ppl" value="1" min="1" max="9999" step="1"/>
+										<div class = "error_lbl">
+											<p id="ppl_error">.</p>
+										</div>
 									</div>
-								</div>
-								<br>
-								<!-- Type of roof -->
-								<div>
-									<label id="roof0"></label><br>
-									<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
-										<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.</input>
-										<div name="roof_imgs" class="tooltip_img"></div>
+										
+									<!-- Length of your roof -->
+									<div>
+										<label for="length" id = "length0"></label>
+										<input type="number" id="length" value="1" min="1" max="99" step="any"/>
+										<div class = "error_lbl">
+											<p id="length_error">.</p>
+										</div>
 									</div>
-									<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
-										<input type="radio" id="sheet_roof" name="roof_type" value="1" >.</input>
-										<div name="roof_imgs" class="tooltip_img"></div>
+									
+									<!-- Width of your roof -->
+									<div>
+										<label for="width" id = "width0"></label>
+										<input type="number" id="width" value="1" min="1" max="99" step="any"/>
+										<div class = "error_lbl">
+											<p id="width_error">.</p>
+										</div>
 									</div>
-									<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)" style="margin-bottom: 20px;">
-										<input type="radio" id="spanish_roof" name="roof_type" value="2" >.</input>
-										<div name="roof_imgs" class="tooltip_img"></div>
-									</div>
-								</div>	
-							</form>
-				<!--	 When you press this button, it stops letting you edit the form 
+									<br>
+									<!-- Type of roof -->
+									<div>
+										<label id="roof0"></label><br>
+										<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
+											<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.</input>
+											<div name="roof_imgs" class="tooltip_img"></div>
+										</div>
+										<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
+											<input type="radio" id="sheet_roof" name="roof_type" value="1" >.</input>
+											<div name="roof_imgs" class="tooltip_img"></div>
+										</div>
+										<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)" style="margin-bottom: 20px;">
+											<input type="radio" id="spanish_roof" name="roof_type" value="2" >.</input>
+											<div name="roof_imgs" class="tooltip_img"></div>
+										</div>
+									</div>	
+							</div>
+							<!--When you press this button, it stops letting you edit the form 
 							and displays the inputs back to the user -->
-						</div>
-						<div class="button">
-							<button onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+							<div class="button" >
+								<button type="button" onclick="replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+							</div>
 						</div>
 					</div>
-				</div>
+				</form>
 			</div>
 			<div id="LHS_display">
 				<h1 id="header_display"></h1>
@@ -188,7 +192,7 @@
 				
 				
 			<a id="caminos_logo2" href="https://www.caminosdeaguamexico.org" target="_blank">
-				<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/ligsjij2ka26gi0/caminos_logo_circle.png"></img>
+				<img class="caminos_logo_img" src="https://dl.dropboxusercontent.com/s/g6mddl4xk9wgmxp/caminos_logo_circle.png"></img>
 			</a>	
 		
 								
@@ -243,6 +247,7 @@
 				document.getElementById("header").innerHTML = HEADER; 				// Puts the correct language text on the page
 				document.getElementById("sub_header").innerHTML = SUB_HEADER;		//	for all elements
 				document.getElementById("instructions").innerHTML = INSTRUCTIONS;
+				document.getElementById("useMonthly_lbl").innerHTML = CHECKBOX_LBL;
 				document.getElementById("muni0").innerHTML = MUNI0_LBL;
 				document.getElementById("ppl0").innerHTML = PPL0_LBL;
 				document.getElementById("length0").innerHTML = LENGTH0_LBL;
@@ -251,7 +256,6 @@
 				document.getElementById("cement_roof").nextSibling.data = CEMENT_ROOF_LBL;
 				document.getElementById("sheet_roof").nextSibling.data = SHEET_ROOF_LBL;
 				document.getElementById("spanish_roof").nextSibling.data = SPANISH_ROOF_LBL;
-				
 				document.getElementById("calc_button").innerHTML = CALC_BUTTON_LBL;
 				document.getElementById("back2inputs_button").innerHTML = BACK2INPUTS_BUTTON_LBL;
 				document.getElementById("header_display").innerHTML = HEADER;
