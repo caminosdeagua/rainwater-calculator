@@ -829,7 +829,7 @@
 				var	totalRain = 0;
 				for (var i=0; i<12; i++){
 					console.log(FULL_MONTHS[i]+": "+rainfall[i]+" mm");
-					totalRain = totalRain+rainfall[i];
+					totalRain += Number(rainfall[i]);
 				}
 				console.log("TOTAL RAINFALL: "+totalRain+" mm");
 				/////////////////////////////////////////////////
@@ -917,7 +917,10 @@
 				var inventory = Array.apply(null, Array(DAY_MON.length)).map(Number.prototype.valueOf,0);
 				
 				if(startMonth == -1) {
-					startMonth = rainfall.indexOf(Math.max(...rainfall));
+					
+					startMonth = rainfall.indexOf(Math.max.apply(null, rainfall));
+					
+					alert(startMonth)
 				}
 				
 				for (var i=startMonth; i<DAY_MON.length+startMonth; i++) {
@@ -1011,21 +1014,22 @@
 			}
 
 			function calculateStuff() {
-				allData.jan_rain = document.getElementById("jan_rain").value;
-				allData.feb_rain = document.getElementById("feb_rain").value;
-				allData.mar_rain = document.getElementById("mar_rain").value;
-				allData.apr_rain = document.getElementById("apr_rain").value;
-				allData.may_rain = document.getElementById("may_rain").value;
-				allData.jun_rain = document.getElementById("jun_rain").value;
-				allData.jul_rain = document.getElementById("jul_rain").value;
-				allData.aug_rain = document.getElementById("aug_rain").value;
-				allData.sep_rain = document.getElementById("sep_rain").value;
-				allData.oct_rain = document.getElementById("oct_rain").value;
-				allData.nov_rain = document.getElementById("nov_rain").value;
-				allData.dec_rain = document.getElementById("dec_rain").value;
-				allData.ppl = document.getElementById("ppl").value;
-				allData.length = document.getElementById("length").value;
-				allData.width = document.getElementById("width").value;
+			console.log()
+				allData.jan_rain = Number(document.getElementById("jan_rain").value);
+				allData.feb_rain = Number(document.getElementById("feb_rain").value);
+				allData.mar_rain = Number(document.getElementById("mar_rain").value);
+				allData.apr_rain = Number(document.getElementById("apr_rain").value);
+				allData.may_rain = Number(document.getElementById("may_rain").value);
+				allData.jun_rain = Number(document.getElementById("jun_rain").value);
+				allData.jul_rain = Number(document.getElementById("jul_rain").value);
+				allData.aug_rain = Number(document.getElementById("aug_rain").value);
+				allData.sep_rain = Number(document.getElementById("sep_rain").value);
+				allData.oct_rain = Number(document.getElementById("oct_rain").value);
+				allData.nov_rain = Number(document.getElementById("nov_rain").value);
+				allData.dec_rain = Number(document.getElementById("dec_rain").value);
+				allData.ppl = Number(document.getElementById("ppl").value);
+				allData.length = Number(document.getElementById("length").value);
+				allData.width = Number(document.getElementById("width").value);
 				allData.useMonthly = document.getElementById("useMonthly").checked;
 				allData.municipality_name = String(geojson._layers[mun].feature.properties.NOMGEO);	
 				allData.station_name = String(geojson._layers[mun].feature.properties.Station);	
