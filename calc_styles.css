@@ -150,9 +150,7 @@ input[type="checkbox"] {
 	margin-left: 40px;
 	margin-top: 12px;
 	background: #777777;
-	
-	
-}	
+}
 
 .extra_input {
 	display: inline-block;
@@ -210,6 +208,7 @@ input[type="checkbox"] {
 
 .return_num {
 	font-size: 72px;
+	margin-top: -40px;
 	
 }
 
@@ -435,10 +434,11 @@ div[name=big_disp] {
 	display: inline-block;
 	background-color: #63aec1; 
 	position: absolute; 
-	margin-left: 30px; 
+	margin: 30px; 
 	border: 2px black solid; 
 	border-radius: 15px;
 }
+
 
 #form_box_left {
 	position: relative; 
@@ -473,4 +473,26 @@ div[name=big_disp] {
 	margin-bottom: 6px;
 	padding: 0;
 	
+}
+
+#useMonthly, #useMonthly_lbl {
+	font-size: 24px;
+	margin: 20px;
+	margin-left: 15px;
+	margin-right: 0;
+}
+
+#useMonthly {
+	-ms-transform: scale(1.5); /* IE */
+	-moz-transform: scale(1.5); /* FF */
+	-webkit-transform: scale(1.5); /* Safari and Chrome */
+	-o-transform: scale(1.5); /* Opera */
+}
+
+.rain_lbl {
+	margin-bottom: 12px;
+}
+
+#MonthlyUseDiv {
+	display: none;
 }

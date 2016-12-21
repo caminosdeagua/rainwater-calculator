@@ -134,7 +134,7 @@ function select(event) {
 	event.target.setStyle({fillColor: 'blue'});		// Then set the new one. 
 	mun = id; 	
 	
-	updateInputs("map");
+	//updateInputs("map");
 	
 	console.log("You just clicked on:")
 	console.log(event.target)
@@ -165,14 +165,12 @@ function getRainfall(place) {
 	var rainfall = [];
 	var total = 0;
 	if(!geojson) {
-		rainfall = [0,0,0,0,0,0,0,0,0,0,0,0];
+		rainfall = [-1,0,0,0,0,0,0,0,0,0,0,0];
 		console.log("The geoJSON file hasn't loaded yet...");
 	} else {
 		for (var i=0; i<FULL_MONTHS.length+1; i++) {
 			if (i==FULL_MONTHS.length){console.log("total\n"+total)} else {
 				total = total+geojson._layers[place].feature.properties[FULL_MONTHS[i]];
-				console.log(FULL_MONTHS[i])
-				console.log(geojson._layers[place].feature.properties[FULL_MONTHS[i]])
 				rainfall.push(geojson._layers[place].feature.properties[FULL_MONTHS[i]])
 			}
 		}		

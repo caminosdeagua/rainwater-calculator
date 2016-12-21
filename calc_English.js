@@ -15,6 +15,16 @@ var INSTRUCTIONS = "<b>Please answer the following household questions as best y
 var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"May", "Jun", "Jul", "Aug",
 				"Sep", "Oct", "Nov", "Dec"];
+
+var FULL_MONTHS = ["January", "February", "March",
+				"April", "May", "June",
+				"July", "August", "September",
+				"October", "November", "December"];
+				
+var RAINS = ["jan_rain", "feb_rain", "mar_rain", 
+			"apr_rain", "may_rain", "jun_rain", 
+			"jul_rain", "aug_rain", "sep_rain", 
+			"oct_rain", "nov_rain", "dec_rain", ];
 				
 //////////////////////////////////////////
 //										//
@@ -45,6 +55,8 @@ var PPL_DECIMAL_E = "You can't have partial numbers of people";
 //		FORM LABELS & OPTIONS			//
 //										//
 //////////////////////////////////////////
+
+var CHECKBOX_LBL = "I have my own monthly rainwater data";
 
 //////		MUNICIPALITY			//////
 var MUNI0_LBL = "Choose your area by clicking on the orange shapes below: ";
@@ -83,6 +95,7 @@ var LHS_DISPLAY_TITLE = "Great work!";
 var LHS_INSTRUCTIONS = "Please make sure the following information was entered correctly. If not, press the button below to change your information. Your results are displayed in the panel to the right. If you want more info about any of the displayed results, just hover your mouse over it!"
 
 var MUN_TXT = ["You live in <b>","</b>."];
+var MONTHLY_USE_TXT = "We're not sure where you live, but you've chosen to enter your own monthly water data. You've entered:"
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
