@@ -85,6 +85,7 @@ var LHS_DISPLAY_TITLE = "Great work!";
 var LHS_INSTRUCTIONS = "Please make sure the following information was entered correctly. If not, press the button below to change your information. Your results are displayed in the panel to the right. If you want more info about any of the displayed results, just hover your mouse over it!"
 
 var MUN_TXT = ["You live in <b>","</b>."];
+var MONTHLY_USE_TXT = "We're not sure where you live, but you've chosen to enter your own monthly water data. You've entered:"
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];

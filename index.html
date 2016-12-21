@@ -427,7 +427,11 @@
 			
 			
 			function updateOutputText() {
-				DISPLAY_TXT[0] = MUN_TXT[0]+allData.municipality_name+MUN_TXT[1]; 	// Display municipality message
+				if (allData.useMonthly) {
+					DISPLAY_TXT[0] = MONTHLY_USE_TXT
+				} else {
+					DISPLAY_TXT[0] = MUN_TXT[0]+allData.municipality_name+MUN_TXT[1]; 	// Display municipality message
+				}
 				if (allData.ppl > 1) { 													// Parse person (1) or people (>1)
 					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[2];
 				} else {
@@ -1042,6 +1046,7 @@
 					}
 				}
 				
+				updateOutputText();						// Update LHS display 
 				displayStuff = inputs2outputs(allData); // calculate!
 				displayOutputs(displayStuff); 			// display the calcuated values on the RHS!
 				
