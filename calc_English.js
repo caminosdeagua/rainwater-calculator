@@ -15,6 +15,16 @@ var INSTRUCTIONS = "<b>Please answer the following household questions as best y
 var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"May", "Jun", "Jul", "Aug",
 				"Sep", "Oct", "Nov", "Dec"];
+
+var FULL_MONTHS = ["January", "February", "March",
+				"April", "May", "June",
+				"July", "August", "September",
+				"October", "November", "December"];
+				
+var RAINS = ["jan_rain", "feb_rain", "mar_rain", 
+			"apr_rain", "may_rain", "jun_rain", 
+			"jul_rain", "aug_rain", "sep_rain", 
+			"oct_rain", "nov_rain", "dec_rain", ];
 				
 //////////////////////////////////////////
 //										//

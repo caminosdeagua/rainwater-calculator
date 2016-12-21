@@ -329,6 +329,9 @@
 			////////////////////////////////////////////////////////////////////			
 				
 			function loadStartingValues() {
+				
+				document.getElementById("useMonthly").checked = false; 				// make sure checkbox defaults to map-view
+				
 				allData = {															// initializes the structure of the global, allData 
 					place: mun,
 					municipality_name: MUN_STARTING_VALUE,
@@ -345,6 +348,7 @@
 				for (var i=0; i<els.length; i++) {
 					if(els[i].checked) {allData.roof_type = els[i].value}
 				}
+				
 			}	
 			
 			////////////////////////////////////////////////////////////////////
@@ -386,32 +390,35 @@
 					if (el.checked) { 			// if using monthly data
 						fadeOut(WaterMapDiv, true)
 						fadeIn(MonthlyUseDiv)
-
-					} else {					// if using data from the map
-						
+					} else {					// if using data from the map	
 						fadeOut(MonthlyUseDiv, true)
 						fadeIn(WaterMapDiv)
-					
+						document.getElementById("calc_button").disabled = false;
 					};
-						
-					// if allMonths haven't been entered, flip active/disabled
-					if (!allMonthsEntered) { 
-						flipReadOnlyEls();
-					}
 				}
 				
-				if (!allMonthsEntered) {
-					var month_rain = document.getElementsByName("rain")
-					allFull = true;
-					for (var i=0; i<month_rain.length; i++) {
-						if (month_rain[i].value == "") {
-							allFull = false;
-						}
-					}
-					if (allFull) {
-						flipReadOnlyEls()
-						allMonthsEntered = true;
-					}
+				if (document.getElementById("useMonthly").checked) {
+					checkSensitivity()
+				}
+				
+			}
+			
+			function checkSensitivity() {
+				var els = document.getElementsByName("rain");
+				var totalRain = 0;
+				for (var i=0; i<MONTHS.length; i++) {
+					totalRain += Number(els[i].value);
+				}
+				var population = Number(document.getElementById("ppl").value);
+				
+				var sensitivity = totalRain/population;
+				
+				console.log("sensitivity: "+sensitivity) 
+				
+				if (sensitivity <= EPS) {
+					document.getElementById("calc_button").disabled = true;
+				} else {
+					document.getElementById("calc_button").disabled = false;
 				}
 			}
 			
@@ -427,8 +434,15 @@
 			
 			
 			function updateOutputText() {
+				var indent = "\xa0\xa0\xa0";
 				if (allData.useMonthly) {
-					DISPLAY_TXT[0] = MONTHLY_USE_TXT
+					DISPLAY_TXT[0] = MONTHLY_USE_TXT+"<br>"
+					for (var i=0; i<MONTHS.length; i++) {
+						DISPLAY_TXT[0] += indent+FULL_MONTHS[i]+": <b>"+allData[RAINS[i]]+" mm</b><br>";
+					
+					
+					}
+						
 				} else {
 					DISPLAY_TXT[0] = MUN_TXT[0]+allData.municipality_name+MUN_TXT[1]; 	// Display municipality message
 				}
@@ -977,44 +991,6 @@
 			
 			function unHighlight(el) {
 				el.style.color = BLACK;
-			}
-			
-			function flipReadOnlyEls() {
-				var status = document.getElementById("ppl").disabled;
-				
-				if (!status){
-					disable(document.getElementById("ppl"))
-					disable(document.getElementById("width"))
-					disable(document.getElementById("length"))
-					document.getElementById("calc_button").disabled = true;
-					document.getElementById("cement_roof").disabled = true;
-					document.getElementById("sheet_roof").disabled = true;
-					document.getElementById("spanish_roof").disabled = true;
-					
-				} else {
-					enable(document.getElementById("ppl"))
-					enable(document.getElementById("width"))
-					enable(document.getElementById("length"))
-					document.getElementById("calc_button").disabled = false;
-					document.getElementById("cement_roof").disabled = false;
-					document.getElementById("sheet_roof").disabled = false;
-					document.getElementById("spanish_roof").disabled = false;
-				}
-			}
-			
-			function enable(el) {
-				el.disabled = false;
-				el.style.backgroundColor = ENABLED_BACK;
-				el.style.borderColor = ENABLED_BORDER;
-				el.style.color = ENABLED_TEXT;
-			}
-			
-			function disable(el) {
-				
-				el.disabled = true;
-				el.style.backgroundColor = DISABLED_BACK;
-				el.style.borderColor = DISABLED_BORDER;
-				el.style.color = DISABLED_TEXT;
 			}
 
 			function calculateStuff() {

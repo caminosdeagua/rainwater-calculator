@@ -3,8 +3,7 @@ var form;					// declare the form as global
 var allData;				// declare the dataset as global
 var validations = 0;		// a global var to see how many times the form has been validated
 
-var allMonthsEntered = false;	// a global that indicates if the user's entered all relevant monthly data
-var monthsEntered = [];	
+var EPS = 0.01;				// Cut-off for allowing the calculator to hang.
 var MAX_PPL = 9999;
 var MIN_PPL = 1;
 
