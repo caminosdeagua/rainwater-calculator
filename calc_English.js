@@ -96,6 +96,7 @@ var LHS_INSTRUCTIONS = "Please make sure the following information was entered c
 
 var MUN_TXT = ["You live in <b>","</b>."];
 var MONTHLY_USE_TXT = "We're not sure where you live, but you've chosen to enter your own monthly water data. You've entered:"
+var UNITS = "mm";
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
