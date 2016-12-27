@@ -29,10 +29,6 @@ var OUTPUT_WIDTH_BEFORE = "0%";
 
 var INPUT_WIDTH_AFTER_RAW = 500; 	// width of LHS after button press (px)
 var INPUT_WIDTH_AFTER = String(INPUT_WIDTH_AFTER_RAW)+"px";
-var OUTPUT_WIDTH_AFTER = String(window.innerWidth - INPUT_WIDTH_AFTER_RAW - 1)+"px";
-
-alert("inner: "+window.innerWidth)
-alert("outer: "+window.outerWidth)
 
 var DAY_MON = [31,28,31,30,31,30,31,31,30,31,30,31];  // Days per month
 				
