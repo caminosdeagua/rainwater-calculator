@@ -3,10 +3,9 @@ html, body{
 	width:100%; 
 	height:100%; 
 	padding: 0;
-	padding-left: 20px;
 	margin: 0; 
 	background: #999999; 
-	overflow:hidden; 
+	overflow: hidden;	
 	font-family: Georgia, serif;
 	font-size: 16px;
 }
@@ -19,7 +18,7 @@ html, body{
 	margin: 0;
 	float: left;
 	overflow-y: auto;
-	overflow-x: hidden;	
+	overflow-x: auto;	
 	position: relative;
 	-webkit-transition-property: width; /* Safari */
     -webkit-transition-duration: 1s; /* Safari */
@@ -32,7 +31,7 @@ html, body{
 	height: 100%;
 	padding: 0;
 	margin: 0;
-	overflow-x: hidden;
+	overflow-x: auto;
 	overflow-y: auto;
 	background-color: rgb(230,230,230);
 	position: relative;
@@ -50,7 +49,6 @@ input[type=number] {
 	border: 2px solid #999999;
 	border-radius: 5px;
 	width: 38px;
-	margin-left: 10px;
 	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
 	-moz-appearance: textfield; /* Gets rid of spinner arrows in firefox. 
@@ -72,6 +70,10 @@ input[type=number]::-webkit-outer-spin-button {
     -moz-appearance: none;
     appearance: none;
     margin: 0; 
+}
+
+.number_input{
+	margin-left: 10px;
 }
 
 input[type=text] {
@@ -207,7 +209,7 @@ input[type="checkbox"] {
 
 
 .return_num {
-	font-size: 72px;
+	font-size: 3em;
 	margin-top: -40px;
 	
 }
@@ -346,19 +348,6 @@ div[name=big_disp] {
 	opacity: 0.85;
 }
 
-#yes_or_no{
-	width: 80%;
-	display: inline-block;
-	height: auto;
-	position: relative;
-	top: 7%;
-	padding-bottom: 0px;
-	font-size: 36px;
-	border: 2px solid ;
-	border-radius: 8px;
-	background-color: rgba(220,220,200,0.1);
-}
-
 .outer_row {
 	position: relative;
 	background-color: rgba(0,0,0,0);
@@ -366,9 +355,10 @@ div[name=big_disp] {
 	margin: 0;
 	margin-top: 15px;
 	overflow: hidden;
-	height: 36%;
-	width: 90%;
-	font-size: 24px;
+	height: 11em;
+	width: 40em;
+	font-family: Georgia, serif;
+	font-size: 22px;
 }
 
 #left {
@@ -417,10 +407,6 @@ div[name=big_disp] {
 	margin-bottom: 20px;
 }
 
-#real_header {
-
-}
-
 .text_in_center {
 	-ms-transform: translate(-50%, -50%);
     transform: translate(-50%, -50%);
@@ -460,7 +446,7 @@ div[name=big_disp] {
 	-ms-transform: translate(0%, 0%);
 	margin: 46px;
 	margin-left: 0;
-	margin-right: 0;
+	margin-right: 10px;
 	border: 2px solid black;
 	border-radius: 15px;
 }
@@ -490,9 +476,40 @@ div[name=big_disp] {
 }
 
 .rain_lbl {
-	margin-bottom: 12px;
+	position: relative;
+	float: right;
+	top: 0px;
+	right: 0px;
+}
+
+.rain_entry_wrapper {
+	width: 95px;
+	height: 30px;
 }
 
 #MonthlyUseDiv {
 	display: none;
+	border: 2px solid black;
+	border-radius: 15px;
+	margin-left: 10px;
+	margin-right: 10px;
+}
+
+.rain_column {
+	position: relative; 
+	display: inline-block; 
+	float: left;
+	margin-left: 35px;
+	
+}
+label[name=rain_lbl] {
+	margin: 0px;
+}
+
+#rain_column_1 {
+	margin-left: 15px;
+}
+
+#rain_column_3 {
+	margin-right: 15px;
 }

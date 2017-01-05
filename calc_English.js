@@ -25,6 +25,8 @@ var RAINS = ["jan_rain", "feb_rain", "mar_rain",
 			"apr_rain", "may_rain", "jun_rain", 
 			"jul_rain", "aug_rain", "sep_rain", 
 			"oct_rain", "nov_rain", "dec_rain", ];
+			
+var MONTHLY_RAIN_LBL = "Enter your region's monthly rainfall data<br>in <b>milimeters (mm)</b>:";
 				
 //////////////////////////////////////////
 //										//
@@ -68,8 +70,8 @@ var MUNIS = [];
 var PPL0_LBL = "How many people live in your house?";
 
 //////		ROOF SIZE 				//////
-var LENGTH0_LBL = "What is the length of your roof (meters)?";
-var WIDTH0_LBL = "What is the width of your roof (meters)?";
+var LENGTH0_LBL = "What is the length of your roof (<b>meters</b>)?";
+var WIDTH0_LBL = "What is the width of your roof (<b>meters</b>)?";
 
 //////		ROOF TYPE				//////
 var ROOF0_LBL = "What kind of roof do you have?";
@@ -96,6 +98,7 @@ var LHS_INSTRUCTIONS = "Please make sure the following information was entered c
 
 var MUN_TXT = ["You live in <b>","</b>."];
 var MONTHLY_USE_TXT = "We're not sure where you live, but you've chosen to enter your own monthly water data. You've entered:"
+var UNITS = "mm";
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];

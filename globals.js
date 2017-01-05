@@ -25,9 +25,10 @@ var EFF_SPANISH_TILE = 0.8;
 var EFFS = [EFF_CEMENT, EFF_SHEET, EFF_SPANISH_TILE]; // THESE ARE PLACEHOLDER
 
 var INPUT_WIDTH_BEFORE = "100%";
-var INPUT_WIDTH_AFTER = "35%";
 var OUTPUT_WIDTH_BEFORE = "0%";
-var OUTPUT_WIDTH_AFTER = "65%";
+
+var INPUT_WIDTH_AFTER_RAW = 500; 	// width of LHS after button press (px)
+var INPUT_WIDTH_AFTER = String(INPUT_WIDTH_AFTER_RAW)+"px";
 
 var DAY_MON = [31,28,31,30,31,30,31,31,30,31,30,31];  // Days per month
 				
