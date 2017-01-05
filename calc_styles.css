@@ -73,7 +73,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .number_input{
-	margin-left: 10px;
+	margin: 10px;
 }
 
 input[type=text] {
@@ -95,7 +95,11 @@ input[type=radio] {
 	background-color: red;
 }
 
-
+input[type="checkbox"] {
+	margin-left: 40px;
+	margin-top: 12px;
+	background: #777777;
+}
 
 /* Formatting for the input labels, headers, and instruction text	 */
 label, h1, h3, p, button, iframe {
@@ -108,55 +112,6 @@ label, h1, h3, p, button, iframe {
 
 .headers {
 	padding-right: 200px;
-}
-
-.error_lbl {
-	display: inline-block;
-	position: relative`;
-	background-color: #ff7575;
-	margin-left: 16px;
-	margin-top: 4px;
-	padding-left: 5px;
-	padding-right: 5px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-	line-height: 0px;
-	border: 2px solid #ff2222;
-	border-radius: 5px;	
-}
-
-.error_lbl.hidden {
-	visibility: hidden;
-	border = 0px;
-}
-
-.error_lbl  p {
-	
-	position: relative;
-	color: #000000;
-	top:0px;
-	
-}
-
-select {
-	background-color: #DDDDDD;
-	padding-left: 2px;
-	border: 2px solid #999999;
-	border-radius: 5px;	
-	-webkit-box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-	box-shadow: 2px 2px 5px 0px rgba(0,0,0,0.75);
-		
-}
-
-input[type="checkbox"] {
-	margin-left: 40px;
-	margin-top: 12px;
-	background: #777777;
-}
-
-.extra_input {
-	display: inline-block;
-	margin-left: 20px;
 }
 
 .tooltiptext {
@@ -206,53 +161,10 @@ input[type="checkbox"] {
     opacity: 1;
 }
 
-
-
 .return_num {
 	font-size: 3em;
 	margin-top: -40px;
 	
-}
-
-table.inventory_table, th, td {
-	font-weight: normal;
-	border: 1px solid #000000;
-	border-collapse: collapse;
-}
-
-th {
-	padding: 4px;
-}
-
-table.inventory_table {
-	margin-top: 20px;
-	background-color: #DDDDDD;
-	position: relative;
-}
-
-tr.title_row, th.month_lbl {
-	background-color: #BBBBBB;
-}
-
-tr:hover {
-	background-color: #f5f5f5
-}
-
-tr.title_row:hover{
-	background-color: #BBBBBB;
-}
-
-.display_grid {
-	border: none;
-	background: none;
-}
-
-.display_grid:hover {
-	background: none;
-}
-
-th.display_grid {
-	width: 30%;
 }
 
 .to_indent {
@@ -263,13 +175,6 @@ th.display_grid {
 	padding-right: 5px;
 	border-radius: 15px;
 	background-color: #63aec1;
-}
-
-.res_title {
-	font-size: 48px;
-	margin: 0px;
-	margin-top: 10px;
-	padding: 0px;
 }
 
 button {
@@ -288,7 +193,6 @@ button {
 #calc_button {
 	width: 160px;
 	height: 80px;
-	left: 0%;
 	margin-top:-20px;
 	margin-bottom: 20px; 
 	margin-left: 20px;
@@ -299,16 +203,8 @@ button {
 	position: relative;
 	height: 100%;
 	float: left;
-	top: 0px;
 	overflow-y: scroll;
 	overflow-x: hide;
-}
-	
-
-div[name=big_disp] {
-	width: 90%;
-	margin: auto;
-	padding: auto;
 }
 
 .footer {
@@ -420,7 +316,8 @@ div[name=big_disp] {
 	display: inline-block;
 	background-color: #63aec1; 
 	position: absolute; 
-	margin: 30px; 
+	margin: 30px;
+	margin-bottom: 50px;
 	border: 2px black solid; 
 	border-radius: 15px;
 }

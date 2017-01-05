@@ -132,7 +132,6 @@ var TOOLTIP_TEXT = {
 	real_tank: "<b><big>Required cistern volume when using your current roof area</big></b><br>If you collect 100% of the water that hits your current full roof during an average year, you would need this cistern volume."
 }
 
-var RESULTS_HEADER = "<b>Rainwater Harvesting Capacity</b>";
 var MIN_HEADER = "<b>Minimum Essential Requirements</b>";
 var REAL_HEADER = "<b>Your Roof's Capacity</b>";
 
