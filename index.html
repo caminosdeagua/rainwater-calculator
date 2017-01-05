@@ -101,27 +101,18 @@
 									<div>
 										<label for="ppl" id="ppl0"></label>
 										<input type="number" class="number_input" id="ppl" value="1" min="1" max="9999" step="1"/>
-										<div class = "error_lbl">
-											<p id="ppl_error">.</p>
-										</div>
 									</div>
 										
 									<!-- Length of your roof -->
 									<div>
 										<label for="length" id = "length0"></label>
 										<input type="number" class="number_input" id="length" value="1" min="1" max="99" step="any"/>
-										<div class = "error_lbl">
-											<p id="length_error">.</p>
-										</div>
 									</div>
 									
 									<!-- Width of your roof -->
 									<div>
 										<label for="width" id = "width0"></label>
 										<input type="number" class="number_input" id="width" value="1" min="1" max="99" step="any"/>
-										<div class = "error_lbl">
-											<p id="width_error">.</p>
-										</div>
 									</div>
 									<br>
 									<!-- Type of roof -->
@@ -242,9 +233,8 @@
 				initForm();
 				initEmbeddedMap();							
 				
-				
-				hideErrorLbls();
-				hideExtraText();
+				//hideErrorLbls();
+				//hideExtraText();
 				hideComplexOutput();
 				
 				setTimeout(function() {
@@ -254,12 +244,8 @@
 					addLanguageText();
 				}, 1000)
 				
-				
-				
 				startInterrupt();
-				
-				
-				
+					
 			};
 			
 			////////////////////////////////////////////////////////////////////
@@ -293,10 +279,6 @@
 					els[i].innerHTML = FOOTER_TXT;
 				};
 				
-				var els = document.getElementsByClassName("res_title") 
-				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = RHS_TITLE;
-				};
 				// label the monthly rain boxes	//
 				els = document.getElementsByName("rain_lbl")
 				for(var i=0; i<els.length; i++) {
@@ -357,26 +339,6 @@
 				}
 				
 			}	
-			
-			////////////////////////////////////////////////////////////////////
-			////				function hide stuff functions				////
-			//// 															////
-			////	Hides error labels - pretty self-explanatory...			////
-			////////////////////////////////////////////////////////////////////
-			
-			function hideErrorLbls() {
-				var lblBoxes = document.getElementsByClassName("error_lbl");		// Turn all label boxes to opacity=0
-				for (var i=0; i<lblBoxes.length; i++) {
-					lblBoxes[i].style.opacity = 0;				
-				};
-			}
-			
-			function hideExtraText() {
-				var extra_inputs = document.getElementsByClassName("extra_input");		// Turn all label boxes to opacity=0
-				for (var i=0; i<extra_inputs.length; i++) {
-					extra_inputs[i].style.opacity = 0;				
-				};			
-			}
 			
 			function hideComplexOutput() {
 				document.getElementById("LHS_display").style.opacity = 0;
@@ -510,80 +472,39 @@
 			});
 			
 			////////////////////////////////////////////////////////////////////
-			////				function validateForm(event)				////
+			////					fucntion validateForm(event)			////
 			//// 															////
-			////	When an event occurs, validates the event target. For 	////
-			////	example, if a value is entered into a numberic input,	////
-			////	this function validates that particular input. At the 	////
-			////	end, it updates the global data. If the entry was 		////
-			////	invalid it throws an error message, replaces the value,	////
-			////	then loads the data.									////		
+			////	Takes an element, el. If the value of el is forbidden	////
+			////	or outside of the relevant ranges, replaces it with the	////
+			////	closest reasonable alternative.							////
+			////	This is called every time the form is changed (user		////
+			////	leaves the relevant element by pressing tab or clicking	////
+			////	outside). At the end, this function calls updateLHS(el)	////
+			////	to update the left hand side to account for personal	////
+			////	monthly rainwater data entry. 							////
 			////////////////////////////////////////////////////////////////////
+			
 			
 			function validateForm(event) {
-				
-				// fetch cross-browser event object and form node
-				
 				event = (event ? event : window.event);
-				var element = (event.target ? event.target : event.srcElement);
-				var rets = customValid(element);
-				var valid = rets[0];
-				var errMsg = rets[1];
-				if (valid){
-					updateLHS(element);
-				} else {
-					var errorText = document.getElementById(element.id+"_error");
-					var errorBox = errorText.parentElement;
-					errorText.innerHTML = errMsg;
-					fadeIn(errorBox);
-					setTimeout(function(){fadeOut(errorBox, false)}, ERROR_DISPLAY_TIME);
-					element.validity.valid = false;
-					updateLHS(element);
-				};	
-			}
-			
-			////////////////////////////////////////////////////////////////////
-			////					fucntion customValid(el)				////
-			//// 															////
-			////	Takes an element, el, and validates it based on certain	////
-			////	preset rules. Returns:									////
-			////		[valid (boolean), errorMsg (string)]				////
-			////////////////////////////////////////////////////////////////////
-			
-			
-			function customValid(el) {
-				var valid = true;
+				var el = (event.target ? event.target : event.srcElement);
 				var value = Number(el.value);
-				var errorMsg = "";
 				if (el.id == "ppl") {
 					if (value < el.min)	{
-						valid = false;
-						errorMsg = PPL_MIN_E1+el.min+PPL_MIN_E2;
 						el.value = el.min;
 					} else if (value > el.max) {
-						valid = false;
-						errorMsg = PPL_MAX_E1+el.max+PPL_MAX_E2;
 						el.value = el.max;
 					} else if (value % 1 != 0 & el.id == "ppl") {
-						valid = false;
-						errorMsg = PPL_DECIMAL_E;
 						el.value = parseInt(value, 10);
 					};
-				return [valid, errorMsg];
 				} else if (el.id == "length" | el.id == "width") {
 					if (value < el.min) {
-						valid = false;
-						errorMsg = SIZE_MIN_E1;
 						el.value = el.min;
 					} else if (value > el.max) {
-						valid = false;
-						errorMsg = SIZE_MAX_E1+el.max+SIZE_MAX_E2;
 						el.value = el.max;
 					};
-					return [valid, errorMsg];
-				} else {
-				return [valid, errorMsg];
 				};
+				updateLHS(el)
 			}
 			
 			////////////////////////////////////////////////////////////////////
