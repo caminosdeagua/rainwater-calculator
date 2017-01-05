@@ -60,11 +60,11 @@
 				<form id="calc_form" class="form">
 					<div>	
 						<div id="form_box" style="background-color: pink;">
-							<big><p class="headers" id="instructions"></p></big>
+							<big><p class="headers" id="instructions" align="center"></p></big>
 							<!-- Select your municipality -->
-							<div id="form_box_left" style="background-color: grey">
-								<div id="WaterMapDiv">
-									<label id="muni0"></label><br>
+							<div id="form_box_left" class="inside_form_box" style="background-color: grey">
+								<div id="WaterMapDiv" style="padding-top: 10px;">
+									<label id="muni0" class="map_related_text"></label><br>
 									<div id="WaterMap"></div>
 								</div>
 								<div id="MonthlyUseDiv">
@@ -93,7 +93,7 @@
 							</div>
 							
 							<!-- How many people in your household? -->
-							<div id = "full_box_right" align="center" style="background-color: green">
+							<div id = "full_box_right" class="inside_form_box" align="center" style="background-color: green">
 								<div id="form_box_right" align="left" style="background-color: orange">
 									
 									<div>
@@ -139,7 +139,7 @@
 							<br>
 							<div style="background-color: red; position: relative; display: inline-block;">
 								<input type="checkbox" id="useMonthly"></input>
-								<label for="useMonthly" id="useMonthly_lbl" ></label>
+								<label for="useMonthly" class="map_related_text" id="useMonthly_lbl" ></label>
 							</div>
 						</div>
 						

@@ -193,9 +193,7 @@ button {
 #calc_button {
 	width: 160px;
 	height: 80px;
-	margin-top:-20px;
-	margin-bottom: 20px; 
-	margin-left: 20px;
+	margin: 20px;
 	
 }
 
@@ -322,6 +320,10 @@ button {
 	border-radius: 15px;
 }
 
+.inside_form_box {
+	margin-left: 10px;
+}
+
 
 #form_box_left {
 	position: relative; 
@@ -335,6 +337,7 @@ button {
 	position: relative; 
 	float: left;
 	display: inline-block;
+	margin-right: 10px;
 }
 
 #form_box_right {
@@ -348,16 +351,15 @@ button {
 #instructions {
 	display: block;
 	position: relative;
-	margin: 233px;
-	margin-top: 6px;
+	margin-top: 10px;
 	margin-bottom: 6px;
 	padding: 0;
 	
 }
 
 #useMonthly, #useMonthly_lbl {
-	font-size: 24px;
-	margin: 20px;
+	/*font-size: 24px;
+	*/margin: 20px;
 	margin-left: 15px;
 	margin-right: 0;
 }
@@ -383,8 +385,6 @@ button {
 
 #MonthlyUseDiv {
 	display: none;
-	border: 2px solid black;
-	border-radius: 15px;
 	margin-left: 10px;
 	margin-right: 10px;
 }
@@ -406,4 +406,8 @@ label[name=rain_lbl] {
 
 #rain_column_3 {
 	margin-right: 15px;
+}
+
+.map_related_text {
+	font-size: 18px;
 }

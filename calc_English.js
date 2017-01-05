@@ -112,20 +112,15 @@ var DISPLAY_TXT = [];
 //////////////////////////////////////////
 
 
-//var YES_OR_NO_LBL = ["Your roof ", "large enough to support your household's essential water use of\xa0", "\xa0liters per day."];
 var MIN_ROOF_LBL = ["Your household needs a minimum of", "square-meters of roof area to collect enough rainwater to cover your essential water needs."];
 var MIN_TANK_LBL = ["If you use the minimum roof area, you need at least a", "liter cistern."];
 var REAL_ROOF_LBL_GREEN = ["Your actual roof area of", "square-meters <b><big>can</big></b> collect enough water to provide at least", "liters per day, which is your household's essential water need."]; 
 var REAL_ROOF_LBL_RED = ["Your actual roof area of", "square-meters <b>cannot</b> collect enough water to provide ", " liters per day, which is your household's essential water need."];
 var REAL_TANK_LBL = ["If you want to collect all the water off your current roof, you need a cistern that is at least", "liters."];
 
-//var ADEQUATE_LBL = "IS";
-//var INADEQUATE_LBL = "IS NOT";
-
 var L_ADDON_LBL = "<small> liters</small>";
 
 var TOOLTIP_TEXT = {
-//	yes_or_no: "This box indicates if you have a large enough roof to collect sufficient water for all of your household's essential water needs for the whole year, if you start collecting during the rainy season. This only takes drinking and cooking into account and is based on an average family who uses 5 liters per person per day. <br><br>Make sure that you only use water that is <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>safe and healthy</a> for drinking and cooking!",
 	min_roof: "<b><big>Minimum roof area</big></b><br>This number indicates the minimum roof area required for you to capture enough rainwater to provide for your household's daily essential water needs for the entire year. <br><br>This result assumes that your cistern begins collecting water at the beginning of the rainy season. ",
 	min_tank: "<b><big>Minimum cistern volume</big></b><br>If you use the minimum roof area inidicated to the left, you need this cistern volume to capture all the water coming off of your roof. This cistern will be large enough to provide your household with their essential water need year-round on a year with average rainfall.",
 	real_roof: "<b><big>Your actual roof area</big></b><br>This is your roof area which is calculated by multiplying the length and width of your roof which you have entered on the previous page.",
