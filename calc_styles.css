@@ -327,6 +327,8 @@ button {
 	position: relative; 
 	float: left; 
 	display: inline-block;
+	border: 2px solid black;
+	border-radius: 15px;
 }
 
 #full_box_right {
@@ -339,11 +341,6 @@ button {
 	position: relative; 
 	float: left;
 	display: inline-block;
-    transform: translate(0%, 0%);
-	-ms-transform: translate(0%, 0%);
-	margin: 46px;
-	margin-left: 0;
-	margin-right: 10px;
 	border: 2px solid black;
 	border-radius: 15px;
 }

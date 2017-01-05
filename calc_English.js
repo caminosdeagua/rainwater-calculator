@@ -10,7 +10,7 @@ var HEADER = "Rainwater Harvesting Calculator";
 
 var SUB_HEADER = "This calculator can be used to size a rainwater harvesting system which provides enough safe  drinking and cooking water - your household’s essential water need. With any questions, comments, or collaborations, please <a href='http://caminosdeagua.org/contact-1' target = '_blank'>contact us</a>!";
 
-var INSTRUCTIONS = "<b>Please answer the questions below about your household as best as you can.</b> <br><br>Select a region from the map or (if you do not live in this region) enter your monthly rainfall data.<br/><br/>";
+var INSTRUCTIONS = "<b>Please answer the questions below about your household as best as you can.</b>";
 
 var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"May", "Jun", "Jul", "Aug",
