@@ -193,7 +193,6 @@ button {
 #calc_button {
 	width: 160px;
 	height: 80px;
-	left: 0%;
 	margin-top:-20px;
 	margin-bottom: 20px; 
 	margin-left: 20px;
@@ -204,16 +203,8 @@ button {
 	position: relative;
 	height: 100%;
 	float: left;
-	top: 0px;
 	overflow-y: scroll;
 	overflow-x: hide;
-}
-	
-
-div[name=big_disp] {
-	width: 90%;
-	margin: auto;
-	padding: auto;
 }
 
 .footer {
@@ -325,7 +316,8 @@ div[name=big_disp] {
 	display: inline-block;
 	background-color: #63aec1; 
 	position: absolute; 
-	margin: 30px; 
+	margin: 30px;
+	margin-bottom: 50px;
 	border: 2px black solid; 
 	border-radius: 15px;
 }
