@@ -58,7 +58,7 @@ var PPL_DECIMAL_E = "You cannot have partial numbers of people";
 //										//
 //////////////////////////////////////////
 
-var CHECKBOX_LBL = "I do not live in this region but have my own monthly rainfall data ";
+var CHECKBOX_LBL = "I have my own monthly rainfall data ";
 
 //////		MUNICIPALITY			//////
 var MUNI0_LBL = "Select your residence by clicking on the map below:";

@@ -58,82 +58,84 @@
 				
 				<!-- start the form!!! -->
 				<form id="calc_form" class="form">
-					<div>	
+						
 						<div id="form_box" style="background-color: pink;">
 							<big><p class="headers" id="instructions" align="center"></p></big>
 							<!-- Select your municipality -->
-							<div id="form_box_left" class="inside_form_box" style="background-color: grey">
-								<div id="WaterMapDiv" style="padding-top: 10px;">
-									<label id="muni0" class="map_related_text"></label><br>
-									<div id="WaterMap"></div>
-								</div>
-								<div id="MonthlyUseDiv">
-									<p id="monthly_rain_lbl"></p>
-									<div class="rain_column" id="rain_column_1">
-										<div class="rain_entry_wrapper"><label for="jan_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jan_rain" name="rain" value="none" min="0" /></div>
-										<div class="rain_entry_wrapper"><label for="feb_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="feb_rain" name="rain" value="none" min="0" /></div>                                                                                                                           
-										<div class="rain_entry_wrapper"><label for="mar_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="mar_rain" name="rain" value="none" min="0" /></div>                              
-										<div class="rain_entry_wrapper"><label for="apr_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="apr_rain" name="rain" value="none" min="0" /></div>
-									</div>                                                                                                                                
-																																										
-									<div class="rain_column" id="rain_column_2">                                                                                                                                
-										<div class="rain_entry_wrapper"><label for="may_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="may_rain" name="rain" value="none" min="0" /></div>
-										<div class="rain_entry_wrapper"><label for="jun_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jun_rain" name="rain" value="none" min="0" /></div>                                     
-										<div class="rain_entry_wrapper"><label for="jul_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jul_rain" name="rain" value="none" min="0" /></div>
-										<div class="rain_entry_wrapper"><label for="aug_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="aug_rain" name="rain" value="none" min="0" /></div>
+							<div style="background-color: white; display: inline-block;">
+								<div id="form_box_left" class="inside_form_box" style="background-color: grey">
+									<div id="WaterMapDiv" style="padding-top: 10px;">
+										<label id="muni0" class="map_related_text"></label><br>
+										<div id="WaterMap"></div>
 									</div>
-									
-									<div class="rain_column" id="rain_column_3">
-										<div class="rain_entry_wrapper"><label for="sep_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="sep_rain" name="rain" value="none" min="0" /></div>                                       								
-										<div class="rain_entry_wrapper"><label for="oct_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="oct_rain" name="rain" value="none" min="0" /></div>
-										<div class="rain_entry_wrapper"><label for="nov_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="nov_rain" name="rain" value="none" min="0" /></div>
-										<div class="rain_entry_wrapper"><label for="dec_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="dec_rain" name="rain" value="none" min="0" /></div>
-									</div>
-								</div>
-							</div>
-							
-							<!-- How many people in your household? -->
-							<div id = "full_box_right" class="inside_form_box" align="center" style="background-color: green">
-								<div id="form_box_right" align="left" style="background-color: orange">
-									
-									<div>
-										<label for="ppl" id="ppl0"></label>
-										<input type="number" class="number_input" id="ppl" value="1" min="1" max="9999" step="1"/>
-									</div>
+									<div id="MonthlyUseDiv">
+										<p id="monthly_rain_lbl"></p>
+										<div class="rain_column" id="rain_column_1">
+											<div class="rain_entry_wrapper"><label for="jan_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jan_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="feb_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="feb_rain" name="rain" value="none" min="0" /></div>                                                                                                                           
+											<div class="rain_entry_wrapper"><label for="mar_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="mar_rain" name="rain" value="none" min="0" /></div>                              
+											<div class="rain_entry_wrapper"><label for="apr_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="apr_rain" name="rain" value="none" min="0" /></div>
+										</div>                                                                                                                                
+																																											
+										<div class="rain_column" id="rain_column_2">                                                                                                                                
+											<div class="rain_entry_wrapper"><label for="may_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="may_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="jun_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jun_rain" name="rain" value="none" min="0" /></div>                                     
+											<div class="rain_entry_wrapper"><label for="jul_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jul_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="aug_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="aug_rain" name="rain" value="none" min="0" /></div>
+										</div>
 										
-									<!-- Length of your roof -->
-									<div>
-										<label for="length" id = "length0"></label>
-										<input type="number" class="number_input" id="length" value="1" min="1" max="99" step="any"/>
+										<div class="rain_column" id="rain_column_3">
+											<div class="rain_entry_wrapper"><label for="sep_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="sep_rain" name="rain" value="none" min="0" /></div>                                       								
+											<div class="rain_entry_wrapper"><label for="oct_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="oct_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="nov_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="nov_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="dec_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="dec_rain" name="rain" value="none" min="0" /></div>
+										</div>
 									</div>
-									
-									<!-- Width of your roof -->
-									<div>
-										<label for="width" id = "width0"></label>
-										<input type="number" class="number_input" id="width" value="1" min="1" max="99" step="any"/>
-									</div>
-									<br>
-									<!-- Type of roof -->
-									<div>
-										<label id="roof0"></label><br>
-										<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
-											<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.</input>
-											<div name="roof_imgs" class="tooltip_img"></div>
-										</div>
-										<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
-											<input type="radio" id="sheet_roof" name="roof_type" value="1" >.</input>
-											<div name="roof_imgs" class="tooltip_img"></div>
-										</div>
-										<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)" style="margin-bottom: 20px;">
-											<input type="radio" id="spanish_roof" name="roof_type" value="2" >.</input>
-											<div name="roof_imgs" class="tooltip_img"></div>
-										</div>
-									</div>	
 								</div>
-								<!--When you press this button, it stops letting you edit the form 
-								and displays the inputs back to the user -->
-								<div class="button" >
-									<button type="button" onclick="calculateStuff(); replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+								
+								<!-- How many people in your household? -->
+								<div id = "full_box_right" class="inside_form_box" align="center" style="background-color: green">
+									<div id="form_box_right" align="left" style="background-color: orange">
+										
+										<div>
+											<label for="ppl" id="ppl0"></label>
+											<input type="number" class="number_input" id="ppl" value="1" min="1" max="9999" step="1"/>
+										</div>
+											
+										<!-- Length of your roof -->
+										<div>
+											<label for="length" id = "length0"></label>
+											<input type="number" class="number_input" id="length" value="1" min="1" max="99" step="any"/>
+										</div>
+										
+										<!-- Width of your roof -->
+										<div>
+											<label for="width" id = "width0"></label>
+											<input type="number" class="number_input" id="width" value="1" min="1" max="99" step="any"/>
+										</div>
+										<br>
+										<!-- Type of roof -->
+										<div>
+											<label id="roof0"></label><br>
+											<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
+												<input type="radio" id="cement_roof" name="roof_type" value="0" checked>.</input>
+												<div name="roof_imgs" class="tooltip_img"></div>
+											</div>
+											<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
+												<input type="radio" id="sheet_roof" name="roof_type" value="1" >.</input>
+												<div name="roof_imgs" class="tooltip_img"></div>
+											</div>
+											<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)" style="margin-bottom: 20px;">
+												<input type="radio" id="spanish_roof" name="roof_type" value="2" >.</input>
+												<div name="roof_imgs" class="tooltip_img"></div>
+											</div>
+										</div>	
+									</div>
+									<!--When you press this button, it stops letting you edit the form 
+									and displays the inputs back to the user -->
+									<div class="button" >
+										<button type="button" onclick="calculateStuff(); replace('LHS_inputs','LHS_display'); widthShift(); " id="calc_button"></button>
+									</div>
 								</div>
 							</div>
 							<br>
@@ -143,7 +145,7 @@
 							</div>
 						</div>
 						
-					</div>
+					
 				
 				</form>
 			</div>
