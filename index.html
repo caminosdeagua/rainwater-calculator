@@ -485,6 +485,7 @@
 			
 			$('input').bind('keypress', function (event) {
 				if (event.target.type == "number") { 								// If it's being entered in a numeric field
+					console.log("key pressed is: "+event.originalEvent.key)
 					if (!numAcceptableKeys.includes(event.originalEvent.key)) { 	// If the key isn't a number or a movement key
 						event.preventDefault(); 									// 	prevent behavior
 						return false;		
@@ -817,9 +818,9 @@
 						
 						var test;
 						if (inputs.useMonthly) {
-							test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential ,-1) 	// get the cistern size for entered monthly rainfall
+							test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential ,-1 , inputs.useMonthly) 	// get the cistern size for entered monthly rainfall
 						} else {
-							test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential , SMA_START_MONTH) // get cistern size for Independence watershed
+							test = getCisternSize(rainfall, testArea, EFFS[inputs.roof_type], essential , SMA_START_MONTH, inputs.useMonthly) // get cistern size for Independence watershed
 						}
 						
 						testAreaAdequate = test.adequate;	// and store whether this roof is adeqaute 
@@ -839,9 +840,9 @@
 				var actualArea = inputs.length * inputs.width;
 				var actual;
 				if(inputs.useMonthly) {
-					actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential, -1);
+					actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential, -1, inputs.useMonthly);
 				} else {
-					actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential, SMA_START_MONTH);
+					actual = getCisternSize(rainfall, actualArea, EFFS[inputs.roof_type], essential, SMA_START_MONTH, inputs.useMonthly);
 				}
 
 				var maxRain = Math.max.apply(null, rainfall);
@@ -884,10 +885,11 @@
 			////		true. 	
 			////////////////////////////////////////////////////////////////////
 			
-			function getCisternSize(rainfall, area, eff, dailyUse, startMonth) {
+			function getCisternSize(rainfall, area, eff, dailyUse, startMonth, useMonthly) {
 				var results = {adequate: true, volume: 0};
-				
 				var inventory = Array.apply(null, Array(DAY_MON.length)).map(Number.prototype.valueOf,0);
+			
+				var single_first_flush = area*CLEANLINESS_FACTOR;	// number of liters removed in 1st flush system
 				
 				if(startMonth == -1) {
 					
@@ -896,8 +898,13 @@
 				
 				for (var i=startMonth; i<DAY_MON.length+startMonth; i++) {
 					var monthlyUse = dailyUse*DAY_MON[i%DAY_MON.length];							// people * L/(people*day) * day/month = [L/month]
+					var losses2first_flush = single_first_flush*RAIN_EVENTS[i%DAY_MON.length]		// (liters flushed / rain event) * # of rain events
+					if (useMonthly) {
+						losses2first_flush = single_first_flush*NULL_RAIN_EVENTS[i%DAY_MON.length]		// if the user isn't from SMA, don't account for 1st flush losses.
+					}
 					
-					inventory[i%DAY_MON.length] = rainfall[i%DAY_MON.length]*area*eff - monthlyUse;		// mm/month * m^2 - L/month = [L/month] 			
+					
+					inventory[i%DAY_MON.length] = (rainfall[i%DAY_MON.length]*area*eff - losses2first_flush)- monthlyUse;		// (collectible rainfall - amount 1st flushed per month) - monthly consumption = [L stored/month] 			
 					
 					if ( i%DAY_MON.length != startMonth ) {					// For all months but the first one,
 						if (i%DAY_MON.length == 0) {

@@ -99,7 +99,7 @@ var CALC_BUTTON_LBL = "Calculate!";
 var BACK2INPUTS_BUTTON_LBL = "Change my information";
 
 var LHS_DISPLAY_TITLE = "Great work!";
-var LHS_INSTRUCTIONS = "Please make sure that the following information was entered correctly. If not, press the button below to change your information. Your results are displayed in the panel to the right. An explanation of any of the displayed results can be seen when you hover your mouse over any box. <br><br><br><big>All the results refer to your household's <b>essential water</b> needs - the amount of water needed for drinking and cooking only.</big> <br><br><b>These results assume that collecting rainwater is started at the beginning of the rainy season. If you do so, it is likely that you can meet your essential water needs from the first year on. Starting at any other time of the year can increase the risk of not always having enough rainwater stored during the first year.</b>"
+var LHS_INSTRUCTIONS = "Please make sure that the following information was entered correctly. If not, press the button below to change your information. Your results are displayed in the panel to the right. For an explanation of each result, hover your mouse over the relevant box. <br><br>These results refer to your household's <b>essential water</b> need - the amount of water needed for drinking and cooking only.<br><br><i>Note: These results assume that your rainwater collection begins at the start of the rainy season. Starting at any other time of the year increases the risk of not always having enough rainwater stored during your system's first year.</i>"
 
 var MUN_TXT = ["You live in <b>","</b>."];
 var MONTHLY_USE_TXT = "You have chosen to enter your own monthly rainfall data and entered:"
@@ -128,10 +128,10 @@ var REAL_TANK_LBL = ["If you want to collect all the water off your current roof
 var L_ADDON_LBL = "<small> liters</small>";
 
 var TOOLTIP_TEXT = {
-	min_roof: "<b><big>Minimum roof area</big></b><br>This number indicates the minimum roof area required for you to capture enough rainwater to provide for your household's daily essential water needs for the entire year. <br><br>This result assumes that your cistern begins collecting water at the beginning of the rainy season. ",
-	min_tank: "<b><big>Minimum cistern volume</big></b><br>If you use the minimum roof area inidicated to the left, you need this cistern volume to capture all the water coming off of your roof. This cistern will be large enough to provide your household with their essential water need year-round on a year with average rainfall.",
-	real_roof: "<b><big>Your actual roof area</big></b><br>This is your roof area which is calculated by multiplying the length and width of your roof which you have entered on the previous page.",
-	real_tank: "<b><big>Required cistern volume when using your current roof area</big></b><br>If you collect 100% of the water that hits your current full roof during an average year, you would need this cistern volume."
+	min_roof: "<b><big>Minimum roof area</big></b><br>This number indicates the minimum roof area required for you to capture enough rainwater to meet your household's essential water need for the entire year. <br><br><i>This result assumes that your cistern begins collecting water at the beginning of the rainy season and is based on average rainfall data</i>. ",
+	min_tank: "<b><big>Minimum cistern volume</big></b><br>If you use the minimum roof area inidicated to the left, you need this cistern volume to capture all the water coming off of your roof. This cistern will be large enough to meet your household's essential water need year-round on a year with <i>average rainfall</i>.",
+	real_roof: "<b><big>Your actual roof area</big></b><br>This is your roof area. It is calculated by multiplying together the length and width of your roof.",
+	real_tank: "<b><big>Required cistern volume using your current roof</big></b><br>If you collect all the water that hits your roof during an average year, you would need this cistern volume."
 }
 
 var MIN_HEADER = "<b>Minimum Essential Requirements</b>";

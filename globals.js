@@ -17,12 +17,15 @@ var numAcceptableKeys = ["ArrowLeft", "ArrowRight", 		// Define which keys shoul
 							"Home", "End", "Insert", 
 							"PageUp", "PageDown", "Escape",
 							"0", "1", "2", "3", "4", "5", 
-							"6", "7", "8", "9", "."
-];
+							"6", "7", "8", "9", "."];
 var EFF_CEMENT = 0.85;
 var EFF_SHEET = 0.9;
 var EFF_SPANISH_TILE = 0.8;
 var EFFS = [EFF_CEMENT, EFF_SHEET, EFF_SPANISH_TILE]; // THESE ARE PLACEHOLDER
+
+var CLEANLINESS_FACTOR = 1.5;								// 0.5 = normal, 2.0 = super duper dirty. we'll use 1.5 for a conservative estimate
+var RAIN_EVENTS = [2, 1, 1, 3, 5, 9, 12, 8, 9, 5, 2, 2];	// rounded rain events per month from http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto
+var NULL_RAIN_EVENTS = [0,0,0,0,0,0,0,0,0,0,0,0];				// uncomment this line to ignore 1st flush system and comment the above line. 
 
 var INPUT_WIDTH_BEFORE = "100%";
 var OUTPUT_WIDTH_BEFORE = "0%";
