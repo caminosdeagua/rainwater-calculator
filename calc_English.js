@@ -75,10 +75,15 @@ var WIDTH0_LBL = "What is the width of your roof (<b>meters</b>)?";
 
 //////		ROOF TYPE				//////
 var ROOF0_LBL = "What kind of roof do you have?";
-var CEMENT_ROOF_LBL = "Cement";
+var CEMENT_ROOF_LBL = "Concrete";
 var SHEET_ROOF_LBL = "Corrugated sheet";
 var SPANISH_ROOF_LBL = "Spanish tile";
 var ROOF_TYPES = [CEMENT_ROOF_LBL, SHEET_ROOF_LBL, SPANISH_ROOF_LBL];
+
+var CEMENT_ROOF_LBL_LOWER = "concrete";
+var SHEET_ROOF_LBL_LOWER = "corrugated sheet";
+var SPANISH_ROOF_LBL_LOWER = "spanish tile";
+var ROOF_TYPES_LOWER = [CEMENT_ROOF_LBL_LOWER, SHEET_ROOF_LBL_LOWER, SPANISH_ROOF_LBL_LOWER];
 
 //////		CALCULATE BUTTON 	    //////
 var CALC_BUTTON_LBL = "Calculate!";
