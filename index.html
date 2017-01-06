@@ -485,6 +485,7 @@
 			
 			$('input').bind('keypress', function (event) {
 				if (event.target.type == "number") { 								// If it's being entered in a numeric field
+					console.log(event)
 					console.log("key pressed is: "+event.originalEvent.key)
 					if (!numAcceptableKeys.includes(event.originalEvent.key)) { 	// If the key isn't a number or a movement key
 						event.preventDefault(); 									// 	prevent behavior
