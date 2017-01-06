@@ -100,7 +100,9 @@ var MUN_TXT = ["You live in <b>","</b>."];
 var MONTHLY_USE_TXT = "You have chosen to enter your own monthly rainfall data and entered:"
 var UNITS = "mm";
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
-var LEN_WID_TXT = ["Your roof is <b>"," </b>meter(s) long by <b>"," </b>meter(s) wide."];
+var LEN_WID_TXT = ["Your roof is <b>"," long by <b>"," wide."];
+var SINGULAR_DIMENSION = "</b> meter";
+var PLURAL_DIMENSION = "</b> meters";
 var ROOF_TYPE_TXT = ["You have a <b>","</b> roof."];
 
 var DISPLAY_TXT = [];

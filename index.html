@@ -58,12 +58,12 @@
 				
 				<!-- start the form!!! -->
 				<form id="calc_form" class="form">
-						
-						<div id="form_box" style="background-color: pink;">
+					<div style="text-align: center;"> <!-- this div is necessary to easily center the form box, see http://stackoverflow.com/questions/283961/centering-a-div-block-without-the-width for details -->
+						<div id="form_box">
 							<big><p class="headers" id="instructions" align="center"></p></big>
 							<!-- Select your municipality -->
-							<div style="background-color: white; display: inline-block;">
-								<div id="form_box_left" class="inside_form_box" style="background-color: grey">
+							<div style="display: inline-block;">
+								<div id="form_box_left" class="inside_form_box">
 									<div id="WaterMapDiv" style="padding-top: 10px;">
 										<label id="muni0" class="map_related_text"></label><br>
 										<div id="WaterMap"></div>
@@ -71,31 +71,36 @@
 									<div id="MonthlyUseDiv">
 										<p id="monthly_rain_lbl"></p>
 										<div class="rain_column" id="rain_column_1">
-											<div class="rain_entry_wrapper"><label for="jan_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jan_rain" name="rain" value="none" min="0" /></div>
-											<div class="rain_entry_wrapper"><label for="feb_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="feb_rain" name="rain" value="none" min="0" /></div>                                                                                                                           
-											<div class="rain_entry_wrapper"><label for="mar_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="mar_rain" name="rain" value="none" min="0" /></div>                              
-											<div class="rain_entry_wrapper"><label for="apr_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="apr_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="jan_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jan_rain" name="rain" value="none" min="0" step="any" /></div>
+											<div class="rain_entry_wrapper"><label for="feb_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="feb_rain" name="rain" value="none" min="0" step="any" /></div>                                                                                                                           
+											<div class="rain_entry_wrapper"><label for="mar_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="mar_rain" name="rain" value="none" min="0" step="any" /></div>                              
+											<div class="rain_entry_wrapper"><label for="apr_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="apr_rain" name="rain" value="none" min="0" step="any" /></div>
 										</div>                                                                                                                                
 																																											
 										<div class="rain_column" id="rain_column_2">                                                                                                                                
-											<div class="rain_entry_wrapper"><label for="may_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="may_rain" name="rain" value="none" min="0" /></div>
-											<div class="rain_entry_wrapper"><label for="jun_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jun_rain" name="rain" value="none" min="0" /></div>                                     
-											<div class="rain_entry_wrapper"><label for="jul_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jul_rain" name="rain" value="none" min="0" /></div>
-											<div class="rain_entry_wrapper"><label for="aug_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="aug_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="may_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="may_rain" name="rain" value="none" min="0" step="any" /></div>
+											<div class="rain_entry_wrapper"><label for="jun_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jun_rain" name="rain" value="none" min="0" step="any" /></div>                                     
+											<div class="rain_entry_wrapper"><label for="jul_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="jul_rain" name="rain" value="none" min="0" step="any" /></div>
+											<div class="rain_entry_wrapper"><label for="aug_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="aug_rain" name="rain" value="none" min="0" step="any" /></div>
 										</div>
 										
 										<div class="rain_column" id="rain_column_3">
-											<div class="rain_entry_wrapper"><label for="sep_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="sep_rain" name="rain" value="none" min="0" /></div>                                       								
-											<div class="rain_entry_wrapper"><label for="oct_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="oct_rain" name="rain" value="none" min="0" /></div>
-											<div class="rain_entry_wrapper"><label for="nov_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="nov_rain" name="rain" value="none" min="0" /></div>
-											<div class="rain_entry_wrapper"><label for="dec_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="dec_rain" name="rain" value="none" min="0" /></div>
+											<div class="rain_entry_wrapper"><label for="sep_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="sep_rain" name="rain" value="none" min="0" step="any" /></div>                                       								
+											<div class="rain_entry_wrapper"><label for="oct_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="oct_rain" name="rain" value="none" min="0" step="any" /></div>
+											<div class="rain_entry_wrapper"><label for="nov_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="nov_rain" name="rain" value="none" min="0" step="any" /></div>
+											<div class="rain_entry_wrapper"><label for="dec_rain" name="rain_lbl"></label><input class="rain_lbl" type="number" id ="dec_rain" name="rain" value="none" min="0" step="any" /></div>
 										</div>
+									</div>
+									<br style="font-size: 2px;">
+									<div id="monthly_use_cluster">
+										<input type="checkbox" id="useMonthly"></input>
+										<label for="useMonthly" class="map_related_text" id="useMonthly_lbl" ></label>
 									</div>
 								</div>
 								
 								<!-- How many people in your household? -->
-								<div id = "full_box_right" class="inside_form_box" align="center" style="background-color: green">
-									<div id="form_box_right" align="left" style="background-color: orange">
+								<div id = "full_box_right" class="inside_form_box" align="center">
+									<div id="form_box_right" align="left">
 										
 										<div>
 											<label for="ppl" id="ppl0"></label>
@@ -138,15 +143,10 @@
 									</div>
 								</div>
 							</div>
-							<br>
-							<div style="background-color: red; position: relative; display: inline-block;">
-								<input type="checkbox" id="useMonthly"></input>
-								<label for="useMonthly" class="map_related_text" id="useMonthly_lbl" ></label>
-							</div>
 						</div>
 						
 					
-				
+					</div>
 				</form>
 			</div>
 			<div id="LHS_display">
@@ -380,7 +380,7 @@
 				
 			}
 			
-			function checkSensitivity() {
+			function checkSensitivity() {		// used to enable/disable calculate button to avoid making the browser hang
 				var els = document.getElementsByName("rain");
 				var totalRain = 0;
 				for (var i=0; i<MONTHS.length; i++) {
@@ -412,6 +412,8 @@
 			
 			function updateOutputText() {
 				var indent = "\xa0\xa0\xa0";
+				
+				// print monthly rainfall if entered manually.
 				if (allData.useMonthly) {
 					DISPLAY_TXT[0] = MONTHLY_USE_TXT+"<br>"
 					for (var i=0; i<MONTHS.length; i++) {
@@ -420,16 +422,31 @@
 					
 					}
 						
-				} else {
+				} else { 		// otherwise display person's location
 					DISPLAY_TXT[0] = MUN_TXT[0]+allData.municipality_name+MUN_TXT[1]; 	// Display municipality message
 				}
+				
+				// print # of people in household
 				if (allData.ppl > 1) { 													// Parse person (1) or people (>1)
 					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[2];
 				} else {
 					DISPLAY_TXT[1] = PPL_TXT[0]+allData.ppl+PPL_TXT[1];
 				}
-				DISPLAY_TXT[2] = LEN_WID_TXT[0]+allData.length+LEN_WID_TXT[1]+allData.width+LEN_WID_TXT[2];
+				
+				// print roof dimensions
+				if (allData.length == 1 && allData.width == 1) {
+					DISPLAY_TXT[2] = LEN_WID_TXT[0]+allData.length+SINGULAR_DIMENSION+LEN_WID_TXT[1]+allData.width+SINGULAR_DIMENSION+LEN_WID_TXT[2];
+				} else if (allData.length == 1) {
+					DISPLAY_TXT[2] = LEN_WID_TXT[0]+allData.length+SINGULAR_DIMENSION+LEN_WID_TXT[1]+allData.width+PLURAL_DIMENSION+LEN_WID_TXT[2];
+				} else if (allData.width == 1) {
+					DISPLAY_TXT[2] = LEN_WID_TXT[0]+allData.length+PLURAL_DIMENSION+LEN_WID_TXT[1]+allData.width+SINGULAR_DIMENSION+LEN_WID_TXT[2];
+				} else {
+					DISPLAY_TXT[2] = LEN_WID_TXT[0]+allData.length+PLURAL_DIMENSION+LEN_WID_TXT[1]+allData.width+PLURAL_DIMENSION+LEN_WID_TXT[2];
+				}
+				
+				// print roof type
 				DISPLAY_TXT[3] = ROOF_TYPE_TXT[0]+ROOF_TYPES[allData.roof_type]+ROOF_TYPE_TXT[1];
+				
 				
 				var els = document.getElementsByClassName("water_use"); 	// Display all other water uses. 
 				
