@@ -102,7 +102,7 @@ var LHS_DISPLAY_TITLE = "Great work!";
 var LHS_INSTRUCTIONS = "Please make sure that the following information was entered correctly. If not, press the button below to change your information. Your results are displayed in the panel to the right. For an explanation of each result, hover your mouse over the relevant box. <br><br>These results refer to your household's <b>essential water</b> need - the amount of water needed for drinking and cooking only.<br><br><i>Note: These results assume that your rainwater collection begins at the start of the rainy season. Starting at any other time of the year increases the risk of not always having enough rainwater stored during your system's first year.</i>"
 
 var MUN_TXT = ["You live in <b>","</b>."];
-var MONTHLY_USE_TXT = "You have chosen to enter your own monthly rainfall data and entered:"
+var MONTHLY_USE_TXT = "You have chosen to enter your own monthly rainfall data. <i>Please note: we cannot account for how much water you will use to flush your roof on each rainfall, so the results to the right will be slight under-estimates.</i><br><br>You have entered:"
 var UNITS = "mm";
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," long by <b>"," wide."];
