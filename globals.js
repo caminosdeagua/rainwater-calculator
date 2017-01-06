@@ -17,7 +17,9 @@ var numAcceptableKeys = ["ArrowLeft", "ArrowRight", 		// Define which keys shoul
 							"Home", "End", "Insert", 
 							"PageUp", "PageDown", "Escape",
 							"0", "1", "2", "3", "4", "5", 
-							"6", "7", "8", "9", "."];
+							"6", "7", "8", "9", ".", 48, 49, 50,
+							51, 52, 53, 54, 55, 56, 57, 58, 27,
+							8, 9, 10, 11, 13, 46];
 var EFF_CEMENT = 0.85;
 var EFF_SHEET = 0.9;
 var EFF_SPANISH_TILE = 0.8;
