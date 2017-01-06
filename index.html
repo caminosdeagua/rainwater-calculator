@@ -726,16 +726,18 @@
 				var lhs = document.getElementById("left_hand_side").offsetWidth;
 				var rhs = document.getElementById("right_hand_side").offsetWidth;
 				if (lhs > rhs) {
-					
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
 					document.getElementById("right_hand_side").style.width = String(window.innerWidth - INPUT_WIDTH_AFTER_RAW - 1)+"px";
 					document.getElementById("caminos_logo2").style.display = "block";
 					$("#right_hand_side").scrollTop(0);	
+					$("#LHS_display").scrollTop(0);
+					
 				} else {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_BEFORE;
 					document.getElementById("right_hand_side").style.width = OUTPUT_WIDTH_BEFORE;
 					document.getElementById("caminos_logo2").style.display = "none";
 					$("#right_hand_side").scrollTop(0);
+					$("#LHS_inputs").scrollTop(0);
 				};
 			}
 			
