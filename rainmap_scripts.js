@@ -31,7 +31,9 @@ function initMap() {
 
 
 function applyBaseMap() {
-	map.addLayer(new L.StamenTileLayer(STAMEN_MAP_TYPE), {});				
+	//map.addLayer(new L.StamenTileLayer(STAMEN_MAP_TYPE), {});			//This line is to use Stamen basemaps		
+	L.mapbox.accessToken = MAPBOX_ID;									// These two lines are to use Mapbox basemaps
+	map.addLayer(new L.mapbox.tileLayer(MAPBOX_MAP_TYPE), {});			// These two lines are to use Mapbox basemaps	
 }
 
 function grabData() {
