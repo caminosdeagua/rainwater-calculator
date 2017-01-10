@@ -10,7 +10,7 @@ var MAP_INIT_ZOOM = 8;
 var STAMEN_MAP_TYPE = "toner";		// Set which type of stamen map we want as a base layer.
 										// 	options include: "terrain", "watercolor", and "toner"
 var MAPBOX_ID = "pk.eyJ1IjoiY2FtaW5vc2RlYWd1YSIsImEiOiJjaXRsb3V1MDUwMGR2Mm9tdThncnYydTU4In0.DcxDn8J5RJ--WQ3gckONIw";
-var MAPBOX_MAP_TYPE = "mapbox.streets";	// Which mapbox tile set to display. options: "mapbox.streets", 										
+var MAPBOX_MAP_TYPE = "caminosdeagua.935ff2fb";	// Which mapbox tile set to display. options: "mapbox.streets" (this one is the classic), "caminosdeagua.935ff2fb" (this displays small towns one zoom level earlier)							
 
 var DATA_URL = "https://dl.dropboxusercontent.com/s/w2le11pok7c781e/munis.geojson";					
 	
