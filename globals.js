@@ -60,3 +60,13 @@ var CEMENT_URL = "https://dl.dropboxusercontent.com/s/jt6n2b2wo7l9yig/Concrete.p
 var SHEET_URL = "https://dl.dropboxusercontent.com/s/1sf2bvq10ln7wwa/Corrugated_Sheet.png";
 var SPANISH_URL = "https://dl.dropboxusercontent.com/s/8obfa2hq5tmku7x/Spanish_Tile.png";
 var ROOF_URLS = [CEMENT_URL, SHEET_URL, SPANISH_URL];
+
+var RAINS = ["jan_rain", "feb_rain", "mar_rain", 
+			"apr_rain", "may_rain", "jun_rain", 
+			"jul_rain", "aug_rain", "sep_rain", 
+			"oct_rain", "nov_rain", "dec_rain", ];	//name of rain-entry form elements
+			
+var FULL_MONTHS = ["January", "February", "March",
+				"April", "May", "June",
+				"July", "August", "September",
+				"October", "November", "December"];	// month names for getting rainfall. 
