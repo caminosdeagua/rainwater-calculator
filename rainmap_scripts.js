@@ -66,7 +66,8 @@ function grabData() {
 			
 		},
 		error: function (er) {
-			console.log("the ajax called returned the "+er+ "error...");
+			console.log("the ajax called returned the error:");
+			console.log(er);
 		}
 	});
 	
@@ -136,10 +137,8 @@ function select(event) {
 	event.target.setStyle({fillColor: 'blue'});		// Then set the new one. 
 	mun = id; 	
 	
-	//updateInputs("map");
-	
-	console.log("You just clicked on:")
-	console.log(event.target)
+	//console.log("You just clicked on:")
+	//console.log(event.target)
 }
 
 
@@ -171,7 +170,7 @@ function getRainfall(place) {
 		console.log("The geoJSON file hasn't loaded yet...");
 	} else {
 		for (var i=0; i<FULL_MONTHS.length+1; i++) {
-			if (i==FULL_MONTHS.length){console.log("total\n"+total)} else {
+			if (i==FULL_MONTHS.length){} else {
 				total = total+geojson._layers[place].feature.properties[FULL_MONTHS[i]];
 				rainfall.push(geojson._layers[place].feature.properties[FULL_MONTHS[i]])
 			}

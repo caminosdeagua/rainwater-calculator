@@ -399,8 +399,6 @@
 				
 				var sensitivity = totalRain/population;
 				
-				console.log("sensitivity: "+sensitivity) 
-				
 				if (sensitivity <= EPS) {
 					document.getElementById("calc_button").disabled = true;
 				} else {
@@ -494,8 +492,8 @@
 			
 			$('input').bind('keypress', function (event) {
 				if (event.target.type == "number") { 								// If it's being entered in a numeric field
-					console.log(event)
-					console.log("key pressed is: "+event.originalEvent.charCode)
+					//console.log(event)
+					//console.log("key pressed is: "+event.originalEvent.charCode)
 					if (!event.originalEvent.charCode) {
 						return true;
 					} else if (!numAcceptableKeys.includes(event.originalEvent.charCode)) { 	// If the key isn't a number or a movement key
@@ -742,8 +740,6 @@
 			////////////////////////////////////////////////////////////////////
 			
 			window.onhashchange = function() { 
-			console.log("currenthash: "+Number(location.hash.substring(1)))
-			console.log("prevhash: "+hash)
 			var hashNumb = Number(location.hash.substring(1));
 				if (hashNumb%2 != hash%2) {	// if we're going to a new page, do some stuff...
 					
@@ -857,7 +853,7 @@
 					maxMonthCollection: 0
 				};
 				
-				console.log(inputs)
+				//console.log(inputs)
 				
 				//////////////////////////////////////////////////////////////////
 				//	This next sextion calculates the minimum adequate roof 		//
@@ -1029,7 +1025,6 @@
 			}
 
 			function calculateStuff() {
-			console.log()
 				allData.jan_rain = Number(document.getElementById("jan_rain").value);
 				allData.feb_rain = Number(document.getElementById("feb_rain").value);
 				allData.mar_rain = Number(document.getElementById("mar_rain").value);
