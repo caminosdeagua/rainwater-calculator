@@ -324,6 +324,7 @@
 				form.noValidate = true;												// Turns off auto-validate so we can self-validate
 				form.onchange = validateForm;
 				form.onsubmit = validateForm;
+				form.onkeyup = validateForm;
 				
 				
 			}
@@ -384,26 +385,25 @@
 				}
 				
 				if (document.getElementById("useMonthly").checked) {
-					checkSensitivity()
+					if (anyRain()) {
+						document.getElementById("calc_button").disabled = false;
+					} else {
+						document.getElementById("calc_button").disabled = true;
+					}
 				}
-				
 			}
 			
-			function checkSensitivity() {		// used to enable/disable calculate button to avoid making the browser hang
+			function anyRain() {		// returns true if there's any rain, otherwise returns false.
 				var els = document.getElementsByName("rain");
 				var totalRain = 0;
 				for (var i=0; i<MONTHS.length; i++) {
 					totalRain += Number(els[i].value);
 				}
-				var population = Number(document.getElementById("ppl").value);
-				
-				var sensitivity = totalRain/population;
-				
-				if (sensitivity <= EPS) {
-					document.getElementById("calc_button").disabled = true;
-				} else {
-					document.getElementById("calc_button").disabled = false;
-				}
+
+				var people = Number(document.getElementById("ppl").value);
+				var sensitivity = totalRain/people;
+				if (sensitivity > EPSILON) {return true}
+				else {return false}
 			}
 			
 			
@@ -522,24 +522,27 @@
 			
 			
 			function validateForm(event) {
+				console.log(event.type)
 				event = (event ? event : window.event);
 				var el = (event.target ? event.target : event.srcElement);
 				var value = Number(el.value);
-				if (el.id == "ppl") {
-					if (value < el.min)	{
-						el.value = el.min;
-					} else if (value > el.max) {
-						el.value = el.max;
-					} else if (value % 1 != 0 & el.id == "ppl") {
-						el.value = parseInt(value, 10);
+				if (event.type != 'keyup') {
+					if (el.id == "ppl") {
+						if (value < el.min)	{
+							el.value = el.min;
+						} else if (value > el.max) {
+							el.value = el.max;
+						} else if (value % 1 != 0 & el.id == "ppl") {
+							el.value = parseInt(value, 10);
+						};
+					} else if (el.id == "length" | el.id == "width") {
+						if (value < el.min) {
+							el.value = el.min;
+						} else if (value > el.max) {
+							el.value = el.max;
+						};
 					};
-				} else if (el.id == "length" | el.id == "width") {
-					if (value < el.min) {
-						el.value = el.min;
-					} else if (value > el.max) {
-						el.value = el.max;
-					};
-				};
+				}
 				updateLHS(el)
 			}
 			
@@ -584,48 +587,6 @@
 				})();
 				
 			}
-			
-			////////////////////////////////////////////////////////////////////
-			////				function that executes every time 			////
-			////				a checkbox is checked or unchecked 			////
-			//// 															////
-			////	Opens up the appropriate extra entry boxes depending on ////
-			//// 	which checkbox is checked. 								////
-			////////////////////////////////////////////////////////////////////
-			
-			$(':checkbox').change(function(event){
-				var el = event.target;
-				if (el.id == "garden_chk"){ 		// Open input field to get garden size
-					if (el.checked) {
-						fadeIn(document.getElementById("garden_extra"));
-					} else {
-						fadeOut(document.getElementById("garden_extra"), false);
-					};
-				} else if (el.id == "other_chk") { 	// Open input fields to get other info
-					if (el.checked) {
-						fadeIn(document.getElementById("extra_house0"));
-						fadeIn(document.getElementById("other_extra"));
-						fadeIn(document.getElementById("other_extra2"));
-					} else {
-						fadeOut(document.getElementById("extra_house0"), false);
-						fadeOut(document.getElementById("other_extra"), false);
-						fadeOut(document.getElementById("other_extra2"), false);
-					};
-				} else if (el.id == "dishes_chk") { // open input field to get type of dish washing
-					if (el.checked) {
-						fadeIn(document.getElementById("dishes_extra"));
-					} else {
-						fadeOut(document.getElementById("dishes_extra", false));
-					};
-				} else if (el.id == "clothes_chk") { // open input field to get type of laundry
-					if (el.checked) {
-						fadeIn(document.getElementById("laundry_extra"));
-					} else {
-						fadeOut(document.getElementById("laundry_extra"), false);
-					};
-				
-				};
-			});
 			
 			////////////////////////////////////////////////////////////////////
 			////		--- BUG FIX FOR QUICK BACK/FORWARD CLICK --- 		////	

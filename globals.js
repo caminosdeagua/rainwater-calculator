@@ -4,7 +4,7 @@ var allData;				// declare the dataset as global
 var validations = 0;		// a global var to see how many times the form has been validated
 var hash = 0;				// global to hold the previous hash value from URL.
 
-var EPS = 0.01;				// Cut-off for allowing the calculator to hang.
+var EPSILON = 0.01;				// Cut-off for allowing the calculator to hang.
 var MAX_PPL = 9999;
 var MIN_PPL = 1;
 
