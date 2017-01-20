@@ -143,4 +143,4 @@ var FOOTER_TXT = "<a href='https://www.caminosdeagua.org' target='_blank'>How do
 //										//
 //////////////////////////////////////////
 
-MOBILE_BROWSER_MESSAGE = "hello there!"
+MOBILE_BROWSER_MESSAGE = "hello there!";
