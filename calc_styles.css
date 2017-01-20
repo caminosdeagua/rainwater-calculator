@@ -260,6 +260,11 @@ button {
 	opacity: 0.85;
 }
 
+#caminos_logo_mobile {
+	left: 30%;
+	width: 40%
+}
+
 .outer_row {
 	position: relative;
 	background-color: rgba(0,0,0,0);
