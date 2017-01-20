@@ -261,9 +261,12 @@ button {
 }
 
 #caminos_logo_mobile {
+	position: relative;
 	display: inline-block; 
-	margin-left: 30%;
-	width: 40%;
+	float: left;
+	left: 0%;
+	transform: translate(50%, 0%);
+	
 }
 
 .outer_row {
