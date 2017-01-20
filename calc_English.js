@@ -99,7 +99,7 @@ var LHS_INSTRUCTIONS = "Please make sure that the following information was ente
 var PS_NOTE = "<i>Note: These results assume that your rainwater collection begins at the start of the rainy season. Starting at any other time of the year increases the risk of not always having enough rainwater stored during your system's first year.</i>";
 
 var MUN_TXT = ["You live in <b>","</b>."];
-var MONTHLY_USE_TXT = "You have chosen to enter your own monthly rainfall data. <i>Please note: we cannot account for how much water you will use to flush your roof on each rainfall, so the results to the right will be slight under-estimates.</i><br><br>You have entered:"
+var MONTHLY_USE_TXT = "You have chosen to enter your own monthly rainfall data. <i>Please note that the roof area to the right will be a slight under-estimate since we do not know where you live or how frequently it rains.</i><br><br>You have entered:"
 var UNITS = "mm";
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
 var LEN_WID_TXT = ["Your roof is <b>"," long by <b>"," wide."];

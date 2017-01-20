@@ -163,7 +163,6 @@ label, h1, h3, p, button, iframe {
 .return_num {
 	font-size: 3em;
 	margin-top: -40px;
-	
 }
 
 .to_indent {
@@ -229,8 +228,9 @@ button {
 #caminos_logo {
 	position: relative;
 	float: right;
-	right: 25px;
+	right: 5px;
 	z-index: 10;
+	margin-top: 5px;
 
 }
 
