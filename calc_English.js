@@ -15,6 +15,12 @@ var INSTRUCTIONS = "<b>Please answer the questions below about your household as
 var MONTHS = ["Jan", "Feb", "Mar", "Apr",
 				"May", "Jun", "Jul", "Aug",
 				"Sep", "Oct", "Nov", "Dec"];
+
+var FULL_MONTHS_DISPLAY = ["January", "February", "March",
+							"April", "May", "June",
+							"July", "August", "September",
+							"October", "November", "December"];	 
+
 			
 var MONTHLY_RAIN_LBL = "Please enter your region's monthly rainfall data<br>in <b>milimeters (mm)</b>:";
 				

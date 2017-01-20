@@ -426,7 +426,7 @@
 				if (allData.useMonthly) {
 					DISPLAY_TXT[0] = MONTHLY_USE_TXT+"<br>"
 					for (var i=0; i<MONTHS.length; i++) {
-						DISPLAY_TXT[0] += indent+FULL_MONTHS[i]+": <b>"+allData[RAINS[i]]+"</b>"+UNITS+"<br>";
+						DISPLAY_TXT[0] += indent+FULL_MONTHS_DISPLAY[i]+": <b>"+allData[RAINS[i]]+"</b>"+UNITS+"<br>";
 					
 					
 					}
@@ -835,7 +835,7 @@
 				// next lines are for displaying used rain data //
 				var	totalRain = 0;
 				for (var i=0; i<12; i++){
-					console.log(FULL_MONTHS[i]+": "+rainfall[i]+" mm");
+					console.log(FULL_MONTHS[i]+": "+rainfall[i]+" mm");		// use the english version of months so debugging can be consistently in English (in case we do lots of other languages)
 					totalRain += Number(rainfall[i]);
 				}
 				console.log("TOTAL RAINFALL: "+totalRain+" mm");
