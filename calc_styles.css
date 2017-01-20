@@ -261,7 +261,8 @@ button {
 }
 
 #caminos_logo_mobile {
-	left: 30%;
+	display: inline-block; 
+	margin-left: 30%;
 	width: 40%;
 }
 
