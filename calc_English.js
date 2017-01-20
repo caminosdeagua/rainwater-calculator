@@ -143,4 +143,4 @@ var FOOTER_TXT = "<a href='https://www.caminosdeagua.org' target='_blank'>How do
 //										//
 //////////////////////////////////////////
 
-MOBILE_BROWSER_MESSAGE = "<big><b>We're sorry!</b></big><br>This rainwater harvesting calculator is not get available for mobile browers. You can view it on a laptop, desktop computer, or tablet. For more information on rainwater harvesting, check out our <a href='https://www.caminosdeagua.org'>website</a>.";
+var MOBILE_BROWSER_MESSAGE = "<big><b>We're sorry!</b></big><br>This rainwater harvesting calculator is not get available for mobile browers. You can view it on a laptop, desktop computer, or tablet. For more information on rainwater harvesting, check out our <a href='https://www.caminosdeagua.org'>website</a>.";
