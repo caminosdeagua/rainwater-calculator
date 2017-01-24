@@ -188,29 +188,8 @@
 			<div id="right_hand_side" align="center">
 				<div class="footer" align="right"></div>
 				
-				<div id="real_header" class="results_headers"></div>
-				<div class="outer_row" id="top_box">
-					<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<div class="text_in_center">
-							<label name="real_roof_lbl" class="output_text"></label><br>
-							<label name="real_roof_numb" class="return_num"></label><br>
-							<label name="real_roof_lbl" class="output_text"></label>
-						</div>
-					</div>
-						
-					<div class="tooltip" id="right" name="real_tank" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<div class="text_in_center">
-							<label name="real_tank_lbl" class="output_text"></label><br>
-							<label name="real_tank_numb" class="return_num"></label><br>
-							<label name="real_tank_lbl" class="output_text"></label>
-						</div>
-					</div>
-				</div>
-				
 				<div id="min_header" class="results_headers"></div>
-				<div class="outer_row" id="bottom_box">
+				<div class="outer_row" id="top_box">
 					
 					<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">
 						<span class="tooltiptext"></span>
@@ -218,6 +197,15 @@
 							<label name="min_roof_lbl" class="output_text"></label><br>
 							<label name="min_roof_numb" class="return_num" ></label><br>
 							<label name="min_roof_lbl" class="output_text"></label>
+						</div>
+					</div>
+					
+					<div class="tooltip" id="center" name="min_water" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<div class="text_in_center">
+							<label name="min_water_lbl" class="output_text"></label><br>
+							<label name="min_water_numb" class="return_num"></label><br>
+							<label name="min_water_lbl" class="output_text"></label>
 						</div>
 					</div>
 						
@@ -229,7 +217,39 @@
 							<label name="min_tank_lbl" class="output_text"></label>
 						</div>
 					</div>
+				</div>				
+				
+				<div id="real_header" class="results_headers"></div>
+				<div class="outer_row" id="bottom_box">
+					<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<div class="text_in_center">
+							<label name="real_roof_lbl" class="output_text"></label><br>
+							<label name="real_roof_numb" class="return_num"></label><br>
+							<label name="real_roof_lbl" class="output_text"></label>
+						</div>
+					</div>
+						
+					<div class="tooltip" id="center" name="real_water" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<div class="text_in_center">
+							<label name="real_water_lbl" class="output_text"></label><br>
+							<label name="real_water_numb" class="return_num"></label><br>
+							<label name="real_water_lbl" class="output_text"></label>
+						</div>
+					</div>
+					
+					<div class="tooltip" id="right" name="real_tank" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<div class="text_in_center">
+							<label name="real_tank_lbl" class="output_text"></label><br>
+							<label name="real_tank_numb" class="return_num"></label><br>
+							<label name="real_tank_lbl" class="output_text"></label>
+						</div>
+					</div>
 				</div>
+				
+				
 					
 					
 					
@@ -668,17 +688,28 @@
 				var elRealTank = document.getElementsByName("real_tank")[0]
 				var elRealTankLbls=document.getElementsByName("real_roof_lbl");
 				
+				var elMinRoof = document.getElementsByName("min_roof")[0]
+				var elMinWater = document.getElementsByName("min_water")[0]
+				var elMinTank = document.getElementsByName("min_tank")[0]
+				var elMinRoofLbls = document.getElementsByName("min_roof_lbl");
+				var elMinWaterLbls = document.getElementsByName("min_water_lbl");
+				var elMinTankLbls = document.getElementsByName("min_tank_lbl");
+				
 				if (o.minRoofArea <= o.actualRoofArea) {		// if the user's roof is large enough
-					elRealRoof.style.backgroundColor = GREEN;
-					elRealTank.style.backgroundColor = GREEN;
-					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_GREEN[0];
-					elRealTankLbls[1].innerHTML = REAL_ROOF_LBL_GREEN[1]+"\xa0<b><big>"+String(o.essentialDailyUse)+"</b></big>\xa0"+REAL_ROOF_LBL_GREEN[2];
+					elMinRoof.style.backgroundColor = GREEN;
+					elMinWater.style.backgroundColor = GREEN;
+					elMinTank.style.backgroundColor = GREEN;
+					
+					elMinRoofLbls[0].innerHTML = MIN_ROOF_LBL_GREEN[0];
+					elMinRoofLbls[1].innerHTML = MIN_ROOF_LBL_GREEN[1];
 					document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualTankVolume));
-				} else {										// if the user's roof is too small
-					elRealRoof.style.backgroundColor = RED;
-					elRealTank.style.backgroundColor = RED;
-					elRealTankLbls[0].innerHTML = REAL_ROOF_LBL_RED[0];
-					elRealTankLbls[1].innerHTML = REAL_ROOF_LBL_RED[1]+"\xa0<b><big>"+String(o.essentialDailyUse)+"</b></big>\xa0"+REAL_ROOF_LBL_RED[2];
+				
+				} else {			// if the user's roof is too small
+					elMinRoof.style.backgroundColor = RED;
+					elMinWater.style.backgroundColor = RED;
+					elMinTank.style.backgroundColor = RED;
+					elMinRoofLbls[0].innerHTML = MIN_ROOF_LBL_RED[0];
+					elMinRoofLbls[1].innerHTML = MIN_ROOF_LBL_RED[1];
 					document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(Math.max.apply(null, [o.actualTankVolume, o.maxMonthlyCollection])));
 				
 				}
@@ -686,7 +717,8 @@
 				document.getElementsByName("min_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.minRoofArea));		// fill in numbers rounded to nearest int.
 				document.getElementsByName("min_tank_numb")[0].innerHTML = numberWithCommas(Math.round(o.minTankVolume));
 				document.getElementsByName("real_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualRoofArea));
-				
+				document.getElementsByName("min_water_numb")[0].innerHTML = numberWithCommas(Math.round(o.minWater));
+				document.getElementsByName("real_water_numb")[0].innerHTML = numberWithCommas(Math.round(o.actualWater));
 				
 
 				
@@ -694,16 +726,25 @@
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = REAL_TANK_LBL[i];
 				}	
-				var els=document.getElementsByName("min_roof_lbl");
-				for (var i=0; i<els.length; i++) {
-					els[i].innerHTML = MIN_ROOF_LBL[i];
-				}
 				
 				var els=document.getElementsByName("min_tank_lbl");
 				for (var i=0; i<els.length; i++) {
 					els[i].innerHTML = MIN_TANK_LBL[i];
 				}
 				
+				var els=document.getElementsByName("real_roof_lbl");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = REAL_ROOF_LBL[i];
+				}
+				
+				var els=document.getElementsByName("min_water_lbl");
+				els[0].innerHTML = MIN_WATER_LBL[0];
+				els[1].innerHTML = MIN_WATER_LBL[1]+"<b><big>"+numberWithCommas(Math.round(o.essentialDailyUse)) +"</big></b>"+MIN_WATER_LBL[2];
+				
+				var els=document.getElementsByName("real_water_lbl");
+				for (var i=0; i<els.length; i++) {
+					els[i].innerHTML = REAL_WATER_LBL[i];
+				}
 				
 			}
 			
@@ -870,8 +911,8 @@
 				var testArea = 0;							// start with area of 0 (it gets bumped up to 1 in the first loop itteration);
 				var testAreaAdequate = false;				// default: user doesn't have adequate roof space.
 				
-				if (rainfall[0] != -1 && totalRain != 0) {		// as long as something's been entered for rainfall:						// if the rainfall data has loaded:
-					var test;								
+				if (rainfall[0] != -1 && totalRain != 0) {		// as long as something's been entered for rainfall: i.e.  if the rainfall data has loaded:
+												
 					while (!testAreaAdequate) {				// while there isn't enough roof area
 						testArea=testArea+1;				// increment the area
 						
@@ -913,6 +954,9 @@
 				outputs.minRoofArea = testArea;				// and this holds the minimum acceptable roof size for supporting the given population [m2]
 				outputs.actualTankVolume = actual.volume;	// cistern volume required to capture 100% of rainfall on user-provided roof area [L]					
 				outputs.maxMonthlyCollection = maxMonthlyCollection // maximum volume collectible in a month
+				outputs.minWater = test.totalCollected;		// Total water collected off the minimum roof area [L/year]
+				outputs.actualWater = actual.totalCollected;// Total water collected off the actual roof area [L/year]
+				
 				return outputs 				
 				
 			}
@@ -945,7 +989,7 @@
 			////////////////////////////////////////////////////////////////////
 			
 			function getCisternSize(rainfall, area, eff, dailyUse, startMonth, useMonthly) {
-				var results = {adequate: true, volume: 0};
+				var results = {adequate: true, volume: 0, totalCollected: 0};
 				var inventory = Array.apply(null, Array(DAY_MON.length)).map(Number.prototype.valueOf,0);
 			
 				var single_first_flush = area*CLEANLINESS_FACTOR;	// number of liters removed in 1st flush system
@@ -955,6 +999,9 @@
 					startMonth = rainfall.indexOf(Math.max.apply(null, rainfall));
 				}
 				
+				var totalCollectedWater = 0;
+				var monthlyCollectedWater;
+				
 				for (var i=startMonth; i<DAY_MON.length+startMonth; i++) {
 					var monthlyUse = dailyUse*DAY_MON[i%DAY_MON.length];							// people * L/(people*day) * day/month = [L/month]
 					var losses2first_flush = single_first_flush*RAIN_EVENTS[i%DAY_MON.length]		// (liters flushed / rain event) * # of rain events
@@ -962,8 +1009,10 @@
 						losses2first_flush = single_first_flush*NULL_RAIN_EVENTS[i%DAY_MON.length]		// if the user isn't from SMA, don't account for 1st flush losses.
 					}
 					
+					monthlyCollectedWater = rainfall[i%DAY_MON.length]*area*eff;				// get the collected water for the month
+					totalCollectedWater = monthlyCollectedWater + totalCollectedWater;			// store it to calculate how much water is collected total.
+					inventory[i%DAY_MON.length] = (monthlyCollectedWater - losses2first_flush)- monthlyUse;		// (collectible rainfall - amount 1st flushed per month) - monthly consumption = [L stored/month] 			
 					
-					inventory[i%DAY_MON.length] = (rainfall[i%DAY_MON.length]*area*eff - losses2first_flush)- monthlyUse;		// (collectible rainfall - amount 1st flushed per month) - monthly consumption = [L stored/month] 			
 					
 					if ( i%DAY_MON.length != startMonth ) {					// For all months but the first one,
 						if (i%DAY_MON.length == 0) {
@@ -984,6 +1033,7 @@
 				//console.log(inventory)
 				//console.log(results.adequate)
 				results.volume = Math.max.apply(null, inventory);		// The volume of the tank is the max value of the inventory.
+				results.totalCollected = totalCollectedWater;
 				return results	
 			}
 			
