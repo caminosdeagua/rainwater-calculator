@@ -5,7 +5,7 @@ html, body, #everything{
 	margin: 0; 
 	background: #999999; 
 	overflow: hidden;	
-	font-family: Georgia, serif;
+	font-family: Tahoma, sans-serif;
 	font-size: 16px;
 }
 
@@ -135,7 +135,7 @@ label, h1, h3, p, button, iframe {
 	visibility: hidden;
     background-color: rgba(230,230,230,0.95);
     color: #000;
-	font-size: 16px;
+	font-size: 14px;
     text-align: left;
     border-radius: 6px;
     padding: 5px;
@@ -275,8 +275,8 @@ button {
 	overflow: hidden;
 	height: 10em;
 	width: 48em;
-	font-family: Georgia, serif;
-	font-size: 22px;
+	/*font-family: , serif;*/
+	font-size: 20px;
 }
 
 #left {
@@ -335,7 +335,7 @@ button {
 
 .results_headers {
 	font-size: 32px;
-	text-decoration: underline;
+	/*text-decoration: underline;*/
 	margin-top: 15px;
 }
 
