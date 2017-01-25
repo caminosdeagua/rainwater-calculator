@@ -130,10 +130,10 @@ var L_ADDON_LBL = "<small> liters</small>";
 
 var TOOLTIP_TEXT = {
 	min_roof: "<b><big>Minimum roof area</big></b><br>This number indicates the minimum roof area required for you to capture enough rainwater to meet your household's essential water need for the entire year. <br><br><i>This result assumes that your cistern begins collecting water at the beginning of the rainy season and is based on average rainfall data</i>. ",
-	min_water: "<b><big>Minimum annual water capture</big></b><br>lalalala",
+	min_water: "<b><big>Minimum annual water capture</big></b><br>This is calculated simply by assuming that each member of your household uses an average of 5 liters per day for essential uses (drinking and cooking). The 5 liters per day is then multiplied by the number of people in your household and the number of days in a year (365).",
 	min_tank: "<b><big>Minimum cistern volume</big></b><br>If you use the minimum roof area inidicated to the left, you need this cistern volume to capture all the water coming off of your roof. This cistern will be large enough to meet your household's essential water need year-round on a year with <i>average rainfall</i>.",
 	real_roof: "<b><big>Your actual roof area</big></b><br>This is your roof area. It is calculated by multiplying together the length and width of your roof.",
-	real_water: "oh hai there!",
+	real_water: "<b><big>Your current annual maximum water capture</big></b><br>This is the amount of water your current roof could collect over an <i>average year</i>.",
 	real_tank: "<b><big>Required cistern volume using your current roof</big></b><br>If you collect all the water that hits your roof during an average year, you would need this cistern volume."
 
 	
