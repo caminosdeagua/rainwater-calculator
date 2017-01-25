@@ -95,7 +95,7 @@ var CALC_BUTTON_LBL = "Calculate!";
 var BACK2INPUTS_BUTTON_LBL = "Change my information";
 
 var LHS_DISPLAY_TITLE = "Great work!";
-var LHS_INSTRUCTIONS = "Please make sure that the following information was entered correctly. If not, press the button below to change your information. Your results are displayed in the panel to the right. For an explanation of each result, hover your mouse over the relevant box. <br><br>These results refer to your household's <b>essential water</b> need - the amount of water needed for drinking and cooking only."
+var LHS_INSTRUCTIONS = "These results refer to your household's <b>essential water</b> need - the amount of water needed for drinking and cooking only."
 var PS_NOTE = "<i>Note: These results assume that your rainwater collection begins at the start of the rainy season. Starting at any other time of the year increases the risk of not always having enough rainwater stored during your system's first year.</i>";
 
 var MUN_TXT = ["You live in <b>","</b>."];
@@ -116,10 +116,10 @@ var DISPLAY_TXT = [];
 //////////////////////////////////////////
 
 var MIN_ROOF_LBL = "AAFSFAA"
-var MIN_ROOF_LBL_GREEN = ["<b><big>Minimum Roof Area\xa0\xa0</big></b><br><br>Your household needs <i>at least</i>", "square-meters (m<sup>2</sup>) of roof area to collect enough rainwater to meet your essential water needs. Looks like your current roof <b>is</b> large enough!"];
-var MIN_ROOF_LBL_RED = ["<b><big>Minimum Roof Area\xa0\xa0</big></b><br><br>Your household needs <i>at least</i>", "square-meters (m<sup>2</sup>) of roof area to collect enough rainwater to meet your essential water needs. Looks like your current roof <b>is not</b> large enough."];
+var MIN_ROOF_LBL_GREEN = ["<b><big>Minimum Roof Area\xa0\xa0</big></b><br><br>To meet this <b> annual water need</b>, your household needs <i>at least</i>", "square-meters (m<sup>2</sup>) of roof area. Looks like your current roof <b>is</b> large enough!"];
+var MIN_ROOF_LBL_RED = ["<b><big>Minimum Roof Area\xa0\xa0</big></b><br><br>To meet this <b> annual water need</b>, your household needs <i>at least</i>", "square-meters (m<sup>2</sup>) of roof area. Looks like your current roof <b>is not</b> large enough."];
 var MIN_TANK_LBL = ["<b><big>Minimum Cistern Volume</big></b><br><br>To capture all of the water from your <b>minimum roof area</b>, you need <i>at least</i> a", "liter cistern."];
-var MIN_WATER_LBL = ["<b><big>Minimum Annual Water Capture</big></b><br><br>Using this minimum roof area, you can capture","liters of <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>healthy</a> water in a year, meeting your household's ", " liter daily need for drinking and cooking water." ];
+var MIN_WATER_LBL = ["<b><big>Annual Water Need</big></b><br><br>Your household needs","liters of <a href='http://caminosdeagua.org/safe-healthy-sustainable-water/' target='_blank'>healthy</a> water for drinking and cooking each year. This meets your household's ", " liter essential daily need." ];
 var REAL_ROOF_LBL = ["<b><big>Your Current Roof Area</big></b>", "square-meters (m<sup>2</sup>)."];	
 var REAL_TANK_LBL = ["<b><big>Cistern Volume Using Your Current Roof</big></b>", "liters."];
 var REAL_WATER_LBL = ["<b><big>Your Current Annual Maximum Water Capture</big></b>", "liters."];

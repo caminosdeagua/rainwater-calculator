@@ -191,7 +191,16 @@
 				<div id="min_header" class="results_headers"></div>
 				<div class="outer_row" id="top_box">
 					
-					<div class="tooltip" id="left" name="min_roof" onmouseover="addTooltipText(this)">
+					<div class="tooltip" id="left" name="min_water" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<div class="text_in_center">
+							<label name="min_water_lbl" class="output_text"></label><br>
+							<label name="min_water_numb" class="return_num"></label><br>
+							<label name="min_water_lbl" class="output_text"></label>
+						</div>
+					</div>
+
+					<div class="tooltip" id="center" name="min_roof" onmouseover="addTooltipText(this)">
 						<span class="tooltiptext"></span>
 						<div class="text_in_center">
 							<label name="min_roof_lbl" class="output_text"></label><br>
@@ -200,14 +209,7 @@
 						</div>
 					</div>
 					
-					<div class="tooltip" id="center" name="min_water" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<div class="text_in_center">
-							<label name="min_water_lbl" class="output_text"></label><br>
-							<label name="min_water_numb" class="return_num"></label><br>
-							<label name="min_water_lbl" class="output_text"></label>
-						</div>
-					</div>
+
 						
 					<div class="tooltip" id="right" name="min_tank" onmouseover="addTooltipText(this)">
 						<span class="tooltiptext"></span>
@@ -221,21 +223,22 @@
 				
 				<div id="real_header" class="results_headers"></div>
 				<div class="outer_row" id="bottom_box">
-					<div class="tooltip" id="left" name="real_roof" onmouseover="addTooltipText(this)">
-						<span class="tooltiptext"></span>
-						<div class="text_in_center">
-							<label name="real_roof_lbl" class="output_text"></label><br>
-							<label name="real_roof_numb" class="return_num"></label><br>
-							<label name="real_roof_lbl" class="output_text"></label>
-						</div>
-					</div>
-						
-					<div class="tooltip" id="center" name="real_water" onmouseover="addTooltipText(this)">
+					
+					<div class="tooltip" id="left" name="real_water" onmouseover="addTooltipText(this)">
 						<span class="tooltiptext"></span>
 						<div class="text_in_center">
 							<label name="real_water_lbl" class="output_text"></label><br>
 							<label name="real_water_numb" class="return_num"></label><br>
 							<label name="real_water_lbl" class="output_text"></label>
+						</div>
+					</div>
+					
+					<div class="tooltip" id="center" name="real_roof" onmouseover="addTooltipText(this)">
+						<span class="tooltiptext"></span>
+						<div class="text_in_center">
+							<label name="real_roof_lbl" class="output_text"></label><br>
+							<label name="real_roof_numb" class="return_num"></label><br>
+							<label name="real_roof_lbl" class="output_text"></label>
 						</div>
 					</div>
 					
@@ -954,7 +957,7 @@
 				outputs.minRoofArea = testArea;				// and this holds the minimum acceptable roof size for supporting the given population [m2]
 				outputs.actualTankVolume = actual.volume;	// cistern volume required to capture 100% of rainfall on user-provided roof area [L]					
 				outputs.maxMonthlyCollection = maxMonthlyCollection // maximum volume collectible in a month
-				outputs.minWater = test.totalCollected;		// Total water collected off the minimum roof area [L/year]
+				outputs.minWater = 365*essential;		// Total water collected off the minimum roof area [L/year]
 				outputs.actualWater = actual.totalCollected;// Total water collected off the actual roof area [L/year]
 				
 				return outputs 				

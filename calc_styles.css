@@ -336,8 +336,13 @@ button {
 .results_headers {
 	font-size: 32px;
 	text-decoration: underline;
-	margin-top: 22px;
+	margin-top: 15px;
 }
+
+#min_header {
+	margin-top: 20px;
+}
+
 
 #top_box {
 	height: 17em;
