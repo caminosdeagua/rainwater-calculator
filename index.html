@@ -298,6 +298,7 @@
 					}, 1000)
 					
 					startInterrupt();
+
 				}	
 			};
 			
@@ -714,7 +715,10 @@
 					elMinRoofLbls[0].innerHTML = MIN_ROOF_LBL_RED[0];
 					elMinRoofLbls[1].innerHTML = MIN_ROOF_LBL_RED[1];
 					document.getElementsByName("real_tank_numb")[0].innerHTML = numberWithCommas(Math.round(Math.max.apply(null, [o.actualTankVolume, o.maxMonthlyCollection])));
-				
+					
+					if (o.minWater < o.actualWater && Number(location.hash.substring(1))%2 != 0) {
+						setTimeout(function() {alert(WATER_DISCREPENCY_MSG);}, 1000);
+					}
 				}
 				
 				document.getElementsByName("min_roof_numb")[0].innerHTML = numberWithCommas(Math.round(o.minRoofArea));		// fill in numbers rounded to nearest int.

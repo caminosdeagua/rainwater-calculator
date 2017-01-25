@@ -115,6 +115,8 @@ var DISPLAY_TXT = [];
 //										//
 //////////////////////////////////////////
 
+var WATER_DISCREPENCY_MSG = "Note: It appears that you can capture more water than your household needs. Be careful! Based on when the rain falls, if you used your current roof size, your cistern would go dry at least once during the year. See the 'Minimum Requirements for Drinking & Cooking' for our suggested roof and cistern sizes."
+
 var MIN_ROOF_LBL = "AAFSFAA"
 var MIN_ROOF_LBL_GREEN = ["<b><big>Minimum Roof Area\xa0\xa0</big></b><br><br>To meet this <b> annual water need</b>, your household needs <i>at least</i>", "square-meters (m<sup>2</sup>) of roof area. Looks like your current roof <b>is</b> large enough!"];
 var MIN_ROOF_LBL_RED = ["<b><big>Minimum Roof Area\xa0\xa0</big></b><br><br>To meet this <b> annual water need</b>, your household needs <i>at least</i>", "square-meters (m<sup>2</sup>) of roof area. Looks like your current roof <b>is not</b> large enough."];
