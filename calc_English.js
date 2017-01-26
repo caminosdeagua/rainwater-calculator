@@ -142,7 +142,7 @@ var MIN_HEADER = "<b>Minimum Requirements for Drinking & Cooking</b>";
 var REAL_HEADER = "<b>Your Roof's Maximum Capacity</b>";
 
 ////// 		FOOTER 					//////
-var FOOTER_TXT = "<a href='https://www.caminosdeagua.org' target='_blank'>How does this work?</a> | Created by <a href='https://www.caminosdeagua.org' target='_blank'>Caminos de Agua</a> | Data from <a href='http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto' target='_blank'>SMN</a>";
+var FOOTER_TXT = "<a href='https://caminosdeagua.github.io/rainwater-calculator/data/Explanation.pdf' target='_blank'>How does this work?</a> | Created by <a href='https://www.caminosdeagua.org' target='_blank'>Caminos de Agua</a> | Data from <a href='http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto' target='_blank'>SMN</a>";
 
 //////////////////////////////////////////
 //										//
