@@ -42,7 +42,7 @@ var ESSENTIAL_DAILY_USE = 5; //Liters per day per person
 
 var SMA_START_MONTH = 5; // Start inventory calculation in june (jan=0, feb=1, mar=2, etc.)
 
-var RED = "#f26f60";//"#e50d0d";//"#d84949";
+var RED = "#f2402b";//"#e50d0d";//"#d84949";
 var GREEN = "#61d849";//"#a3e23d"//"#61d849";
 var DARK_BLUE = "#63aec1";
 var LIGHT_BLUE = "#c9e9f2";
