@@ -37,10 +37,14 @@ function applyBaseMap() {
 }
 
 function grabData() {
+	console.log(geojson)
+	console.log("#2!");
 	$.ajax({
 		type: "POST",
 		url: DATA_URL,
 		dataType: 'json',
+		jsonpCallback: "wrapperFunction",
+		
 		success: function (data) {
 			
 			geojson = L.geoJson(data, {
