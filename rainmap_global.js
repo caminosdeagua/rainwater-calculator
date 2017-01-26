@@ -12,11 +12,6 @@ var STAMEN_MAP_TYPE = "toner";		// Set which type of stamen map we want as a bas
 var MAPBOX_ID = "pk.eyJ1IjoiY2FtaW5vc2RlYWd1YSIsImEiOiJjaXRsb3V1MDUwMGR2Mm9tdThncnYydTU4In0.DcxDn8J5RJ--WQ3gckONIw";
 var MAPBOX_MAP_TYPE = "caminosdeagua.935ff2fb";	// Which mapbox tile set to display. options: "mapbox.streets" (this one is the classic), "caminosdeagua.935ff2fb" (this displays small towns one zoom level earlier)							
 
-
-var DATA_URL = "https://caminosdeagua.github.io/rainwater-calculator/data/munis.geojson";					
-//var DATA_URL = "https://dl.dropboxusercontent.com/s/w2le11pok7c781e/munis.geojson";
-
-
 ///////////// 	MUST SET UP ALL THREE OF THESE MANUALLY TO MATCH UP 	/////////////////////////
 var MUN_STARTING_VALUE = "San Miguel de Allende";
 var STATION_STARTING_VALUE = "San Miguel de Allende (SMN)";

@@ -37,48 +37,26 @@ function applyBaseMap() {
 }
 
 function grabData() {
-	console.log(geojson)
-	console.log("#2!");
-	$.ajax({
-		type: "POST",
-		url: DATA_URL,
-		dataType: 'json',
-		jsonpCallback: "wrapperFunction",
-		
-		success: function (data) {
-			
-			geojson = L.geoJson(data, {
-				style: style,
-				onEachFeature: onEachFeature				
-			})
-			.addTo(map);
-			setupMunis(geojson);
-			
-			
-			var polys = Object.keys(geojson._layers);
-			for (var i=0; i<polys.length ; i++) {
-				geojson._layers[polys[i]].bindLabel("\xa0"+geojson._layers[polys[i]].feature.properties.NOMGEO+"\xa0-\xa0"+geojson._layers[polys[i]].feature.properties.Station, {
-					noHide: false,
-					className: "polygonLabel"
-				})
-				if (String(geojson._layers[polys[i]].feature.properties.NOMGEO) == MUN_STARTING_VALUE & String(geojson._layers[polys[i]].feature.properties.Station) == STATION_STARTING_VALUE) {
-					geojson._layers[polys[i]].setStyle({fillColor: 'blue'});
-					mun = geojson._layers[polys[i]]._leaflet_id;
-				}
-			}
-			
-			
-		},
-		error: function (er) {
-			console.log("the ajax called returned the error:");
-			console.log(er);
+
+	geojson = L.geoJson(muniData, {
+		style: style,
+		onEachFeature: onEachFeature				
+	})
+	.addTo(map);
+	setupMunis(geojson);
+	
+	
+	var polys = Object.keys(geojson._layers);
+	for (var i=0; i<polys.length ; i++) {
+		geojson._layers[polys[i]].bindLabel("\xa0"+geojson._layers[polys[i]].feature.properties.NOMGEO+"\xa0-\xa0"+geojson._layers[polys[i]].feature.properties.Station, {
+			noHide: false,
+			className: "polygonLabel"
+		})
+		if (String(geojson._layers[polys[i]].feature.properties.NOMGEO) == MUN_STARTING_VALUE & String(geojson._layers[polys[i]].feature.properties.Station) == STATION_STARTING_VALUE) {
+			geojson._layers[polys[i]].setStyle({fillColor: 'blue'});
+			mun = geojson._layers[polys[i]]._leaflet_id;
 		}
-	});
-	
-
-
-	
-
+	}
 }
 
 
