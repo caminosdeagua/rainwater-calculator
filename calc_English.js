@@ -138,7 +138,7 @@ var TOOLTIP_TEXT = {
 	
 	}
 
-var MIN_HEADER = "<b>Minimum Requirements for Drinking & Cooking</b>";
+var MIN_HEADER = "<b>Minimum Water Requirements for Drinking & Cooking</b>";
 var REAL_HEADER = "<b>Your Roof's Maximum Capacity</b>";
 
 ////// 		FOOTER 					//////
