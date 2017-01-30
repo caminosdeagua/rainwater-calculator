@@ -48,7 +48,7 @@ function grabData() {
 	
 	var polys = Object.keys(geojson._layers);
 	for (var i=0; i<polys.length ; i++) {
-		geojson._layers[polys[i]].bindLabel("\xa0"+geojson._layers[polys[i]].feature.properties.NOMGEO+"\xa0-\xa0"+geojson._layers[polys[i]].feature.properties.Station, {
+		geojson._layers[polys[i]].bindLabel("\xa0<b>"+geojson._layers[polys[i]].feature.properties.Station+"</b>\xa0\xa0("+geojson._layers[polys[i]].feature.properties.NOMGEO+")", {
 			noHide: false,
 			className: "polygonLabel"
 		})

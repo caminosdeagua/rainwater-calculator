@@ -98,7 +98,7 @@ var LHS_DISPLAY_TITLE = "Great work!";
 var LHS_INSTRUCTIONS = "These results refer to your household's <b>essential water</b> need - the amount of water needed for drinking and cooking only."
 var PS_NOTE = "<i>Note: These results assume that your rainwater collection begins at the start of the rainy season. Starting at any other time of the year increases the risk of not always having enough rainwater stored during your system's first year.</i>";
 
-var MUN_TXT = ["You live in <b>","</b>."];
+var MUN_TXT = ["You live near <b>","</b>."];
 var MONTHLY_USE_TXT = "You have chosen to enter your own monthly rainfall data. <i>Please note that the roof area to the right will be a slight under-estimate since we do not know where you live or how frequently it rains.</i><br><br>You have entered:"
 var UNITS = "mm";
 var PPL_TXT = ["Your household has <b>"," </b>person."," </b>people."];
