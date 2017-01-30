@@ -21,7 +21,7 @@ var muniData =
 			"November": 9.6,
 			"December": 11.1,
 			"Total": 415.6,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Felipe, San Diego de la Unión"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Felipe, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -58,7 +58,7 @@ var muniData =
 			"November": 12,
 			"December": 13.3,
 			"Total": 642,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -625,7 +625,7 @@ var muniData =
 			"November": 12.2,
 			"December": 7.1,
 			"Total": 460.1,
-			"Municipali": "San José Iturbide, Doctor Mora, San Luis de la Paz, Tierra Blanca"
+			"NOMGEO": "San José Iturbide, Doctor Mora, San Luis de la Paz, Tierra Blanca"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -664,7 +664,7 @@ var muniData =
 			"November": 9.1,
 			"December": 8.1,
 			"Total": 627.2,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Miguel de Allende"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -702,7 +702,7 @@ var muniData =
 			"November": 5.2,
 			"December": 4.7,
 			"Total": 456.4,
-			"Municipali": "San José Iturbide, San Luis de la Paz, San Miguel de Allende"
+			"NOMGEO": "San José Iturbide, San Luis de la Paz, San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -742,7 +742,7 @@ var muniData =
 			"November": 9.9,
 			"December": 6.7,
 			"Total": 463.2,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -778,7 +778,7 @@ var muniData =
 			"November": 10.7,
 			"December": 8.3,
 			"Total": 685,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Miguel de Allende"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -1211,7 +1211,7 @@ var muniData =
 			"November": 8.8,
 			"December": 9.6,
 			"Total": 520.9,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Felipe"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Felipe"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -1276,7 +1276,7 @@ var muniData =
 			"November": 7.9,
 			"December": 4.3,
 			"Total": 376.9,
-			"Municipali": "San José Iturbide, San Miguel de Allende"
+			"NOMGEO": "San José Iturbide, San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -1463,7 +1463,7 @@ var muniData =
 			"November": 11.4,
 			"December": 5.9,
 			"Total": 401.1,
-			"Municipali": "San Luis de la Paz, San Diego de la Unión"
+			"NOMGEO": "San Luis de la Paz, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -1649,7 +1649,7 @@ var muniData =
 			"November": 7.9,
 			"December": 7.4,
 			"Total": 428.6,
-			"Municipali": "San Felipe"
+			"NOMGEO": "San Felipe"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -1893,7 +1893,7 @@ var muniData =
 			"November": 9.4,
 			"December": 7.4,
 			"Total": 597.8,
-			"Municipali": "San Miguel de Allende"
+			"NOMGEO": "San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -2261,7 +2261,7 @@ var muniData =
 			"November": 3.5,
 			"December": 4.9,
 			"Total": 225.2,
-			"Municipali": "San Felipe, San Luis de la Paz, San Diego de la Unión"
+			"NOMGEO": "San Felipe, San Luis de la Paz, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -2522,7 +2522,7 @@ var muniData =
 			"November": 9.5,
 			"December": 10.1,
 			"Total": 517,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Felipe"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Felipe"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -2560,7 +2560,7 @@ var muniData =
 			"November": 21,
 			"December": 12,
 			"Total": 698.8,
-			"Municipali": "San Luis de la Paz"
+			"NOMGEO": "San Luis de la Paz"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -3263,7 +3263,7 @@ var muniData =
 			"November": 8.4,
 			"December": 7.2,
 			"Total": 356.3,
-			"Municipali": "San Felipe, Ocampo"
+			"NOMGEO": "San Felipe, Ocampo"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -3304,7 +3304,7 @@ var muniData =
 			"November": 15.9,
 			"December": 13.2,
 			"Total": 451.8,
-			"Municipali": "San Felipe, Ocampo"
+			"NOMGEO": "San Felipe, Ocampo"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -4306,7 +4306,7 @@ var muniData =
 			"November": 6.7,
 			"December": 7.3,
 			"Total": 501.4,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San José Iturbide, San Luis de la Paz, San Miguel de Allende"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San José Iturbide, San Luis de la Paz, San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -4345,7 +4345,7 @@ var muniData =
 			"November": 8.6,
 			"December": 8,
 			"Total": 414,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Luis de la Paz, San Diego de la Unión"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Luis de la Paz, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -4389,7 +4389,7 @@ var muniData =
 			"November": 17.5,
 			"December": 7.7,
 			"Total": 568.3,
-			"Municipali": "San Luis de la Paz, Xichú, Victoria"
+			"NOMGEO": "San Luis de la Paz, Xichú, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -4926,7 +4926,7 @@ var muniData =
 			"November": 9.6,
 			"December": 12.4,
 			"Total": 425.6,
-			"Municipali": "San Felipe, Ocampo"
+			"NOMGEO": "San Felipe, Ocampo"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -5538,7 +5538,7 @@ var muniData =
 			"November": 6.5,
 			"December": 7.2,
 			"Total": 512.3,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Miguel de Allende"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -5576,7 +5576,7 @@ var muniData =
 			"November": 10.6,
 			"December": 8.9,
 			"Total": 469.4,
-			"Municipali": "San José Iturbide, Doctor Mora, San Luis de la Paz, Victoria"
+			"NOMGEO": "San José Iturbide, Doctor Mora, San Luis de la Paz, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -5619,7 +5619,7 @@ var muniData =
 			"November": 11.2,
 			"December": 6.5,
 			"Total": 614.5,
-			"Municipali": "San Miguel de Allende"
+			"NOMGEO": "San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6161,7 +6161,7 @@ var muniData =
 			"November": 21.2,
 			"December": 8.3,
 			"Total": 564,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6195,7 +6195,7 @@ var muniData =
 			"November": 8.5,
 			"December": 11.2,
 			"Total": 460.6,
-			"Municipali": "San Luis de la Paz, Victoria"
+			"NOMGEO": "San Luis de la Paz, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6234,7 +6234,7 @@ var muniData =
 			"November": 9.7,
 			"December": 8.6,
 			"Total": 421.3,
-			"Municipali": "San Felipe, San Diego de la Unión"
+			"NOMGEO": "San Felipe, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6271,7 +6271,7 @@ var muniData =
 			"November": 12.8,
 			"December": 6.7,
 			"Total": 543.7,
-			"Municipali": "San Felipe, Ocampo"
+			"NOMGEO": "San Felipe, Ocampo"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6311,7 +6311,7 @@ var muniData =
 			"November": 13.1,
 			"December": 10.8,
 			"Total": 449.5,
-			"Municipali": "San Felipe"
+			"NOMGEO": "San Felipe"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6347,7 +6347,7 @@ var muniData =
 			"November": 10.1,
 			"December": 10.8,
 			"Total": 445.2,
-			"Municipali": "San Felipe, San Diego de la Unión"
+			"NOMGEO": "San Felipe, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6384,7 +6384,7 @@ var muniData =
 			"November": 17.7,
 			"December": 7.9,
 			"Total": 560.1,
-			"Municipali": "San José Iturbide, Tierra Blanca"
+			"NOMGEO": "San José Iturbide, Tierra Blanca"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -6483,7 +6483,7 @@ var muniData =
 			"November": 7.1,
 			"December": 13.5,
 			"Total": 513.2,
-			"Municipali": "San Felipe"
+			"NOMGEO": "San Felipe"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -7258,7 +7258,7 @@ var muniData =
 			"November": 7.3,
 			"December": 5.5,
 			"Total": 367,
-			"Municipali": "San Luis de la Paz, San Diego de la Unión"
+			"NOMGEO": "San Luis de la Paz, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -7295,7 +7295,7 @@ var muniData =
 			"November": 12.4,
 			"December": 6.4,
 			"Total": 565.7,
-			"Municipali": "San Miguel de Allende"
+			"NOMGEO": "San Miguel de Allende"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -7371,7 +7371,7 @@ var muniData =
 			"November": 12.5,
 			"December": 8.9,
 			"Total": 452.3,
-			"Municipali": "San Felipe, Ocampo"
+			"NOMGEO": "San Felipe, Ocampo"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -7526,7 +7526,7 @@ var muniData =
 			"November": 8.9,
 			"December": 6,
 			"Total": 459.3,
-			"Municipali": "Dolores Hidalgo Cuna de la Independencia Nacional, San Diego de la Unión"
+			"NOMGEO": "Dolores Hidalgo Cuna de la Independencia Nacional, San Diego de la Unión"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -7566,7 +7566,7 @@ var muniData =
 			"November": 7.5,
 			"December": 3.8,
 			"Total": 296.7,
-			"Municipali": "San José Iturbide, Tierra Blanca, Santa Catarina, Victoria"
+			"NOMGEO": "San José Iturbide, Tierra Blanca, Santa Catarina, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -7894,7 +7894,7 @@ var muniData =
 			"November": 14.4,
 			"December": 15.6,
 			"Total": 539.1,
-			"Municipali": "San Felipe, Ocampo"
+			"NOMGEO": "San Felipe, Ocampo"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -8025,7 +8025,7 @@ var muniData =
 			"November": 13,
 			"December": 9.6,
 			"Total": 528.7,
-			"Municipali": "Doctor Mora, San Luis de la Paz, Tierra Blanca, Victoria"
+			"NOMGEO": "Doctor Mora, San Luis de la Paz, Tierra Blanca, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -8065,7 +8065,7 @@ var muniData =
 			"November": 5.7,
 			"December": 4,
 			"Total": 478.1,
-			"Municipali": "Xichú, Victoria"
+			"NOMGEO": "Xichú, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -8101,7 +8101,7 @@ var muniData =
 			"November": 12.5,
 			"December": 7.5,
 			"Total": 514.9,
-			"Municipali": "Tierra Blanca, Santa Catarina, Xichú, Victoria"
+			"NOMGEO": "Tierra Blanca, Santa Catarina, Xichú, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
@@ -8142,7 +8142,7 @@ var muniData =
 			"November": 10,
 			"December": 7.3,
 			"Total": 575.5,
-			"Municipali": "Santa Catarina, Xichú, Victoria"
+			"NOMGEO": "Santa Catarina, Xichú, Victoria"
 		},
 		"geometry": {
 			"type": "Polygon",
