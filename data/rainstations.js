@@ -1,3 +1,4 @@
+var muniData = 
 {
 	"type": "FeatureCollection",
 	"features": [{
