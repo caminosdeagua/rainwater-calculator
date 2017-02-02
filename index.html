@@ -668,7 +668,7 @@
 					document.getElementById("caminos_logo2").style.display = "none";				
 				} else {		// if the hash is odd, display the output/display panes
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
-					document.getElementById("right_hand_side").style.width = String(window.innerWidth - INPUT_WIDTH_AFTER_RAW - 1)+"px";
+					document.getElementById("right_hand_side").style.width = String(100 - INPUT_WIDTH_AFTER_RAW)+"%";
 					document.getElementById("caminos_logo2").style.display = "block";
 				}
 			}
@@ -833,7 +833,7 @@
 				
 				if (lhs > rhs) {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
-					document.getElementById("right_hand_side").style.width = String(window.innerWidth - INPUT_WIDTH_AFTER_RAW - 1)+"px";
+					document.getElementById("right_hand_side").style.width = String(100 - INPUT_WIDTH_AFTER_RAW)+"%";
 					document.getElementById("caminos_logo2").style.display = "block";
 					$("#right_hand_side").scrollTop(0);	
 					$("#LHS_display").scrollTop(0);
@@ -1109,7 +1109,7 @@
 				var rhs = document.getElementById("right_hand_side").offsetWidth;
 				if (rhs != 0) {
 					document.getElementById("left_hand_side").style.width = INPUT_WIDTH_AFTER;
-					document.getElementById("right_hand_side").style.width = String(window.innerWidth - INPUT_WIDTH_AFTER_RAW - 1)+"px";
+					document.getElementById("right_hand_side").style.width = String(100 - INPUT_WIDTH_AFTER_RAW)+"%";
 					$("#right_hand_side").scrollTop(0);	
 				}
 			};
