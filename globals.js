@@ -33,8 +33,8 @@ var NULL_RAIN_EVENTS = [0,0,0,0,0,0,0,0,0,0,0,0];
 var INPUT_WIDTH_BEFORE = "100%";
 var OUTPUT_WIDTH_BEFORE = "0%";
 
-var INPUT_WIDTH_AFTER_RAW = 30; 	// width of LHS after button press (px)
-var INPUT_WIDTH_AFTER = String(INPUT_WIDTH_AFTER_RAW)+"%"; 
+var INPUT_WIDTH_AFTER_RAW = 400; 	// width of LHS after button press (px)
+var INPUT_WIDTH_AFTER = String(INPUT_WIDTH_AFTER_RAW)+"px";
 
 var DAY_MON = [31,28,31,30,31,30,31,31,30,31,30,31];  // Days per month
 				
