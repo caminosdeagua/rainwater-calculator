@@ -1,4 +1,16 @@
-/* adds style the html body and map div objects */
+/*//////////////////////////////////////////////////////////////////
+//	Title: 	calc_styles.css
+//
+// 	Purpose: adds style to calculator html elements
+//
+//	Update History:
+//		2/7/16	aaron krupp		file complete, added title block
+//////////////////////////////////////////////////////////////////
+*/
+
+
+
+
 html, body, #everything{
 	width:100%; 
 	height:100%;

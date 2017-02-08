@@ -1,3 +1,15 @@
+//////////////////////////////////////////////////////////////////
+//	Title: 	globals.js
+//
+// 	Purpose: Holds all global variables for calculator 
+//		(not including map)
+//
+//	Update History:
+//		2/7/16	aaron krupp		file complete, added title block
+//////////////////////////////////////////////////////////////////
+
+
+
 var form;					// declare the form as global 
 
 var allData;				// declare the dataset as global

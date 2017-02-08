@@ -1,7 +1,14 @@
-
+//////////////////////////////////////////////////////////////////
+//	Title: 	rainmap_global.js
+//
+// 	Purpose: Holds all global variables required for rainmap.
+//
+//	Update History:
+//		2/7/16	aaron krupp		file complete, added title block
+//////////////////////////////////////////////////////////////////
 
 var map;								// initialize the variable to hold the map
-
+var geojson;							// initialize variable to hold data
 var MAP_CENTER = [21.2,-100.65];		// Set all map starting parameters
 var MAP_MIN_ZOOM = 5;
 var MAP_MAX_ZOOM = 18;
