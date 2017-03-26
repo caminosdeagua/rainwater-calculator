@@ -1,0 +1,11 @@
+.card-output {
+    padding-bottom: 00px;
+}
+
+label {
+    color: black;
+}
+
+label.output_text {
+    font-size: 16px;
+}

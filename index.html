@@ -1,36 +1,130 @@
 <!DOCTYPE html>
 <html>
-  <head>
+
+<head>
     <meta charset="utf-8">
     <title>Rainwater Calculator</title>
 
     <!-- Adding Materialize -->
-		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
+
+    <!-- Icons for Materialize -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
     <link rel="stylesheet" href="./css/Main.css" media="screen" title="no title">
-		<!-- Adding jQuery -->
-		<script
-		  src="https://code.jquery.com/jquery-3.1.1.min.js"
-		  integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8="
-		  crossorigin="anonymous"></script>
 
-		<!-- JS for Materialize -->
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
-  </head>
-  <body>
-    <nav>
-      <div class="nav-wrapper container">
-        <a href="#" class="brand-logo">Rainwater Harvesting Calculator</a>
-      </div>
-    </nav>
-    <div class="container">
-      <p>This calculator can be used to size a rainwater harvesting system which
-        provides enough safe drinking and cooking water - your household’s
-        essential water need. With any questions, comments, or collaborations,
-        please contact us!
-      </p>
-    </div>
+
+    <!-- Adding jQuery -->
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+
+    <!-- JS for Materialize -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/js/materialize.min.js"></script>
 
     <script src="./js/Main.js"></script>
-  </body>
+    <script src="js/calc_English.js"></script>
+    <script src="js/rainmap_display_English.js"></script>
+    <script src="js/rainmap_global.js"></script>
+
+</head>
+
+<body onload="init();">
+
+    <!-- Minimum Water Requirements -->
+    <div class="container output">
+        <div class="row">
+            <h4 class="min_header center black-text"></h4>
+            <!-- Min Water -->
+            <div class="col s12 m4">
+                <div class="card small center light-blue lighten-2 ">
+                    <div class="card-content">
+                        <label name="min_water_lbl" class="card-title center activator"></label><br>
+                        <label name="min_water_numb" class="return_num center"></label><br>
+                        <label name="min_water_lbl" class="output_text"></label>
+                    </div>
+                    <div class="card-reveal">
+                        <i class="material-icons right">close</i><label name="min_water_lbl" class="card-title"></label><br>
+                        <label name="min_water_lbl" class="output_text"></label>
+                    </div>
+                </div>
+            </div>
+            <!-- Min Roof -->
+            <div class="col s12 m4">
+                <div class="card small center light-blue lighten-2">
+                    <div class="card-content">
+                        <label name="min_roof_lbl" class="card-title center activator"></label>
+                        <label name="min_roof_numb" class="return_num center"></label>
+                        <label name="min_roof_lbl" class="output_text"></label>
+                    </div>
+                    <div class="card-reveal">
+                        <i class="material-icons right">close</i><label name="min_roof_lbl" class="card-title"></label><br>
+                        <label name="min_roof_lbl" class="output_text"></label>
+                    </div>
+                </div>
+            </div>
+            <!-- Min Tank -->
+            <div class="col s12 m4">
+                <div class="card small center light-blue lighten-2">
+                    <div class="card-content">
+                        <label name="min_tank_lbl" class="card-title center activator"></label>
+                        <label name="min_tank_numb" class="return_num center">
+                        <label name="min_tank_lbl" class="output_text"></label>
+                    </div>
+                    <div class="card-reveal">
+                        <i class="material-icons right">close</i><label name="min_tank_lbl" class="card-title"></label><br>
+                        <label name="min_tank_lbl" class="output_text"></label>
+                    </div>
+                </div>
+            </div>
+            <!-- Current Roof -->
+            <div class="row">
+                <h4 class="real_header center"></h4>
+                <!-- Current Water need -->
+                <div class="col s12 m4">
+                    <div class="card small center light-blue lighten-2">
+                        <div class="card-content">
+                            <label name="real_water_lbl" class="card-title center activator"></label>
+                            <label name="real_water_numb" class="return_num center"></label>
+                            <label name="real_water_lbl" class="output_text"></label>
+                        </div>
+                        <div class="card-reveal">
+                            <i class="material-icons right">close</i><label name="real_water_lbl" class="card-title"></label><br>
+                            <label name="real_water_lbl" class="output_text"></label>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <!-- Current roof size -->
+                <div class="col s12 m4">
+                    <div class="card small center light-blue lighten-2">
+                        <div class="card-content">
+                            <label name="real_roof_lbl" class="card-title center activator"></label>
+                            <label name="real_roof_numb" class="return_num center"></label>
+                            <label name="real_roof_lbl" class="output_text"></label>
+                        </div>
+                        <div class="card-reveal">
+                            <i class="material-icons right">close</i><label name="real_roof_lbl" class="card-title"></label><br>
+                            <label name="real_roof_lbl" class="output_text"></label>
+                        </div>
+                    </div>
+                </div>
+                <!-- Current cistern volume -->
+                <div class="col s12 m4">
+                    <div class="card small center light-blue lighten-2">
+                        <div class="card-content">
+                            <label name="real_tank_lbl" class="card-title center activator"></label>
+                            <label name="real_tank_numb" class="return_num center"></label>
+                            <label name="real_tank_lbl" class="output_text"></label>
+                        </div>
+                        <div class="card-reveal">
+                            <i class="material-icons right">close</i><label name="real_tank_lbl" class="card-title"></label><br>
+                            <label name="real_tank_lbl" class="output_text"></label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+
 </html>
