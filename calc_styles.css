@@ -249,19 +249,15 @@ button {
 .caminos_logo_img {
 	display: block;
 	position: relative;
-	height: 120px;
 	width: 120px;
-	float: left;
-		
+	float: left;	
 }
 
 #caminos_logo {
-	position: relative;
-	float: right;
-	right: 5px;
+	position: fixed;
+	bottom: 15px;
+	left: 15px;
 	z-index: 10;
-	margin-top: 5px;
-
 }
 
 #caminos_logo2 {
