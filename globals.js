@@ -36,7 +36,8 @@ var numAcceptableKeys = ["ArrowLeft", "ArrowRight", 		// Define which keys shoul
 var EFF_CEMENT = 0.85;
 var EFF_SHEET = 0.9;
 var EFF_SPANISH_TILE = 0.8;
-var EFFS = [EFF_CEMENT, EFF_SHEET, EFF_SPANISH_TILE]; // THESE ARE PLACEHOLDER
+var EFF_OTHER = 0.75;
+var EFFS = [EFF_CEMENT, EFF_SHEET, EFF_SPANISH_TILE, EFF_OTHER]; // THESE ARE PLACEHOLDER
 
 var CLEANLINESS_FACTOR = 1.5;								// 0.5 = normal, 2.0 = super duper dirty. we'll use 1.5 for a conservative estimate
 var RAIN_EVENTS = [2, 1, 1, 3, 5, 9, 12, 8, 9, 5, 2, 2];	// rounded rain events per month from http://smn.cna.gob.mx/es/informacion-climatologica-ver-estado?estado=gto
@@ -71,7 +72,8 @@ var DISABLED_TEXT = "#BBBBBB";
 var CEMENT_URL = "http://caminosdeagua.github.io/rainwater-calculator/img/Concrete.png";
 var SHEET_URL = "http://caminosdeagua.github.io/rainwater-calculator/img/Corrugated_Sheet.png";
 var SPANISH_URL = "http://caminosdeagua.github.io/rainwater-calculator/img/Spanish_Tile.png";
-var ROOF_URLS = [CEMENT_URL, SHEET_URL, SPANISH_URL];
+var OTHER_ROOF_URL = "https://caminosdeagua.github.io/rainwater-calculator/img/question_mark.jpg"
+var ROOF_URLS = [CEMENT_URL, SHEET_URL, SPANISH_URL, OTHER_ROOF_URL];
 
 var RAINS = ["jan_rain", "feb_rain", "mar_rain", 
 			"apr_rain", "may_rain", "jun_rain", 

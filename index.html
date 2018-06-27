@@ -150,8 +150,12 @@
 													<input type="radio" id="sheet_roof" name="roof_type" value="1" >.</input>
 													<div name="roof_imgs" class="tooltip_img"></div>
 												</div>
-												<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)" style="margin-bottom: 20px;">
+												<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)">
 													<input type="radio" id="spanish_roof" name="roof_type" value="2" >.</input>
+													<div name="roof_imgs" class="tooltip_img"></div>
+												</div>
+												<div class="tooltip_roof" onmouseover="highlight(this)" onmouseleave="unHighlight(this)" style="margin-bottom: 20px;">
+													<input type="radio" id="other_roof" name="roof_type" value="3" >.</input>
 													<div name="roof_imgs" class="tooltip_img"></div>
 												</div>
 											</div>	
@@ -348,6 +352,7 @@
 				document.getElementById("cement_roof").nextSibling.data = CEMENT_ROOF_LBL;
 				document.getElementById("sheet_roof").nextSibling.data = SHEET_ROOF_LBL;
 				document.getElementById("spanish_roof").nextSibling.data = SPANISH_ROOF_LBL;
+				document.getElementById("other_roof").nextSibling.data = OTHER_ROOF_LBL;
 				document.getElementById("calc_button").innerHTML = CALC_BUTTON_LBL;
 				document.getElementById("back2inputs_button").innerHTML = BACK2INPUTS_BUTTON_LBL;
 				document.getElementById("header_display").innerHTML = HEADER;

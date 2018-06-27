@@ -85,7 +85,8 @@ var ROOF0_LBL = "What kind of roof do you have?";
 var CEMENT_ROOF_LBL = "Concrete";
 var SHEET_ROOF_LBL = "Corrugated sheet";
 var SPANISH_ROOF_LBL = "Spanish tile";
-var ROOF_TYPES = [CEMENT_ROOF_LBL, SHEET_ROOF_LBL, SPANISH_ROOF_LBL];
+var OTHER_ROOF_LBL = "Other";
+var ROOF_TYPES = [CEMENT_ROOF_LBL, SHEET_ROOF_LBL, SPANISH_ROOF_LBL, OTHER_ROOF_LBL];
 
 var CEMENT_ROOF_LBL_LOWER = "concrete";
 var SHEET_ROOF_LBL_LOWER = "corrugated sheet";
