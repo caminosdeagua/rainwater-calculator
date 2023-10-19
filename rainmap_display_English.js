@@ -6,4 +6,4 @@
 ////////////////////////////////////////////////////////////////////////////////
 
 
-var CARTO_ATTRIBUTION = 'Created by <a href="http://www.caminosdeaguamexico.org" target="_blank">Caminos de Agua</a> | Data hosting on <a href="http://www.dropbox.com" target="_blank">Dropbox</a> | Base tiles from <a href="http://www.mapbox.com" target="_blank">Mapbox</a> with data from <a href="https://www.openstreetmap.org" target="_blank">Open Street Map</a>.';
+var CARTO_ATTRIBUTION = 'Created by <a href="http://www.caminosdeagua.org" target="_blank">Caminos de Agua</a> | Data hosting on <a href="http://drive.google.com">Google Sheets</a> | <a href="https://caminosdeagua.org/en/donate">Donate</a>';
